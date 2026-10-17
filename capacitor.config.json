@@ -1,0 +1,7 @@
+{
+  "appId": "app.passageplanner.navigation",
+  "appName": "Passage Planner",
+  "webDir": "www",
+  "server": { "androidScheme": "https" },
+  "android": { "allowMixedContent": false, "backgroundColor": "#06142b" }
+}
