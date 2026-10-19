@@ -12,7 +12,7 @@ h1{font-size:22px;margin:0}h2{font-size:16px;margin:26px 0 6px;color:var(--acc)}
 .muted{color:var(--mut);font-size:13px}ul{padding-left:20px}li{margin:4px 0}a{color:var(--acc)}
 table{width:100%;border-collapse:collapse;font-size:13.5px}td,th{border-top:1px solid var(--line);padding:6px 4px;text-align:left;vertical-align:top}th{color:var(--mut);font-weight:600}
 </style></head><body><main>
-<header><img src="icon-192.png" alt=""><div><h1>Privacy Policy</h1><div class="muted">Passage Planner · Effective 17 October 2026</div></div></header>
+<header><img src="icon-192.png" alt=""><div><h1>Privacy Policy</h1><div class="muted">Passage Planner · Effective 20 October 2026</div></div></header>
 <div class="card">
 <h2>Summary</h2>
 <p>Passage Planner is a planning aid for ship officers. <b>It has no user accounts and no analytics, advertising or tracking.</b> The developer does not collect, receive or sell any personal data. Everything you enter stays on your own device.</p>
@@ -21,18 +21,16 @@ table{width:100%;border-collapse:collapse;font-size:13.5px}td,th{border-top:1px 
 <li>Files you save (plan files, RTZ routes, backups) are written only where you choose, using your device's own save / share dialog.</li>
 <li>You can delete all of this at any time by clearing the app's data or uninstalling the app.</li></ul>
 <h2>Location</h2>
-<p>If you tap a GPS button, the app asks for permission to use your device's location, <b>while the app is in use only</b>. The position is used on the device to show the ship on the chart and to calculate sunrise / sunset. It is not sent to the developer or stored on any server. The app never uses location in the background.</p>
+<p>If you tap a GPS button, the app asks for permission to use your device's location, <b>while the app is in use only</b>. The position is used on the device to show the ship on the chart and to calculate sunrise / sunset. If you tap GPS under <b>Weather at a position</b>, that position is sent to Open-Meteo only to fetch the forecast for that place. Your location is never sent to the developer, never stored on a server and never used in the background.</p>
 <h2>Files you open</h2>
 <p>When you import a route (RTZ), a hydrostatic table (Excel / CSV), a NAVTEX log or a backup, you pick the file with the system file picker. The file is read on the device only.</p>
 <h2>Online services the app contacts</h2>
 <p>When you are online, the app downloads public information directly from these services. Like any website, they receive your device's IP address and the details of the request. No personal data from the app is included.</p>
 <table><tr><th>Service</th><th>Purpose</th><th>What is sent</th></tr>
 <tr><td>Chart / map tile servers (Esri ArcGIS, OpenStreetMap / CARTO, OpenSeaMap, GEBCO, NOAA; Google Maps only if you select it)</td><td>Background charts</td><td>The map area being viewed</td></tr>
-<tr><td>Open-Meteo</td><td>Weather and sea forecast along the route</td><td>Coordinates of the planned route points</td></tr>
-<tr><td>US NGA Maritime Safety Information and national NAVAREA coordinators</td><td>Navigational warnings</td><td>Which warning areas to download</td></tr>
-<tr><td>Public relay services (corsproxy.io, allorigins.win, codetabs.com), only if a warning source blocks direct access</td><td>Passing the warning download through</td><td>The address of the public warning page</td></tr>
-<tr><td>cdnjs (Cloudflare) / jsDelivr</td><td>Program libraries for Excel and PDF import</td><td>Nothing besides the download request</td></tr></table>
-<p class="muted">These services have their own privacy policies. The app does not send them your name, contact details, the ship's identity or your GPS position.</p>
+<tr><td>Open-Meteo</td><td>Weather and sea forecasts</td><td>Coordinates of the planned route points, or the position you enter / your GPS position when you ask for the forecast at a position</td></tr>
+<tr><td>cdnjs (Cloudflare)</td><td>Program library for Excel import of hydrostatic tables</td><td>Nothing besides the download request</td></tr></table>
+<p class="muted">These services have their own privacy policies. The app does not send them your name, contact details or the ship's identity, and it sends your position only when you ask for the weather at your GPS position.</p>
 <h2>Children</h2>
 <p>The app is a professional tool for adult seafarers and is not directed at children.</p>
 <h2>Security</h2>

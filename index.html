@@ -701,10 +701,6 @@
 /* map tool buttons: AIS, WX, layers */
 .mtab .t-ais{background:#0b8f7d;color:#fff;font-size:10.5px}.mtab .t-wx{background:#29a3e0;color:#fff}.mtab .t-ly{background:#fff;color:#0a2a5e}.mtab .t-ly svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
 .mtab.on .t-ais,.mtab.on .t-wx{box-shadow:0 0 0 2px var(--gold)}
-#aisBox{position:absolute;inset:0;z-index:1000;display:none;flex-direction:column;background:#06142b;border-radius:inherit;overflow:hidden}#aisBox.open{display:flex}
-#aisBox .aish{display:flex;align-items:center;gap:8px;padding:5px 8px;background:#0b8f7d;color:#fff;font-size:11.5px}#aisBox .aish b{letter-spacing:1px}#aisBox .aish span{opacity:.85}
-#aisBox .aish a{margin-left:auto;color:#fff;font-weight:700;text-decoration:none;background:#ffffff26;padding:3px 8px;border-radius:6px}#aisBox .aish button{background:#ffffff26;border:0;color:#fff;border-radius:6px;padding:3px 9px;font-weight:800;cursor:pointer}
-#aisBox iframe{flex:1;border:0;width:100%;background:#cfe3f2}#aisOff{display:none;padding:30px 14px;text-align:center;color:#9fb3cc;font-size:13px}#aisBox.off iframe{display:none}#aisBox.off #aisOff{display:block}
 #layDlg{max-width:520px;padding:0}#layDlg .ldh{display:flex;align-items:center;justify-content:space-between;padding:12px 14px 6px}#layDlg .ldh h2{margin:0;font-size:15px;letter-spacing:1px;text-transform:uppercase;color:var(--acc,#29a3e0)}
 #layDlg .ldb{padding:0 14px 6px;max-height:65vh;overflow:auto}#layDlg .ldf{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px 14px;border-top:1px solid var(--line)}
 #layDlg .hb{background:none;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:4px 10px;cursor:pointer}
@@ -729,7 +725,7 @@ details.eband>summary:after{content:'▸';margin-left:auto;color:var(--mut);font
 .libit button{border:1px solid var(--line);background:none;color:var(--ink);border-radius:8px;padding:5px 10px;font-weight:700;font-size:12px;cursor:pointer}.libit button.ld{background:#29a3e0;border-color:#29a3e0;color:#fff}.libit button.dl{color:#e05252}
 
 .libit button{width:auto!important;flex:none!important;margin:0!important;min-height:0!important}.libit .lt{flex:1 1 auto!important;min-width:0}
-#aisBox{z-index:1002!important}.mtabs{z-index:1003!important}
+.mtabs{z-index:1003!important}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" onerror="var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js';document.head.appendChild(s)"></script>
 <style>
@@ -1292,6 +1288,97 @@ table.h tr.xr td{padding:0 4px 8px!important;white-space:normal;text-align:left;
  .qd .card,#hy .card{margin-top:0}
 }
 @media(min-width:1500px){#vp{column-count:3}}
+
+/* =================== CLEAN THEME (uniform) =================== */
+:root:root:root:root{--bg:#0b121d;--card:#111b29;--card2:#0e1724;--ink:#e7edf4;--mut:#8796a8;--line:#1f2b3b;--line2:#2a3a4f;--acc:#4ea8de;--accd:#2d7fb3;--h1:#0b121d;--h2:#0b121d;--gold:#4ea8de;--calc:#0e1724;--tot:#13243a;--ok:#5cc9a7;--warn:#e0b04a;--bad:#ef6b6b;--sh:none}
+html body{background:var(--bg)!important;color:var(--ink)}
+.bar{background:var(--bg)!important;border:0!important;box-shadow:none!important;border-bottom:1px solid var(--line)!important;border-radius:0!important}
+.bar h1{font-weight:700!important;letter-spacing:1.2px!important;font-size:15px!important}
+/* cards: one neutral style, title row distinguishes the section */
+html body .card,html body .qd .card{--ac:var(--acc)!important;background:var(--card)!important;border:1px solid var(--line)!important;border-top:1px solid var(--line)!important;border-radius:14px!important;box-shadow:none!important}
+html body .card>h2,html body .qd .card>h2{background:none!important;color:var(--ink)!important;border:0!important;border-bottom:1px solid var(--line)!important;border-left:0!important;border-radius:14px 14px 0 0!important;font-size:11.5px!important;font-weight:700!important;letter-spacing:1.4px!important;padding:11px 14px 10px!important}
+.card>h2::before,.qd .card>h2::before{background:var(--acc)!important;width:3px!important;border-radius:2px!important;opacity:.9}
+.card.fold>h2:after{color:var(--mut)!important}
+.card.map{border:1px solid var(--line)!important;overflow:hidden}
+/* inputs */
+html body input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=file]),html body select,html body textarea{background:var(--card2)!important;color:var(--ink)!important;border:1px solid var(--line2)!important;border-radius:9px!important;box-shadow:none!important}
+html body input:not([type=checkbox]):not([type=radio]):focus,html body select:focus,html body textarea:focus{border-color:var(--acc)!important;outline:none!important;box-shadow:0 0 0 3px #4ea8de22!important}
+html body input::placeholder{color:#5d6c80!important}
+html body .combo input{background:var(--card2)!important;color:var(--ink)!important}
+.qd .tile .calc,.calc{background:var(--card2)!important;border:1px solid var(--line)!important;color:var(--ink)!important;border-radius:9px!important}
+.tile.key .calc,.qd .tile.key .calc{background:#132a40!important;border-color:#2b5576!important;color:#9fd3f5!important}
+.sgn .pm{background:var(--line2)!important;color:var(--ink)!important}
+/* buttons */
+.btn,#planbtn{background:var(--acc)!important;color:#06121e!important;border:0!important;box-shadow:none!important;font-weight:700!important;border-radius:10px!important}
+.add,.add.sm,.swapbtn,.exp button,.rtzbtn,.qd .add.sm{background:transparent!important;color:var(--acc)!important;border:1px solid var(--line2)!important;box-shadow:none!important;border-radius:9px!important;font-weight:600!important}
+.rtzbtn{background:transparent!important}
+.seg3,.seg{background:var(--card2)!important;border:1px solid var(--line2)!important}
+.seg3 button,.seg button{color:var(--mut)!important}.seg3 button.on,.seg button.on,#ncTabs button.on{background:var(--acc)!important;color:#06121e!important}
+/* guides & notes */
+.guide{background:transparent!important;border:1px solid var(--line)!important;box-shadow:none!important}
+.guide summary{color:var(--ink)!important;font-weight:600!important}
+.hint,.muted{color:var(--mut)!important}
+/* summary tiles and berth-to-berth list */
+.stat{background:var(--card2)!important;border:1px solid var(--line)!important;border-style:solid!important}.stat b{color:var(--ink)!important}.stat.k b{color:var(--acc)!important}
+.bbs .bb{border-left:3px solid var(--line2)!important;background:var(--card2)!important}.bbs .bb.e{border-left-color:var(--acc)!important}
+.alt{background:var(--card2)!important;border:1px solid var(--line)!important;box-shadow:none!important}.alt.on{border-color:var(--acc)!important}.alt b{color:var(--acc)!important}
+.sbt,.sbh,.sbh2{color:var(--mut)!important;border-color:var(--line)!important}
+.vsub{color:var(--mut)!important}
+/* drawer menu */
+#drawer nav{background:var(--card)!important;border-right:1px solid var(--line)!important}
+#drawer nav h3{color:var(--ink)!important;letter-spacing:1.5px}
+#drawer nav button{color:var(--ink)!important;background:none!important;border-radius:10px!important;font-weight:500!important}
+#drawer nav button.on{background:#16283d!important;color:var(--ink)!important}
+#drawer nav button i{color:var(--mut)!important}#drawer nav button.on i{color:var(--acc)!important}
+#drawer nav .mg{color:#5d6c80!important}
+/* bottom bar: four equal columns */
+html body .fbar{display:grid!important;grid-template-columns:repeat(4,1fr)!important;gap:0!important;padding:6px 8px calc(6px + env(safe-area-inset-bottom))!important;background:#0d1520f2!important;border-top:1px solid var(--line)!important;box-shadow:none!important;backdrop-filter:blur(8px)}
+html body .fbar button{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:3px!important;padding:6px 0!important;background:none!important;border:0!important;color:var(--mut)!important;font-size:10.5px!important;font-weight:600!important;border-radius:10px!important;min-width:0!important;width:100%!important}
+html body .fbar button.on{color:var(--acc)!important;background:#4ea8de14!important}
+html body .fbar button i{font-size:0!important;line-height:0!important}
+/* map controls: quiet glass buttons with line icons */
+.mtools{background:#0b121dcc!important;border:1px solid #ffffff14!important;box-shadow:none!important}
+.mtools button{background:transparent!important;border:0!important;box-shadow:none!important;color:#e7edf4!important;width:34px!important;height:34px!important;border-radius:8px!important}
+.mtools button:hover,.mtools button.on{background:#4ea8de33!important;color:#fff!important}
+.mtools button svg,.mtab .ic svg{width:19px!important;height:19px!important;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.mtabs{background:#0b121dcc!important;border:1px solid #ffffff14!important;box-shadow:none!important;padding:4px!important;gap:2px!important}
+.mtab{background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important;border-radius:8px!important;color:#e7edf4!important}
+.mtab .ic{background:transparent!important;color:#e7edf4!important;min-width:34px!important;height:34px!important;border-radius:8px!important;box-shadow:none!important}
+.mtab.on .ic,.mtab.lay .ic{background:#4ea8de33!important;color:#fff!important;box-shadow:none!important}
+.mtab .tl{display:none!important}
+.mtab .cnt{position:absolute;top:-4px;right:-3px;min-width:15px!important;height:15px!important;padding:0 4px!important;font-size:9px!important;background:var(--acc)!important;color:#06121e!important;border-radius:8px!important;font-weight:800}
+.msel select{background:#0b121dcc!important;border:1px solid #ffffff14!important;color:#e7edf4!important;box-shadow:none!important}
+.mkey{font-size:9.5px!important;color:#5d6c80!important}
+/* sheets and dialogs */
+.wsheet{background:var(--card)!important;border-top:1px solid var(--line2)!important}
+.wsheet .hd h3{color:var(--ink)!important}
+dialog{background:var(--card)!important;border:1px solid var(--line2)!important;border-top:1px solid var(--line2)!important}
+#layDlg .ldh h2,#libDlg .ldh h2{color:var(--ink)!important}
+.libit{border-left-color:var(--acc)!important;background:var(--card2)!important}
+.libit button.ld{background:var(--acc)!important;border-color:var(--acc)!important;color:#06121e!important}
+#discBar{background:#111b29f2!important;border:1px solid var(--line2)!important}#discBar a{color:var(--acc)!important}#discBar button{background:var(--acc)!important;color:#06121e!important}
+.act{border-color:var(--line2)!important}.act .ah{color:var(--ink)!important}
+table.h tr.xr td{background:var(--card2)!important}
+.chip{background:var(--card2)!important;border:1px solid var(--line)!important;color:var(--ink)!important}
+
+.mtab .cnt{display:none!important}
+html body .card.fold>h2,html body .card>h2{border-top:0!important}
+table.h tr.pilot td{background:#4ea8de12!important}table.h tr.berth td{background:#13243a!important}
+
+
+html body .pm,html body button.pm{background:var(--line2)!important;color:var(--ink)!important;border:0!important}
+html body #gcOpts{border-left:2px solid var(--line2)!important;background:var(--card2)!important}
+html body #gcOpts .sbh,html body #gcOpts h3,html body #gcOpts b,html body #gcOptsH{color:var(--ink)!important}
+
+/* fillable boxes are light; calculated results stay dark */
+html body input:not([type=checkbox]):not([type=radio]):not([type=range]):not([type=file]),html body select,html body textarea,html body .combo input{background:#e8eff7!important;color:#0b1a2b!important;border:1px solid #c5d3e3!important}
+html body input:not([type=checkbox]):not([type=radio]):focus,html body select:focus,html body textarea:focus{background:#f6f9fc!important;border-color:var(--acc)!important;box-shadow:0 0 0 3px #4ea8de40!important}
+html body input::placeholder,html body textarea::placeholder{color:#7d8ea3!important}
+html body input:disabled,html body select:disabled{background:#c9d4e0!important;color:#4c5b6d!important}
+html body select option{background:#fff;color:#0b1a2b}
+html body input[type=datetime-local]::-webkit-calendar-picker-indicator,html body input[type=date]::-webkit-calendar-picker-indicator,html body input[type=time]::-webkit-calendar-picker-indicator{filter:none;opacity:.7}
+.msel select{background:#0b121dcc!important;color:#e7edf4!important;border:1px solid #ffffff14!important}
+.sgn .pm,html body .pm{background:#c5d3e3!important;color:#0b1a2b!important}
 </style></head><body>
 <div id="printArea"></div>
 <nav class="fbar" id="fbar">
@@ -1318,7 +1405,7 @@ table.h tr.xr td{padding:0 4px 8px!important;white-space:normal;text-align:left;
 <div class="mg">Plans &amp; settings</div>
 <button data-v="sv"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-6-4.2L6 21z"/><path d="M12 7.5v6M9 10.5h6"/></svg></i>Save plan</button>
 <button data-v="lib"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4.2l2 2.2H19a2 2 0 0 1 2 2V17a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></i>Saved plans</button>
-<button data-v="set"><i><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/></svg></i>Map settings</button>
+<button data-v="set"><i><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68 1.65 1.65 0 0 0 10 3.17V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.32 9 1.65 1.65 0 0 0 20.83 10H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></i>Map settings</button>
 <button data-v="bk"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5v11.5M7.2 10.3l4.8 4.8 4.8-4.8"/><path d="M4 20.5h16"/></svg></i>Backup all data</button>
 <button data-v="rs"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5V9M7.2 13.8L12 9l4.8 4.8"/><path d="M4 3.5h16"/></svg></i>Restore backup</button>
 <button data-v="inst" id="instBtn" style="display:none"><i><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M11 18h2"/></svg></i>Install app</button>
@@ -1332,24 +1419,23 @@ table.h tr.xr td{padding:0 4px 8px!important;white-space:normal;text-align:left;
  <div class="mapctl"><select id="chartSel" style="display:none"><option value="street">Street</option><option value="enc">ENC</option></select>
   <div class="seg" id="chartSeg" aria-label="Chart"><button data-c="street">🗺 Street</button><button data-c="enc">⚓ ENC</button></div>
   <div class="seg sm" id="schemeSeg" aria-label="Colour scheme"><button data-s="day" class="on">Day</button><button data-s="dusk">Dusk</button><button data-s="night">Night</button></div></div>
- <div class="mtools"><button onclick="mapZoom(1)" title="Zoom in">+</button><button onclick="mapZoom(-1)" title="Zoom out">−</button><button onclick="mapHome()" title="Home – whole route">⌂</button><button id="gpsBtn" onclick="gpsCentre()" title="My position (GPS)">◎</button><button id="monBtn" onclick="toggleMonitor()" title="Own ship / monitoring"><svg width="24" height="24" viewBox="-17 -17 34 34" style="display:block"><line x1="-16" y1="0" x2="16" y2="0" stroke="#000" stroke-width="1.6"/><line x1="0" y1="-16" x2="0" y2="16" stroke="#000" stroke-width="1.6"/><circle r="9.5" fill="rgba(255,255,255,.35)" stroke="#000" stroke-width="2.2"/><circle r="5" fill="#d62f2f" stroke="#000" stroke-width="1.2"/></svg></button><button id="maxBtn" onclick="toggleMax()" title="Maximise chart (full screen / landscape)"><span class="ic t-max">⤢</span></button><button id="editBtn" onclick="toggleEdit()" title="Edit route waypoints">✎</button><button id="folBtn" onclick="MON.follow=!MON.follow;this.classList.toggle('on',MON.follow)" title="Follow own ship" style="display:none">⌖</button></div>
+ <div class="mtools"><button onclick="mapZoom(1)" title="Zoom in"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg></button><button onclick="mapZoom(-1)" title="Zoom out"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14"/></svg></button><button onclick="mapHome()" title="Whole route"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11l8-6.5 8 6.5"/><path d="M6.5 9.5V19h11V9.5"/></svg></button><button id="gpsBtn" onclick="gpsCentre()" title="My position (GPS)"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="6.5"/><circle cx="12" cy="12" r="1.8" fill="currentColor"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3"/></svg></button><button id="monBtn" onclick="toggleMonitor()" title="Own ship / monitoring"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l4.5 15L12 15.5l-4.5 3z"/></svg></button><button id="maxBtn" onclick="toggleMax()" title="Full screen chart"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 4.5h5v5M9.5 19.5h-5v-5M19.5 4.5l-6 6M4.5 19.5l6-6"/></svg></button><button id="editBtn" onclick="toggleEdit()" title="Edit route waypoints"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 5.5l3 3L8.5 18.5l-4 1 1-4z"/><path d="M13.5 7.5l3 3"/></svg></button><button id="folBtn" onclick="MON.follow=!MON.follow;this.classList.toggle('on',MON.follow)" title="Follow own ship" style="display:none"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 7.5l2.6 8.5L12 14.3 9.4 16z"/></svg></button></div>
  <div class="drawmenu" id="drawMenu"><div style="font-size:11px;font-weight:800;color:var(--mut);padding:2px 4px">U – USER CHART</div><button onclick="startDraw('nogo')">⛔ No-go area</button><button onclick="startDraw('dng')">⚠ Danger point</button><button onclick="startDraw('note')">📝 Note</button><button onclick="toggleUsrList()">☰ My marks</button></div>
  <div class="drawbar" id="drawBar"><span id="drawTxt"></span><button onclick="undoDraw()">Undo</button><button onclick="finishDraw()">Finish</button><button onclick="cancelDraw()">✕</button></div>
  <div class="hud" id="hud"></div>
- <div id="aisBox"><div class="aish"><b>LIVE AIS</b><span id="aisSrc">VesselFinder</span><a id="aisMT" href="#" target="_blank" rel="noopener">MarineTraffic ↗</a><button onclick="aisToggle(false)" aria-label="Close AIS">✕</button></div><iframe id="aisFrame" title="Live AIS map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><div id="aisOff">Live AIS needs internet.</div></div>
+
  <div class="mtabs" role="tablist">
-  <button class="mtab" id="wFab" onclick="toggleWPanel()" title="NAVAREA and NAVTEX stations along the route"><span class="ic t-nw">NW</span><span class="tl">Stations</span><span class="cnt" id="wCnt">–</span></button>
-  <button class="mtab" id="pFab" onclick="openPubTab('')" title="Nautical publications"><span class="ic t-np">NP</span><span class="tl">Pubs</span><span class="cnt" id="pCnt">–</span></button>
-  <button class="mtab" id="eTab" onclick="openPubTab('enc')" title="ENC scales and cells"><span class="ic t-e">E</span><span class="tl">ENC</span></button>
-  <button class="mtab" id="aisTab" onclick="aisToggle()" title="Live AIS ships (internet)"><span class="ic t-ais">AIS</span><span class="tl">Ships</span></button>
-  <button class="mtab" id="wxTab" onclick="wxToggle()" title="Weather along the route on the chart"><span class="ic t-wx">WX</span><span class="tl">Weather</span></button>
-  <button class="mtab sq" id="layTab" onclick="$('layDlg').showModal()" title="Map layers and settings"><span class="ic t-ly"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/></svg></span></button>
+  <button class="mtab" id="wFab" onclick="toggleWPanel()" title="NAVAREA and NAVTEX stations along the route"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 10.5v10M8.5 20.5l3.5-10 3.5 10"/><circle cx="12" cy="9" r="1.6"/><path d="M8.2 5.7a5.3 5.3 0 0 0 0 6.6M15.8 5.7a5.3 5.3 0 0 1 0 6.6M5.6 3.5a8.6 8.6 0 0 0 0 11M18.4 3.5a8.6 8.6 0 0 1 0 11"/></svg></span><span class="tl">Stations</span><span class="cnt" id="wCnt">–</span></button>
+  <button class="mtab" id="pFab" onclick="openPubTab('')" title="Nautical publications"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5a2 2 0 0 1 2-2h13v15H6a2 2 0 0 0-2 2z"/><path d="M4 20.5a2 2 0 0 1 2-2h13v2H6"/></svg></span><span class="tl">Publications</span><span class="cnt" id="pCnt">–</span></button>
+  <button class="mtab" id="eTab" onclick="openPubTab('enc')" title="ENC scales and cells"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l8.5 4.5L12 12.5 3.5 8z"/><path d="M3.5 12l8.5 4.5 8.5-4.5"/><path d="M3.5 16l8.5 4.5 8.5-4.5"/></svg></span><span class="tl">ENC</span></button>
+  <button class="mtab" id="wxTab" onclick="wxToggle()" title="Weather along the route on the chart"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18.5a4.2 4.2 0 0 1-.6-8.4A6 6 0 0 1 17.8 9a4.75 4.75 0 0 1-.3 9.5z"/></svg></span><span class="tl">Weather</span></button>
+  <button class="mtab sq" id="layTab" onclick="$('layDlg').showModal()" title="Map layers and settings"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68 1.65 1.65 0 0 0 10 3.17V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.32 9 1.65 1.65 0 0 0 20.83 10H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span><span class="tl">Layers</span></button>
 
 
  </div>
  <div class="gpstag" id="gpsTag"></div>
  <div class="msel" id="hSel"><select id="hChart" aria-label="Chart"><option value="enc">⚓ ENC</option><option value="street">🗺 Street</option></select><select id="hScheme" aria-label="Display"><option value="day">☀ Day</option><option value="dusk">◐ Dusk</option><option value="night">☾ Night</option></select></div></div>
-  <div class="mkey"><span class="mapfoot" id="chartStat"></span><span><b>NW</b> NAVAREA / NAVTEX</span><span><b>NP</b> Nautical publ.</span><span><b>E</b> ENC cells</span><span><b>AIS</b> live ships</span><span><b>WX</b> weather</span><span><b style="color:#ef6c00">!</b> Safety check</span></div>
+  <div class="mkey"><span class="mapfoot" id="chartStat"></span></div>
 </div>
 <div class="wscrim" id="wScrim" onclick="toggleWPanel(false)"></div>
 <div class="wscrim" id="pScrim" onclick="togglePPanel(false)"></div>
@@ -1364,7 +1450,7 @@ table.h tr.xr td{padding:0 4px 8px!important;white-space:normal;text-align:left;
   <button class="hb" onclick="toggleWPanel(false)">✕</button></div></div>
  <div class="bd" id="wBody"></div></div>
 <div class="card fold"><h2>Voyage</h2>
-  <details class="guide pph" id="ppHelp"><summary>📘 How to use</summary><ol><li>Choose the departure and arrival ports.</li><li>Set the speed and ETD (UTC).</li><li>Set the sailing method (great circle, composite or rhumb line).</li><li>Tap <b>Plan route</b> – results appear below the button.</li></ol><div class="hx">Plan, Waypoints, ETA and Weather are in the bar at the bottom; Squat, Safety depth, Sun and the other tools are in the ☰ menu. On the chart: NW = NAVAREA / NAVTEX stations, NP = publications, E = ENC, AIS = live ships, WX = weather, ⚙ = map layers. Tap a section title to fold it.</div></details>
+  <details class="guide pph" id="ppHelp"><summary>How to use</summary><ol><li>Choose the departure and arrival ports.</li><li>Set the speed and ETD (UTC).</li><li>Set the sailing method (great circle, composite or rhumb line).</li><li>Tap <b>Plan route</b> – results appear below the button.</li></ol><div class="hx">Plan, Waypoints, ETA and Weather are in the bar at the bottom; Squat, Safety depth, Sun and the other tools are in the ☰ menu. On the chart: NW = NAVAREA / NAVTEX stations, NP = publications, E = ENC, WX = weather, ⚙ = map layers. Tap a section title to fold it.</div></details>
   <div class="combo" id="cFrom"><label class="f">Departure port</label><input type="search" placeholder="Port name or UN/LOCODE, e.g. Manila / PHMNL" autocomplete="off" spellcheck="false"><div class="dd"></div><div class="sel"></div></div>
   <button class="swapbtn" onclick="swapPorts()">⇅ Swap</button>
   <div class="combo" id="cTo" style="margin-top:0"><label class="f">Arrival port</label><input type="search" placeholder="Type a port, e.g. Shanghai" autocomplete="off" spellcheck="false"><div class="dd"></div><div class="sel"></div></div>
@@ -1439,7 +1525,7 @@ table.h tr.xr td{padding:0 4px 8px!important;white-space:normal;text-align:left;
 <!-- ============ VOYAGE DRAFT PLAN ============ -->
 <div id="vd" class="qd" style="display:none">
 <div id="vp" class="noeca">
-<details class="guide" id="vdHelp" style="margin:12px 12px 10px"><summary>📘 How to use</summary><ol><li>Enter the departure drafts, densities, consumption and tank quantities.</li><li>Distances, speed, ECA legs and zone times fill in from the passage plan. The daily drafts and ROB appear at the bottom.</li></ol></details>
+<details class="guide" id="vdHelp" style="margin:12px 12px 10px"><summary>How to use</summary><ol><li>Enter the departure drafts, densities, consumption and tank quantities.</li><li>Distances, speed, ECA legs and zone times fill in from the passage plan. The daily drafts and ROB appear at the bottom.</li></ol></details>
 <div class="card"><h2>Departure</h2>
 <div class="tg c2 "><div class="tile "><label>Departure date &amp; time</label><input id="vdt" type="datetime-local"></div><div class="tile "><label>Daily reading time</label><input id="vrt" type="time"></div></div>
 <div class="tg "><div class="tile "><label>Fwd draft (m)</label><input id="vf" type="number" step="0.001"></div><div class="tile "><label>Mid draft (m) opt.</label><input id="vm" type="number" step="0.001"></div><div class="tile "><label>Aft draft (m)</label><input id="va" type="number" step="0.001"></div></div>
@@ -1454,7 +1540,7 @@ table.h tr.xr td{padding:0 4px 8px!important;white-space:normal;text-align:left;
 </div>
 <div class="card" style="display:none"><h2>Local port fuel rules</h2>
 <div class="tg c2"><div class="tile"><label id="vlDl">Departure port – diesel within (nm of berth)</label><input id="vlD" type="text" inputmode="decimal"></div><div class="tile"><label id="vlAl">Arrival port – diesel within (nm of berth)</label><input id="vlA" type="text" inputmode="decimal"></div></div>
-<div class="hint" id="vlTxt" style="padding-bottom:4px">Some ports require distillate (diesel / MGO) inside port limits, e.g. Singapore and Kaohsiung. The diesel leg is added to the ECA legs (diesel replaces FO). Blank = no local rule.</div><details class="guide" id="gLoc"><summary>📘 How the local port fuel rules work</summary><ol><li>Ports with a known rule fill in automatically (Singapore; Taiwan ports such as Kaohsiung, Keelung, Taichung).</li><li>For any other port, enter the distance from the berth (nm) inside which the port requires distillate (DO / MGO). Leave it blank if there is no rule.</li><li>That distance, counted from the berth, is burned as diesel even outside an ECA. It is shown as a DIESEL leg in the fuel legs and in the daily ROB.</li><li>Plan the changeover so it is complete before that point; record the time, position and ROB in the logbook.</li><li>Rules change – confirm with the agent / latest port circular before arrival.</li></ol></details></div>
+<div class="hint" id="vlTxt" style="padding-bottom:4px">Some ports require distillate (diesel / MGO) inside port limits, e.g. Singapore and Kaohsiung. The diesel leg is added to the ECA legs (diesel replaces FO). Blank = no local rule.</div><details class="guide" id="gLoc"><summary>How the local port fuel rules work</summary><ol><li>Ports with a known rule fill in automatically (Singapore; Taiwan ports such as Kaohsiung, Keelung, Taichung).</li><li>For any other port, enter the distance from the berth (nm) inside which the port requires distillate (DO / MGO). Leave it blank if there is no rule.</li><li>That distance, counted from the berth, is burned as diesel even outside an ECA. It is shown as a DIESEL leg in the fuel legs and in the daily ROB.</li><li>Plan the changeover so it is complete before that point; record the time, position and ROB in the logbook.</li><li>Rules change – confirm with the agent / latest port circular before arrival.</li></ol></details></div>
 <div class="card"><h2>Consumption (t/day, underway)</h2>
 <div class="tg "><div class="tile "><label>FO at sea</label><input id="vrfo" type="number" step="0.1"></div><div class="tile eca"><label>DO in ECA (replaces FO)</label><input id="vrde" type="number" step="0.1"></div><div class="tile "><label>DO always (generators)</label><input id="vrdx" type="number" step="0.1"></div></div>
 <div class="tg "><div class="tile "><label>FW consumption</label><input id="vrfw" type="number" step="0.1"></div><div class="tile "><label>FW production</label><input id="vrpw" type="number" step="0.1"></div><div class="tile "><label>FW tank capacity (t)</label><input id="vfwcap" type="number" step="0.1"></div></div>
@@ -1472,7 +1558,7 @@ table.h tr.xr td{padding:0 4px 8px!important;white-space:normal;text-align:left;
 
 <!-- ============ ETA CALCULATION ============ -->
 <div id="eta" class="qd" style="display:none">
-<div class="gwrap"><details class="guide" id="gEta"><summary>📘 How to calculate the ETA</summary><ol><li>Choose what to calculate: <b>Berth to berth</b>, <b>Berth to arrival pilot station</b> or <b>Pilot to pilot</b>. With a planned route the distance, departure time and zone times fill in (↻ refills).</li><li>Enter the <b>departure date &amp; time</b> (ship's clock) and the zone times (East −, West +; UTC+8 = −8), the <b>distance to go</b> and the <b>speed</b>.</li><li>Add <b>speed-restricted sections</b> if part of the passage has a speed limit: choose the waypoints where it starts and ends, or enter the miles, the speed limit and any extra time (e.g. waiting, convoy).</li><li>Optional: current / weather allowance (+ favourable, − adverse) and delays (anchorage, bunkering).</li><li>Enter a <b>required ETA</b> to get the speed needed and the margin. Tap any result to see the working.</li></ol><div class="fx"><div><b>Steaming time</b><span>= (Distance − restricted nm) ÷ Speed + Σ restricted nm ÷ speed limit</span></div><div><b>ETA (UTC)</b><span>= Departure (LT) + ZD departure + Steaming time + Extra time + Delays</span></div><div><b>ETA (LT)</b><span>= ETA (UTC) − ZD arrival</span></div><div><b>Speed required</b><span>= Unrestricted distance ÷ Time left for it</span></div><div><b>Margin</b><span>= Required ETA − ETA</span></div></div></details></div>
+<div class="gwrap"><details class="guide" id="gEta"><summary>How to calculate the ETA</summary><ol><li>Choose what to calculate: <b>Berth to berth</b>, <b>Berth to arrival pilot station</b> or <b>Pilot to pilot</b>. With a planned route the distance, departure time and zone times fill in (↻ refills).</li><li>Enter the <b>departure date &amp; time</b> (ship's clock) and the zone times (East −, West +; UTC+8 = −8), the <b>distance to go</b> and the <b>speed</b>.</li><li>Add <b>speed-restricted sections</b> if part of the passage has a speed limit: choose the waypoints where it starts and ends, or enter the miles, the speed limit and any extra time (e.g. waiting, convoy).</li><li>Optional: current / weather allowance (+ favourable, − adverse) and delays (anchorage, bunkering).</li><li>Enter a <b>required ETA</b> to get the speed needed and the margin. Tap any result to see the working.</li></ol><div class="fx"><div><b>Steaming time</b><span>= (Distance − restricted nm) ÷ Speed + Σ restricted nm ÷ speed limit</span></div><div><b>ETA (UTC)</b><span>= Departure (LT) + ZD departure + Steaming time + Extra time + Delays</span></div><div><b>ETA (LT)</b><span>= ETA (UTC) − ZD arrival</span></div><div><b>Speed required</b><span>= Unrestricted distance ÷ Time left for it</span></div><div><b>Margin</b><span>= Required ETA − ETA</span></div></div></details></div>
 <div class="eseg"><div class="seg3" id="eMpSeg"><button data-m="1" class="on">Single passage</button><button data-m="n">Multiple ports</button></div></div>
 <div class="card" id="eMp" style="display:none;--ac:#ab47bc"><h2>Multi-port voyage</h2>
 <datalist id="portDL"></datalist>
@@ -1498,11 +1584,11 @@ table.h tr.xr td{padding:0 4px 8px!important;white-space:normal;text-align:left;
 
 <!-- ============ SUNRISE / SUNSET ============ -->
 <div id="sun" class="qd" style="display:none">
-<div class="gwrap"><details class="guide" id="gSun"><summary>📘 How to use Sunrise / Sunset</summary><ol><li>Tap ☀ in the bottom bar: it opens today at your GPS position. The bar shows today's sunrise–sunset.</li><li>For another place or day pick a waypoint of the route or type the position and date.</li><li>Check the zone time (set from the longitude); change it if the ship keeps a different time.</li></ol><div class="fx"><div><b>Sunrise / sunset</b><span>= sun's upper limb on the horizon (−0.83°)</span></div><div><b>Civil twilight</b><span>= sun 6° below the horizon</span></div><div><b>Nautical twilight</b><span>= sun 12° below</span></div><div><b>Astronomical twilight</b><span>= sun 18° below</span></div><div><b>LT</b><span>= UTC − ZD</span></div></div></details></div>
+<div class="gwrap"><details class="guide" id="gSun"><summary>How to use Sunrise / Sunset</summary><ol><li>Tap ☀ in the bottom bar: it opens today at your GPS position. The bar shows today's sunrise–sunset.</li><li>For another place or day pick a waypoint of the route or type the position and date.</li><li>Check the zone time (set from the longitude); change it if the ship keeps a different time.</li></ol><div class="fx"><div><b>Sunrise / sunset</b><span>= sun's upper limb on the horizon (−0.83°)</span></div><div><b>Civil twilight</b><span>= sun 6° below the horizon</span></div><div><b>Nautical twilight</b><span>= sun 12° below</span></div><div><b>Astronomical twilight</b><span>= sun 18° below</span></div><div><b>LT</b><span>= UTC − ZD</span></div></div></details></div>
 <div class="card"><h2>Position &amp; date</h2>
 <div class="tg c2"><div class="tile"><label>Point on the route</label><select id="sPt"><option value="">– enter manually –</option></select></div><div class="tile"><label>Date (local)</label><input id="sDate" type="date"></div></div>
 <div class="tg"><div class="tile"><label>Latitude</label><input id="sLat" type="text" placeholder="14 35.7 N"></div><div class="tile"><label>Longitude</label><input id="sLon" type="text" placeholder="120 57.3 E"></div><div class="tile"><label>Zone time (ZD, h)</label><span class="sgn"><button type="button" class="pm" tabindex="-1">±</button><input id="sZ" type="text" inputmode="decimal"></span></div></div>
-<div class="tg c2"><div class="tile"><button type="button" class="add sm" id="sGps" style="margin:0;padding:8px;width:100%">📍 My position today (GPS)</button></div><div class="tile"><button type="button" class="add sm" id="sToday" style="margin:0;padding:8px;width:100%">📅 Today</button></div></div>
+<div class="tg c2"><div class="tile"><button type="button" class="add sm" id="sGps" style="margin:0;padding:8px;width:100%">My position today (GPS)</button></div><div class="tile"><button type="button" class="add sm" id="sToday" style="margin:0;padding:8px;width:100%">Today</button></div></div>
 <div class="hint">Opens with today's date at your GPS position. You can also pick a waypoint (its position, zone time and the local date at its ETA) or type any position, e.g. 14 35.7 N or −14.595. Zone time: East −, West +. All times are local time (LT).</div></div>
 <div class="card"><h2>Sun &amp; twilight</h2><div id="sOut" style="padding:6px 10px 10px"></div></div>
 <div class="card"><h2>Next 7 days</h2><div id="sTab" style="padding:6px 10px 10px"></div></div>
@@ -1510,7 +1596,7 @@ table.h tr.xr td{padding:0 4px 8px!important;white-space:normal;text-align:left;
 
 <!-- ============ NAVIGATION CALCULATORS ============ -->
 <div id="nc" class="qd" style="display:none">
-<div class="gwrap"><details class="guide" id="gNc"><summary>📘 How to use the sailing calculators</summary><ol><li>Choose a calculator in the tab bar.</li><li>Type positions as <b>14 35.7 N</b> / <b>120 57.3 E</b> (or decimal degrees, S and W negative). Courses in °T, speeds in knots.</li><li>Results update as you type. ↻ From route takes the pilot-to-pilot positions of the planned route.</li></ol><div class="hx"><b>Great circle:</b> cos D = sinφ₁ sinφ₂ + cosφ₁ cosφ₂ cos dλ; initial course tan C = sin dλ / (cosφ₁ tanφ₂ − sinφ₁ cos dλ); vertex cos φv = cosφ₁ sin C.<br><b>Mercator:</b> tan C = d.long′ / DMP; distance = d.lat′ / cos C; MP = 7915.7045 log tan(45° + φ/2) − 23.2689 sin φ − 0.0525 sin³φ (WGS 84).<br><b>Parallel:</b> departure = d.long′ × cos φ.<br><b>DR / EP:</b> DR = course and speed through the water from the last fix; EP = DR + leeway + current (set and drift) → course and speed made good.<br><b>Composite:</b> GC to the limiting latitude (cos dλ = tan φ / tan φL, cos D = sin φ / sin φL), parallel sailing along it, GC to the destination.</div></details></div>
+<div class="gwrap"><details class="guide" id="gNc"><summary>How to use the sailing calculators</summary><ol><li>Choose a calculator in the tab bar.</li><li>Type positions as <b>14 35.7 N</b> / <b>120 57.3 E</b> (or decimal degrees, S and W negative). Courses in °T, speeds in knots.</li><li>Results update as you type. ↻ From route takes the pilot-to-pilot positions of the planned route.</li></ol><div class="hx"><b>Great circle:</b> cos D = sinφ₁ sinφ₂ + cosφ₁ cosφ₂ cos dλ; initial course tan C = sin dλ / (cosφ₁ tanφ₂ − sinφ₁ cos dλ); vertex cos φv = cosφ₁ sin C.<br><b>Mercator:</b> tan C = d.long′ / DMP; distance = d.lat′ / cos C; MP = 7915.7045 log tan(45° + φ/2) − 23.2689 sin φ − 0.0525 sin³φ (WGS 84).<br><b>Parallel:</b> departure = d.long′ × cos φ.<br><b>DR / EP:</b> DR = course and speed through the water from the last fix; EP = DR + leeway + current (set and drift) → course and speed made good.<br><b>Composite:</b> GC to the limiting latitude (cos dλ = tan φ / tan φL, cos D = sin φ / sin φL), parallel sailing along it, GC to the destination.</div></details></div>
 <div class="nctabs seg3" id="ncTabs"><button data-t="gc" class="on">Great circle</button><button data-t="mc">Mercator</button><button data-t="ps">Parallel</button><button data-t="dr">Dead reckoning</button><button data-t="ep">Estimated position</button><button data-t="cs">Composite</button></div>
 
 <div class="card nct" data-t="gc" style="--ac:#7b8cff"><h2>Great circle sailing</h2><div class="ncb"><div>
@@ -1555,17 +1641,17 @@ table.h tr.xr td{padding:0 4px 8px!important;white-space:normal;text-align:left;
 
 <!-- ============ WEATHER ============ -->
 <div id="wx" class="qd" style="display:none">
-<div class="gwrap"><details class="guide" id="gWx"><summary>📘 How to use the weather</summary><ol><li><b>Along the route:</b> plan a route – the forecast for the ship's ETA at each point downloads automatically (wind 16 days, sea 8 days). Tap <b>WX</b> on the chart to show it on the map.</li><li><b>At a position:</b> tap 📍 GPS or type a position to get the next 3 days.</li></ol><div class="hx">Open-Meteo (DWD, ECMWF, NOAA models), CC BY 4.0. Planning aid – use official forecasts (SafetyNET / NAVTEX / weather routing) for navigation.</div></details></div>
+<div class="gwrap"><details class="guide" id="gWx"><summary>How to use the weather</summary><ol><li><b>Along the route:</b> plan a route – the forecast for the ship's ETA at each point downloads automatically (wind 16 days, sea 8 days). Tap <b>WX</b> on the chart to show it on the map.</li><li><b>At a position:</b> tap GPS or type a position to get the next 3 days.</li></ol><div class="hx">Open-Meteo (DWD, ECMWF, NOAA models), CC BY 4.0. Planning aid – use official forecasts (SafetyNET / NAVTEX / weather routing) for navigation.</div></details></div>
 <div class="card" style="--ac:#29a3e0"><h2>Weather along the route</h2><div id="wxBox" style="padding:6px 10px 10px"></div></div>
 <div class="card" style="--ac:#26a69a"><h2>Weather at a position</h2>
-<div class="tg"><div class="tile"><label>Latitude</label><input id="wxpLat" type="text" placeholder="14 35.7 N"></div><div class="tile"><label>Longitude</label><input id="wxpLon" type="text" placeholder="120 57.3 E"></div><div class="tile"><label>&nbsp;</label><button type="button" class="add sm" id="wxpGps" style="margin:0;padding:7px">📍 GPS</button></div></div>
+<div class="tg"><div class="tile"><label>Latitude</label><input id="wxpLat" type="text" placeholder="14 35.7 N"></div><div class="tile"><label>Longitude</label><input id="wxpLon" type="text" placeholder="120 57.3 E"></div><div class="tile"><label>&nbsp;</label><button type="button" class="add sm" id="wxpGps" style="margin:0;padding:7px">GPS</button></div></div>
 <div class="tg c1"><div class="tile"><button type="button" class="add sm" id="wxpGo" style="margin:0;padding:8px">⟳ Get 3-day forecast</button></div></div>
 <div id="wxpOut" style="padding:4px 10px 10px"></div></div>
 </div>
 
 <!-- ============ SAFETY DEPTH ============ -->
 <div id="ukc" class="qd" style="display:none">
-<div class="gwrap"><details class="guide" id="gUkc"><summary>📘 How to calculate the safety depth</summary><ol><li>Enter the maximum static draft (↻ takes the deepest draft from the Voyage Draft Plan) and the squat (↻ takes it from the Squat page).</li><li>Enter the heave / swell allowance and any other allowance (heel, FW, waves).</li><li>Enter the required UKC from the company SMS / port rules, in metres or as % of draft.</li><li>Set the ECDIS safety depth and safety contour to the values shown; shallow ≈ draft, deep ≈ 2 × draft.</li></ol><div class="fx"><div><b>Required UKC</b><span>= Draft × % ÷ 100  (or the metres entered)</span></div><div><b>Safety depth</b><span>= Draft + Squat + UKC + Heave + Other</span></div><div><b>Safety contour</b><span>= next ENC contour ≥ Safety depth</span></div><div><b>Shallow contour</b><span>= Draft (rounded up)</span></div><div><b>Deep contour</b><span>= 2 × Draft (rounded up)</span></div></div></details></div>
+<div class="gwrap"><details class="guide" id="gUkc"><summary>How to calculate the safety depth</summary><ol><li>Enter the maximum static draft (↻ takes the deepest draft from the Voyage Draft Plan) and the squat (↻ takes it from the Squat page).</li><li>Enter the heave / swell allowance and any other allowance (heel, FW, waves).</li><li>Enter the required UKC from the company SMS / port rules, in metres or as % of draft.</li><li>Set the ECDIS safety depth and safety contour to the values shown; shallow ≈ draft, deep ≈ 2 × draft.</li></ol><div class="fx"><div><b>Required UKC</b><span>= Draft × % ÷ 100  (or the metres entered)</span></div><div><b>Safety depth</b><span>= Draft + Squat + UKC + Heave + Other</span></div><div><b>Safety contour</b><span>= next ENC contour ≥ Safety depth</span></div><div><b>Shallow contour</b><span>= Draft (rounded up)</span></div><div><b>Deep contour</b><span>= 2 × Draft (rounded up)</span></div></div></details></div>
 <div class="card"><h2>Ship</h2>
 <div class="tg"><div class="tile"><label>Max static draft (m)</label><input id="uT" type="text" inputmode=decimal ></div><div class="tile"><label>Squat (m)</label><input id="uSq" type="text" inputmode=decimal ></div><div class="tile"><label>Heave / swell allowance (m)</label><input id="uH" type="text" inputmode=decimal ></div></div>
 <div class="tg"><div class="tile"><label>Required UKC</label><input id="uU" type="text" inputmode=decimal ></div><div class="tile"><label>UKC given as</label><select id="uM"><option value="m">metres</option><option value="p">% of draft</option></select></div><div class="tile"><label>Other allowance – heel, FW, wave (m)</label><input id="uO" type="text" inputmode=decimal ></div></div>
@@ -1579,7 +1665,7 @@ table.h tr.xr td{padding:0 4px 8px!important;white-space:normal;text-align:left;
 
 <!-- ============ SQUAT ============ -->
 <div id="sq" class="qd" style="display:none">
-<div class="gwrap"><details class="guide" id="gSq"><summary>📘 How to calculate the squat</summary><ol><li>Enter LPP, breadth, static draft, block coefficient Cb and the <b>speed through the water</b>.</li><li>Choose open water or confined / canal; enter the water depth (and the channel width for a canal).</li><li>Read the squat and the dynamic draft; the table gives the squat at other speeds. Tap “Use in Safety depth” to carry it over.</li></ol><div class="fx"><div><b>Blockage factor S</b><span>= (B × T) ÷ (W × h)</span></div><div><b>W (open water)</b><span>= (7.7 + 20 × (1 − Cb)²) × B</span></div><div><b>Squat δ</b><span>= Cb × S^0.81 × V^2.08 ÷ 20</span></div><div><b>Dynamic draft</b><span>= Draft + Squat</span></div></div></details></div>
+<div class="gwrap"><details class="guide" id="gSq"><summary>How to calculate the squat</summary><ol><li>Enter LPP, breadth, static draft, block coefficient Cb and the <b>speed through the water</b>.</li><li>Choose open water or confined / canal; enter the water depth (and the channel width for a canal).</li><li>Read the squat and the dynamic draft; the table gives the squat at other speeds. Tap “Use in Safety depth” to carry it over.</li></ol><div class="fx"><div><b>Blockage factor S</b><span>= (B × T) ÷ (W × h)</span></div><div><b>W (open water)</b><span>= (7.7 + 20 × (1 − Cb)²) × B</span></div><div><b>Squat δ</b><span>= Cb × S^0.81 × V^2.08 ÷ 20</span></div><div><b>Dynamic draft</b><span>= Draft + Squat</span></div></div></details></div>
 <div class="card"><h2>Ship</h2>
 <div class="tg"><div class="tile"><label>LPP (m)</label><input id="sqL" type="text" inputmode=decimal ></div><div class="tile"><label>Breadth (m)</label><input id="sqB" type="text" inputmode=decimal ></div><div class="tile"><label>Static draft (m)</label><input id="sqT" type="text" inputmode=decimal ></div></div>
 <div class="tg"><div class="tile"><label>Block coefficient Cb</label><input id="sqCb" type="text" inputmode=decimal ></div><div class="tile"><label>Speed through water (kn)</label><input id="sqV" type="text" inputmode=decimal ></div><div class="tile"><label>&nbsp;</label><input id="sqA" type="hidden"></div></div>
@@ -1597,7 +1683,7 @@ table.h tr.xr td{padding:0 4px 8px!important;white-space:normal;text-align:left;
 <!-- ============ NAV WARNINGS ============ -->
 <div id="nw" style="display:none">
 <div class="card"><h2>NAVAREA warnings (live)</h2>
- <details class="guide" style="margin:10px 0 6px"><summary>📘 About the live warnings</summary><div class="hx">Downloaded automatically when the app opens and every 3 hours, and revalidated weekly: if the list has not been rechecked for 7 days its warnings are hidden. Cancelled messages ("CANCEL THIS MSG …", "CANCEL HYDROPAC …") are removed automatically, and warnings older than the age filter on the map panel are hidden. NAVTEX and local warnings you add must be confirmed as still in force once a week. Active warnings from the US NGA broadcast service: NAVAREA IV and XII, HYDROPAC (Pacific and Indian Ocean), HYDROLANT and HYDROARC. Positions in the text are plotted on the chart.</div></details>
+ <details class="guide" style="margin:10px 0 6px"><summary>About the live warnings</summary><div class="hx">Downloaded automatically when the app opens and every 3 hours, and revalidated weekly: if the list has not been rechecked for 7 days its warnings are hidden. Cancelled messages ("CANCEL THIS MSG …", "CANCEL HYDROPAC …") are removed automatically, and warnings older than the age filter on the map panel are hidden. NAVTEX and local warnings you add must be confirmed as still in force once a week. Active warnings from the US NGA broadcast service: NAVAREA IV and XII, HYDROPAC (Pacific and Indian Ocean), HYDROLANT and HYDROARC. Positions in the text are plotted on the chart.</div></details>
  <div class="chips" id="nwAreas"></div>
  <button class="btn" onclick="fetchNGA()">Update now</button>
  <div class="note" id="nwLiveStat" style="color:var(--ink)"></div>
@@ -1672,9 +1758,9 @@ table.h tr.xr td{padding:0 4px 8px!important;white-space:normal;text-align:left;
 <div class="ldb"><div class="libsave"><label for="libName">Save the current plan as</label><div class="lbr"><input id="libName" type="text" maxlength="80"><button class="btn" id="libSaveBtn" style="width:auto;margin:0;padding:8px 16px" onclick="libSave()">Save</button></div><div class="muted" id="libHint" style="font-size:10.5px;margin-top:3px">Saved inside the app on this device – route, ETD, speed, options, waypoint notes, voyage draft plan and calculators.</div></div>
 <div id="libList"></div></div></dialog>
 <dialog id="about"><h2 style="margin:0 0 4px;font-size:16px">Passage Planner</h2><div class="muted" style="font-size:11px;margin-bottom:10px">Version <span id="appVer">1.0.0</span> · planning aid for ship officers</div>
-<div class="abx"><b>⚠ Planning aid only – not for navigation.</b> Routes, depths, zones (ECA, VTS, special and high-risk areas), NAVAREA limits, pilot positions and action points are approximate. Always verify against official ENC / paper charts, Sailing Directions, ALRS, Notices to Mariners, the company SMS and the Master's orders. The user remains responsible for the passage plan (SOLAS V/34).</div>
-<div class="abx"><b>🔒 Your data stays on this device.</b> No account, no tracking, no analytics. Plans, settings and notes are stored only on this phone / computer. GPS position is used on the device only. Live data (charts, weather, navigational warnings) is downloaded from public services when you are online. <a href="privacy.html" target="_blank" rel="noopener">Privacy policy</a></div>
-<details class="abl"><summary>Data sources & licences</summary><div style="font-size:10.5px;line-height:1.5;color:var(--mut)">Map: Leaflet (BSD-2) · © OpenStreetMap contributors (ODbL) · OpenSeaMap (CC BY-SA) · Esri / GEBCO / NOAA chart services · Natural Earth (public domain).<br>Weather: Open-Meteo (CC BY 4.0). Navigational warnings: US NGA MSI and national NAVAREA coordinators. Ports: UN/LOCODE (UNECE). Excel import: SheetJS (Apache-2.0). PDF reading: pdf.js (Apache-2.0).</div></details>
+<div class="abx"><b>Planning aid only – not for navigation.</b> Routes, depths, zones (ECA, VTS, special and high-risk areas), NAVAREA limits, pilot positions, weather and action points are approximate. Always verify against official ENC / paper charts, Sailing Directions, ALRS, Notices to Mariners, the company SMS and the Master's orders. The user remains responsible for the passage plan (SOLAS V/34).</div>
+<div class="abx"><b>Your data stays on this device.</b> No account, no tracking, no analytics. Plans, settings and notes are stored only on this phone / computer. GPS position is used on the device only. Charts and weather forecasts are downloaded from public services when you are online. <a href="privacy.html" target="_blank" rel="noopener">Privacy policy</a></div>
+<details class="abl"><summary>Data sources & licences</summary><div style="font-size:10.5px;line-height:1.5;color:var(--mut)">Map: Leaflet (BSD-2) · © OpenStreetMap contributors (ODbL) · OpenSeaMap (CC BY-SA) · Esri / GEBCO / NOAA chart services · Natural Earth (public domain).<br>Weather: Open-Meteo (CC BY 4.0). Ports: UN/LOCODE (UNECE). Excel import: SheetJS (Apache-2.0). PDF reading: pdf.js (Apache-2.0).</div></details>
 <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:12px"><button class="btn" style="width:auto;padding:8px 18px;margin:0" onclick="$('about').close()">Close</button></div></dialog>
 <div id="discBar" style="display:none"><div><b>Planning aid only – not for navigation.</b> Verify everything against official charts / ENC and publications. Data stays on this device. <a href="#" onclick="$('about').showModal();return false">More</a></div><button onclick="try{localStorage.setItem('pp2_disc1','1')}catch(e){};this.parentNode.style.display='none'">I understand</button></div>
 <dialog id="settings">
@@ -2456,7 +2542,7 @@ function planCard(){const pi=planInfo();return`<div class="card"><h2>Passage pla
  <div class="full"><label>Contingency anchorage / port of refuge</label><input value="${esc(pi.cont)}" onchange="setPInfo('cont',this.value)"></div>
  <div class="full"><label>Tides / UKC notes</label><input value="${esc(pi.ukc)}" placeholder="e.g. HW Shanghai 0412 3.8 m · min UKC 1.2 m at WP 14" onchange="setPInfo('ukc',this.value)"></div>
  <div class="full"><label>Weather / other notes</label><input value="${esc(pi.wx)}" onchange="setPInfo('wx',this.value)"></div></div>
- <div class="exp"><button onclick="printPlan()">🖨 Print / PDF passage plan</button><button onclick="saveVoyage()">💾 Save passage plan</button></div>
+ <div class="exp"><button onclick="printPlan()">Print / PDF passage plan</button><button onclick="saveVoyage()">Save passage plan</button></div>
  <p class="muted">The printout has the summary, waypoints with XTD and wheel-over, ECA changeover, safety margins, warnings near the route, charts and publications, and signature boxes for the Master and OOWs.</p></div>`}
 
 
@@ -2589,7 +2675,7 @@ async function toggleMax(on){const b=document.body;const go=on==null?!b.classLis
  if(go){try{if(!document.fullscreenElement&&document.documentElement.requestFullscreen)await document.documentElement.requestFullscreen({navigationUI:'hide'})}catch(e){}
   try{if(screen.orientation&&screen.orientation.lock)await screen.orientation.lock('landscape')}catch(e){}}
  else{try{if(screen.orientation&&screen.orientation.unlock)screen.orientation.unlock()}catch(e){}try{if(document.fullscreenElement)await document.exitFullscreen()}catch(e){}}
- $('maxBtn').title=go?'Exit full screen':'Maximise chart (full screen / landscape)';$('maxBtn').querySelector('.ic').textContent=go?'⤡':'⤢';mapResize()}
+ $('maxBtn').title=go?'Exit full screen':'Maximise chart (full screen / landscape)';$('maxBtn').classList.toggle('on',go);mapResize()}
 document.addEventListener('fullscreenchange',()=>{if(!document.fullscreenElement&&document.body.classList.contains('mapmax'))toggleMax(false)});
 window.addEventListener('resize',()=>{if(document.body.classList.contains('mapmax'))mapResize()});
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.body.classList.contains('mapmax'))toggleMax(false)});
@@ -3195,7 +3281,7 @@ function render(){
  <div class="card fold"><h2>Waypoints</h2><button class="btn" style="margin-top:10px" onclick="showView('wpv')">⚑ Waypoint list &amp; actions (${wps.length} WPs) →</button></div>`;
  {const wb=$('wpBox');if(wb)wb.innerHTML=`<div class="card"><h2>Waypoint list</h2>
   <div class="swipe">Swipe the table sideways for course, distance, ETA, XTD, wheel-over and speed. XTD and speed can be edited per leg.</div><div class="tblwrap"><table class="h"><thead><tr><th class="l">WP</th><th class="l">Name</th><th>Lat</th><th>Lon</th><th>Co°T</th><th>Dist</th><th>Total</th><th>ETA</th><th>XTD m</th><th>Alter</th><th>WO nm</th><th>Kn</th><th>ETA LT (ZD)</th><th>ENC</th><th>Depth band</th><th>Least depth m</th><th>CATZOC</th><th class="l">Zone</th></tr></thead><tbody>${rows}</tbody></table></div>
-  <div class="sbh" style="margin-top:12px;font-weight:800;font-size:12px;color:var(--h1)">EXPORT</div><div class="exp"><button onclick="libOpen(true)">💾 Save plan</button><button onclick="libOpen(false)">📂 Saved plans</button><button onclick="exportRTZ()">RTZ (ECDIS)</button><button onclick="exportCSV()">CSV</button><button onclick="printPlan()">🖨 Print passage plan</button><button onclick="showView('vd')">Voyage draft plan</button></div>
+  <div class="sbh" style="margin-top:12px;font-weight:800;font-size:12px;color:var(--h1)">EXPORT</div><div class="exp"><button onclick="libOpen(true)">Save plan</button><button onclick="libOpen(false)">Saved plans</button><button onclick="exportRTZ()">RTZ (ECDIS)</button><button onclick="exportCSV()">CSV</button><button onclick="printPlan()">Print passage plan</button><button onclick="showView('vd')">Voyage draft plan</button></div>
  </div>`}
  {const g=$('gcSec');if(g)g.innerHTML=SAIL!=='rhumb'&&r.base?gcSecHtml(r):(r.edited||r.imported?'<p class="muted">'+(r.imported&&!r.edited?'Imported RTZ route. ':'Route edited on the chart. ')+'To add a great circle, tap ✎ on the chart, tap a waypoint → ▶ Start GC, then another → ■ End GC. Legs outside GC sections stay rhumb line; repeat for more GC sections (composite).</p>':'<p class="muted">Plan a route to choose where the great circle starts and ends.</p>')}
  {const ob=$('offBox');if(ob)ob.innerHTML=offCard().replace('<div class="card fold shut"><h2>Offline charts</h2>','<div class="fpos"><div class="sbt">OFFLINE CHARTS FOR THIS ROUTE</div>')}
@@ -3708,7 +3794,7 @@ function nearRoute(buf){const wps=state.wps;if(!wps)return[];const S=[];
 function renderNear(){const buf=getBuf();const n=state.wps?nearRoute(buf):[];state.nearW=n;drawWarnings();renderWPanel();
  const el=$('nearW');if(!el)return;const speed=Math.max(1,+$('speed').value||12),etd=Date.parse(($('etd').value||'')+':00Z')||Date.now();const tot=allWarnings().length;
  el.innerHTML=`<h2>Warnings near route</h2><div class="hbar" style="margin-top:10px"><span class="muted">${n.length} of ${tot} loaded warning(s) within <b>${buf} nm</b> (change the buffer in the ⚠ Warnings panel on the map).</span></div>
- <div class="exp"><button onclick="window.scrollTo(0,0);toggleWPanel(true)">Show on map</button><button onclick="printWarnings()">🖨 Print warnings</button></div>`+
+ <div class="exp"><button onclick="window.scrollTo(0,0);toggleWPanel(true)">Show on map</button><button onclick="printWarnings()">Print warnings</button></div>`+
  (n.length?n.map((x,i)=>`<div class="ev"><b style="color:${warnCat(x.w.text)[1]}">${i+1}. ${esc(x.w.id)}</b> · ${esc(x.w.cat||'')}<br>${x.d<0.1?'<b>Route passes through it</b>':`Closest ${x.d.toFixed(1)} nm`} at ${fmtNm(x.cum)} nm run · ETA ${fmtUTC(etaAt(x.cum))}<details><summary style="margin:4px 0;font-size:12px">Text</summary><div style="white-space:pre-wrap;font-size:12px">${esc(x.w.text)}</div></details></div>`).join(''):`<p class="muted" style="margin-top:8px">${tot?'No loaded warning is within '+buf+' nm of the route.':'No warnings loaded. Open ☰ → Nav Warnings to download NAVAREA warnings or paste NAVTEX / local warnings.'}</p>`)}
 // ---- print report (route, corridor, numbered warnings, full texts)
 function printMapSVG(n,buf){const wps=state.wps;const P=wps.map(w=>w.p);n.forEach(x=>x.w.geo.forEach(g=>g.pts.forEach(p=>{let lo=p[1];const r=P[0][1];while(lo-r>180)lo-=360;while(lo-r<-180)lo+=360;P.push([p[0],lo])})));
@@ -4310,7 +4396,7 @@ fbarOn(load('view','pp'));
 /* ---- section accents ---- */
 const ACC=[[/voyage summary/i,'#e8a91f'],[/^voyage$|departure|position/i,'#3fb4f2'],[/sailing/i,'#9b8cff'],[/route options/i,'#29c4a9'],[/pilot/i,'#5ab8ee'],[/high risk/i,'#ef5350'],[/safety check/i,'#ff8a50'],[/reporting/i,'#b388ff'],[/waypoint/i,'#7fd34a'],[/map layers/i,'#90a4ae'],[/eca optim|ecdis|consumption/i,'#f06292'],[/fuel|tank/i,'#e8a91f'],[/ballast|fresh water/i,'#26c6da'],[/route &|route and/i,'#29c4a9'],[/local port/i,'#ffb74d'],[/result|summary|check/i,'#7fd34a'],[/ship$|^ship/i,'#3fb4f2'],[/water/i,'#26c6da'],[/sun|twilight/i,'#e8a91f'],[/days|speeds|table/i,'#9b8cff'],[/remaining|daily/i,'#7fd34a'],[/required/i,'#ffb74d'],[/warning/i,'#ef5350'],[/hydrostatic|paste|row|map hydro/i,'#90a4ae']];
 const ACCP=['#3fb4f2','#e8a91f','#29c4a9','#9b8cff','#7fd34a','#ff8a50','#26c6da','#f06292'];
-function accents(){document.querySelectorAll('.card').forEach((c,i)=>{if(c.dataset.ac)return;const h=c.querySelector(':scope>h2');if(!h)return;const t=h.textContent.trim();const m=ACC.find(([r])=>r.test(t));const col=m?m[1]:ACCP[i%ACCP.length];c.style.setProperty('--ac',col);c.dataset.ac=1})}
+function accents(){return;document.querySelectorAll('.card').forEach((c,i)=>{if(c.dataset.ac)return;const h=c.querySelector(':scope>h2');if(!h)return;const t=h.textContent.trim();const m=ACC.find(([r])=>r.test(t));const col=m?m[1]:ACCP[i%ACCP.length];c.style.setProperty('--ac',col);c.dataset.ac=1})}
 accents();new MutationObserver(()=>accents()).observe(document.body,{childList:true,subtree:true});
 /* ---- guides remember open / closed ---- */
 document.querySelectorAll('details.guide').forEach(d=>{try{const v=localStorage.getItem('g_'+d.id);if(v==='0')d.open=false}catch(e){}d.addEventListener('toggle',()=>{try{localStorage.setItem('g_'+d.id,d.open?'1':'0')}catch(e){}})});
@@ -4389,14 +4475,6 @@ renderWPanel=function(){updFab();const sh=$('wSheet');if(!sh||!sh.classList.cont
 /* ---- WX toggle on the chart ---- */
 function wxTabSync(){const b=$('wxTab');if(b)b.classList.toggle('on',!!LAYON.wx);const c=$('lyWx');if(c)c.checked=!!LAYON.wx}
 function wxToggle(){const on=!LAYON.wx;setLayer('wx',on);wxTabSync();if(on){if(!state.wps){toast('Plan a route to show the weather along it');return}const k=wxKey();if(!WX||WX.key!==k)fetchWx(false);else toast('Weather on the chart · details in Weather (bottom bar)')}}
-/* ---- live AIS (VesselFinder embedded map, centred on the chart) ---- */
-let AISON=false;
-function aisToggle(on){AISON=on==null?!AISON:on;const box=$('aisBox');box.classList.toggle('open',AISON);$('aisTab').classList.toggle('on',AISON);
- if(!AISON){$('aisFrame').src='about:blank';return}
- let la=15,lo=120,z=6;try{const c=M.map.getCenter();la=c.lat;lo=norm(c.lng);z=Math.max(3,Math.min(13,M.map.getZoom()))}catch(e){}
- box.classList.toggle('off',navigator.onLine===false);
- $('aisFrame').src=`https://www.vesselfinder.com/aismap?zoom=${z}&lat=${la.toFixed(4)}&lon=${lo.toFixed(4)}&width=100%25&height=100%25&names=true&track=false&fleet=false&fleet_name=false&fleet_hide_old_positions=false&clicktoact=false&store_pos=false&ra=`;
- $('aisMT').href=`https://www.marinetraffic.com/en/ais/home/centerx:${lo.toFixed(3)}/centery:${la.toFixed(3)}/zoom:${z}`}
 setTimeout(wxTabSync,0);
 
 /* ---- Weather section ---- */
@@ -4408,7 +4486,7 @@ function wxView(){const b=$('wxBox');if(!b)return;if(!state.wps){b.innerHTML='<p
   if(MON.fix){use(MON.fix.p[0],norm(MON.fix.p[1]));return}if(!navigator.geolocation){toast('GPS not available');return}toast('Getting GPS position…');
   navigator.geolocation.getCurrentPosition(p=>use(p.coords.latitude,p.coords.longitude),()=>toast('GPS position not available – type the position'),{enableHighAccuracy:false,maximumAge:600000,timeout:15000})};
  $('wxpGo').onclick=()=>wxpGet()})();
-async function wxpGet(){const la=parseLL($('wxpLat').value),lo=parseLL($('wxpLon').value),out=$('wxpOut');if(!isFinite(la)||!isFinite(lo)){out.innerHTML='<p class="muted">Enter a latitude and longitude, or tap 📍 GPS.</p>';return}
+async function wxpGet(){const la=parseLL($('wxpLat').value),lo=parseLL($('wxpLon').value),out=$('wxpOut');if(!isFinite(la)||!isFinite(lo)){out.innerHTML='<p class="muted">Enter a latitude and longitude, or tap GPS.</p>';return}
  out.innerHTML='<p class="muted">Downloading…</p>';
  try{const q=`latitude=${la.toFixed(3)}&longitude=${lo.toFixed(3)}&forecast_days=3&timezone=UTC`;
   const [a,m]=await Promise.all([fetch(`https://api.open-meteo.com/v1/forecast?${q}&hourly=wind_speed_10m,wind_direction_10m,wind_gusts_10m,visibility,pressure_msl,precipitation&wind_speed_unit=kn`).then(r=>r.json()),

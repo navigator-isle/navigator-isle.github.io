@@ -2,7 +2,7 @@
   "id": "./",
   "name": "Passage Planner – Voyage & Navigation Tools",
   "short_name": "Passage Plan",
-  "description": "Berth-to-berth passage planning, waypoint actions, ETA, UKC, squat, sun, sailing calculators and voyage draft plan for ship officers. Planning aid only – not for navigation.",
+  "description": "Berth-to-berth passage planning, waypoint actions, ETA, weather, squat, UKC and sailing calculators for ship officers. Planning aid only – not for navigation.",
   "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
@@ -49,28 +49,28 @@
   "screenshots": [
     {
       "src": "screenshot-phone-plan.png",
-      "sizes": "390x844",
+      "sizes": "1080x1920",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Passage plan with route and map"
     },
     {
       "src": "screenshot-phone-waypoints.png",
-      "sizes": "390x844",
+      "sizes": "1080x1920",
       "type": "image/png",
       "form_factor": "narrow",
       "label": "Waypoint list with action points"
     },
     {
       "src": "screenshot-wide-plan.png",
-      "sizes": "1440x900",
+      "sizes": "1920x1200",
       "type": "image/png",
       "form_factor": "wide",
       "label": "Passage plan on a laptop"
     },
     {
       "src": "screenshot-wide-calculators.png",
-      "sizes": "1440x900",
+      "sizes": "1920x1200",
       "type": "image/png",
       "form_factor": "wide",
       "label": "Sailing calculators"
