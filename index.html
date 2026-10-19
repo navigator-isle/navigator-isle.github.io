@@ -697,6 +697,39 @@
 #about .abl summary{font-size:11px;font-weight:700;cursor:pointer;color:var(--mut);margin:6px 0}
 #discBar{position:fixed;left:8px;right:8px;bottom:calc(64px + env(safe-area-inset-bottom));z-index:3000;display:flex;gap:10px;align-items:center;background:#0b2240f2;border:1px solid #f0b429;border-radius:12px;padding:8px 10px;font-size:11px;line-height:1.4;color:#e8f1f9;box-shadow:0 6px 20px #0008;max-width:720px;margin:0 auto}
 #discBar a{color:#f0b429}#discBar button{flex:none;background:#f0b429;color:#06142b;border:0;border-radius:8px;font-weight:800;font-size:11.5px;padding:7px 10px;cursor:pointer}
+
+/* map tool buttons: AIS, WX, layers */
+.mtab .t-ais{background:#0b8f7d;color:#fff;font-size:10.5px}.mtab .t-wx{background:#29a3e0;color:#fff}.mtab .t-ly{background:#fff;color:#0a2a5e}.mtab .t-ly svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}
+.mtab.on .t-ais,.mtab.on .t-wx{box-shadow:0 0 0 2px var(--gold)}
+#aisBox{position:absolute;inset:0;z-index:1000;display:none;flex-direction:column;background:#06142b;border-radius:inherit;overflow:hidden}#aisBox.open{display:flex}
+#aisBox .aish{display:flex;align-items:center;gap:8px;padding:5px 8px;background:#0b8f7d;color:#fff;font-size:11.5px}#aisBox .aish b{letter-spacing:1px}#aisBox .aish span{opacity:.85}
+#aisBox .aish a{margin-left:auto;color:#fff;font-weight:700;text-decoration:none;background:#ffffff26;padding:3px 8px;border-radius:6px}#aisBox .aish button{background:#ffffff26;border:0;color:#fff;border-radius:6px;padding:3px 9px;font-weight:800;cursor:pointer}
+#aisBox iframe{flex:1;border:0;width:100%;background:#cfe3f2}#aisOff{display:none;padding:30px 14px;text-align:center;color:#9fb3cc;font-size:13px}#aisBox.off iframe{display:none}#aisBox.off #aisOff{display:block}
+#layDlg{max-width:520px;padding:0}#layDlg .ldh{display:flex;align-items:center;justify-content:space-between;padding:12px 14px 6px}#layDlg .ldh h2{margin:0;font-size:15px;letter-spacing:1px;text-transform:uppercase;color:var(--acc,#29a3e0)}
+#layDlg .ldb{padding:0 14px 6px;max-height:65vh;overflow:auto}#layDlg .ldf{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px 14px;border-top:1px solid var(--line)}
+#layDlg .hb{background:none;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:4px 10px;cursor:pointer}
+#drawer nav button i svg,#fbar i svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;vertical-align:middle}
+#drawer nav button i{opacity:1!important;color:#59c8ff}#drawer nav button.on i{color:#fff}
+#fbar i svg{width:21px;height:21px}
+
+details.eband{display:block;padding:0}details.eband>summary{display:flex;gap:8px;align-items:center;padding:8px 10px;cursor:pointer;list-style:none}details.eband>summary::-webkit-details-marker{display:none}
+details.eband>summary:after{content:'▸';margin-left:auto;color:var(--mut);font-size:12px}details.eband[open]>summary:after{content:'▾'}
+.edt{display:grid;grid-template-columns:1fr 1fr;gap:6px 10px;padding:2px 12px 10px 44px;font-size:11.5px}.edt>div{display:flex;flex-direction:column}.edt span{color:var(--mut);font-size:10px}.edt .full{grid-column:1/-1}
+.ecl{font:700 11.5px ui-monospace,Consolas,monospace;word-break:break-all}.eall{display:flex;gap:6px;margin-bottom:8px}.eall .swapbtn{margin:0;padding:3px 10px;font-size:11px}
+
+.eseg{display:flex;justify-content:center;margin:0 0 10px;column-span:all}.eseg .seg3 button{padding:7px 16px}#eta.mp .es1{display:none}#eta.mp #eMp{display:block!important;column-span:all}
+#mpLegs .bop .b1{align-items:center;font-size:11px;font-weight:800;color:var(--mut)}#mpLegs .bop .b1 button{margin-left:auto;background:none;border:0;color:var(--mut);font-size:15px;cursor:pointer}
+.mpt{width:100%;border-collapse:collapse;font-size:11.5px;text-align:center}.mpt th{font-size:10px;color:var(--mut);font-weight:700;padding:4px 2px}.mpt td{border-top:1px solid var(--line);padding:5px 2px}.mpt tr.tot td{font-weight:800;border-top:2px solid var(--line)}
+
+#libDlg{max-width:520px;padding:0}#libDlg .ldh{display:flex;align-items:center;justify-content:space-between;padding:12px 14px 6px}#libDlg .ldh h2{margin:0;font-size:15px;letter-spacing:1px;text-transform:uppercase;color:var(--acc,#29a3e0)}
+#libDlg .ldb{padding:0 14px 14px;max-height:70vh;overflow:auto}#libDlg .hb{background:none;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:4px 10px;cursor:pointer}
+.libsave{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:8px 10px;margin-bottom:10px}.libsave label{font-size:11px;font-weight:700;color:var(--mut)}.lbr{display:flex;gap:6px;margin-top:4px}.lbr input{flex:1;min-width:0}
+.libit{display:flex;gap:8px;align-items:center;border:1px solid var(--line);border-left:4px solid #29a3e0;border-radius:10px;padding:8px 10px;margin-bottom:6px;background:var(--card)}
+.libit .lt{flex:1;min-width:0}.libit .lt b{display:block;font-size:13px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.libit .lt span{font-size:10.5px;color:var(--mut)}
+.libit button{border:1px solid var(--line);background:none;color:var(--ink);border-radius:8px;padding:5px 10px;font-weight:700;font-size:12px;cursor:pointer}.libit button.ld{background:#29a3e0;border-color:#29a3e0;color:#fff}.libit button.dl{color:#e05252}
+
+.libit button{width:auto!important;flex:none!important;margin:0!important;min-height:0!important}.libit .lt{flex:1 1 auto!important;min-width:0}
+#aisBox{z-index:1002!important}.mtabs{z-index:1003!important}
 </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js" onerror="var s=document.createElement('script');s.src='https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js';document.head.appendChild(s)"></script>
 <style>
@@ -1262,30 +1295,35 @@ table.h tr.xr td{padding:0 4px 8px!important;white-space:normal;text-align:left;
 </style></head><body>
 <div id="printArea"></div>
 <nav class="fbar" id="fbar">
- <button data-f="pp"><i>⚓</i><span>Plan</span></button>
- <button data-f="wpv"><i>⚑</i><span>Waypoints</span></button>
- <button data-f="eta"><i>⏱</i><span>ETA</span></button>
- <button data-f="ukc"><i>⇣</i><span>Safety depth</span></button>
- <button data-f="sq"><i>〰</i><span>Squat</span></button>
- <button data-f="sun" class="fsun"><i>☀</i><span id="fSun">Sun</span></button>
+ <button data-f="pp"><i><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5.5" cy="18.5" r="2"/><circle cx="18.5" cy="5.5" r="2"/><path d="M7.5 18.5h5a3.5 3.5 0 0 0 0-7h-1a3.5 3.5 0 0 1 0-7h5"/></svg></i><span>Plan</span></button>
+ <button data-f="wpv"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4"/><path d="M5 4h12l-2.5 4.5L17 13H5"/></svg></i><span>Waypoints</span></button>
+ <button data-f="eta"><i><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg></i><span>ETA</span></button>
+ <button data-f="wx"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18.5a4.2 4.2 0 0 1-.6-8.4A6 6 0 0 1 17.8 9a4.75 4.75 0 0 1-.3 9.5z"/></svg></i><span>Weather</span></button>
 </nav>
 <div id="loading">Loading port and sea-lane database…</div>
 <div class="bar"><button id="menuBtn" aria-label="Menu">☰</button><h1 id="ttl">PASSAGE PLAN</h1></div>
 <div id="drawer"><div class="bk"></div><nav><h3>Menu</h3>
 <div class="mg">Planning</div>
-<button data-v="pp" class="on"><i>⚓</i>Passage Plan</button>
-<button data-v="wpv"><i>⚑</i>Waypoints</button>
-<button data-v="vd"><i>⛽</i>Voyage Draft Plan</button>
-<button data-v="nw"><i>⚠</i>Nav Warnings</button>
+<button data-v="pp" class="on"><i><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5.5" cy="18.5" r="2"/><circle cx="18.5" cy="5.5" r="2"/><path d="M7.5 18.5h5a3.5 3.5 0 0 0 0-7h-1a3.5 3.5 0 0 1 0-7h5"/></svg></i>Passage Plan</button>
+<button data-v="wpv"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 21V4"/><path d="M5 4h12l-2.5 4.5L17 13H5"/></svg></i>Waypoints</button>
+<button data-v="vd"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 14l2.2 5.5h13.6L21 14z"/><path d="M6.5 14V9h11v5"/><path d="M10 9V5.5h4V9"/></svg></i>Voyage Draft Plan</button>
+<button data-v="wx"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18.5a4.2 4.2 0 0 1-.6-8.4A6 6 0 0 1 17.8 9a4.75 4.75 0 0 1-.3 9.5z"/></svg></i>Weather</button>
 <div class="mg">Calculators</div>
-<button data-v="eta"><i>⏱</i>ETA Calculation</button>
-<button data-v="ukc"><i>⇣</i>Safety Depth (UKC)</button>
-<button data-v="sq"><i>〰</i>Squat Calculation</button>
-<button data-v="sun"><i>☀</i>Sunrise / Sunset</button>
-<button data-v="nc"><i>🧭</i>Sailing Calculators</button>
-<button data-v="hy"><i>▦</i>Hydrostatic Table</button>
-<div class="mg">Files &amp; settings</div>
-<button data-v="set"><i>⚙</i>Map settings</button><button data-v="sv"><i>💾</i>Save passage plan file</button><button data-v="op"><i>📂</i>Open passage plan file</button><button data-v="bk"><i>⬇</i>Backup all data</button><button data-v="rs"><i>⬆</i>Restore backup</button><button data-v="inst" id="instBtn" style="display:none"><i>📲</i>Install app</button><button data-v="ab"><i>ⓘ</i>About &amp; privacy</button></nav></div><input type="file" id="rsFile" accept=".json,application/json" style="display:none"><input type="file" id="opFile" accept=".json,.ppl,application/json" style="display:none">
+<button data-v="eta"><i><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.2 2"/></svg></i>ETA Calculation</button>
+<button data-v="sq"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9.5l2 4.5h14l2-4.5z"/><path d="M7.5 9.5V6h9v3.5"/><path d="M12 16.5v5M9.3 19l2.7 2.7 2.7-2.7"/></svg></i>Squat Calculation</button>
+<button data-v="ukc"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 4.5h18"/><path d="M12 4.5v13"/><path d="M8.3 14l3.7 3.7 3.7-3.7"/><path d="M3 21h3M9 21h3M15 21h3"/></svg></i>Safety Depth (UKC)</button>
+<button data-v="sun"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18.5h18"/><path d="M7 18.5a5 5 0 0 1 10 0"/><path d="M12 6.5v3M5.4 9.6l2 2M18.6 9.6l-2 2"/></svg></i>Sunrise / Sunset</button>
+<button data-v="nc"><i><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.6 8.4l-2.2 5-5 2.2 2.2-5z"/></svg></i>Sailing Calculators</button>
+<button data-v="hy"><i><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9.5h18M3 14.5h18M9.5 4v16"/></svg></i>Hydrostatic Table</button>
+<div class="mg">Plans &amp; settings</div>
+<button data-v="sv"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-6-4.2L6 21z"/><path d="M12 7.5v6M9 10.5h6"/></svg></i>Save plan</button>
+<button data-v="lib"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4.2l2 2.2H19a2 2 0 0 1 2 2V17a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></i>Saved plans</button>
+<button data-v="set"><i><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/></svg></i>Map settings</button>
+<button data-v="bk"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5v11.5M7.2 10.3l4.8 4.8 4.8-4.8"/><path d="M4 20.5h16"/></svg></i>Backup all data</button>
+<button data-v="rs"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5V9M7.2 13.8L12 9l4.8 4.8"/><path d="M4 3.5h16"/></svg></i>Restore backup</button>
+<button data-v="inst" id="instBtn" style="display:none"><i><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19" rx="2"/><path d="M11 18h2"/></svg></i>Install app</button>
+<button data-v="ab"><i><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.6v.4"/></svg></i>About &amp; privacy</button>
+</nav></div><input type="file" id="rsFile" accept=".json,application/json" style="display:none"><input type="file" id="opFile" accept=".json,.ppl,application/json" style="display:none">
 
 <!-- ============ PASSAGE PLAN ============ -->
 <div id="pp">
@@ -1298,16 +1336,20 @@ table.h tr.xr td{padding:0 4px 8px!important;white-space:normal;text-align:left;
  <div class="drawmenu" id="drawMenu"><div style="font-size:11px;font-weight:800;color:var(--mut);padding:2px 4px">U – USER CHART</div><button onclick="startDraw('nogo')">⛔ No-go area</button><button onclick="startDraw('dng')">⚠ Danger point</button><button onclick="startDraw('note')">📝 Note</button><button onclick="toggleUsrList()">☰ My marks</button></div>
  <div class="drawbar" id="drawBar"><span id="drawTxt"></span><button onclick="undoDraw()">Undo</button><button onclick="finishDraw()">Finish</button><button onclick="cancelDraw()">✕</button></div>
  <div class="hud" id="hud"></div>
+ <div id="aisBox"><div class="aish"><b>LIVE AIS</b><span id="aisSrc">VesselFinder</span><a id="aisMT" href="#" target="_blank" rel="noopener">MarineTraffic ↗</a><button onclick="aisToggle(false)" aria-label="Close AIS">✕</button></div><iframe id="aisFrame" title="Live AIS map" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe><div id="aisOff">Live AIS needs internet.</div></div>
  <div class="mtabs" role="tablist">
-  <button class="mtab" id="wFab" onclick="toggleWPanel()" title="Navigational warnings (NAVAREA / NAVTEX / local)"><span class="ic t-nw">NW</span><span class="tl">Warnings</span><span class="cnt" id="wCnt">0</span><span class="dots" id="wDots"><i data-g="NAVAREA"></i><i data-g="NAVTEX"></i><i data-g="LOCAL"></i></span></button>
+  <button class="mtab" id="wFab" onclick="toggleWPanel()" title="NAVAREA and NAVTEX stations along the route"><span class="ic t-nw">NW</span><span class="tl">Stations</span><span class="cnt" id="wCnt">–</span></button>
   <button class="mtab" id="pFab" onclick="openPubTab('')" title="Nautical publications"><span class="ic t-np">NP</span><span class="tl">Pubs</span><span class="cnt" id="pCnt">–</span></button>
   <button class="mtab" id="eTab" onclick="openPubTab('enc')" title="ENC scales and cells"><span class="ic t-e">E</span><span class="tl">ENC</span></button>
+  <button class="mtab" id="aisTab" onclick="aisToggle()" title="Live AIS ships (internet)"><span class="ic t-ais">AIS</span><span class="tl">Ships</span></button>
+  <button class="mtab" id="wxTab" onclick="wxToggle()" title="Weather along the route on the chart"><span class="ic t-wx">WX</span><span class="tl">Weather</span></button>
+  <button class="mtab sq" id="layTab" onclick="$('layDlg').showModal()" title="Map layers and settings"><span class="ic t-ly"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M5.3 18.7l2.1-2.1M16.6 7.4l2.1-2.1"/></svg></span></button>
 
 
  </div>
  <div class="gpstag" id="gpsTag"></div>
  <div class="msel" id="hSel"><select id="hChart" aria-label="Chart"><option value="enc">⚓ ENC</option><option value="street">🗺 Street</option></select><select id="hScheme" aria-label="Display"><option value="day">☀ Day</option><option value="dusk">◐ Dusk</option><option value="night">☾ Night</option></select></div></div>
-  <div class="mkey"><span class="mapfoot" id="chartStat"></span><span><b>NW</b> NAVAREA / NAVTEX</span><span><b>NP</b> Nautical publ.</span><span><b>E</b> ENC cells</span><span><b style="color:#ef6c00">!</b> Safety check</span></div>
+  <div class="mkey"><span class="mapfoot" id="chartStat"></span><span><b>NW</b> NAVAREA / NAVTEX</span><span><b>NP</b> Nautical publ.</span><span><b>E</b> ENC cells</span><span><b>AIS</b> live ships</span><span><b>WX</b> weather</span><span><b style="color:#ef6c00">!</b> Safety check</span></div>
 </div>
 <div class="wscrim" id="wScrim" onclick="toggleWPanel(false)"></div>
 <div class="wscrim" id="pScrim" onclick="togglePPanel(false)"></div>
@@ -1317,12 +1359,12 @@ table.h tr.xr td{padding:0 4px 8px!important;white-space:normal;text-align:left;
  <div class="hd" onclick="if(event.target.closest('.hb'))return;$('pSheet').classList.toggle('peek');$('pScrim').classList.toggle('open',!$('pSheet').classList.contains('peek'))"><div class="grab"></div><div class="hrow"><h3 id="pTitle">NAUTICAL PUBLICATIONS<small id="pSub"></small></h3>
   <button class="hb" onclick="togglePPanel(false)">✕</button></div></div>
  <div class="bd" id="pBody"></div></div>
-<div class="wsheet" id="wSheet" role="dialog" aria-label="Navigational warnings">
- <div class="hd" onclick="if(event.target.closest('.hb'))return;$('wSheet').classList.toggle('peek');$('wScrim').classList.toggle('open',!$('wSheet').classList.contains('peek'))"><div class="grab"></div><div class="hrow"><h3>NAV WARNINGS<small id="wSub"></small></h3>
-  <button class="hb" onclick="fetchNGA()" title="Update NAVAREA">⟳</button><button class="hb" onclick="printWarnings()">🖨 Print</button><button class="hb" onclick="toggleWPanel(false)">✕</button></div></div>
+<div class="wsheet" id="wSheet" role="dialog" aria-label="NAVAREA and NAVTEX stations">
+ <div class="hd" onclick="if(event.target.closest('.hb'))return;$('wSheet').classList.toggle('peek');$('wScrim').classList.toggle('open',!$('wSheet').classList.contains('peek'))"><div class="grab"></div><div class="hrow"><h3>NAVAREA / NAVTEX STATIONS<small id="wSub"></small></h3>
+  <button class="hb" onclick="toggleWPanel(false)">✕</button></div></div>
  <div class="bd" id="wBody"></div></div>
-<div class="card"><h2>Voyage</h2>
-  <details class="guide pph" id="ppHelp"><summary>📘 How to use</summary><ol><li>Choose the departure and arrival ports.</li><li>Set the speed and ETD (UTC).</li><li>Set the sailing method (great circle, composite or rhumb line).</li><li>Tap <b>Plan route</b> – results appear below the button.</li></ol><div class="hx">ETA, Safety depth, Squat and Sunrise / Sunset are in the bar at the bottom; the Voyage Draft Plan is in the ☰ menu.</div></details>
+<div class="card fold"><h2>Voyage</h2>
+  <details class="guide pph" id="ppHelp"><summary>📘 How to use</summary><ol><li>Choose the departure and arrival ports.</li><li>Set the speed and ETD (UTC).</li><li>Set the sailing method (great circle, composite or rhumb line).</li><li>Tap <b>Plan route</b> – results appear below the button.</li></ol><div class="hx">Plan, Waypoints, ETA and Weather are in the bar at the bottom; Squat, Safety depth, Sun and the other tools are in the ☰ menu. On the chart: NW = NAVAREA / NAVTEX stations, NP = publications, E = ENC, AIS = live ships, WX = weather, ⚙ = map layers. Tap a section title to fold it.</div></details>
   <div class="combo" id="cFrom"><label class="f">Departure port</label><input type="search" placeholder="Port name or UN/LOCODE, e.g. Manila / PHMNL" autocomplete="off" spellcheck="false"><div class="dd"></div><div class="sel"></div></div>
   <button class="swapbtn" onclick="swapPorts()">⇅ Swap</button>
   <div class="combo" id="cTo" style="margin-top:0"><label class="f">Arrival port</label><input type="search" placeholder="Type a port, e.g. Shanghai" autocomplete="off" spellcheck="false"><div class="dd"></div><div class="sel"></div></div>
@@ -1332,7 +1374,7 @@ table.h tr.xr td{padding:0 4px 8px!important;white-space:normal;text-align:left;
   </div>
   <div style="display:flex;justify-content:center;margin-top:14px"><label class="rtzbtn" for="rtzFile">⬆ Import RTZ route from ECDIS</label><input type="file" id="rtzFile" accept=".rtz,.xml" style="position:absolute;opacity:0;width:1px;height:1px" onchange="importRTZ(this.files[0]);this.value=''"></div>
 </div>
-<div class="card"><h2>Sailing method</h2>
+<div class="card fold"><h2>Sailing method</h2>
   <div class="grid">
     <div class="full"><label>Sailing method</label><select id="sail"><option value="gc">Great circle sailing (GCS) – ocean crossings</option><option value="comp">Composite sailing – ocean crossings</option><option value="rhumb">Rhumb line only</option></select></div>
   </div>
@@ -1365,7 +1407,7 @@ table.h tr.xr td{padding:0 4px 8px!important;white-space:normal;text-align:left;
   <button class="btn" id="planbtn" onclick="plan()">Plan route</button>
   <div class="muted" id="autoStat" style="text-align:center;margin-top:6px">Everything you enter is saved automatically on this phone.</div>
 </div>
-<div class="card" id="roptCard"><h2>Route options</h2><div id="altList"><p class="muted" style="margin:8px 0 2px">Plan a route to see the route options.</p></div>
+<div class="card fold" id="roptCard"><h2>Route options</h2><div id="altList"><p class="muted" style="margin:8px 0 2px">Plan a route to see the route options.</p></div>
   <details><summary>Allowed straits and canals</summary>
     <div class="chips" id="straits"></div>
     <p class="muted">Untick a passage to route around it, for example untick Taiwan Strait to pass east of Taiwan.</p>
@@ -1388,31 +1430,6 @@ table.h tr.xr td{padding:0 4px 8px!important;white-space:normal;text-align:left;
   </details>
 </div>
 <div id="results"></div>
-<div class="card fold shut"><h2>Map layers</h2>
-  <div class="chips">
-    <label class="chip"><input type="checkbox" id="lyEca" checked onchange="toggleLayer('eca',this.checked)">ECA / DECA zones</label>
-    <input type="checkbox" id="lyTss" checked hidden>
-    <label class="chip"><input type="checkbox" id="lyPilot" checked onchange="toggleLayer('pilots',this.checked)">Ports and pilot stations</label>
-    <label class="chip"><input type="checkbox" id="lySea" checked onchange="applyChart()">Seamarks (OpenSeaMap)</label>
-    <label class="chip"><input type="checkbox" id="lyNavtex" onchange="drawNavtex()">NAVTEX stations</label>
-    <label class="chip"><input type="checkbox" id="lyXtd" checked onchange="drawXTD(state.wps)">XTD corridor</label>
-    <label class="chip"><input type="checkbox" id="lySat" onchange="setLayer('sat',this.checked)">Inmarsat-C coverage</label>
-    <label class="chip"><input type="checkbox" id="lyHra" onchange="setLayer('hra',this.checked)">High risk areas</label>
-    <label class="chip"><input type="checkbox" id="lyWx" onchange="setLayer('wx',this.checked)">Weather along route</label>
-    <label class="chip"><input type="checkbox" id="lySsa" onchange="setLayer('ssa',this.checked)">Sensitive &amp; special areas</label>
-    <label class="chip"><input type="checkbox" id="lyVts" onchange="setLayer('vts',this.checked)">VTS areas</label>
-  </div>
-  <div class="hbar"><label class="add" for="mbtFile" style="margin:0">⬆ Load chart file (.mbtiles)</label><input type="file" id="mbtFile" accept=".mbtiles" style="position:absolute;opacity:0;width:1px;height:1px"><span class="muted" id="mbtInfo">No chart file loaded</span></div>
-  <div id="offBox"></div>
-  <div class="lg" style="margin-top:10px">
-    <span><i class="sw" style="background:#d62f2f"></i>ECA (SOx 0.10% + NOx)</span>
-    <span><i class="sw" style="background:#ef6c00"></i>Med ECA (SOx/PM)</span>
-    <span><i class="sw" style="background:#c99700"></i>China DECA / port ECA</span>
-    <span><i class="sw" style="background:#8e44ad"></i>Upcoming ECA</span>
-    <span><i class="sw" style="background:#f0b429"></i>Pilot station</span>
-    <span><i class="sw" style="background:#0b8f7d"></i>Canal / river</span>
-  </div>
-</div>
 <p class="muted ppnote">Chart data: Esri, Garmin, GEBCO, NOAA NGDC, NOAA Office of Coast Survey, Canadian Hydrographic Service, © OpenStreetMap / CARTO, OpenSeaMap. Planning aid only. Lanes are generated from the Natural Earth 1:10m coastline with 1.5–8 nm clearance and do not account for depth, TSS, ice, piracy areas or local rules. Pilot positions marked "est." are estimated. Verify against official charts/ENC, Sailing Directions, ALRS Vol 6 and MARPOL Annex VI before use. Not for navigation.</p>
 </div>
 
@@ -1433,9 +1450,9 @@ table.h tr.xr td{padding:0 4px 8px!important;white-space:normal;text-align:left;
 <div class="dr s" style="border-top:0;padding:6px 10px 2px"><span>Route</span><div class="seg"><button type="button" id="veN" class="on">No ECA</button><button type="button" id="veY">With ECA</button><button type="button" id="veA">ECA only</button></div></div>
 <div class="tg "><div class="tile "><label>Speed (knots)</label><input id="vsp" type="number" step="0.1"></div><div class="tile direct"><label><span class="ne">Berth → berth (nm)</span><span class="eo">Berth → berth, all in ECA (nm)</span></label><input id="vd0" type="number" step="1"></div></div>
 <div class="tg eca"><div class="tile "><label>ECA at departure (nm)</label><input id="vd1" type="number" step="1"></div><div class="tile "><label>Outside ECA (nm)</label><input id="vd2" type="number" step="1"></div><div class="tile "><label>ECA at arrival (nm)</label><input id="vd3" type="number" step="1"></div></div>
-<div class="hint">Diesel on the two ECA legs (incl. local port rules); 0 = the port is outside any ECA. Speed from the passage plan is the average over the whole passage (slower berth ↔ pilot and in canals), so the ETA here matches the plan.</div>
+<div class="hint">Diesel on the two ECA legs; 0 = the port is outside any ECA. Speed from the passage plan is the average over the whole passage (slower berth ↔ pilot and in canals), so the ETA here matches the plan.</div>
 </div>
-<div class="card"><h2>Local port fuel rules</h2>
+<div class="card" style="display:none"><h2>Local port fuel rules</h2>
 <div class="tg c2"><div class="tile"><label id="vlDl">Departure port – diesel within (nm of berth)</label><input id="vlD" type="text" inputmode="decimal"></div><div class="tile"><label id="vlAl">Arrival port – diesel within (nm of berth)</label><input id="vlA" type="text" inputmode="decimal"></div></div>
 <div class="hint" id="vlTxt" style="padding-bottom:4px">Some ports require distillate (diesel / MGO) inside port limits, e.g. Singapore and Kaohsiung. The diesel leg is added to the ECA legs (diesel replaces FO). Blank = no local rule.</div><details class="guide" id="gLoc"><summary>📘 How the local port fuel rules work</summary><ol><li>Ports with a known rule fill in automatically (Singapore; Taiwan ports such as Kaohsiung, Keelung, Taichung).</li><li>For any other port, enter the distance from the berth (nm) inside which the port requires distillate (DO / MGO). Leave it blank if there is no rule.</li><li>That distance, counted from the berth, is burned as diesel even outside an ECA. It is shown as a DIESEL leg in the fuel legs and in the daily ROB.</li><li>Plan the changeover so it is complete before that point; record the time, position and ROB in the logbook.</li><li>Rules change – confirm with the agent / latest port circular before arrival.</li></ol></details></div>
 <div class="card"><h2>Consumption (t/day, underway)</h2>
@@ -1456,19 +1473,27 @@ table.h tr.xr td{padding:0 4px 8px!important;white-space:normal;text-align:left;
 <!-- ============ ETA CALCULATION ============ -->
 <div id="eta" class="qd" style="display:none">
 <div class="gwrap"><details class="guide" id="gEta"><summary>📘 How to calculate the ETA</summary><ol><li>Choose what to calculate: <b>Berth to berth</b>, <b>Berth to arrival pilot station</b> or <b>Pilot to pilot</b>. With a planned route the distance, departure time and zone times fill in (↻ refills).</li><li>Enter the <b>departure date &amp; time</b> (ship's clock) and the zone times (East −, West +; UTC+8 = −8), the <b>distance to go</b> and the <b>speed</b>.</li><li>Add <b>speed-restricted sections</b> if part of the passage has a speed limit: choose the waypoints where it starts and ends, or enter the miles, the speed limit and any extra time (e.g. waiting, convoy).</li><li>Optional: current / weather allowance (+ favourable, − adverse) and delays (anchorage, bunkering).</li><li>Enter a <b>required ETA</b> to get the speed needed and the margin. Tap any result to see the working.</li></ol><div class="fx"><div><b>Steaming time</b><span>= (Distance − restricted nm) ÷ Speed + Σ restricted nm ÷ speed limit</span></div><div><b>ETA (UTC)</b><span>= Departure (LT) + ZD departure + Steaming time + Extra time + Delays</span></div><div><b>ETA (LT)</b><span>= ETA (UTC) − ZD arrival</span></div><div><b>Speed required</b><span>= Unrestricted distance ÷ Time left for it</span></div><div><b>Margin</b><span>= Required ETA − ETA</span></div></div></details></div>
-<div class="card"><h2>Voyage</h2>
+<div class="eseg"><div class="seg3" id="eMpSeg"><button data-m="1" class="on">Single passage</button><button data-m="n">Multiple ports</button></div></div>
+<div class="card" id="eMp" style="display:none;--ac:#ab47bc"><h2>Multi-port voyage</h2>
+<datalist id="portDL"></datalist>
+<div class="bop"><div class="b1" style="font-size:11px;font-weight:800;color:var(--mut)">DEPARTURE</div><div class="tg"><div class="tile"><label>Port</label><input id="mp0P" list="portDL" type="text" placeholder="Port name"></div><div class="tile"><label>ETD (LT)</label><input id="mp0T" type="datetime-local"></div><div class="tile"><label>Zone time (ZD)</label><span class="sgn"><button type="button" class="pm" tabindex="-1">±</button><input id="mp0Z" type="text" inputmode="decimal"></span></div></div></div>
+<div id="mpLegs"></div>
+<div class="exp" style="margin:6px 10px 8px"><button type="button" onclick="mpAdd()">＋ Add port</button><button type="button" onclick="mpDistAll()">↻ Distances from the route planner</button></div>
+<div id="mpOut" style="padding:4px 10px 10px"></div>
+<div class="hint" style="margin:0 10px 10px">Distance = berth to berth. Port stay = time alongside / at anchor before sailing to the next port. Zone time: East −, West + (UTC+8 = −8). ↻ uses the app's route planner with your current route options.</div></div>
+<div class="card es1"><h2>Voyage</h2>
 <div class="tg c2"><div class="tile"><label>Calculate</label><select id="eMode"><option value="bb">Berth to berth</option><option value="bp">Berth to arrival pilot stn</option><option value="pp">Pilot to pilot</option></select></div><div class="tile"><label>&nbsp;</label><button type="button" class="add sm" id="eFill" style="margin:0;padding:7px">↻ From route</button></div></div>
 <div class="tg c2"><div class="tile"><label>Departure date &amp; time (LT)</label><input id="eT0" type="datetime-local"></div><div class="tile"><label>Zone time departure (ZD)</label><span class="sgn"><button type="button" class="pm" tabindex="-1">±</button><input id="eZ0" type="text" inputmode="decimal"></span></div></div>
 <div class="tg"><div class="tile"><label>Distance to go (nm)</label><input id="eDist" type="text" inputmode="decimal"></div><div class="tile"><label>Speed (kn)</label><input id="eSpd" type="text" inputmode="decimal"></div><div class="tile"><label>Zone time arrival (ZD)</label><span class="sgn"><button type="button" class="pm" tabindex="-1">±</button><input id="eZ1" type="text" inputmode="decimal"></span></div></div>
 <details class="slim" id="eLimBox"><summary>Speed-restricted sections <span id="eLimN"></span></summary><div id="eLim"></div><div class="exp" style="margin:6px 10px 8px"><button type="button" onclick="eLimAdd('wp')">＋ Between waypoints</button><button type="button" onclick="eLimAdd('nm')">＋ By distance (nm)</button></div></details>
 <details class="slim"><summary>Current &amp; delays</summary><div class="tg c2"><div class="tile"><label>Current / weather (kn, ±)</label><span class="sgn"><button type="button" class="pm" tabindex="-1">±</button><input id="eCur" type="text" inputmode="decimal"></span></div><div class="tile"><label>Delays (h)</label><input id="eDel" type="text" inputmode="decimal"></div></div></details>
 </div>
-<div class="card"><h2>Required arrival (optional)</h2>
+<div class="card es1"><h2>Required arrival (optional)</h2>
 <div class="tg c2"><div class="tile"><label>Required ETA (arrival LT)</label><input id="eReq" type="datetime-local"></div><div class="tile"><label>&nbsp;</label><span></span></div></div></div>
-<div class="card"><h2>Result</h2>
+<div class="card es1"><h2>Result</h2>
 <div class="tg"><div class="tile key"><label>Steaming time</label><div class="calc" data-k="e_t">–</div></div><div class="tile key"><label>ETA (LT)</label><div class="calc" data-k="e_lt">–</div></div><div class="tile"><label>ETA (UTC)</label><div class="calc" data-k="e_utc">–</div></div></div>
 <div class="tg c2"><div class="tile"><label>Speed required (kn)</label><div class="calc" data-k="e_req">–</div></div><div class="tile"><label>Margin to required ETA</label><div class="calc" data-k="e_mg">–</div></div></div></div>
-<div class="card"><h2>ETA at different speeds</h2><div id="eSpdTab" style="padding:6px 10px 10px"></div></div>
+<div class="card es1"><h2>ETA at different speeds</h2><div id="eSpdTab" style="padding:6px 10px 10px"></div></div>
 </div>
 
 <!-- ============ SUNRISE / SUNSET ============ -->
@@ -1526,6 +1551,16 @@ table.h tr.xr td{padding:0 4px 8px!important;white-space:normal;text-align:left;
 <div class="tile"><label>To latitude</label><input id="ncCa2" type="text"></div><div class="tile"><label>To longitude</label><input id="ncCo2" type="text"></div>
 <div class="tile"><label>Limiting latitude</label><input id="ncCl" type="text" placeholder="50 00.0 N"></div><div class="tile"><label>&nbsp;</label><button type="button" class="add sm ncr" data-p="ncC" style="margin:0;padding:7px">↻ From route</button></div></div></div>
 <div id="ncCr"></div></div></div>
+</div>
+
+<!-- ============ WEATHER ============ -->
+<div id="wx" class="qd" style="display:none">
+<div class="gwrap"><details class="guide" id="gWx"><summary>📘 How to use the weather</summary><ol><li><b>Along the route:</b> plan a route – the forecast for the ship's ETA at each point downloads automatically (wind 16 days, sea 8 days). Tap <b>WX</b> on the chart to show it on the map.</li><li><b>At a position:</b> tap 📍 GPS or type a position to get the next 3 days.</li></ol><div class="hx">Open-Meteo (DWD, ECMWF, NOAA models), CC BY 4.0. Planning aid – use official forecasts (SafetyNET / NAVTEX / weather routing) for navigation.</div></details></div>
+<div class="card" style="--ac:#29a3e0"><h2>Weather along the route</h2><div id="wxBox" style="padding:6px 10px 10px"></div></div>
+<div class="card" style="--ac:#26a69a"><h2>Weather at a position</h2>
+<div class="tg"><div class="tile"><label>Latitude</label><input id="wxpLat" type="text" placeholder="14 35.7 N"></div><div class="tile"><label>Longitude</label><input id="wxpLon" type="text" placeholder="120 57.3 E"></div><div class="tile"><label>&nbsp;</label><button type="button" class="add sm" id="wxpGps" style="margin:0;padding:7px">📍 GPS</button></div></div>
+<div class="tg c1"><div class="tile"><button type="button" class="add sm" id="wxpGo" style="margin:0;padding:8px">⟳ Get 3-day forecast</button></div></div>
+<div id="wxpOut" style="padding:4px 10px 10px"></div></div>
 </div>
 
 <!-- ============ SAFETY DEPTH ============ -->
@@ -1608,6 +1643,34 @@ table.h tr.xr td{padding:0 4px 8px!important;white-space:normal;text-align:left;
 <div class="card"><h2>Table</h2><div class="hs" id="hs"></div></div>
 </div>
 
+<dialog id="layDlg"><div class="ldh"><h2>Map layers</h2><button class="hb" onclick="$('layDlg').close()" aria-label="Close">✕</button></div><div class="ldb">
+  <div class="chips">
+    <label class="chip"><input type="checkbox" id="lyEca" checked onchange="toggleLayer('eca',this.checked)">ECA / DECA zones</label>
+    <input type="checkbox" id="lyTss" checked hidden>
+    <label class="chip"><input type="checkbox" id="lyPilot" checked onchange="toggleLayer('pilots',this.checked)">Ports and pilot stations</label>
+    <label class="chip"><input type="checkbox" id="lySea" checked onchange="applyChart()">Seamarks (OpenSeaMap)</label>
+    <label class="chip"><input type="checkbox" id="lyNavtex" onchange="drawNavtex()">NAVTEX stations</label>
+    <label class="chip"><input type="checkbox" id="lyXtd" checked onchange="drawXTD(state.wps)">XTD corridor</label>
+    <label class="chip"><input type="checkbox" id="lySat" onchange="setLayer('sat',this.checked)">Inmarsat-C coverage</label>
+    <label class="chip"><input type="checkbox" id="lyHra" onchange="setLayer('hra',this.checked)">High risk areas</label>
+    <label class="chip"><input type="checkbox" id="lyWx" onchange="setLayer('wx',this.checked)">Weather along route</label>
+    <label class="chip"><input type="checkbox" id="lySsa" onchange="setLayer('ssa',this.checked)">Sensitive &amp; special areas</label>
+    <label class="chip"><input type="checkbox" id="lyVts" onchange="setLayer('vts',this.checked)">VTS areas</label>
+  </div>
+  <div class="hbar"><label class="add" for="mbtFile" style="margin:0">⬆ Load chart file (.mbtiles)</label><input type="file" id="mbtFile" accept=".mbtiles" style="position:absolute;opacity:0;width:1px;height:1px"><span class="muted" id="mbtInfo">No chart file loaded</span></div>
+  <div id="offBox"></div>
+  <div class="lg" style="margin-top:10px">
+    <span><i class="sw" style="background:#d62f2f"></i>ECA (SOx 0.10% + NOx)</span>
+    <span><i class="sw" style="background:#ef6c00"></i>Med ECA (SOx/PM)</span>
+    <span><i class="sw" style="background:#c99700"></i>China DECA / port ECA</span>
+    <span><i class="sw" style="background:#8e44ad"></i>Upcoming ECA</span>
+    <span><i class="sw" style="background:#f0b429"></i>Pilot station</span>
+    <span><i class="sw" style="background:#0b8f7d"></i>Canal / river</span>
+  </div>
+</div><div class="ldf"><span class="muted" style="font-size:10.5px">Choices are saved automatically.</span><button class="btn" style="width:auto;padding:8px 22px;margin:0" onclick="$('layDlg').close()">Done</button></div></dialog>
+<dialog id="libDlg"><div class="ldh"><h2>Saved plans</h2><button class="hb" onclick="$('libDlg').close()" aria-label="Close">✕</button></div>
+<div class="ldb"><div class="libsave"><label for="libName">Save the current plan as</label><div class="lbr"><input id="libName" type="text" maxlength="80"><button class="btn" id="libSaveBtn" style="width:auto;margin:0;padding:8px 16px" onclick="libSave()">Save</button></div><div class="muted" id="libHint" style="font-size:10.5px;margin-top:3px">Saved inside the app on this device – route, ETD, speed, options, waypoint notes, voyage draft plan and calculators.</div></div>
+<div id="libList"></div></div></dialog>
 <dialog id="about"><h2 style="margin:0 0 4px;font-size:16px">Passage Planner</h2><div class="muted" style="font-size:11px;margin-bottom:10px">Version <span id="appVer">1.0.0</span> · planning aid for ship officers</div>
 <div class="abx"><b>⚠ Planning aid only – not for navigation.</b> Routes, depths, zones (ECA, VTS, special and high-risk areas), NAVAREA limits, pilot positions and action points are approximate. Always verify against official ENC / paper charts, Sailing Directions, ALRS, Notices to Mariners, the company SMS and the Master's orders. The user remains responsible for the passage plan (SOLAS V/34).</div>
 <div class="abx"><b>🔒 Your data stays on this device.</b> No account, no tracking, no analytics. Plans, settings and notes are stored only on this phone / computer. GPS position is used on the device only. Live data (charts, weather, navigational warnings) is downloaded from public services when you are online. <a href="privacy.html" target="_blank" rel="noopener">Privacy policy</a></div>
@@ -2555,8 +2618,17 @@ function encAtWp(w,E){if(!E)return null;let band=1;for(const x of E.seg){if(w.cu
  let cells=[];if(ENCDB&&ENCDB.cells){const lo=norm(w.p[1]);cells=ENCDB.cells.filter(c=>{const wrap=c[4]<c[2];return w.p[0]>=c[1]&&w.p[0]<=c[3]&&(wrap?(lo>=c[2]||lo<=c[4]):(lo>=c[2]&&lo<=c[4]))}).map(c=>c[0]).sort((a,b)=>(+b[2]||0)-(+a[2]||0))}
  const cb=cells.length?+cells[0][2]||band:band;const seg=E.seg.find(x=>w.cum>=x.a-0.01&&w.cum<=x.b+0.01);return{band:cb,cells,cc:seg?seg.cc:null}}
 function encWpHtml(E,hasR){if(!hasR)return'<p class="muted">Plan a route first.</p>';const w=state.wps;
- let h=`<div class="muted" style="font-size:11.5px;margin:2px 0 8px">Most suitable ENC usage band at each waypoint${ENCDB?` and the cells from your catalogue (${esc(ENCDB.src)}, ${ENCDB.cells.length} cells)`:''}.</div>`;
- h+=w.map((x,i)=>{const e=encAtWp(x,E),b=EBAND[e.band];return`<div class="eband" style="--gc:${b[2]}"><div class="bn">${e.band}</div><div class="bx"><b>${esc(x.lab)}</b> ${esc(wpName(x)||'')}<br><b>${ESCALE[e.band]}</b> <span class="muted">${b[0]}</span><br>${e.cells.length?`<span style="font:700 11.5px ui-monospace,Consolas,monospace;color:${b[2]}">${e.cells.slice(0,4).join(' · ')}</span>${e.cells.length>4?' +'+(e.cells.length-4):''}`:`<span class="muted">Cell ${esc(e.cc||'??')}${e.band}····· – load your catalogue for exact names</span>`}</div></div>`}).join('');
+ let h=`<div class="muted" style="font-size:11.5px;margin:2px 0 6px">Most suitable ENC usage band at each waypoint${ENCDB?` and the cells from your catalogue (${esc(ENCDB.src)}, ${ENCDB.cells.length} cells)`:''}. Tap a waypoint for the details.</div>
+ <div class="eall"><button class="swapbtn" onclick="document.querySelectorAll('#pBody details.eband').forEach(d=>d.open=true)">Expand all</button><button class="swapbtn" onclick="document.querySelectorAll('#pBody details.eband').forEach(d=>d.open=false)">Collapse all</button></div>`;
+ h+=w.map((x,i)=>{const e=encAtWp(x,E),b=EBAND[e.band],nx=w[i+1];const cells=e.cells.length?`<span class="ecl" style="color:${b[2]}">${e.cells.map(esc).join(' · ')}</span>`:`<span class="muted">Cell ${esc(e.cc||'??')}${e.band}····· – load your catalogue (CATALOG.031) for the exact cell names</span>`;
+  const zone=x.zone?zoneName(x.zone):'Berth';
+  return`<details class="eband" style="--gc:${b[2]}"><summary><span class="bn">${e.band}</span><span class="bx"><b>${esc(x.lab)}</b> ${esc(wpName(x)||'')}<br><b>${ESCALE[e.band]}</b> <span class="muted">${b[0]}${e.cells.length?' · '+e.cells.length+' cell'+(e.cells.length>1?'s':''):''}</span></span></summary>
+  <div class="edt"><div><span>Position</span><b>${fmtLat(x.p[0])} ${fmtLon(norm(x.p[1]))}</b></div>
+  <div><span>Usage band</span><b>${e.band} – ${b[0]}</b></div><div><span>Compilation scale</span><b>${b[1]}</b></div><div><span>Display scale (approx.)</span><b>${ESCALE[e.band]}</b></div>
+  <div><span>Waters</span><b>${zone}${x.band!=null?' · '+DBAND[x.band]:''}</b></div>
+  ${nx?`<div><span>Next leg</span><b>${nx.c!=null?String(Math.round(nx.c)).padStart(3,'0')+'°T · ':''}${fmtNm(nx.d)} nm to WP ${esc(nx.lab)}</b></div>`:''}
+  <div class="full"><span>Cells</span>${cells}</div>
+  <div class="full"><button class="swapbtn" style="margin:4px 0 0" onclick="togglePPanel(false);setTimeout(()=>{try{M.map.setView([${x.p[0]},${x.p[1]}],${Math.min(14,e.band+8)})}catch(_){}},150)">Show on chart</button></div></div></details>`}).join('');
  h+=`<div class="acts" style="display:flex;gap:6px;margin-top:10px;flex-wrap:wrap"><label class="add" for="encFile" style="margin:0">⬆ Load CATALOG.031 / cell list</label>${ENCDB?'<button class="swapbtn" style="margin:0" onclick="clearEnc()">Remove catalogue</button>':''}</div>`;return h}
 
 
@@ -2712,7 +2784,7 @@ async function fetchWx(silent){if(wxBusy||!state.wps||!state.res)return;wxBusy=t
    return{...x,ws:g(h,'wind_speed_10m',i),wd:g(h,'wind_direction_10m',i),wg:g(h,'wind_gusts_10m',i),vis:g(h,'visibility',i),pr:g(h,'pressure_msl',i),
     hs:g(m,'wave_height',j),hd:g(m,'wave_direction',j),hp:g(m,'wave_period',j),sh:g(m,'swell_wave_height',j),sd:g(m,'swell_wave_direction',j),sp:g(m,'swell_wave_period',j),
     cv:g(m,'ocean_current_velocity',j)!=null?g(m,'ocean_current_velocity',j)/1.852:null,cd:g(m,'ocean_current_direction',j),out:i<0}});
-  WX={key,fetched:new Date().toISOString(),pts};store('wx',WX);wxBusy=false;drawLayers();const c=$('wxBox');if(c)c.innerHTML=wxHtml();if(!silent)toast('Forecast loaded')}
+  WX={key,fetched:new Date().toISOString(),pts};store('wx',WX);wxBusy=false;drawLayers();const c=$('wxBox');if(c)c.innerHTML=state.wps?wxHtml():c.innerHTML;if(!silent)toast('Forecast loaded')}
  catch(e){wxBusy=false;const s2=$('wxStat');if(s2)s2.innerHTML=`<span style="color:var(--bad)">Forecast not available (${esc(e.message||'offline')}). Needs internet.</span>`}}
 function wxHtml(){const ok=WX&&WX.key===wxKey();if(!ok)return`<div class="wxs" id="wxStat">${navigator.onLine===false?'Offline – the forecast downloads when you have internet.':'Downloading forecast…'}</div>`;
  const P=WX.pts,inr=P.filter(x=>!x.out);const mx=(f)=>inr.reduce((b,x)=>x[f]!=null&&(!b||x[f]>b[f])?x:b,null);const W=mx('ws'),H=mx('hs');const ft=t=>{const d=new Date(t).toISOString();return d.slice(8,10)+'/'+d.slice(5,7)+' '+d.slice(11,13)+'Z'};
@@ -3107,7 +3179,7 @@ function render(){
  $('altList').innerHTML=`${state.alts.map((a,i)=>`<button class="alt ${i===state.sel?'on':''}" onclick="state.sel=${i};render()">${i===0?'★ ':''}${esc(label(a))}<b>${fmtNm(a.len)} nm</b>${a.eca>0.5?`<br><span class="muted">${fmtNm(a.eca)} nm in ECA${getOpt(true).k>1?' · est. fuel $'+Math.round(a.cost.total).toLocaleString():''}</span>`:''}</button>`).join('')}
  ${fh.length?`<div class="warn">${esc(fh.join(', '))} kept: needed to reach the port itself.</div>`:''}`;
  portIdx();$('results').innerHTML=`
- <div class="card"><h2>Voyage summary</h2><div class="vsub">${esc(A.n)}${A.lc?` (${A.lc})`:''} → ${esc(B.n)}${B.lc?` (${B.lc})`:''}</div>
+ <div class="card fold"><h2>Voyage summary</h2><div class="vsub">${esc(A.n)}${A.lc?` (${A.lc})`:''} → ${esc(B.n)}${B.lc?` (${B.lc})`:''}</div>
   <div class="stats">
    <div class="stat k"><small>Berth to berth</small><b>${fmtNm(res.total)} nm</b></div>
    <div class="stat"><small>Pilot to pilot</small><b>${res.sea!=null?fmtNm(res.sea)+' nm':'—'}</b></div>
@@ -3115,17 +3187,15 @@ function render(){
    <div class="stat"><small>ETA berth</small><b>${fmtUTC(wps[wps.length-1].eta)}</b><small>LT ${fmtLT(wps[wps.length-1].eta,wps[wps.length-1].p[1])}</small></div>
    <div class="stat"><small>Inside ECA/DECA (all zones)</small><b>${fmtNm(eca)} nm</b></div>
   </div>
- ${(()=>{const L1=localNm('dep'),L2=localNm('arr'),F=fuelLegs(L1,L2);if(!F)return'';const RA=localRule(A),RB=localRule(B);
+ ${(()=>{const L1=0,L2=0,F=fuelLegs(0,0);if(!F)return'';const RA=null,RB=null;
   return`<div class="fpos"><div class="sbt">BERTH TO BERTH SUMMARY</div>${bbSummary(F)}${RA||RB?`<p class="muted bbn">${[RA?`<b>${esc(A.n)}</b>: diesel within ${L1} nm of berth`:'',RB?`<b>${esc(B.n)}</b>: diesel within ${L2} nm of berth`:''].filter(Boolean).join(' · ')}</p>`:''}</div>`})()}
  </div>
  <div class="card fold shut"><h2>Pilot stations</h2>${pinfo(A,'Dep',res.pi1)}${pinfo(B,'Arr',res.pi2)}</div>
 
- ${wxCard()}
- ${srsCard()}
- <div class="card"><h2>Waypoints</h2><button class="btn" style="margin-top:10px" onclick="showView('wpv')">⚑ Waypoint list &amp; actions (${wps.length} WPs) →</button></div>`;
+ <div class="card fold"><h2>Waypoints</h2><button class="btn" style="margin-top:10px" onclick="showView('wpv')">⚑ Waypoint list &amp; actions (${wps.length} WPs) →</button></div>`;
  {const wb=$('wpBox');if(wb)wb.innerHTML=`<div class="card"><h2>Waypoint list</h2>
   <div class="swipe">Swipe the table sideways for course, distance, ETA, XTD, wheel-over and speed. XTD and speed can be edited per leg.</div><div class="tblwrap"><table class="h"><thead><tr><th class="l">WP</th><th class="l">Name</th><th>Lat</th><th>Lon</th><th>Co°T</th><th>Dist</th><th>Total</th><th>ETA</th><th>XTD m</th><th>Alter</th><th>WO nm</th><th>Kn</th><th>ETA LT (ZD)</th><th>ENC</th><th>Depth band</th><th>Least depth m</th><th>CATZOC</th><th class="l">Zone</th></tr></thead><tbody>${rows}</tbody></table></div>
-  <div class="sbh" style="margin-top:12px;font-weight:800;font-size:12px;color:var(--h1)">EXPORT</div><div class="exp"><button onclick="savePlanFile()">💾 Save plan file</button><button onclick="$('opFile').click()">📂 Open plan file</button><button onclick="exportRTZ()">RTZ (ECDIS)</button><button onclick="exportCSV()">CSV</button><button onclick="printPlan()">🖨 Print passage plan</button><button onclick="showView('vd')">Voyage draft plan</button></div>
+  <div class="sbh" style="margin-top:12px;font-weight:800;font-size:12px;color:var(--h1)">EXPORT</div><div class="exp"><button onclick="libOpen(true)">💾 Save plan</button><button onclick="libOpen(false)">📂 Saved plans</button><button onclick="exportRTZ()">RTZ (ECDIS)</button><button onclick="exportCSV()">CSV</button><button onclick="printPlan()">🖨 Print passage plan</button><button onclick="showView('vd')">Voyage draft plan</button></div>
  </div>`}
  {const g=$('gcSec');if(g)g.innerHTML=SAIL!=='rhumb'&&r.base?gcSecHtml(r):(r.edited||r.imported?'<p class="muted">'+(r.imported&&!r.edited?'Imported RTZ route. ':'Route edited on the chart. ')+'To add a great circle, tap ✎ on the chart, tap a waypoint → ▶ Start GC, then another → ■ End GC. Legs outside GC sections stay rhumb line; repeat for more GC sections (composite).</p>':'<p class="muted">Plan a route to choose where the great circle starts and ends.</p>')}
  {const ob=$('offBox');if(ob)ob.innerHTML=offCard().replace('<div class="card fold shut"><h2>Offline charts</h2>','<div class="fpos"><div class="sbt">OFFLINE CHARTS FOR THIS ROUTE</div>')}
@@ -3704,11 +3774,11 @@ function setupWarnings(){
 
 /* ================= Menu ================= */
 (function(){const dr=$("drawer");$("menuBtn").onclick=()=>dr.classList.add("open");dr.querySelector(".bk").onclick=()=>dr.classList.remove("open");
- const T={pp:"PASSAGE PLAN",wpv:"WAYPOINTS",vd:"VOYAGE DRAFT PLAN",eta:"ETA CALCULATION",ukc:"SAFETY DEPTH (UKC)",sq:"SQUAT CALCULATION",sun:"SUNRISE / SUNSET",nw:"NAV WARNINGS",hy:"HYDROSTATIC TABLE",nc:"SAILING CALCULATORS"};
+ const T={pp:"PASSAGE PLAN",wpv:"WAYPOINTS",vd:"VOYAGE DRAFT PLAN",eta:"ETA CALCULATION",ukc:"SAFETY DEPTH (UKC)",sq:"SQUAT CALCULATION",sun:"SUNRISE / SUNSET",nw:"NAV WARNINGS",hy:"HYDROSTATIC TABLE",nc:"SAILING CALCULATORS",wx:"WEATHER"};
  dr.querySelectorAll("nav button").forEach(b=>b.onclick=()=>{dr.classList.remove("open");const v=b.dataset.v;
-  if(v==="set"){$("settings").showModal();return}if(v==="sv"){savePlanFile();return}if(v==="op"){$("opFile").click();return}if(v==="bk"){backupAll();return}if(v==="rs"){$("rsFile").click();return}if(v==="ab"){$("about").showModal();return}if(v==="inst"){if(window._bip){_bip.prompt();_bip.userChoice.finally(()=>{window._bip=null;$("instBtn").style.display="none"})}return}
+  if(v==="set"){$("settings").showModal();return}if(v==="sv"){libOpen(true);return}if(v==="lib"){libOpen(false);return}if(v==="bk"){backupAll();return}if(v==="rs"){$("rsFile").click();return}if(v==="ab"){$("about").showModal();return}if(v==="inst"){if(window._bip){_bip.prompt();_bip.userChoice.finally(()=>{window._bip=null;$("instBtn").style.display="none"})}return}
   dr.querySelectorAll("nav button").forEach(x=>x.classList.toggle("on",x===b));
-  ["pp","wpv","vd","eta","ukc","sq","sun","nw","hy","nc"].forEach(k=>$(k).style.display=k===v?"":"none");if(v==="nw"){renderWarnList();if(!WARN.fetched||Date.now()-Date.parse(WARN.fetched)>3*3600e3)fetchNGA(true)}$("ttl").textContent=T[v];store('view',v);document.body.dataset.view=v;if(window.fbarOn)fbarOn(v);window.scrollTo(0,0);
+  ["pp","wpv","vd","eta","ukc","sq","sun","nw","hy","nc","wx"].forEach(k=>$(k).style.display=k===v?"":"none");if(v==="wx")wxView();if(v==="sun"&&!$("sLat").value)sunHere(true);$("ttl").textContent=T[v];store('view',v);document.body.dataset.view=v;if(window.fbarOn)fbarOn(v);window.scrollTo(0,0);
   if(v==="pp"&&M){setTimeout(()=>{try{if(M===LeafletMap)M.map.invalidateSize();else google.maps.event.trigger(M.map,'resize')}catch(e){}},50)}
   if(v==="vd"){vpHyInfo();vcalc()}if(v==="eta"||v==="ukc"||v==="sq"){etaFromRoute(false);c3defaults();c3calc()}if(v==="sun"){sunPts();sunCalc()}if(v==="nc"&&window.ncCalc)ncCalc()});
  window.showView=v=>{const b=dr.querySelector(`nav button[data-v="${v}"]`);if(b)b.onclick()};
@@ -4069,14 +4139,14 @@ const LOCAL_RULES=[
  {re:/singapore/i,n:'Singapore',t:'Singapore port limits: compliant fuel only and no open-loop scrubber discharge – ships change over to distillate (diesel / MGO) before entering port limits and keep it until clear (MPA port marine circulars).'},
  {re:/kaohsiung|keelung|taichung|taipei|hualien|su-?ao|anping|mailiao/i,n:'Taiwan international commercial ports',t:'Taiwan international commercial port areas (e.g. Kaohsiung, Keelung, Taichung): low-sulphur fuel inside the port area – ships change over to distillate (diesel / MGO) before entering (MOTC / TIPC rules).'}];
 function localRule(P){return P?LOCAL_RULES.find(r=>r.re.test(P.n+' '+(P.a||''))):null}
-function localNm(which){const w=state.wps;const P=PORTS[which==='dep'?state.from:state.to];const R=localRule(P);VPS.loc=VPS.loc||{};const k=P?P.n:'';
+function localNm(which){return 0;const w=state.wps;const P=PORTS[which==='dep'?state.from:state.to];const R=localRule(P);VPS.loc=VPS.loc||{};const k=P?P.n:'';
  if(k&&VPS.loc[k]!=null&&VPS.loc[k]!=='')return +VPS.loc[k];if(!R||!w)return 0;
  const pi=which==='dep'?w.findIndex(x=>x.t==='pilot'):w.length-1-[...w].reverse().findIndex(x=>x.t==='pilot');
  const T=w[w.length-1].cum;const d=pi>=0&&pi<w.length?(which==='dep'?w[pi].cum:T-w[pi].cum):0;return Math.round((d+2)*2)/2}
 function fuelLegs(L1,L2){const L=vdRouteLegs();if(!L)return null;const T=L.T;const cuts=new Set([0,T]);let c=0;L.segs.forEach(s=>{c+=s.d;cuts.add(Math.min(T,c))});if(L1>0)cuts.add(Math.min(T,L1));if(L2>0)cuts.add(Math.max(0,T-L2));
  const P=[...cuts].sort((a,b)=>a-b);const ecaAt=x=>{let c=0;for(const s of L.segs){if(x<c+s.d)return s.eca;c+=s.d}return L.segs.length?L.segs[L.segs.length-1].eca:false};
  const pieces=[];for(let i=1;i<P.length;i++){const a=P[i-1],b=P[i];if(b-a<0.05)continue;const m=(a+b)/2,e=ecaAt(m),loc=(m<L1)||(m>T-L2);const why=e&&loc?'ECA / port limit':e?'ECA':loc?'port limit':'';const l=pieces[pieces.length-1];if(l&&!!l.why===!!why&&(l.why===why||!why))l.d+=b-a;else pieces.push({d:b-a,why})}
- const nm=(p,i)=>{const pr=pieces[i-1],nx=pieces[i+1];if(p.why){if(i===0)return'Berth → exit '+p.why;if(i===pieces.length-1)return'Enter '+p.why+' → berth';return p.why==='ECA'?'Inside ECA':'Inside '+p.why}
+ const nm=(p,i)=>{const pr=pieces[i-1],nx=pieces[i+1];if(pieces.length===1)return p.why?'Berth → berth (all inside ECA)':'Berth → berth';if(p.why){if(i===0)return'Berth → exit '+p.why;if(i===pieces.length-1)return'Enter '+p.why+' → berth';return p.why==='ECA'?'Inside ECA':'Inside '+p.why}
   return(i===0?'Berth':'Exit '+pr.why)+' → '+(i===pieces.length-1?'berth':'enter '+nx.why)};
  return{T,legs:pieces.map((p,i)=>({n:nm(p,i).replace('Berth → berth','Berth → berth'),eca:!!p.why,d:p.d}))}}
 
@@ -4208,10 +4278,10 @@ boot();
 
 
 /* ---- first-use helpers ---- */
-const FOLD={};
+const FOLD=load('fold',{});
 function hideHelp(id){const e=$(id);if(e)e.classList.add('hide');try{localStorage.setItem('help_'+id,'0')}catch(e){}}
 function applyFold(){document.querySelectorAll('.card.fold').forEach(c=>{const h=c.querySelector('h2');if(h&&h.textContent in FOLD)c.classList.toggle('shut',FOLD[h.textContent])})}
-document.addEventListener('click',e=>{const h=e.target.closest('.card.fold>h2');if(!h)return;const c=h.parentElement;c.classList.toggle('shut');FOLD[h.textContent]=c.classList.contains('shut')});
+document.addEventListener('click',e=>{const h=e.target.closest('.card.fold>h2');if(!h)return;const c=h.parentElement;c.classList.toggle('shut');FOLD[h.textContent]=c.classList.contains('shut');store('fold',FOLD)});
 ['ppHelp','vdHelp'].forEach(id=>{try{if(localStorage.getItem('help_'+id)==='0'){const e=document.getElementById(id);if(e)e.classList.add('hide')}}catch(e){}});
 
 function qdPh(){document.querySelectorAll('.qd input:not([type=checkbox]):not([type=radio]):not([type=file]):not([type=datetime-local]):not([type=time]):not([placeholder])').forEach(e=>e.placeholder='–')}
@@ -4231,11 +4301,11 @@ function sunHere(silent){const use=(la,lo,src)=>{$('sPt').value='';$('sLat').val
  if(!navigator.geolocation){if(!silent)toast('GPS not available in this browser');sunToday();return}
  SUNSRC='Getting GPS position…';sunCalc();
  navigator.geolocation.getCurrentPosition(p=>use(p.coords.latitude,p.coords.longitude,'GPS position'),e=>{SUNSRC=(load('sun',{}).la?'Last used position':'');if(!silent)toast('GPS position not available – enter the position or pick a route point');sunToday()},{enableHighAccuracy:false,maximumAge:600000,timeout:12000})}
-document.querySelectorAll('#fbar button').forEach(b=>b.onclick=()=>{const v=b.dataset.f;showView(v);if(v==='sun')sunHere(true)});
+document.querySelectorAll('#fbar button').forEach(b=>b.onclick=()=>showView(b.dataset.f));
 $('sGps').onclick=()=>sunHere(false);$('sToday').onclick=()=>{SUNSRC='';sunToday()};
 ['sLat','sLon','sZ','sDate'].forEach(i=>$(i).addEventListener('input',()=>{SUNSRC='';fSunUpd()}));
 $('sPt').addEventListener('change',()=>{SUNSRC='';fSunUpd()});
-fbarOn(load('view','pp'));fSunUpd();
+fbarOn(load('view','pp'));
 
 /* ---- section accents ---- */
 const ACC=[[/voyage summary/i,'#e8a91f'],[/^voyage$|departure|position/i,'#3fb4f2'],[/sailing/i,'#9b8cff'],[/route options/i,'#29c4a9'],[/pilot/i,'#5ab8ee'],[/high risk/i,'#ef5350'],[/safety check/i,'#ff8a50'],[/reporting/i,'#b388ff'],[/waypoint/i,'#7fd34a'],[/map layers/i,'#90a4ae'],[/eca optim|ecdis|consumption/i,'#f06292'],[/fuel|tank/i,'#e8a91f'],[/ballast|fresh water/i,'#26c6da'],[/route &|route and/i,'#29c4a9'],[/local port/i,'#ffb74d'],[/result|summary|check/i,'#7fd34a'],[/ship$|^ship/i,'#3fb4f2'],[/water/i,'#26c6da'],[/sun|twilight/i,'#e8a91f'],[/days|speeds|table/i,'#9b8cff'],[/remaining|daily/i,'#7fd34a'],[/required/i,'#ffb74d'],[/warning/i,'#ef5350'],[/hydrostatic|paste|row|map hydro/i,'#90a4ae']];
@@ -4294,5 +4364,110 @@ window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();window._bip
 window.addEventListener('appinstalled',()=>{const b=document.getElementById('instBtn');if(b)b.style.display='none';toast('Installed – open it from the home screen')});
 
 try{if(!localStorage.getItem('pp2_disc1'))document.getElementById('discBar').style.display='flex'}catch(e){document.getElementById('discBar').style.display='flex'}
+
+/* ---- NW panel: NAVAREA / NAVTEX stations only (live warning download removed) ---- */
+fetchNGA=async function(){};fetchExt=async function(){};
+drawWarnings=function(){if(!M||!layersW)return;layersW.warn.forEach(x=>M.hide(x));layersW.warn=[]};
+syncWarnDangers=function(){try{dngRemove('Nav warning')}catch(e){}};
+renderNear=function(){state.nearW=[];renderWPanel()};
+setupWCtl=function(){wCtlSync()};
+let _nsC=null;function navSeqC(){if(!state.res)return null;if(_nsC&&_nsC.r===state.res)return _nsC.v;const v=navSeq();_nsC={r:state.res,v};return v}
+updFab=function(){const c=$('wCnt');if(!c)return;const N=navSeqC();c.textContent=N?N.na.length+'·'+N.nx.length:'–';c.classList.remove('hot')};
+renderWPanel=function(){updFab();const sh=$('wSheet');if(!sh||!sh.classList.contains('open'))return;const hasR=!!state.wps;
+ $('wSub').textContent=hasR?`${PORTS[state.from].n} → ${PORTS[state.to].n}`:'Plan a route to list the stations along it';
+ let h=`<div class="wopts"><span class="lb">Show on chart</span><div class="seg3"><button class="${LAYON.na?'on':''}" onclick="setLayer('na',!LAYON.na);renderWPanel()">NAVAREA limits</button><button class="${LAYON.nx?'on':''}" onclick="setLayer('nx',!LAYON.nx);renderWPanel()">NAVTEX ranges</button></div></div>`;
+ if(!hasR){$('wBody').innerHTML=h+'<p class="muted" style="margin-top:10px">Plan a route to list the NAVAREAs (SafetyNET / EGC) and the NAVTEX stations along it.</p>';return}
+ const NS=navSeqC();
+ h+=`<div class="wgrp" style="--gc:#d62f2f"><h4>NAVAREAS ON THE ROUTE <span class="c">${NS.na.length}</span></h4><div class="nalist na">${NS.na.map(x=>`<div><b>NAVAREA ${x.a}</b> ${esc(x.c)} · ${x.cum<1?'from departure':'≈'+fmtNm(x.cum)+' nm · '+fmtUTC(etaAt(x.cum))}</div>`).join('')||'<div>—</div>'}</div><div class="muted" style="font-size:10.5px;margin-top:4px">Select these areas on the Inmarsat-C EGC receiver (SafetyNET). Boundaries approximate – confirm in ALRS Vol 5.</div></div>`;
+ h+=`<div class="wgrp" style="--gc:#5e35b1"><h4>NAVTEX STATIONS ON THE ROUTE <span class="c">${NS.nx.length}</span></h4><div class="nalist nx">${NS.nx.map(x=>`<div><b>${esc(x.n)}</b> ${esc([...x.ids].join(', '))} · ${x.cum<1?'from departure':'≈'+fmtNm(x.cum)+' nm'}</div>`).join('')||'<div>none in range</div>'}</div><div class="muted" style="font-size:10.5px;margin-top:4px">Stations within ≈350 nm of the route (B1 character and frequency). Programme the NAVTEX receiver accordingly – ALRS Vol 5 / NP 285.</div></div>`;
+ $('wBody').innerHTML=h};
+
+/* ---- map layers dialog: remember the chart options ---- */
+(function(){const ids=['lyEca','lyPilot','lySea','lyNavtex','lyXtd'];const S=load('lychk',{});ids.forEach(id=>{const e=$(id);if(e&&S[id]!=null)e.checked=!!S[id]});
+ ids.forEach(id=>{const e=$(id);if(e)e.addEventListener('change',()=>{const s=load('lychk',{});s[id]=e.checked;store('lychk',s)})});
+ const w=$('lyWx');if(w)w.addEventListener('change',()=>wxTabSync())})();
+/* ---- WX toggle on the chart ---- */
+function wxTabSync(){const b=$('wxTab');if(b)b.classList.toggle('on',!!LAYON.wx);const c=$('lyWx');if(c)c.checked=!!LAYON.wx}
+function wxToggle(){const on=!LAYON.wx;setLayer('wx',on);wxTabSync();if(on){if(!state.wps){toast('Plan a route to show the weather along it');return}const k=wxKey();if(!WX||WX.key!==k)fetchWx(false);else toast('Weather on the chart · details in Weather (bottom bar)')}}
+/* ---- live AIS (VesselFinder embedded map, centred on the chart) ---- */
+let AISON=false;
+function aisToggle(on){AISON=on==null?!AISON:on;const box=$('aisBox');box.classList.toggle('open',AISON);$('aisTab').classList.toggle('on',AISON);
+ if(!AISON){$('aisFrame').src='about:blank';return}
+ let la=15,lo=120,z=6;try{const c=M.map.getCenter();la=c.lat;lo=norm(c.lng);z=Math.max(3,Math.min(13,M.map.getZoom()))}catch(e){}
+ box.classList.toggle('off',navigator.onLine===false);
+ $('aisFrame').src=`https://www.vesselfinder.com/aismap?zoom=${z}&lat=${la.toFixed(4)}&lon=${lo.toFixed(4)}&width=100%25&height=100%25&names=true&track=false&fleet=false&fleet_name=false&fleet_hide_old_positions=false&clicktoact=false&store_pos=false&ra=`;
+ $('aisMT').href=`https://www.marinetraffic.com/en/ais/home/centerx:${lo.toFixed(3)}/centery:${la.toFixed(3)}/zoom:${z}`}
+setTimeout(wxTabSync,0);
+
+/* ---- Weather section ---- */
+function wxView(){const b=$('wxBox');if(!b)return;if(!state.wps){b.innerHTML='<p class="muted">Plan a route to see the forecast along it.</p>';return}b.innerHTML=wxHtml();
+ const k=wxKey();if((!WX||WX.key!==k||Date.now()-Date.parse(WX.fetched)>6*36e5)&&navigator.onLine!==false)fetchWx(true)}
+(function(){const S=load('wxp',{});$('wxpLat').value=S.la||'';$('wxpLon').value=S.lo||'';
+ const save=()=>store('wxp',{la:$('wxpLat').value,lo:$('wxpLon').value});['wxpLat','wxpLon'].forEach(i=>$(i).addEventListener('change',save));
+ $('wxpGps').onclick=()=>{const use=(la,lo)=>{$('wxpLat').value=fmtLat(la).replace(/[°']/g,' ').replace(/\s+/g,' ');$('wxpLon').value=fmtLon(lo).replace(/[°']/g,' ').replace(/\s+/g,' ');save();wxpGet()};
+  if(MON.fix){use(MON.fix.p[0],norm(MON.fix.p[1]));return}if(!navigator.geolocation){toast('GPS not available');return}toast('Getting GPS position…');
+  navigator.geolocation.getCurrentPosition(p=>use(p.coords.latitude,p.coords.longitude),()=>toast('GPS position not available – type the position'),{enableHighAccuracy:false,maximumAge:600000,timeout:15000})};
+ $('wxpGo').onclick=()=>wxpGet()})();
+async function wxpGet(){const la=parseLL($('wxpLat').value),lo=parseLL($('wxpLon').value),out=$('wxpOut');if(!isFinite(la)||!isFinite(lo)){out.innerHTML='<p class="muted">Enter a latitude and longitude, or tap 📍 GPS.</p>';return}
+ out.innerHTML='<p class="muted">Downloading…</p>';
+ try{const q=`latitude=${la.toFixed(3)}&longitude=${lo.toFixed(3)}&forecast_days=3&timezone=UTC`;
+  const [a,m]=await Promise.all([fetch(`https://api.open-meteo.com/v1/forecast?${q}&hourly=wind_speed_10m,wind_direction_10m,wind_gusts_10m,visibility,pressure_msl,precipitation&wind_speed_unit=kn`).then(r=>r.json()),
+   fetch(`https://marine-api.open-meteo.com/v1/marine?${q}&hourly=wave_height,swell_wave_height,swell_wave_direction,swell_wave_period`).then(r=>r.json()).catch(()=>null)]);
+  const H=a.hourly;if(!H||!H.time)throw new Error('no data');const M2=m&&m.hourly?m.hourly:null;const z=-zdOf(lo);let rows='';
+  for(let i=0;i<H.time.length;i+=3){const t=Date.parse(H.time[i]+'Z'),ws=H.wind_speed_10m[i],b=ws!=null?bft(ws):0;const hs=M2&&M2.wave_height?M2.wave_height[i]:null;const cl=b>=7||(hs||0)>=4?'bad':b>=6||(hs||0)>=2.5?'wrn':'';
+   const lt=new Date(t-z*36e5).toISOString();rows+=`<tr class="${cl}"><td>${lt.slice(8,10)}/${lt.slice(5,7)} ${lt.slice(11,13)}</td><td>${cdir(H.wind_direction_10m[i])} ${ws!=null?Math.round(ws):'–'}</td><td><span class="bf" style="background:${BCOL[b]}">${ws!=null?b:'–'}</span></td><td>${H.wind_gusts_10m[i]!=null?Math.round(H.wind_gusts_10m[i]):'–'}</td><td>${hs!=null?hs.toFixed(1):'–'}</td><td>${M2&&M2.swell_wave_height&&M2.swell_wave_height[i]!=null?cdir(M2.swell_wave_direction[i])+' '+M2.swell_wave_height[i].toFixed(1)+' m '+(M2.swell_wave_period[i]!=null?Math.round(M2.swell_wave_period[i])+'s':''):'–'}</td><td>${H.visibility[i]!=null?(H.visibility[i]/1852>=10?'10+':(H.visibility[i]/1852).toFixed(1)):'–'}</td><td>${H.pressure_msl[i]!=null?Math.round(H.pressure_msl[i]):'–'}</td><td>${H.precipitation[i]!=null?H.precipitation[i].toFixed(1):'–'}</td></tr>`}
+  out.innerHTML=`<div class="wxs">${fmtLat(la)} ${fmtLon(lo)} · local time ZD ${z>0?'+':''}${z} · every 3 h</div><div class="tblwrap"><table class="wxt"><thead><tr><th>LT</th><th>Wind kn</th><th>BF</th><th>Gust</th><th>Hs m</th><th>Swell</th><th>Vis nm</th><th>hPa</th><th>Rain mm</th></tr></thead><tbody>${rows}</tbody></table></div>`}
+ catch(e){out.innerHTML=`<p class="muted">${navigator.onLine===false?'Offline – the forecast needs internet.':'Forecast not available ('+esc(e.message)+').'}</p>`}}
+
+/* ---- ETA: multi-port voyage ---- */
+let MP=load('etamp',{on:false,p0:'',t0:'',z0:'',legs:[]});
+function mpSave(){store('etamp',MP)}
+function portByName(n){n=String(n||'').trim().toLowerCase();if(!n)return null;return PORTS.find(p=>p.n.toLowerCase()===n)||PORTS.find(p=>(p.lc||'').toLowerCase()===n)||null}
+function mpZD(n){const P=portByName(n);return P?String(-zdOf(P.p[1])):''}
+function mpDist(a,b){const A=portByName(a),B=portByName(b);if(!A||!B||A===B)return null;const sf=state.from,st=state.to;
+ try{state.from=PORTS.indexOf(A);state.to=PORTS.indexOf(B);const r=solve(A,B,avoidMask(),getOpt());if(!r)return null;r.avoid=avoidMask();r.opt=getOpt();build(r);return r.len}catch(e){return null}finally{state.from=sf;state.to=st}}
+function mpRender(){const L=$('mpLegs');L.innerHTML=MP.legs.map((g,k)=>`<div class="bop"><div class="b1">LEG ${k+1} · ${esc(k?MP.legs[k-1].p||'port '+k:MP.p0||'departure')} → ${esc(g.p||'next port')}<button onclick="mpDel(${k})" aria-label="Remove">✕</button></div>
+ <div class="tg"><div class="tile"><label>Arrival port</label><input list="portDL" type="text" data-k="${k}" data-f="p" value="${esc(g.p||'')}" placeholder="Port name"></div><div class="tile"><label>Distance (nm) <a href="#" onclick="mpDistOne(${k});return false" style="color:var(--acc,#29a3e0)">↻</a></label><input type="text" inputmode="decimal" data-k="${k}" data-f="d" value="${esc(g.d||'')}"></div><div class="tile"><label>Speed (kn)</label><input type="text" inputmode="decimal" data-k="${k}" data-f="v" value="${esc(g.v||'')}"></div></div>
+ <div class="tg"><div class="tile"><label>Zone time at port (ZD)</label><span class="sgn"><button type="button" class="pm" tabindex="-1">±</button><input type="text" inputmode="decimal" data-k="${k}" data-f="z" value="${esc(g.z||'')}"></span></div><div class="tile"><label>Delays en route (h)</label><input type="text" inputmode="decimal" data-k="${k}" data-f="x" value="${esc(g.x||'')}"></div><div class="tile"><label>${k===MP.legs.length-1?'Port stay (h) – last port':'Port stay (h)'}</label><input type="text" inputmode="decimal" data-k="${k}" data-f="s" value="${esc(g.s||'')}"></div></div></div>`).join('');mpCalc()}
+function mpAdd(){const last=MP.legs[MP.legs.length-1];MP.legs.push({p:'',d:'',v:last?last.v:($('eSpd').value||$('speed').value||'12'),z:'',s:'',x:''});mpSave();mpRender()}
+function mpDel(k){MP.legs.splice(k,1);mpSave();mpRender()}
+function mpDistOne(k){const a=k?MP.legs[k-1].p:MP.p0,b=MP.legs[k].p;const d=mpDist(a,b);if(d==null){toast('Choose two ports from the list first');return}MP.legs[k].d=d.toFixed(1);mpSave();mpRender();toast(`${a} → ${b}: ${d.toFixed(1)} nm`)}
+function mpDistAll(){let n=0;MP.legs.forEach((g,k)=>{const d=mpDist(k?MP.legs[k-1].p:MP.p0,g.p);if(d!=null){g.d=d.toFixed(1);n++}});mpSave();mpRender();toast(n?`${n} distance${n>1?'s':''} calculated`:'Choose ports from the list first')}
+function mpCalc(){const out=$('mpOut');const f=v=>{const x=parseFloat(String(v).replace(',','.'));return isFinite(x)?x:null};
+ const t0=MP.t0?Date.parse(MP.t0+':00Z'):null,z0=f(MP.z0)||0;if(t0==null||!MP.legs.length){out.innerHTML='<p class="muted">Enter the departure ETD and at least one port.</p>';return}
+ const ft=(u,z)=>{const d=new Date(u-z*36e5).toISOString();return d.slice(8,10)+'/'+d.slice(5,7)+' '+d.slice(11,16)},fu=u=>{const d=new Date(u).toISOString();return d.slice(8,10)+'/'+d.slice(5,7)+' '+d.slice(11,16)+'Z'};
+ let u=t0+z0*36e5,dist=0,steam=0,stay=0,rows=`<tr><td style="text-align:left"><b>${esc(MP.p0||'Departure')}</b></td><td>–</td><td>–</td><td>–</td><td>–</td><td><b>${ft(u,z0)}</b><br><span class="muted">${fu(u)}</span></td></tr>`;let bad=false;
+ MP.legs.forEach((g,k)=>{const d=f(g.d),v=f(g.v),z=f(g.z)||0,s=f(g.s)||0,x=f(g.x)||0;if(d==null||!(v>0)){bad=true;rows+=`<tr><td style="text-align:left">${esc(g.p||'Port '+(k+1))}</td><td colspan="5" class="muted">enter distance and speed</td></tr>`;return}
+  const h=d/v+x;u+=h*36e5;dist+=d;steam+=h;const arr=u;const last=k===MP.legs.length-1;if(!last){u+=s*36e5;stay+=s}
+  rows+=`<tr><td style="text-align:left"><b>${esc(g.p||'Port '+(k+1))}</b></td><td>${d.toFixed(1)}</td><td>${Math.floor(h/24)}d ${(h%24).toFixed(1)}h</td><td><b>${ft(arr,z)}</b><br><span class="muted">${fu(arr)}</span></td><td>${last?(s?s+' h':'–'):s+' h'}</td><td>${last?(s?`${ft(arr+s*36e5,z)}<br><span class="muted">${fu(arr+s*36e5)}</span>`:'–'):`<b>${ft(u,z)}</b><br><span class="muted">${fu(u)}</span>`}</td></tr>`});
+ rows+=`<tr class="tot"><td style="text-align:left">Total</td><td>${dist.toFixed(1)}</td><td>${Math.floor(steam/24)}d ${(steam%24).toFixed(1)}h</td><td colspan="2">port stays ${stay} h</td><td>${Math.floor((steam+stay)/24)}d ${((steam+stay)%24).toFixed(1)}h</td></tr>`;
+ out.innerHTML=`<table class="mpt"><thead><tr><th style="text-align:left">Port</th><th>Dist nm</th><th>Steaming</th><th>ETA (LT / UTC)</th><th>Stay</th><th>ETD (LT / UTC)</th></tr></thead><tbody>${rows}</tbody></table>${bad?'<p class="muted" style="font-size:11px">Some legs are incomplete.</p>':''}`}
+function mpMode(on){MP.on=on;mpSave();$('eta').classList.toggle('mp',on);document.querySelectorAll('#eMpSeg button').forEach(b=>b.classList.toggle('on',(b.dataset.m==='n')===on));
+ if(on){if(!$('portDL').options.length)$('portDL').innerHTML=PORTS.map(p=>`<option value="${esc(p.n)}">`).join('');
+  if(!MP.p0&&state.wps){MP.p0=PORTS[state.from].n;MP.t0=$('etd').value?new Date(Date.parse($('etd').value+':00Z')-zdOf(state.wps[0].p[1])*36e5*-1).toISOString().slice(0,16):'';MP.z0=String(-zdOf(state.wps[0].p[1]));}
+  if(!MP.legs.length){MP.legs.push({p:state.wps?PORTS[state.to].n:'',d:state.res?state.res.total.toFixed(1):'',v:$('speed').value||'12',z:state.wps?String(-zdOf(state.wps[state.wps.length-1].p[1])):'',s:'',x:''})}
+  $('mp0P').value=MP.p0||'';$('mp0T').value=MP.t0||'';$('mp0Z').value=MP.z0||'';mpRender()}}
+(function(){document.querySelectorAll('#eMpSeg button').forEach(b=>b.onclick=()=>mpMode(b.dataset.m==='n'));
+ const top=(id,k)=>$(id).addEventListener('input',()=>{MP[k]=$(id).value;if(k==='p0'&&!$('mp0Z').value){const z=mpZD(MP.p0);if(z){$('mp0Z').value=z;MP.z0=z}}mpSave();mpCalc()});top('mp0P','p0');top('mp0T','t0');top('mp0Z','z0');
+ $('mpLegs').addEventListener('input',e=>{const el=e.target,k=el.dataset.k;if(k==null)return;const g=MP.legs[+k];g[el.dataset.f]=el.value;if(el.dataset.f==='p'&&portByName(el.value)){if(!g.z)g.z=mpZD(el.value);mpSave();mpRender();return}mpSave();mpCalc()});
+ if(MP.on)setTimeout(()=>mpMode(true),300)})();
+
+/* ---- saved plans kept inside the app ---- */
+const LIBKEYS=['autosave','etd','speed','from','to','sail','clim','gci','off','vdp','c3','safe','pinfo','etamp','nc'];
+function libList(){return load('plans',[])}
+function libOpen(saveMode){const has=!!(state.wps&&state.res);$('libName').value=has?`${PORTS[state.from].n} → ${PORTS[state.to].n} ${($('etd').value||'').slice(0,10)}`:'';
+ $('libName').disabled=!has;$('libSaveBtn').disabled=!has;$('libHint').textContent=has?'Saved inside the app on this device – route, ETD, speed, options, waypoint notes, voyage draft plan and calculators.':'Plan a route first to save it.';
+ libRender();$('libDlg').showModal();if(saveMode&&has)setTimeout(()=>{$('libName').focus();$('libName').select()},50)}
+function libRender(){const L=libList();$('libList').innerHTML=L.length?`<div class="muted" style="font-size:11px;font-weight:700;margin:4px 0 6px">${L.length} SAVED PLAN${L.length>1?'S':''}</div>`+L.map(p=>`<div class="libit"><div class="lt"><b>${esc(p.name)}</b><span>${esc(p.title||'')} · ${p.nm?Math.round(p.nm).toLocaleString()+' nm · ':''}saved ${new Date(p.saved).toISOString().slice(0,16).replace('T',' ')}Z</span></div><button class="ld" onclick="libLoad('${p.id}')">Load</button><button class="dl" onclick="libDel('${p.id}')" aria-label="Delete">✕</button></div>`).join(''):'<p class="muted" style="text-align:center;padding:14px 0">No saved plans yet.</p>'}
+function libSave(){if(!state.wps||!state.res){toast('Plan a route first');return}autoSave();const name=($('libName').value||'').trim()||`${PORTS[state.from].n} → ${PORTS[state.to].n}`;
+ const data={};LIBKEYS.forEach(k=>{try{const v=localStorage.getItem('pp2_'+k);if(v!=null)data[k]=v}catch(e){}});
+ const L=libList();const old=L.findIndex(p=>p.name===name);if(old>=0&&!confirm(`Replace the saved plan “${name}”?`))return;if(old>=0)L.splice(old,1);
+ L.unshift({id:Date.now().toString(36),name,saved:new Date().toISOString(),title:`${PORTS[state.from].n} → ${PORTS[state.to].n}`,nm:state.res.total,data});
+ try{localStorage.setItem('pp2_plans',JSON.stringify(L))}catch(e){toast('Storage full – delete some saved plans first');return}libRender();toast('Plan saved: '+name)}
+function libLoad(id){const p=libList().find(x=>x.id===id);if(!p)return;if(!confirm(`Load “${p.name}”? The current plan is replaced (save it first if you need it).`))return;
+ Object.entries(p.data).forEach(([k,v])=>{try{localStorage.setItem('pp2_'+k,v)}catch(e){}});try{localStorage.removeItem('pp2_wx');localStorage.setItem('pp2_view',JSON.stringify('pp'))}catch(e){}
+ toast('Loading '+p.name+'…');setTimeout(()=>location.reload(),500)}
+function libDel(id){const L=libList();const p=L.find(x=>x.id===id);if(!p||!confirm(`Delete the saved plan “${p.name}”?`))return;store('plans',L.filter(x=>x.id!==id));libRender();toast('Deleted')}
+$('libName').addEventListener('keydown',e=>{if(e.key==='Enter')libSave()});
 </script>
 </body></html>

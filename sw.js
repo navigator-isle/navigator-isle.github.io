@@ -1,7 +1,7 @@
 /* Passage Planner service worker – app works fully offline after the first visit.
    App shell: cache-first (updated in the background). Libraries from CDNs: cached on first use.
    Live data (warnings, weather, chart tiles): always from the network – the app keeps its own copies. */
-const VER='pp-v2-2026-10-17';
+const VER='pp-v3-2026-10-19';
 const SHELL=['./','./index.html','./manifest.webmanifest','./icon-192.png','./icon-512.png','./maskable-512.png','./apple-touch-icon.png','./favicon-32.png','./privacy.html'];
 const CDN=/^https:\/\/(cdnjs\.cloudflare\.com|cdn\.jsdelivr\.net|unpkg\.com)\//;
 self.addEventListener('install',e=>{e.waitUntil(caches.open(VER).then(c=>c.addAll(SHELL)).then(()=>self.skipWaiting()))});
