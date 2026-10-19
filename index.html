@@ -1379,6 +1379,28 @@ html body select option{background:#fff;color:#0b1a2b}
 html body input[type=datetime-local]::-webkit-calendar-picker-indicator,html body input[type=date]::-webkit-calendar-picker-indicator,html body input[type=time]::-webkit-calendar-picker-indicator{filter:none;opacity:.7}
 .msel select{background:#0b121dcc!important;color:#e7edf4!important;border:1px solid #ffffff14!important}
 .sgn .pm,html body .pm{background:#c5d3e3!important;color:#0b1a2b!important}
+
+/* ---- compact map toolbars pushed into the corners ---- */
+html body .mtools{top:4px!important;left:4px!important;padding:2px!important;gap:0!important;border-radius:9px!important}
+html body .mtools button{width:28px!important;height:28px!important;border-radius:7px!important}
+html body .mtools button svg{width:16px!important;height:16px!important}
+html body .mtabs{right:4px!important;bottom:4px!important;padding:2px!important;gap:0!important;border-radius:9px!important}
+html body .mtab .ic{min-width:28px!important;height:28px!important;border-radius:7px!important}
+html body .mtab .ic svg{width:16px!important;height:16px!important}
+html body .msel{top:4px!important;right:4px!important;gap:3px!important}html body .msel select{height:24px!important;font-size:10px!important;padding:0 2px!important}
+html body .mkey{padding:2px 8px!important;min-height:0!important}
+/* ---- slimmer bottom bar ---- */
+html body .fbar{padding:2px 6px calc(2px + env(safe-area-inset-bottom))!important}
+html body .fbar button{padding:3px 0!important;gap:1px!important;font-size:9.5px!important}
+html body .fbar button i svg,#fbar i svg{width:18px!important;height:18px!important}
+/* ---- map layers dialog: tidy two-column list ---- */
+#layDlg .chips{display:grid!important;grid-template-columns:1fr 1fr!important;gap:6px!important;margin:4px 0 10px!important}
+#layDlg .chip{display:flex!important;align-items:center!important;gap:8px!important;width:100%!important;margin:0!important;padding:8px 10px!important;border-radius:9px!important;font-size:12px!important;line-height:1.25!important;text-align:left!important;justify-content:flex-start!important;box-sizing:border-box!important;min-height:38px}
+#layDlg .chip input{flex:none!important;width:16px!important;height:16px!important;margin:0!important;accent-color:var(--acc)}
+#layDlg .hbar{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:6px 0}
+#layDlg .lg{display:grid!important;grid-template-columns:1fr 1fr;gap:4px 10px;font-size:11px}#layDlg .lg span{display:flex;align-items:center;gap:6px}
+#layDlg .fpos{margin-top:10px}
+@media(max-width:340px){#layDlg .chips,#layDlg .lg{grid-template-columns:1fr!important}}
 </style></head><body>
 <div id="printArea"></div>
 <nav class="fbar" id="fbar">
@@ -2292,7 +2314,7 @@ const ADP_AREAS=[
 const ADLL_EQ={1:'A, B, C, D, H',2:'A, B, C, D, H',3:'G, H, L',4:'E, N',5:'D, F, N, Q',6:'F, M, P, Q',7:'F, K, M, Q',8:'G, K, M',9:'A, D, H, J',10:'D, G, J, Q'};
 ADP_AREAS.forEach(a=>{PUBS.ll.vols.push(['ADLL Area '+a[0],a[3],'Includes parts of paper Vols '+ADLL_EQ[a[0]],a[4],String(a[0])]);
  PUBS.rs.vols.push(['ADRS 6 Area '+a[0],a[1],'Pilots, VTS and port information'+(a[2]?' · '+a[2]:''),a[4],'6·'+a[0]])});
-let PUBSEL=load('pubsel',''),PUBMODE=load('pubmode','route');const layersP=[];
+let PUBSEL=load('pubsel',''),PUBMODE=load('pubmode','route'),ENCSHOW=load('encshow',true);function setEncShow(v){ENCSHOW=v;store('encshow',v);drawPubs();renderPPanel()}const layersP=[];
 const PCOLS=['#1d5fd6','#d62f2f','#0b8f7d','#c99700','#7b3fbf','#ef6c00','#00838f','#ad1457','#2e7d32','#5d4037','#3949ab','#6d4c41'];
 Object.values(PUBS).forEach(S=>S.vols.forEach(v=>{v.bb=v[3].map(r=>{let a=90,b=-90,c=180,d=-180;r.forEach(p=>{a=Math.min(a,p[0]);b=Math.max(b,p[0]);c=Math.min(c,p[1]);d=Math.max(d,p[1])});return[a,b,c,d]})}));
 function inVol(v,la,lo){for(let i=0;i<v[3].length;i++){const b=v.bb[i];if(la<b[0]||la>b[1]||lo<b[2]||lo>b[3])continue;if(inRing(la,lo,v[3][i]))return true}return false}
@@ -2302,7 +2324,7 @@ function pubsAlong(){const w=state.wps;if(!w)return null;if(state._pubW===w)retu
  state._pubW=w;state._pubs=out;return out}
 function volId(k,v){return v[4]||v[0]}
 function drawPubs(){if(!M)return;layersP.forEach(x=>M.hide(x));layersP.length=0;if(!PUBSEL||['ot','sat','zt','hr'].includes(PUBSEL))return;
- if(PUBSEL==='enc'){const E=encAlong();if(!E)return;E.seg.forEach(x=>{const b=EBAND[x.band];layersP.push(M.line(unwrap(x.pts.map(p=>({p}))).map(o=>o.p),{color:b[2],weight:9,opacity:.45}))});
+ if(PUBSEL==='enc'){if(!ENCSHOW)return;const E=encAlong();if(!E)return;E.seg.forEach(x=>{const b=EBAND[x.band];layersP.push(M.line(unwrap(x.pts.map(p=>({p}))).map(o=>o.p),{color:b[2],weight:9,opacity:.45}))});
   (E.cells||[]).forEach(c=>{const [s0,w0,n0,e0]=c.box,e1=e0<w0?e0+360:e0,b=EBAND[c.band]||EBAND[1];layersP.push(M.poly([[[s0,w0],[s0,e1],[n0,e1],[n0,w0]]],{color:b[2],fill:.05,html:`<b>${c.nm}</b><br>Band ${c.band} ${b[0]} (${b[1]})<br>run ${fmtNm(c.a)} – ${fmtNm(c.b)} nm`}))});return}
  const S=PUBS[PUBSEL],P=pubsAlong();const list=PUBMODE==='route'&&P?P[PUBSEL].map(x=>x.v):S.vols;
  list.forEach(v=>{const i=S.vols.indexOf(v),col=PCOLS[i%PCOLS.length];const html=`<b>${esc(v[0])}</b><br>${esc(v[1])}${v[2]?'<br><span style="font-size:11px">'+esc(v[2])+'</span>':''}<br><span style="font-size:10.5px;color:#888">Approximate coverage – check NP131 / limits diagram</span>`;
@@ -2705,6 +2727,7 @@ function encAtWp(w,E){if(!E)return null;let band=1;for(const x of E.seg){if(w.cu
  const cb=cells.length?+cells[0][2]||band:band;const seg=E.seg.find(x=>w.cum>=x.a-0.01&&w.cum<=x.b+0.01);return{band:cb,cells,cc:seg?seg.cc:null}}
 function encWpHtml(E,hasR){if(!hasR)return'<p class="muted">Plan a route first.</p>';const w=state.wps;
  let h=`<div class="muted" style="font-size:11.5px;margin:2px 0 6px">Most suitable ENC usage band at each waypoint${ENCDB?` and the cells from your catalogue (${esc(ENCDB.src)}, ${ENCDB.cells.length} cells)`:''}. Tap a waypoint for the details.</div>
+ <div class="wopts"><span class="lb">ENC bands on chart</span><div class="seg3"><button class="${ENCSHOW?'on':''}" onclick="setEncShow(true)">Show</button><button class="${ENCSHOW?'':'on'}" onclick="setEncShow(false)">Hide</button></div></div>
  <div class="eall"><button class="swapbtn" onclick="document.querySelectorAll('#pBody details.eband').forEach(d=>d.open=true)">Expand all</button><button class="swapbtn" onclick="document.querySelectorAll('#pBody details.eband').forEach(d=>d.open=false)">Collapse all</button></div>`;
  h+=w.map((x,i)=>{const e=encAtWp(x,E),b=EBAND[e.band],nx=w[i+1];const cells=e.cells.length?`<span class="ecl" style="color:${b[2]}">${e.cells.map(esc).join(' · ')}</span>`:`<span class="muted">Cell ${esc(e.cc||'??')}${e.band}····· – load your catalogue (CATALOG.031) for the exact cell names</span>`;
   const zone=x.zone?zoneName(x.zone):'Berth';
