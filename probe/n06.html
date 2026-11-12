@@ -1,0 +1,691 @@
+
+
+
+
+<!DOCTYPE html>
+  <html lang="es">
+    <head>
+
+
+ 				<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>SHN | Servicio de Hidrografía Naval</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="" />
+		<meta name="keywords" content="" />
+		<meta name="author" content="" />
+		<link rel="icon" type="image/png" href="/assets/images/favicon.ico" />
+		
+	  	<!-- Facebook and Twitter integration -->
+		<meta property="og:title" content=""/>
+		<meta property="og:image" content=""/>
+		<meta property="og:url" content=""/>
+		<meta property="og:site_name" content=""/>
+		<meta property="og:description" content=""/>
+		<meta name="twitter:title" content="" />
+		<meta name="twitter:image" content="" />
+		<meta name="twitter:url" content="" />
+		<meta name="twitter:card" content="" />
+
+
+
+       <!-- PONCHO CSS:
+    Recomendamos que descargues o instales 'ar-poncho' en tu proyecto.
+    <link href="{{ '/node_modules/ar-poncho/dist/css/roboto-fontface.css' | prepend: site.baseurl }}" rel="stylesheet">
+    <link href="{{ '/node_modules/ar-poncho/dist/css/poncho.min.css' | prepend: site.baseurl }}" rel="stylesheet">
+    <link href="{{ '/node_modules/ar-poncho/dist/css/documentacion.css' | prepend: site.baseurl }}" rel="stylesheet">
+    <link href="{{ '/node_modules/ar-poncho/dist/icono-arg.css' | prepend: site.baseurl }}" rel="stylesheet">
+    Al solo efecto de esta documentación, usaremos los estilos en línea en el proyecto GitHub Poncho
+  -->
+
+    <link href="https://cdn.jsdelivr.net/gh/argob/poncho@master/dist/css/encode-fontface.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/argob/poncho@master/dist/css/poncho.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/argob/poncho@master/dist/css/documentacion.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/argob/poncho@master/dist/css/icono-arg.css" rel="stylesheet">
+
+
+ <!-- FIN PONCHO -->
+
+
+
+
+
+
+		
+           <!-- Bootstrap  -->
+
+
+
+        <link rel="stylesheet" href="/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/dist/css/poncho.css">
+        <link rel="stylesheet" href="/dist/css/argentina.css">
+
+   <!--    <link rel="stylesheet" href="dist/css/PROPIOS.css"> -->
+
+      <!-- font-awesome  -->
+
+  <link rel="stylesheet" href="/dist/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/dist/css/font-awesome/css/font-awesome.css">
+  <link rel="stylesheet" href="/dist/css/droid-serif.css">
+  <link rel="stylesheet" href="/dist/css/roboto-fontface.css">
+
+
+      <link rel="stylesheet" href="/dist/css/PROPIOS.css">
+
+
+
+
+
+
+ 
+
+
+
+
+<style>
+.btn.btn-sm {
+    font-size: 12px;
+    padding: 2px 4px;
+}
+
+
+
+.breadcrumb li, .breadcrumb li a, .breadcrumb>li+li:before, .breadcrumb>.active {
+      color: #337ab7  !important; 
+     }
+  
+
+.icono-arg-twitter-pajaro{
+
+font-size: 20px;
+}
+
+
+</style>
+
+    </head>
+
+  <body>
+
+     <header>
+
+	<a href="#main" class="skipcontenido">
+  Salta al contenido
+</a>
+
+
+           <nav class="navbar navbar-top navbar-default bordeinferior">
+				
+					<div class="container">
+						
+						
+						<div class="navbar-header">
+                        
+ 
+	                        <a class="navbar-brand" href="/" accesskey="1">
+	                            <img alt="Servicio de Hidrografia Naval" src="/assets/images/Logo_shn_RepArg.svg" height="49">
+	                            <h1 class="sr-only"><small>Servicio de Hidrografía Naval</small></h1>
+	                        </a>
+
+
+	                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-2">
+	                            <span class="sr-only">Toggle navigation</span>
+	                            <span class="icon-bar"></span>
+	                            <span class="icon-bar"></span>
+	                            <span class="icon-bar"></span>
+	                        </button>
+                    	</div>
+							
+						
+						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-2"  >
+						<ul class="nav navbar-nav navbar-right" >
+
+
+							<li class="dropdown" >
+							<a href="#" aria-expanded="false" accesskey="2" class="dropdown-toggle" data-toggle="dropdown"> productos y servicios <span class="caret"></span></a>
+
+								<ul class="dropdown-menu submenu" role="menu">
+
+		                                <div>
+		                                                             
+		                                    <div>
+<UL class="sinbullets">
+
+		                                        <li><a href="http://geoportal.shn.gob.ar/#/geoportal" target="_blank">Geoportal</a></li>
+		                                        <li><a href="/ServiciosNauticos.asp">Servicios Náuticos</a></li>
+		                                        <li><a href="/ModelosPronosticos.asp">Modelos y Pronósticos</a></li>
+		                                        <li><a href="/Smara/glacio/sglaciologica.asp">Servicios de Hielo</a></li>
+		                                        <li><a href="/Observatorio/Astronomia.asp">Astronomía</a></li>
+		                                        <li><a href="/Observatorio/LaHora.asp">Hora Oficial y Frecuencia Patrón</a></li>
+
+</UL>		                                       
+		                                  </div>
+		                              
+		                                </div>
+
+
+		                                
+		                                <div>
+
+
+		                                
+		                                <div>
+
+
+		                                
+
+		                                
+		                            </ul>
+
+					</li>
+
+
+							
+					<li class="">
+					<a href="/Institucional/Institucional.asp" aria-expanded="false" class="" data-toggle="" accesskey="3"> institucional </a>
+
+
+					</li>
+
+
+ 							<li class="">
+							<a href="/ID/ID.asp" aria-expanded="false" class="" data-toggle="" accesskey="4"> I + D </a>
+								
+							</li>
+
+							<li class="">
+							 <a href="/DA/DatosAbiertos.asp" aria-expanded="false" class="" data-toggle="" accesskey="5"> Datos Abiertos </a>
+
+							</li>
+
+
+						
+
+							<li class="">
+							 <a href="/contactos/contactos.asp" aria-expanded="false" class="" data-toggle="" accesskey="6"> Contactos </a>
+
+							</li>
+
+
+						
+
+							<li class="">
+							 <a href="/ventas/ventas.asp" aria-expanded="false" class="" data-toggle="" accesskey="7"> ventas </a>
+
+							</li>
+
+
+
+							<li class="">
+
+							<a class="fa fa-download" accesskey="8" title="Descargas" aria-hidden="true" href="/download/download.asp"></a>
+
+							</li>
+
+
+
+
+							<li class="">
+
+							<a class="fa fa-search" accesskey="9" title="Buscador" aria-hidden="true" href="/buscador/tbuscador.asp"></a>
+
+							</li>
+
+
+
+
+
+
+
+							<li class="">
+
+							<a class="fa fa-instagram" aria-hidden="true" href="https://www.instagram.com/shn_argentina/?utm_medium=copy_link" title="Seguinos en Instagram"></a>
+
+							</li>
+
+
+
+
+
+
+
+							
+						</ul>
+							
+						</div>
+						
+
+					</div>
+
+
+				
+			</nav>
+
+
+
+
+
+    <script src="/dist/js/jquery.js"></script>
+    <script src="/dist/js/bootstrap.min.js"></script>
+
+    <script>
+      $(function () {
+        $('[data-toggle="tooltip"]').tooltip();
+        $('[data-toggle="popover"]').popover();
+
+      })
+
+    </script>
+
+
+
+
+
+
+
+
+
+
+    </header>
+
+    <main id="main">
+      <div class="container">
+
+	
+
+  <ol class="breadcrumb">
+    <li><a href="/">Inicio</a></li>
+    <li><a href="/ServiciosNauticos.asp">Servicios Náuticos</a></li>
+    <li class="active">Radioavisos Náuticos</li>
+
+  </ol>
+
+  <section>
+    <div class="row">
+      <article class="content_format col-md-8 col-md-push-4">
+
+        <h1>Radioavisos Náuticos</h1>
+        <div class="row">
+          <div class="section-actions social-share">
+
+  <p>Compartir en <br /> redes sociales</p>
+
+	  <ul class="list-inline">
+    <li><a href="http://www.facebook.com/sharer/sharer.php?u=http://www.hidro.gov.ar/nautica/RadioavisosNauticos.asp?op=8" title="Compartir en Facebook"><span class="icono-arg-facebook-f-"></span></a></li>
+    <li><a href="https://twitter.com/share" title="Compartir en Twitter"><span class="icono-arg-twitter-pajaro"></span></a></li>
+ 
+  </ul>
+
+</div>
+
+        </div>
+        <hr>
+
+
+
+
+
+
+
+
+
+
+
+<h2>Navarea VI</h2>
+
+
+
+
+
+
+
+
+
+
+<button class="btn btn-link" type="button" data-toggle="collapse" data-target="#desplegable" aria-expanded="false" aria-controls="desplegable">English Version</button>
+
+<div class="collapse" id="desplegable">
+  
+
+
+<div class="alert alert-warning margen_superior margen_inferior">
+    <div class="media">
+        <div class="media-left">
+            <span class="fa fa-arrow-circle-o-right fa-fw fa-3x text-warning"></span>
+        </div>
+        <div class="media-body">
+             <p class="margin-0">This site is permanently updated  with the events affecting marine safety. Nevertheless mariners should check radionavigational warnings through the different channels of communication (SafetyNET II, SafetyCast and NAVTEX).</p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+<br>
+
+
+
+
+
+<p class="lead">Navarea VI</p>
+
+<p class="lead">Navarea radionavigational warnings which are in force to date are herein included.</p>
+
+<p class="lead">Updated on: 12/11/2026</p>
+
+
+<BR>
+
+
+
+<pre>
+
+
+
+<H2>NAVAREA - 0387-2026 - 11/11/2026</H2>ANTARTIDA
+CHARTS H-50 H-60
+SEA ICE AND ICEBERGS REPORT 111400 UTC
+1.SEA ICE LIMIT 
+54-09S 020-00W 53-52S 026-18W 54-41S 032-17W 
+57-04S 037-57W 59-16S 043-17W 61-31S 048-14W
+62-56S 052-47W 62-21S 056-54W 62-31S 060-33W 
+64-00S 063-37W 65-06S 065-59W 65-28S 067-16W  
+2.ICEBERGS GREATER THAN 10NM
+A81  55-33S 034-32W 28X25NM
+D33B 55-13S 040-26W 21X12NM 
+D35 59-45S 044-02W 15X6 NM
+A83 58-58S 049-15W 12X7NM 
+A85 56-02S 045-41W 10X3NM 
+ICEBERG1 56-04S 045-58W 10X3NM 
+3.ICEBERGS SMALLER THAN 10NM
+D32  56-36S 039-53W  9X6NM
+ICEBERG2 50-59S 038-36W 3X1NM 
+ICEBERG3 57-19S 045-19W 5X3NM
+ICEBERG4 55-06S 041-33W 2X1NM
+ICEBERG5 58-03S 045-20W 6X2NM
+ICEBERG6 60-04S 042-17W 2X1NM  
+ICEBERG7 60-03S 050-21W 4X1NM
+ICEBERG8 61-20S 060-16W 4X1NM
+ICEBERG9 61-42S 054-03W 4X3NM
+ICEBERG10 55-37S 035-58W 2X1NM
+ICEBERG11 54-54S 044-50W 3X1NM
+ICEBERG12 60-08S 044-13W 6X2NM
+ICEBERG13 59-43S 041-18W 5X3NM
+ICEBERG14 61-41S 054-10W 5X3NM
+4.ICEBERGS AREA
+A-55-00S 020-00W 50-00S 020-00W 58-00S 035-00W 46-00S 035-00W
+B-65-00S 056-00W 55-00S 054-00W 58-00S 035-00W 46-00S 035-00W
+C-65-00S 056-00W 55-00S 054-00W 60-00S 067-16W 66-00S 067-16W
+REPORT POSITION, TIME AND SIZE OF ICEBERGS OR STATIONARY RADAR TARGETS 
+TO THE ARGENTINE HYDROGRAPHIC NAVAL SERVICE TO hielo.marino@hidro.gov.ar<br>
+
+
+
+
+</pre>
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<br><br>
+
+
+<div class="alert alert-warning margen_superior margen_inferior">
+    <div class="media">
+        <div class="media-left">
+            <span class="fa fa-arrow-circle-o-right fa-fw fa-3x text-warning"></span>
+        </div>
+        <div class="media-body">
+             <p class="margin-0">Este sitio se actualiza permanentemente con los acontecimientos que afectan a la seguridad náutica. No obstante, los navegantes deberán verificar los radioavisos náuticos a través de los diferentes canales de comunicación radial o satelital (SafetyNET II, SafetyCast y NAVTEX).</p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<br>
+
+
+
+
+<p class="lead">Navarea VI</p>
+
+<p class="lead">En esta página se transcriben los radioavisos Navareas que se encuentran vigentes al día de la fecha.</p>
+
+<p class="lead">Actualizado: 12/11/2026</p>
+
+
+<BR>
+
+
+<pre>
+
+
+
+<H2>NAVAREA - 0387-2026 - 11/11/2026</H2>ANTARTIDA
+CARTAS H-50 H-60
+INFORME DE HIELOS MARINOS Y TEMPANOS 111400 UTC
+1.LIMITE DE HIELO MARINO 
+54-09S 020-00W 53-52S 026-18W 54-41S 032-17W 
+57-04S 037-57W 59-16S 043-17W 61-31S 048-14W
+62-56S 052-47W 62-21S 056-54W 62-31S 060-33W 
+64-00S 063-37W 65-06S 065-59W 65-28S 067-16W  
+2.TEMPANOS MAYORES A 10MN
+A81  55-33S 034-32W 28X25MN
+D33B 55-13S 040-26W 21X12MN 
+D35 59-45S 044-02W 15X6 MN
+A83 58-58S 049-15W 12X7MN 
+A85 56-02S 045-41W 10X3MN 
+TEMPANO1 56-04S 045-58W 10X3MN 
+3.TEMPANOS MENOR A 10MN
+D32  56-36S 039-53W  9X6MN
+TEMPANO2 50-59S 038-36W 3X1MN 
+TEMPANO3 57-19S 045-19W 5X3MN
+TEMPANO4 55-06S 041-33W 2X1MN
+TEMPANO5 58-03S 045-20W 6X2MN
+TEMPANO6 60-04S 042-17W 2X1MN  
+TEMPANO7 60-03S 050-21W 4X1MN
+TEMPANO8 61-20S 060-16W 4X1MN
+TEMPANO9 61-42S 054-03W 4X3MN
+TEMPANO10 55-37S 035-58W 2X1MN
+TEMPANO11 54-54S 044-50W 3X1MN
+TEMPANO12 60-08S 044-13W 6X2MN
+TEMPANO13 59-43S 041-18W 5X3MN
+TEMPANO14 61-41S 054-10W 5X3MN
+4.AREA DE TEMPANOS
+A-55-00S 020-00W 50-00S 020-00W 58-00S 035-00W 46-00S 035-00W
+B-65-00S 056-00W 55-00S 054-00W 58-00S 035-00W 46-00S 035-00W
+C-65-00S 056-00W 55-00S 054-00W 60-00S 067-16W 66-00S 067-16W
+INFORMAR POSICION, HORA Y TAMAÑO DE TEMPANOS O BLANCOS ESTACIONARIOS DE RADAR, 
+AL SERVICIO DE HIDROGRAFIA NAVAL ARGENTINA A hielo.marino@hidro.gov.ar
+<br>
+
+
+
+
+</pre>
+
+
+
+<p>&nbsp;</p>
+
+
+
+
+
+<a href="https://twitter.com/SHN_NAVAREA_VI?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-size="large" data-lang="es" data-show-count="false">Follow @SHN_NAVAREA_VI</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+
+
+
+
+
+      </article>
+
+      <aside class="col-md-4 col-md-pull-8">
+        <nav class="page-sidebar">
+
+          <ul class="nav nav-pills nav-stacked">
+            <li class="btn-title hidden">Navegación</li>
+            <li class="xactive1 btn-title"><a href="RadioavisosNauticos.asp?op=1">Generalidades</a></li>       
+
+<ul>     
+           <li class="xactive2"><a href="RadioavisosNauticos.asp?op=2">Antecedentes</a></li>
+           <li class="xactive3"><a href="RadioavisosNauticos.asp?op=3">Contenido</a></li>
+           <li class="xactive4"><a href="RadioavisosNauticos.asp?op=4">Clasificación</a></li>
+           <li class="xactive5"><a href="RadioavisosNauticos.asp?op=5">Vigencia</a></li>
+           <li class="xactive6"><a href="RadioavisosNauticos.asp?op=6">Solicitud</a></li>
+           <li class="xactive7"><a href="RadioavisosNauticos.asp?op=7">Contáctenos</a></li>
+</ul>
+         <li class=""><a href="http://geoportal.shn.gob.ar/#/geoportal" target="_blank">GEOPORTAL</a></li>      
+          <li class="active"><a href="RadioavisosNauticos.asp?op=8">NAVAREA VI</a></li>       
+          <li class="xactive9"><a href="RadioavisosNauticos.asp?op=9">COSTEROS</a></li>       
+          <li class="xactive10"><a href="RadioavisosNauticos.asp?op=10">LOCALES Río de la Plata</a></li>       
+          <li class="xactive11"><a href="RadioavisosNauticos.asp?op=11">LOCALES Ríos</a></li>       
+
+           <li class="xactive12"><a href="RadioavisosNauticos.asp?op=12">NAVAREAS del mundo</a></li>       
+
+           <li class="xactive13"><a href="RadioavisosNauticos.asp?op=13">Denuncias Náuticas</a></li>       
+  
+
+
+            
+          </ul>
+
+        </div>
+      </aside>
+    </div>
+  </section>
+</div>
+
+
+	
+
+
+
+<section class="modulo-contacto">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6">
+          <h2 class="section-title">Contacto</h2>
+          <div>
+            <h3 class="h5">Servicio de Hidrografía Naval</h3>
+
+<ul class="menu nav">
+    <li class="first leaf"> <strong>Dirección:</strong> Av. Montes de Oca 2124</li>
+    <li class="first leaf"> <strong>Código Postal:</strong> C1270ABV</li>
+    <li class="first leaf"> <strong>Teléfono:</strong> (+54 11) 4301-0062 / 4301-0064 / 4301-0066 / 4301-0067</li>
+    <li class="last leaf"> <strong>Correo electrónico: </strong>shn@hidro.gov.ar</li>
+</ul>
+<br>
+            <h3 class="h5">Redes sociales del área</h3>
+ <div class="social-btn">
+	<ul>
+
+
+
+
+	<li>
+		<a href="https://twitter.com/SHN_Argentina" target="blank" title="Seguinos en Twitter"><span class="maschico icono-arg-twitter-pajaro" aria-hidden="true"></span></a>
+			
+	</li>
+												
+
+	<li>
+		<a href="/rss/rss.asp" target="blank" title="Seguinos en RSS">	<span class="fa fa-rss" aria-hidden="true"></span></a>
+
+	</li>
+
+
+	<li>
+		<a href="https://instagram.com/shn_argentina?utm_medium=copy_link" target="blank" title="Seguinos en Instagram"><span class="fa fa-instagram" aria-hidden="true"></span></a>
+		</li>
+
+
+
+
+	<li>
+
+		<a href="https://www.youtube.com/channel/UCTWs-jNTBiGlqgfsAOGl8jQ" target="blank" title="Seguinos en YouTube"><span class="fa fa-youtube-square" aria-hidden="true"></span></a>
+
+	</li>
+
+
+															
+												
+	</ul>
+		</div>
+
+          </div>
+      </div>
+      <div class="col-xs-12 col-sm-6">
+        <div>
+ 
+
+
+<iframe class="ccsiframe" title="Mapa con la ubicación del Servicio de Hidrografía Naval" src="/nautica/mapashn_ArgenMap.asp"></iframe>
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
+</section>
+
+ 
+
+
+    </main>
+		 <footer class="main-footer">
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <span class="text-muted small">© Copyright - Todos los Derechos Reservados - Servicio de Hidrografía Naval</span>&nbsp;|&nbsp;
+
+
+<span class="text-muted small"><a href="/sitio/sitio.asp" accesskey="0">Mapa del Sitio</a></span>&nbsp;|&nbsp;<span class="text-muted small"><a href="/accesibilidad/accesibilidad.asp">Accesibilidad Web</a></span>
+
+
+      </div>
+    </div>
+
+  </div>
+</footer>
+			
+
+
+
+  </body>
+</html>

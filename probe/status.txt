@@ -1,0 +1,36 @@
+sl_txt_1.txt 200 3452 text/plain; charset=utf-8
+sl_txt_2.txt 200 4415 text/plain; charset=utf-8
+sl_txt_3.txt 200 9537 text/plain; charset=utf-8
+sl_txt_4.txt 200 32420 text/plain; charset=utf-8
+sl_txt_5.txt 200 19568 text/plain; charset=utf-8
+sl_txt_6.txt 200 1415 text/plain; charset=utf-8
+sl_txt_7.txt 200 7252 text/plain; charset=utf-8
+sl_txt_8.txt 200 21446 text/plain; charset=utf-8
+sl_txt_9.txt 200 40614 text/plain; charset=utf-8
+sl_txt_10.txt 200 5470 text/plain; charset=utf-8
+sl_txt_11.txt 200 7586 text/plain; charset=utf-8
+sl_txt_12.txt 200 14637 text/plain; charset=utf-8
+sl_txt_13.txt 200 2451 text/plain; charset=utf-8
+sl_txt_14.txt 200 4313 text/plain; charset=utf-8
+sl_txt_15.txt 200 8948 text/plain; charset=utf-8
+sl_txt_16.txt 200 887 text/plain; charset=utf-8
+sl_txt_17.txt 200 5270 text/plain; charset=utf-8
+sl_txt_18.txt 200 10486 text/plain; charset=utf-8
+sl_txt_19.txt 200 1099 text/plain; charset=utf-8
+sl_txt_20.txt 200 555 text/plain; charset=utf-8
+sl_txt_21.txt 200 72 text/plain; charset=utf-8
+sl_rss_11.xml 200 18510 application/rss+xml; charset=utf-8
+sl_zones.json 200 470444 application/json
+nga.json 503 17438 text/html
+n01.html 200 94102 text/html; charset=utf-8
+n03.xml curl: (28) SSL connection timeout
+000 0 
+n11.html 200 15492 text/html; charset=UTF-8
+n19.html 200 6535 text/html; charset=utf-8
+n08.bin 200 65758 application/pdf
+n10.html 200 21533 text/html; charset=utf-8
+n14.html 403 5622 text/html; charset=UTF-8
+n02.html 404 145057 text/html; charset=UTF-8
+n06.html 200 17932 text/html
+n15.html curl: (6) Could not resolve host: www.shoa.mil.cl
+000 0 
