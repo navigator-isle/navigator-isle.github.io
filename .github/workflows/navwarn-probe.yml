@@ -1,0 +1,31 @@
+name: navwarn probe
+on: workflow_dispatch
+permissions: { contents: write }
+jobs:
+  probe:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - run: |
+          mkdir -p probe; cd probe
+          UA="Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 Chrome/130 Mobile Safari/537.36"
+          g(){ code=$(curl -sSL -m 60 -A "$UA" -o "$1" -w '%{http_code} %{size_download} %{content_type}' "$2" 2>&1); echo "$1 $code" >> status.txt; }
+          for n in $(seq 1 21); do g sl_txt_$n.txt "https://www.sealagom.com/feeds/warnings.txt?navarea=$n&limit=500"; done
+          g sl_rss_11.xml "https://www.sealagom.com/feeds/navarea/11.xml"
+          g sl_zones.json "https://www.sealagom.com/api/v2/navarea-zones/"
+          g nga.json "https://msi.nga.mil/api/publications/broadcast-warn?output=json&status=active"
+          g n01.html "https://msi.admiralty.co.uk/RadioNavigationalWarnings"
+          g n03.xml "https://armada.defensa.gob.es/XML/navareas_acc.xml"
+          g n11.html "https://www1.kaiho.mlit.go.jp/TUHO/keiho/navarea11_en.html"
+          g n19.html "https://kyvreports.kystverket.no/NavcoReport/navareaxixvarsler.aspx"
+          g n08.bin "https://hydrobharat.gov.in/documents/d/guest/in-force-navarea-viii-warnings-2"
+          g n10.html "https://www.operations.amsa.gov.au/AMSA.Web.MSIPublication/Home"
+          g n14.html "https://services.maritimenz.govt.nz/navigational-warnings/"
+          g n02.html "https://diffusion.shom.fr/navarea-en-vigueur"
+          g n06.html "https://www.hidro.gov.ar/nautica/RadioavisosNauticos.asp?op=8"
+          g n15.html "http://www.shoa.mil.cl/php/radioavisos.php?idioma=es"
+          cat status.txt
+          for f in *; do s=$(stat -c%s "$f"); [ $s -gt 400000 ] && head -c 400000 "$f" > t && mv t "$f"; done
+      - run: |
+          git config user.name "navwarn-bot"; git config user.email "actions@users.noreply.github.com"
+          git add probe && git commit -qm "probe data" && git push -q origin HEAD:navwarn-probe-data -f
