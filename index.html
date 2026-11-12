@@ -1564,6 +1564,7 @@ table.h.cmp tr.xr td{display:table-cell!important}
 #pibDlg{max-width:480px;width:calc(100% - 20px);padding:0;border:1px solid var(--line);border-radius:14px;background:var(--card);color:var(--ink)}#pibDlg::backdrop{background:rgba(0,0,0,.35)}
 #pibDlg .ldh{display:flex;align-items:center;justify-content:space-between;padding:12px 14px 6px}#pibDlg .ldh h2{margin:0;font-size:14px;letter-spacing:.6px;text-transform:uppercase;color:var(--ink)!important}
 #pibDlg .hb{background:none;border:1px solid var(--line);color:var(--ink);border-radius:8px;padding:4px 10px;cursor:pointer}#pibDlg .ldb{padding:0 10px 6px}#pibDlg .ldf{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:10px 14px 14px;border-top:1px solid var(--line)}
+.nwi{border-bottom:1px solid var(--line);padding:5px 0;font-size:12px}.nwi summary{cursor:pointer;line-height:1.4}.nwi .nwt{white-space:pre-wrap;font-size:11.5px;max-height:180px;overflow:auto;margin-top:4px;background:var(--card2);border-radius:8px;padding:6px}
 </style></head><body>
 <div id="printArea"></div>
 <nav class="fbar" id="fbar">
@@ -1614,7 +1615,7 @@ table.h.cmp tr.xr td{display:table-cell!important}
  <div class="hud" id="hud"></div>
 
  <div class="mtabs" role="tablist">
-  <button class="mtab" id="wFab" onclick="toggleWPanel()" title="NAVAREA and NAVTEX stations along the route"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 10.5v10M8.5 20.5l3.5-10 3.5 10"/><circle cx="12" cy="9" r="1.6"/><path d="M8.2 5.7a5.3 5.3 0 0 0 0 6.6M15.8 5.7a5.3 5.3 0 0 1 0 6.6M5.6 3.5a8.6 8.6 0 0 0 0 11M18.4 3.5a8.6 8.6 0 0 1 0 11"/></svg></span><span class="tl">Stations</span><span class="cnt" id="wCnt">–</span></button>
+  <button class="mtab" id="wFab" onclick="toggleWPanel()" title="Navigational warnings near the route, NAVAREA and NAVTEX stations"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 10.5v10M8.5 20.5l3.5-10 3.5 10"/><circle cx="12" cy="9" r="1.6"/><path d="M8.2 5.7a5.3 5.3 0 0 0 0 6.6M15.8 5.7a5.3 5.3 0 0 1 0 6.6M5.6 3.5a8.6 8.6 0 0 0 0 11M18.4 3.5a8.6 8.6 0 0 1 0 11"/></svg></span><span class="tl">Warnings</span><span class="cnt" id="wCnt">–</span></button>
   <button class="mtab" id="pFab" onclick="openPubTab('')" title="Nautical publications"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5.5a2 2 0 0 1 2-2h13v15H6a2 2 0 0 0-2 2z"/><path d="M4 20.5a2 2 0 0 1 2-2h13v2H6"/></svg></span><span class="tl">Publications</span><span class="cnt" id="pCnt">–</span></button>
   <button class="mtab" id="eTab" onclick="openPubTab('enc')" title="ENC scales and cells"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5l8.5 4.5L12 12.5 3.5 8z"/><path d="M3.5 12l8.5 4.5 8.5-4.5"/><path d="M3.5 16l8.5 4.5 8.5-4.5"/></svg></span><span class="tl">ENC</span></button>
   <button class="mtab" id="wxTab" onclick="wxToggle()" title="Weather along the route on the chart"><span class="ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 18.5a4.2 4.2 0 0 1-.6-8.4A6 6 0 0 1 17.8 9a4.75 4.75 0 0 1-.3 9.5z"/></svg></span><span class="tl">Weather</span></button>
@@ -1635,7 +1636,7 @@ table.h.cmp tr.xr td{display:table-cell!important}
   <button class="hb" onclick="togglePPanel(false)">✕</button></div></div>
  <div class="bd" id="pBody"></div></div>
 <div class="wsheet" id="wSheet" role="dialog" aria-label="NAVAREA and NAVTEX stations">
- <div class="hd" onclick="if(event.target.closest('.hb'))return;$('wSheet').classList.toggle('peek');$('wScrim').classList.toggle('open',!$('wSheet').classList.contains('peek'))"><div class="grab"></div><div class="hrow"><h3>NAVAREA / NAVTEX STATIONS<small id="wSub"></small></h3>
+ <div class="hd" onclick="if(event.target.closest('.hb'))return;$('wSheet').classList.toggle('peek');$('wScrim').classList.toggle('open',!$('wSheet').classList.contains('peek'))"><div class="grab"></div><div class="hrow"><h3>NAV WARNINGS &amp; STATIONS<small id="wSub"></small></h3>
   <button class="hb" onclick="toggleWPanel(false)">✕</button></div></div>
  <div class="bd" id="wBody"></div></div>
 <div class="card fold inp"><h2>Voyage<button type="button" class="ib" data-i="ppInfo" aria-label="How to use">i</button></h2>
@@ -1876,6 +1877,7 @@ table.h.cmp tr.xr td{display:table-cell!important}
  <details class="guide" style="margin:10px 0 6px"><summary>About the live warnings</summary><div class="hx">Downloaded automatically when the app opens and every 3 hours, and revalidated weekly: if the list has not been rechecked for 7 days its warnings are hidden. Cancelled messages ("CANCEL THIS MSG …", "CANCEL HYDROPAC …") are removed automatically, and warnings older than the age filter on the map panel are hidden. NAVTEX and local warnings you add must be confirmed as still in force once a week. Active warnings from the US NGA broadcast service: NAVAREA IV and XII, HYDROPAC (Pacific and Indian Ocean), HYDROLANT and HYDROARC. Positions in the text are plotted on the chart.</div></details>
  <div class="chips" id="nwAreas"></div>
  <button class="btn" onclick="fetchNGA()">Update now</button>
+ <p class="muted" style="font-size:10.5px;margin:6px 2px 0">All 21 NAVAREAs plus coastal warnings of about 45 countries, collected every 3 h from the coordinators by SeaLagom (www.sealagom.com). Only areas near your route are downloaded. NAVTEX / SafetyNET broadcasts remain the authority.</p>
  <div class="note" id="nwLiveStat" style="color:var(--ink)"></div>
  <details class="nwst"><summary>Source status</summary><div class="note" id="nwExtStat" style="font-size:10.5px;color:var(--mut);line-height:1.5"></div></details>
  <details style="margin-top:10px"><summary class="muted" style="cursor:pointer">If the download keeps failing</summary>
@@ -3906,12 +3908,13 @@ function parsePositions(txt){const out=[];const used=[];
   else{la=+m[1];lo=+m[3];if(m[2]==='S')la=-la;if(m[4]==='W')lo=-lo}
   if(Math.abs(la)>90||Math.abs(lo)>180)continue;used.push([s,e]);out.push({i:s,p:[la,lo]})}});
  return out.sort((a,b)=>a.i-b.i)}
+function unwrapLon(P){if(!P||P.length<2)return P;let prev=P[0][1];return P.map(p=>{let lo=p[1];while(lo-prev>180)lo-=360;while(lo-prev<-180)lo+=360;prev=lo;return[p[0],lo]})}
 function parseWarning(text){const T=(text||'').toUpperCase().replace(/\r/g,'');
  const isArea=/BOUNDED BY|AREA BOUND|AREAS BOUND|WITHIN AREA|IN AREA|POLYGON/.test(T),isLine=/TRACKLINE|ALONG|JOINING|CONNECTING|BETWEEN|CABLE|PIPELINE|ROUTE/.test(T);
  const circ=T.match(/(?:WITHIN|RADIUS(?: OF)?)\s+(\d+(?:\.\d+)?)\s*(?:NAUTICAL\s+)?(?:MILES?|NM|NMI|CABLES?)(?:\s+RADIUS)?/)||T.match(/(\d+(?:\.\d+)?)\s*(?:NM|MILES?)\s+RADIUS/);
  let rad=circ?parseFloat(circ[1]):null;if(rad&&/CABLE/.test(circ[0]))rad/=10;
  // split into sub-items A. B. C. ...
- const chunks=T.split(/\n\s*(?=[A-Z]\.\s)|\s(?=[A-H]\.\s+\d{1,2}[-\s])/);const geo=[];
+ const chunks=T.split(/\n\s*(?=(?:[A-Z]|\d{1,2})\.(?:\s|:))|\s(?=[A-H]\.\s+\d{1,2}[-\s])|(?=\bAREAS? BOUNDED BY\b)/);const geo=[];
  chunks.forEach(ch=>{const P=parsePositions(ch).map(x=>x.p);if(!P.length)return;
   if(rad&&P.length===1)geo.push({t:'circle',pts:P,r:rad});
   else if(isArea&&P.length>=3)geo.push({t:'poly',pts:P});
@@ -3933,7 +3936,7 @@ const G_COL={NAVAREA:'#d62f2f',NAVTEX:'#7b3fbf',LOCAL:'#0b8f7d'},G_NAME={NAVAREA
 const CAT_IC={'Hazardous operations':'🎯','Piracy / security':'🛡','Danger / obstruction':'⚠','Aids to navigation':'💡','Operations / survey':'🛠','SAR':'🛟','General':'ℹ'};
 let FEEDERR=false;
 let WG=new Set(load('wgroups',['NAVAREA','NAVTEX','LOCAL'])),WMODE=load('wmode','near');
-function wGroup(w){if(!w.user||w.src==='NAVAREA')return'NAVAREA';if(w.src==='NAVTEX')return'NAVTEX';return'LOCAL'}
+function wGroup(w){if(/^Coastal /.test(w.src||''))return'LOCAL';if(!w.user||w.src==='NAVAREA')return'NAVAREA';if(w.src==='NAVTEX')return'NAVTEX';return'LOCAL'}
 
 /* ---- weekly revalidation, cancellations, age filter ---- */
 const WEEK=7*864e5,MONI={JAN:0,FEB:1,MAR:2,APR:3,MAY:4,JUN:5,JUL:6,AUG:7,SEP:8,OCT:9,NOV:10,DEC:11};let WAGE=+load('wage',182),CANCELLED=new Set();
@@ -3956,7 +3959,7 @@ const EXT_SRC=[{k:'NAVAREA I',c:'United Kingdom',u:'https://msi.admiralty.co.uk/
 try{WARN.ext=JSON.parse(localStorage.getItem('pp2_warnExt')||'{}')||{}}catch(e){WARN.ext={}}
 const saveExt=()=>{try{localStorage.setItem('pp2_warnExt',JSON.stringify(WARN.ext))}catch(e){}};
 function extList(){return Object.values(WARN.ext||{}).flatMap(x=>x.list||[])}
-function liveAll(){return[...WARN.live,...extList()]}
+function liveAll(){const ng=liveValid()?new Set(WARN.live.map(w=>nwNorm(w.id))):null;return[...WARN.live,...extList().filter(w=>!(w.inforce&&ng&&ng.has(nwNorm(w.id))))]}
 function extValid(k){const x=WARN.ext[k];return!!(x&&x.fetched&&Date.now()-Date.parse(x.fetched)<=WEEK)}
 function pageText(raw){if(!/<[a-z!?]/i.test(raw))return raw;const xml=/^\s*<\?xml/i.test(raw);let doc;try{doc=new DOMParser().parseFromString(raw,xml?'application/xml':'text/html')}catch(e){return raw}
  if(xml&&doc.querySelector('parsererror'))doc=new DOMParser().parseFromString(raw,'text/html');
@@ -3983,13 +3986,41 @@ async function fetchExt(silent){if(extBusy)return;extBusy=true;const own=(load('
    catch(e){errs.push(e.name==='AbortError'?'timeout':(e.message||'blocked'))}}
   WARN.ext[S.k]={...prev,err:errs.find(e=>!/fetch|timeout|HTTP|blocked/i.test(e))||errs[errs.length-1]||'failed'}}));
  extBusy=false;saveExt();updCancelled();drawWarnings();renderWarnList();if(state.wps)renderNear();else renderWPanel();extStat()}
-function extStat(){const el=$('nwExtStat');if(!el)return;el.innerHTML=EXT_SRC.map(S=>{const x=WARN.ext[S.k]||{};return`<div><b>${S.k}</b> (${S.c}): ${x.list?`${x.list.length} warnings · ${x.fetched?fmtUTC(Date.parse(x.fetched)):''}`:'not loaded yet'}${x.err?` <span style="color:var(--bad)">· last try failed (${esc(x.err)})</span>`:''}</div>`}).join('')}
-{const _f=fetchNGA;fetchNGA=async function(silent){await Promise.all([_f(silent),fetchExt(silent)])}}
+function extStat(){const el=$('nwExtStat');if(!el)return;const B=Object.entries(WARN.ext||{}).filter(([k,x])=>x.via==='SeaLagom');el.innerHTML=(NWIDX?`<div><b>Worldwide feed</b>: ${B.length} area(s) near ${state.wps?'the route':'the chart view'} · ${B.reduce((s,[k,x])=>s+(x.list||[]).length,0)} warnings · collected ${fmtUTC(Date.parse(NWIDX.fetched))}${NWERR?` <span style="color:var(--bad)">· last try failed (${esc(NWERR)})</span>`:''}<br><span>${B.map(([k,x])=>esc(k)+' '+(x.list||[]).length).join(' · ')}</span></div>`:(NWERR?`<div><b>Worldwide feed</b>: <span style="color:var(--bad)">${esc(NWERR)}</span></div>`:''))+EXT_SRC.filter(S=>WARN.ext[S.k]&&WARN.ext[S.k].via!=='SeaLagom').map(S=>{const x=WARN.ext[S.k]||{};return`<div><b>${S.k}</b> (${S.c}): ${x.list?`${x.list.length} warnings · ${x.fetched?fmtUTC(Date.parse(x.fetched)):''}`:'not loaded yet'}${x.err?` <span style="color:var(--bad)">· last try failed (${esc(x.err)})</span>`:''}</div>`}).join('')}
+{const _f=fetchNGA;fetchNGA=async function(silent){await Promise.all([_f(silent),(async()=>{if(!await fetchBundle(silent))await fetchExt(silent)})()])}}
+
+/* ===== Worldwide NAVAREA + coastal warnings: collected every 3 h on navigator-isle.github.io (source SeaLagom) ===== */
+const NWBASE='https://navigator-isle.github.io/navwarn/';
+let NWIDX=load('nwidx',null),nwBusy=false,NWERR='',nwSig='',nwT=null,nwMoveHook=false;
+function nwKey(src){return /^Coastal /.test(src||'')?'Coastal':src}
+function nwNorm(s){return String(s||'').toUpperCase().replace(/\s+/g,' ').replace(/\/20(\d\d)\b/,'/$1').replace(/\b0+(\d)/g,'$1').trim()}
+function nwNeedBox(){let s,n,w,e;
+ if(state.wps&&state.wps.length>1){let prev=state.wps[0].p[1],lo0=prev,mn=prev,mx=prev;s=90;n=-90;
+  state.wps.forEach(x=>{let lo=x.p[1];while(lo-prev>180)lo-=360;while(lo-prev<-180)lo+=360;prev=lo;mn=Math.min(mn,lo);mx=Math.max(mx,lo);s=Math.min(s,x.p[0]);n=Math.max(n,x.p[0])});w=mn;e=mx}
+ else if(M&&M.map&&M.map.getBounds){const b=M.map.getBounds();s=b.getSouth();n=b.getNorth();w=b.getWest();e=b.getEast()}else return null;
+ const pad=Math.max(1,(getBuf()+10)/60);s-=pad;n+=pad;const cp=pad/Math.max(.2,Math.cos(Math.min(80,Math.max(Math.abs(s),Math.abs(n)))*Math.PI/180));w-=cp;e+=cp;
+ if(e-w>=360)return[s,-180,n,180,1];const nm=x=>((x+180)%360+360)%360-180;return[s,nm(w),n,nm(e),0]}
+function nwBoxHit(b,nb){if(!b||!nb)return false;if(b[2]<nb[0]||b[0]>nb[2])return false;if(nb[4])return true;
+ const sp=(a,c)=>{let x=c-a;if(x<0)x+=360;return x},inn=(lo,a,c)=>(((lo-a)%360)+360)%360<=sp(a,c);
+ return inn(nb[1],b[1],b[3])||inn(b[1],nb[1],nb[3])}
+function nwNeed(idx){const nb=nwNeedBox();return nb?(idx.areas||[]).filter(a=>a.ok!==false&&a.f&&nwBoxHit(a.box,nb)):[]}
+async function fetchBundle(silent){if(nwBusy)return !!NWIDX;nwBusy=true;
+ try{let idx=NWIDX;if(!(idx&&idx._got&&Date.now()-idx._got<2.5*3600e3)){const r=await getTO(NWBASE+'index.json?t='+Math.floor(Date.now()/9e5),20000);if(!r.ok)throw new Error('HTTP '+r.status);idx=await r.json();if(!idx||!idx.areas)throw new Error('bad index');idx._got=Date.now();NWIDX=idx;store('nwidx',idx)}
+  const need=nwNeed(idx),keep=new Set(need.map(a=>a.a));nwSig=need.map(a=>a.a+a.h).join();
+  Object.keys(WARN.ext).forEach(k=>{if(WARN.ext[k].via==='SeaLagom'&&!keep.has(k))delete WARN.ext[k]});
+  let fail=0;await Promise.all(need.map(async a=>{const x=WARN.ext[a.a];if(x&&x.via==='SeaLagom'&&x.h===a.h){x.fetched=idx.fetched;return}
+   try{const r=await getTO(NWBASE+a.f+'?h='+a.h,30000);if(!r.ok)throw 0;const j=await r.json();
+    WARN.ext[a.a]={via:'SeaLagom',h:a.h,fetched:idx.fetched,err:'',list:(j.w||[]).map(w=>({id:w.id,src:a.a,text:w.t,issued:w.d,geo:parseWarning(w.t),cat:warnCat(w.t)[0],ext:1,inforce:1}))}}catch(e){fail++}}));
+  NWERR=fail?fail+' area file(s) not downloaded':'';nwBusy=false;saveExt();updCancelled();refreshWarn();extStat();
+  if(!silent)toast(`Warnings near ${state.wps?'the route':'the chart'}: ${need.length} area(s) loaded`);return true}
+ catch(e){nwBusy=false;NWERR=e.name==='AbortError'?'timeout':(e.message||'blocked');extStat();return false}}
+function nwRouteCheck(){if(!nwMoveHook&&M&&M.map&&M.map.on){nwMoveHook=true;M.map.on('moveend',()=>{if(!state.wps)nwRouteCheck()})}
+ clearTimeout(nwT);nwT=setTimeout(()=>{if(!NWIDX||!navigator.onLine)return;const sig=nwNeed(NWIDX).map(a=>a.a+a.h).join();if(sig!==nwSig)fetchBundle(true)},1500)}
 function liveValid(){return !!WARN.fetched&&Date.now()-Date.parse(WARN.fetched)<=WEEK}
 function warnStatus(w){const now=Date.now();
  if(w.user){if(w.until&&Date.parse(w.until+'T23:59:59Z')<now)return'expired';const v=Date.parse(w.val||w.issued);if(!isNaN(v)&&now-v>WEEK)return'reval';return'ok'}
  const ex=warnExpiry(w);if(ex&&ex<now)return'expired';if(CANCELLED.has(w.id))return'cancelled';if((!w.geo||!w.geo.length)&&(w.text||'').length<220&&/CANCEL\s+(HYDRO|NAVAREA)/i.test(w.text))return'cancelled';if(!(w.ext?extValid(w.src):liveValid()))return'unverified';
- const iss=warnIssued(w);if(WAGE&&iss&&now-iss>WAGE*864e5)return'old';return'ok'}
+ const iss=warnIssued(w);if(WAGE&&iss&&now-iss>WAGE*864e5&&!w.inforce)return'old';return'ok'}
 const ST_TXT={ok:'Valid',old:'Older than filter',expired:'Expired',cancelled:'Cancelled',unverified:'Not revalidated this week',reval:'Needs weekly revalidation'};
 function ageTxt(t){if(!t)return'';const d=(Date.now()-t)/864e5;return d<1?'today':d<14?Math.round(d)+' d ago':d<60?Math.round(d/7)+' wk ago':d<730?Math.round(d/30.4)+' mo ago':(d/365).toFixed(1)+' yr ago'}
 function revalWarning(i){const w=WARN.user[i];if(!w)return;w.val=new Date().toISOString();saveWarn();refreshWarn();toast('Revalidated for another week')}
@@ -3997,9 +4028,9 @@ function revalAll(){const now=new Date().toISOString();WARN.user.forEach(w=>{if(
 function refreshWarn(){drawWarnings();renderWarnList();if(state.wps)renderNear();else renderWPanel()}
 function setWAge(v){WAGE=+v;store('wage',WAGE);refreshWarn()}
 function hiddenStats(){const on=new Set([...document.querySelectorAll('#nwAreas input:checked')].map(i=>i.value));const c={old:0,expired:0,cancelled:0,unverified:0,reval:0};
- liveAll().filter(w=>on.has(w.src)).forEach(w=>{const s=warnStatus(w);if(s!=='ok')c[s]++});WARN.user.forEach(w=>{const s=warnStatus(w);if(s!=='ok')c[s]++});return c}
+ liveAll().filter(w=>on.has(nwKey(w.src))).forEach(w=>{const s=warnStatus(w);if(s!=='ok')c[s]++});WARN.user.forEach(w=>{const s=warnStatus(w);if(s!=='ok')c[s]++});return c}
 function loadedWarnings(){const on=new Set([...document.querySelectorAll('#nwAreas input:checked')].map(i=>i.value));
- return [...liveAll().filter(w=>on.has(w.src)&&warnStatus(w)==='ok'),...WARN.user.filter(w=>warnStatus(w)==='ok')]}
+ return [...liveAll().filter(w=>on.has(nwKey(w.src))&&warnStatus(w)==='ok'),...WARN.user.filter(w=>warnStatus(w)==='ok')]}
 function allWarnings(){return loadedWarnings().filter(w=>WG.has(wGroup(w)))}
 // ---- live feed (NGA MSI: NAVAREA IV, XII, HYDROPAC, HYDROLANT, HYDROARC)
 const NGA_URL='https://msi.nga.mil/api/publications/broadcast-warn?output=json&status=active';
@@ -4063,7 +4094,7 @@ function drawWarnings(){if(!M)return;layersW.warn.forEach(x=>M.hide(x));layersW.
   if(hasRoute&&!isNear&&WMODE!=='all')return;shown++;
   const cc=warnCat(w.text),col=G_COL[wGroup(w)],fill=isNear||!hasRoute?.28:.12,wt=isNear?3:2;
   const html=`<b style="color:${col}">${no?'#'+no+' ':''}${esc(w.id)}</b><br><span style="font-size:11px">${G_NAME[wGroup(w)]} · ${CAT_IC[cc[0]]} ${esc(cc[0])}</span><br><span style="font-size:11px">${esc(w.issued||'')}</span><div style="max-height:160px;overflow:auto;font-size:12px;margin-top:4px;white-space:pre-wrap">${esc(w.text.slice(0,900))}</div>`;
-  w.geo.forEach(g=>{
+  w.geo.forEach(g0=>{const g=g0.t==='poly'||g0.t==='line'?{...g0,pts:unwrapLon(g0.pts)}:g0;
    if(g.t==='poly')layersW.warn.push(M.poly([g.pts],{color:col,fill,html}));
    else if(g.t==='circle'){const ring=[];for(let a=0;a<=360;a+=10)ring.push(destPt(g.pts[0],a,g.r));layersW.warn.push(M.poly([ring],{color:col,fill,html}))}
    else if(g.t==='line'){layersW.warn.push(M.line(g.pts,{color:col,weight:wt,dash:true}));g.pts.forEach(p=>layersW.warn.push(M.marker(p,{color:col,size:4,html,title:w.id})))}
@@ -4146,8 +4177,9 @@ function nearRoute(buf){const wps=state.wps;if(!wps)return[];const S=[];
  for(let i=1;i<wps.length;i++){const a=wps[i-1],b=wps[i];const s=legSamples(a.p,b.p,3);s.forEach((q,k)=>S.push({p:[q[0],norm(q[1])],cum:a.cum+(b.cum-a.cum)*(s.length>1?k/(s.length-1):0)}))}
  let la0=90,la1=-90;S.forEach(s=>{la0=Math.min(la0,s.p[0]);la1=Math.max(la1,s.p[0])});
  const res=[];allWarnings().forEach(w=>{let best=null;
-  (w.geo||[]).forEach(g=>{const pts=g.pts.map(p=>[p[0],norm(p[1])]);if(pts.every(p=>p[0]<la0-3||p[0]>la1+3))return;
-   S.forEach(s=>{let d;
+  (w.geo||[]).forEach(g=>{const pts=unwrapLon(g.pts.map(p=>[p[0],norm(p[1])]));if(pts.every(p=>p[0]<la0-3||p[0]>la1+3))return;
+   const cLo=pts.reduce((a,p)=>a+p[1],0)/pts.length;
+   S.forEach(s0=>{let d;let lo=s0.p[1];while(lo-cLo>180)lo-=360;while(lo-cLo<-180)lo+=360;const s={p:[s0.p[0],lo],cum:s0.cum};
     if(g.t==='poly'){d=inRing(s.p[0],s.p[1],pts)?0:Math.min(...pts.map((p,k)=>distPtSeg(s.p,p,pts[(k+1)%pts.length])))}
     else if(g.t==='line'){d=Math.min(...pts.slice(1).map((p,k)=>distPtSeg(s.p,pts[k],p)))}
     else if(g.t==='circle'){d=Math.max(0,distPtSeg(s.p,pts[0],pts[0])-g.r)}
@@ -4155,7 +4187,7 @@ function nearRoute(buf){const wps=state.wps;if(!wps)return[];const S=[];
     if(best==null||d<best.d)best={d,cum:s.cum}})});
   if(best&&best.d<=buf)res.push({w,d:best.d,cum:best.cum})});
  return res.sort((a,b)=>a.cum-b.cum)}
-function renderNear(){const buf=getBuf();const n=state.wps?nearRoute(buf):[];state.nearW=n;drawWarnings();renderWPanel();
+function renderNear(){nwRouteCheck();const buf=getBuf();const n=state.wps?nearRoute(buf):[];state.nearW=n;drawWarnings();renderWPanel();
  const el=$('nearW');if(!el)return;const speed=Math.max(1,+$('speed').value||12),etd=etdUTC();const tot=allWarnings().length;
  el.innerHTML=`<h2>Warnings near route</h2><div class="hbar" style="margin-top:10px"><span class="muted">${n.length} of ${tot} loaded warning(s) within <b>${buf} nm</b> (change the buffer in the ⚠ Warnings panel on the map).</span></div>
  <div class="exp"><button onclick="window.scrollTo(0,0);toggleWPanel(true)">Show on map</button><button onclick="printWarnings()">Print warnings</button></div>`+
@@ -4212,7 +4244,7 @@ function zoomWarn(id){const w=[...WARN.user,...liveAll()].find(x=>x.id===id);if(
  const P=[];w.geo.forEach(g=>g.t==='circle'?[0,90,180,270].forEach(a=>P.push(destPt(g.pts[0],a,g.r))):P.push(...g.pts));if(P.length===1)P.push(destPt(P[0],45,15),destPt(P[0],225,15));
  setTimeout(()=>M.fit(P),120)}
 function setupWarnings(){
- const areas=['NAVAREA I','NAVAREA II','NAVAREA III','NAVAREA IV','NAVAREA VI','NAVAREA VIII','NAVAREA X','NAVAREA XI','NAVAREA XII','NAVAREA XIV','NAVAREA XV','NAVAREA XIX','HYDROPAC','HYDROLANT','HYDROARC'];let on=load('nwAreas',areas);if(!load('nwAreasExt2',false)){on=[...new Set([...on,'NAVAREA I','NAVAREA II','NAVAREA III','NAVAREA VI','NAVAREA VIII','NAVAREA X','NAVAREA XI','NAVAREA XIV','NAVAREA XV','NAVAREA XIX'])];store('nwAreas',on);store('nwAreasExt2',true)}
+ const areas=[...ROMAN.slice(1).map(r=>'NAVAREA '+r),'HYDROPAC','HYDROLANT','HYDROARC','Coastal'];let on=load('nwAreas',areas);if(!load('nwAreasExt3',false)){on=[...new Set([...on,...areas])];store('nwAreas',on);store('nwAreasExt3',true)}
  $('nwAreas').innerHTML=areas.map(a=>`<label class="chip"><input type="checkbox" value="${a}" ${on.includes(a)?'checked':''}>${a}</label>`).join('');
  $('nwRelay').value=load('nwRelay','');$('nwRelay').onchange=()=>store('nwRelay',$('nwRelay').value.trim());
  $('nwFile').onchange=e=>{const f=e.target.files[0];if(!f)return;f.text().then(importNGAText);e.target.value=''};
@@ -4825,18 +4857,24 @@ window.addEventListener('appinstalled',()=>{const b=document.getElementById('ins
 
 try{if(!localStorage.getItem('pp2_disc1'))document.getElementById('discBar').style.display='flex'}catch(e){document.getElementById('discBar').style.display='flex'}
 
-/* ---- NW panel: NAVAREA / NAVTEX stations only (live warning download removed) ---- */
-fetchNGA=async function(){};fetchExt=async function(){};
-drawWarnings=function(){if(!M||!layersW)return;layersW.warn.forEach(x=>M.hide(x));layersW.warn=[]};
-syncWarnDangers=function(){try{dngRemove('Nav warning')}catch(e){}};
-renderNear=function(){state.nearW=[];renderWPanel()};
-setupWCtl=function(){wCtlSync()};
+/* ---- NW panel: stations along the route + navigational warnings near the route (worldwide feed) ---- */
+WARN.live=[];fetchExt=async function(){};
+fetchNGA=async function(silent){await fetchBundle(silent)};
 let _nsC=null;function navSeqC(){if(!state.res)return null;if(_nsC&&_nsC.r===state.res)return _nsC.v;const v=navSeq();_nsC={r:state.res,v};return v}
-updFab=function(){const c=$('wCnt');if(!c)return;const N=navSeqC();c.textContent=N?N.na.length+'·'+N.nx.length:'–';c.classList.remove('hot')};
+updFab=function(){const c=$('wCnt');if(!c)return;const n=state.wps?(state.nearW||[]).length:null;c.textContent=n==null?'–':String(n);c.classList.toggle('hot',!!n)};
+function nwPanelHtml(){const L=state.nearW||[],buf=getBuf(),ago=NWIDX?feedAgeTxt(NWIDX.fetched):'';
+ let h=`<div class="wgrp" style="--gc:#c26a00"><h4>WARNINGS WITHIN <select onchange="setBuf(this.value)" style="width:auto;display:inline;padding:1px 4px;font-size:12px;margin:0 2px">${[10,25,50,100,200].map(v=>`<option ${v===buf?'selected':''}>${v}</option>`).join('')}</select> NM OF THE ROUTE <span class="c">${L.length}</span></h4>
+ <div class="seg3" style="margin:4px 0 6px"><button class="${WMODE!=='all'?'on':''}" onclick="setWMode('near')">Near route only</button><button class="${WMODE==='all'?'on':''}" onclick="setWMode('all')">All loaded</button><button onclick="fetchBundle(false)">⟳ Update</button></div>`;
+ if(!NWIDX)h+=`<p class="muted">${NWERR?'Could not download the warnings ('+esc(NWERR)+'). ':'Downloading the warnings… '}They update every 3 hours when online.</p>`;
+ else if(!L.length)h+='<p class="muted">No warnings with positions within '+buf+' nm of the route.</p>';
+ else h+=L.map((x,i)=>{const cc=warnCat(x.w.text);return`<details class="nwi"><summary><b>#${i+1}</b> ${esc(x.w.id)} <span class="muted">· ${x.d<0.05?'on route':x.d.toFixed(1)+' nm off'} · at ${fmtNm(x.cum)} nm · ${CAT_IC[cc[0]]||'⚠'} ${esc(cc[0])}</span></summary><div class="nwt">${esc(x.w.text)}</div><button class="swapbtn" style="margin:4px 0" onclick="zoomWarn('${esc(x.w.id).replace(/'/g,"\\'")}')">Show on chart</button></details>`}).join('');
+ return h+`<p class="muted" style="font-size:10.5px;margin-top:6px">Collected ${ago||'—'} by SeaLagom (www.sealagom.com) from the NAVAREA coordinators and coastal authorities. Positions are read from the text – check the original message. NAVTEX / SafetyNET broadcasts remain the authority.</p></div>`}
+function feedAgeTxt(t){const h=(Date.now()-Date.parse(t))/36e5;return !isFinite(h)?'':h<1?'less than 1 h ago':h<48?Math.round(h)+' h ago':Math.round(h/24)+' days ago'}
 renderWPanel=function(){updFab();const sh=$('wSheet');if(!sh||!sh.classList.contains('open'))return;const hasR=!!state.wps;
  $('wSub').textContent=hasR?`${PORTS[state.from].n} → ${PORTS[state.to].n}`:'Plan a route to list the stations along it';
  let h=`<div class="wopts"><span class="lb">Show on chart</span><div class="seg3"><button class="${LAYON.na?'on':''}" onclick="setLayer('na',!LAYON.na);renderWPanel()">NAVAREA limits</button><button class="${LAYON.nx?'on':''}" onclick="setLayer('nx',!LAYON.nx);renderWPanel()">NAVTEX ranges</button></div></div>`;
  if(!hasR){$('wBody').innerHTML=h+'<p class="muted" style="margin-top:10px">Plan a route to list the NAVAREAs (SafetyNET / EGC) and the NAVTEX stations along it.</p>';return}
+ h+=nwPanelHtml();
  const NS=navSeqC();
  h+=`<div class="wgrp" style="--gc:#d62f2f"><h4>NAVAREAS ON THE ROUTE <span class="c">${NS.na.length}</span></h4><div class="nalist na">${NS.na.map(x=>`<div><b>NAVAREA ${x.a}</b> ${esc(x.c)} · ${x.cum<1?'from departure':'≈'+fmtNm(x.cum)+' nm · '+fmtUTC(etaAt(x.cum))}</div>`).join('')||'<div>—</div>'}</div><div class="muted" style="font-size:10.5px;margin-top:4px">Select these areas on the Inmarsat-C EGC receiver (SafetyNET). Boundaries approximate – confirm in ALRS Vol 5.</div></div>`;
  h+=`<div class="wgrp" style="--gc:#5e35b1"><h4>NAVTEX STATIONS ON THE ROUTE <span class="c">${NS.nx.length}</span></h4><div class="nalist nx">${NS.nx.map(x=>`<div><b>${esc(x.n)}</b> ${esc([...x.ids].join(', '))} · ${x.cum<1?'from departure':'≈'+fmtNm(x.cum)+' nm'}</div>`).join('')||'<div>none in range</div>'}</div><div class="muted" style="font-size:10.5px;margin-top:4px">Stations within ≈350 nm of the route (B1 character and frequency). Programme the NAVTEX receiver accordingly – ALRS Vol 5 / NP 285.</div></div>`;
