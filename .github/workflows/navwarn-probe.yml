@@ -28,7 +28,7 @@ jobs:
           g n06.html "https://www.hidro.gov.ar/nautica/RadioavisosNauticos.asp?op=8"
           g n15.html "http://www.shoa.mil.cl/php/radioavisos.php?idioma=es"
           cat status.txt
-          for f in *; do s=$(stat -c%s "$f"); [ $s -gt 400000 ] && head -c 400000 "$f" > t && mv t "$f"; done
+          for f in *; do s=$(stat -c%s "$f"); [ $s -gt 400000 ] && head -c 400000 "$f" > t && mv t "$f"; done; true
       - run: |
           git config user.name "navwarn-bot"; git config user.email "actions@users.noreply.github.com"
           git add probe && git commit -qm "probe data" && git push -q origin HEAD:navwarn-probe-data -f
