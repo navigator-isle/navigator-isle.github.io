@@ -10,9 +10,9 @@ jobs:
     steps:
       - uses: actions/checkout@v5
       - run: |
-          mkdir -p probe; cd probe
+          set +e; mkdir -p probe; cd probe
           UA="Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 Chrome/130 Mobile Safari/537.36"
-          g(){ code=$(curl -sSL -m 60 -A "$UA" -o "$1" -w '%{http_code} %{size_download} %{content_type}' "$2" 2>&1); echo "$1 $code" >> status.txt; }
+          g(){ code=$(curl -sSL -m 45 --connect-timeout 20 -A "$UA" -o "$1" -w '%{http_code} %{size_download} %{content_type}' "$2" 2>&1); echo "$1 $code" >> status.txt; }
           for n in $(seq 1 21); do g sl_txt_$n.txt "https://www.sealagom.com/feeds/warnings.txt?navarea=$n&limit=500"; done
           g sl_rss_11.xml "https://www.sealagom.com/feeds/navarea/11.xml"
           g sl_zones.json "https://www.sealagom.com/api/v2/navarea-zones/"
