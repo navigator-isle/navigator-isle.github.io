@@ -35,8 +35,9 @@ for (let n = 1; n <= 21; n++) {
 try {
   const r = await get('https://www.sealagom.com/api/v2/coastal/', 1);
   if (r) {
-    const j = await r.json(); const regs = (j.results || j || []).filter(x => x && (x.id != null));
-    console.log('coastal regions:', regs.length, JSON.stringify(regs.slice(0, 3)));
+    let j = await r.json(); const regs = [...(j.results || [])];
+    for (let k = 0; k < 20 && j.next; k++) { const rn = await get(j.next, 2); if (!rn) break; j = await rn.json(); regs.push(...(j.results || [])); }
+    console.log('coastal regions:', regs.length, regs.map(g => g.title || g.name).join(', '));
     for (const g of regs) {
       const nm = 'COASTAL ' + String(g.name || g.title || g.country || g.id).toUpperCase();
       const rr = await get(`https://www.sealagom.com/feeds/warnings.txt?coastal=${encodeURIComponent(g.id)}&limit=500`, 2);
