@@ -41,7 +41,7 @@ try {
     for (const g of regs) {
       const nm = 'Coastal ' + (g.country || g.title || g.name || g.id);
       const rr = await get(`https://www.sealagom.com/feeds/warnings.txt?coastal=${encodeURIComponent(g.id)}&limit=500`, 2);
-      if (!rr) continue; const L = parse(await rr.text(), nm); if (L.length) { const o = res.areas[nm] || { ok: true, n: 0, c: g.country || '' }; o.n += L.length; res.areas[nm] = o; res.w.push(...L); }
+      if (!rr) continue; const L = parse(await rr.text(), nm).map(w => ({ ...w, id: w.id.replace(/^(.+?) Coastal \1 /, '$1 ') })); if (L.length) { const o = res.areas[nm] || { ok: true, n: 0, c: g.country || '' }; o.n += L.length; res.areas[nm] = o; res.w.push(...L); }
     }
   }
 } catch (e) { console.log('coastal:', e.message); }
