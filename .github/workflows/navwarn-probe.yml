@@ -1,5 +1,8 @@
 name: navwarn probe
-on: workflow_dispatch
+on:
+  workflow_dispatch:
+  push:
+    branches: [claude/navwarn-probe]
 permissions: { contents: write }
 jobs:
   probe:
