@@ -39,15 +39,41 @@ try {
     for (let k = 0; k < 20 && j.next; k++) { const rn = await get(j.next, 2); if (!rn) break; j = await rn.json(); regs.push(...(j.results || [])); }
     console.log('coastal regions:', regs.length, regs.map(g => g.title || g.name).join(', '));
     for (const g of regs) {
-      const nm = 'COASTAL ' + String(g.name || g.title || g.country || g.id).toUpperCase();
+      const nm = 'Coastal ' + (g.country || g.title || g.name || g.id);
       const rr = await get(`https://www.sealagom.com/feeds/warnings.txt?coastal=${encodeURIComponent(g.id)}&limit=500`, 2);
-      if (!rr) continue; const L = parse(await rr.text(), nm); if (L.length) { res.areas[nm] = { ok: true, n: L.length, c: g.country || '' }; res.w.push(...L); }
+      if (!rr) continue; const L = parse(await rr.text(), nm); if (L.length) { const o = res.areas[nm] || { ok: true, n: 0, c: g.country || '' }; o.n += L.length; res.areas[nm] = o; res.w.push(...L); }
     }
   }
 } catch (e) { console.log('coastal:', e.message); }
 const okAreas = Object.values(res.areas).filter(a => a.ok).length;
 console.log('areas ok', okAreas, 'warnings', res.w.length);
 if (okAreas < 10) { console.log('Too few areas – keeping the previous file'); process.exit(0); }
-const prev = existsSync('navwarn.json') ? JSON.parse(readFileSync('navwarn.json', 'utf8')) : null;
-writeFileSync('navwarn.json', JSON.stringify(res));
-console.log('changed:', !prev || JSON.stringify(prev.w) !== JSON.stringify(res.w));
+// ---- write one small file per area plus an index with each area's extent, so the app downloads only what is near the route
+import { mkdirSync, readdirSync, unlinkSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+const POS = /(\d{1,2})-(\d{1,2}(?:\.\d+)?)(?:-(\d{1,2}(?:\.\d+)?))?\s*([NS])[\s,\/]*(\d{1,3})-(\d{1,2}(?:\.\d+)?)(?:-(\d{1,2}(?:\.\d+)?))?\s*([EW])/g;
+const slug = s => s.toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+mkdirSync('navwarn', { recursive: true });
+const index = { fetched: res.fetched, source: res.source, areas: [] }; const keep = new Set(['index.json']);
+const seen = new Set();
+for (const [area, info] of Object.entries(res.areas)) {
+  if (!info.ok) { index.areas.push({ a: area, ok: false }); continue; }
+  const L = res.w.filter(w => w.a === area && !seen.has(w.id) && seen.add(w.id)).map(({ id, d, t }) => ({ id, d, t }));
+  let s = 90, n = -90, lons = [];
+  for (const w of L) for (const m of w.t.matchAll(POS)) {
+    let la = +m[1] + parseFloat(m[2]) / 60 + (m[3] ? parseFloat(m[3]) / 3600 : 0), lo = +m[5] + parseFloat(m[6]) / 60 + (m[7] ? parseFloat(m[7]) / 3600 : 0);
+    if (m[4] === 'S') la = -la; if (m[8] === 'W') lo = -lo; if (Math.abs(la) > 90 || Math.abs(lo) > 180 || parseFloat(m[2]) >= 60 || parseFloat(m[6]) >= 60) continue;
+    s = Math.min(s, la); n = Math.max(n, la); lons.push(lo);
+  }
+  // smallest longitude span (handles areas across 180°)
+  let box = null;
+  if (lons.length) { lons.sort((x, y) => x - y); let gap = -1, at = 0; for (let i = 0; i < lons.length; i++) { const nx = i + 1 < lons.length ? lons[i + 1] : lons[0] + 360; if (nx - lons[i] > gap) { gap = nx - lons[i]; at = i; } }
+    const w0 = lons[(at + 1) % lons.length], e0 = lons[at]; box = [+s.toFixed(2), +w0.toFixed(2), +n.toFixed(2), +e0.toFixed(2)]; }
+  const f = slug(area) + '.json', body = JSON.stringify({ a: area, w: L });
+  writeFileSync('navwarn/' + f, body); keep.add(f);
+  index.areas.push({ a: area, c: info.c || '', n: L.length, f, box, h: createHash('sha1').update(JSON.stringify(L)).digest('hex').slice(0, 10) });
+}
+for (const f of readdirSync('navwarn')) if (!keep.has(f)) unlinkSync('navwarn/' + f);
+writeFileSync('navwarn/index.json', JSON.stringify(index));
+if (existsSync('navwarn.json')) unlinkSync('navwarn.json');
+console.log('files', keep.size);
