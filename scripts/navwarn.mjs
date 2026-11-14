@@ -45,13 +45,22 @@ try {
     }
   }
 } catch (e) { console.log('coastal:', e.message); }
+// AUSCOAST (Australian coastal) warnings come inside NAVAREA X; US long-range HYDROPAC / HYDROLANT / HYDROARC inside the US coastal feed
+for (const w of res.w) {
+  let to = null, c = '';
+  if (w.a === 'NAVAREA X' && /AUSCOAST/i.test(w.id)) { to = 'Coastal Australia'; c = 'Australia'; w.id = w.id.replace(/^NAVAREA X /, ''); }
+  else if (w.a === 'Coastal US') { const m = w.id.match(/^(?:US\s+)?(?:Coastal\s+)?(HYDROPAC|HYDROLANT|HYDROARC)\b/); if (m) { to = m[1]; w.id = w.id.replace(/^(?:US\s+)?(?:Coastal\s+)?/, ''); } }
+  if (to) { const o = res.areas[to] || (res.areas[to] = { ok: true, n: 0, c }); o.n++; if (res.areas[w.a]) res.areas[w.a].n--; w.a = to; }
+  if (/^Coastal /.test(w.a)) { const c0 = w.a.replace(/^Coastal /, ''); w.id = w.id.split(c0 + ' Coastal ').join(''); }
+}
+for (const [k, v] of Object.entries(res.areas)) if (v.ok && v.n <= 0 && /^Coastal /.test(k)) delete res.areas[k];
 const okAreas = Object.values(res.areas).filter(a => a.ok).length;
 console.log('areas ok', okAreas, 'warnings', res.w.length);
 if (okAreas < 10) { console.log('Too few areas – keeping the previous file'); process.exit(0); }
 // ---- write one small file per area plus an index with each area's extent, so the app downloads only what is near the route
 import { mkdirSync, readdirSync, unlinkSync } from 'node:fs';
 import { createHash } from 'node:crypto';
-const POS = /(\d{1,2})-(\d{1,2}(?:\.\d+)?)(?:-(\d{1,2}(?:\.\d+)?))?\s*([NS])[\s,\/]*(\d{1,3})-(\d{1,2}(?:\.\d+)?)(?:-(\d{1,2}(?:\.\d+)?))?\s*([EW])/g;
+const POS = /(\d{1,2})[-°](\d{1,2}(?:\.\d+)?)(?:[-'′](\d{1,2}(?:\.\d+)?))?['′"″]*\s*([NS])[\s,，、.\/]*(\d{1,3})[-°](\d{1,2}(?:\.\d+)?)(?:[-'′](\d{1,2}(?:\.\d+)?))?['′"″]*\s*([EW])/g;
 const slug = s => s.toLowerCase().normalize('NFKD').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 mkdirSync('navwarn', { recursive: true });
 const index = { fetched: res.fetched, source: res.source, areas: [] }; const keep = new Set(['index.json']);

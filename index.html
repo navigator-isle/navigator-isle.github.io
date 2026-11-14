@@ -973,6 +973,10 @@ table.h{width:100%;border-collapse:collapse;font-size:12px;white-space:nowrap}
 dialog{border:0;border-top:4px solid var(--gold);border-radius:16px;background:var(--card);color:var(--ink);max-width:440px;width:92vw;box-shadow:0 10px 40px #000a}
 dialog::backdrop{background:#02102acc}
 dialog h3{margin:0 0 6px;color:var(--acc);font-size:15px}
+.mtag{font:700 10px/1.25 "Segoe UI",Roboto,sans-serif;white-space:nowrap;padding:1px 5px;border-radius:4px;background:rgba(255,255,255,.92);border:1.5px solid;box-shadow:0 1px 2px rgba(0,0,0,.3);pointer-events:auto}
+.mtag.na{color:#b45309;border-color:#ef6c00}.mtag.co{color:#1b5e20;border-color:#2e7d32}.mtag.nx{color:#4a2fa8;border-color:#7b5cd6}.mtag.ar{color:#fff;background:#37474f;border-color:#37474f;font-size:11px}
+.night .mtag{background:rgba(20,20,20,.9)}
+.plist{margin:-2px 0 8px 30px}.plist details summary{font-size:11px;cursor:pointer;color:var(--mut,#667);padding:3px 0}.plist .went{margin:3px 0}
 .wpm{color:#fff;font:700 10px/18px "Segoe UI",Roboto,sans-serif;min-width:18px;height:18px;border-radius:9px;text-align:center;padding:0 4px;border:1.5px solid #fff;box-shadow:0 1px 3px rgba(0,0,0,.45);white-space:nowrap}
 .popbtn{margin:6px 4px 0 0;padding:4px 8px;border:1px solid #bbb;border-radius:6px;background:#f5f5f5;cursor:pointer;font-size:12px}
 .toast{position:fixed;left:50%;bottom:20px;transform:translateX(-50%);background:var(--h1);color:#fff;padding:9px 16px;border-radius:10px;font-size:13px;z-index:3000;display:none;border-bottom:2px solid var(--gold)}
@@ -2513,6 +2517,7 @@ const LeafletMap={
  marker(p,o){let m;if(o.label!=null){m=L.marker(p,{icon:L.divIcon({className:'',html:`<div class="wpm${o.drag?' drag':''}" style="background:${o.color}">${o.label}</div>`,iconSize:null,iconAnchor:[8,8]}),zIndexOffset:o.z||0,draggable:!!o.drag,autoPan:true});if(o.drag&&o.onDrag)m.on('dragend',e=>{const ll=e.target.getLatLng();o.onDrag([ll.lat,ll.lng])})}
   else m=L.circleMarker(p,{radius:o.size||5,color:'#fff',weight:1.2,fillColor:o.color,fillOpacity:1});if(o.html)m.bindPopup(o.html);if(o.title)m.bindTooltip(o.title);return m.addTo(this.map)},
  symbol(p,svg,sz,o){const m=L.marker(p,{icon:L.divIcon({className:'',html:svg,iconSize:[sz,sz],iconAnchor:[sz/2,sz/2]}),zIndexOffset:(o.z||0)*10});if(o.html)m.bindPopup(o.html);if(o.title)m.bindTooltip(o.title);return m.addTo(this.map)},
+ tag(p,txt,cls,o){o=o||{};const m=L.marker(p,{icon:L.divIcon({className:'',html:`<div class="mtag ${cls}">${txt}</div>`,iconSize:null,iconAnchor:o.anchor||[-6,10]}),zIndexOffset:(o.z||0)*10,interactive:!!o.html});if(o.html)m.bindPopup(o.html);return m.addTo(this.map)},
  hide(x){x.remove()},show(x){x.addTo(this.map)},
  fit(path){this.map.fitBounds(L.latLngBounds(path),{padding:[30,30]})}
 };
@@ -2726,16 +2731,18 @@ function drawPubs(){if(!M)return;layersP.forEach(x=>M.hide(x));layersP.length=0;
  if(PUBSEL==='enc'&&!PUBON.size){if(!ENCSHOW)return;const E=encAlong();if(!E)return;E.seg.forEach(x=>{const b=EBAND[x.band];layersP.push(M.line(unwrap(x.pts.map(p=>({p}))).map(o=>o.p),{color:b[2],weight:9,opacity:.45}))});
   return}
  const P=pubsAlong(),keys=[...new Set([...PUBON,...(PUBS[PUBSEL]?[PUBSEL]:[])])].filter(k=>PUBS[k]);
- keys.forEach(k=>{const S=PUBS[k],list=PUBMODE==='route'&&P&&P[k]?P[k].map(x=>x.v):S.vols;
+ keys.forEach(k=>{const S=PUBS[k],list=pubSc(k)==='route'&&P&&P[k]?P[k].map(x=>x.v):S.vols;
  list.forEach(v=>{const i=S.vols.indexOf(v),col=PCOLS[i%PCOLS.length];const html=`<b>${esc(v[0])}</b><br>${esc(v[1])}${v[2]?'<br><span style="font-size:11px">'+esc(v[2])+'</span>':''}<br><span style="font-size:10.5px;color:#888">Approximate coverage – check NP131 / limits diagram</span>`;
   v[3].forEach(r=>{layersP.push(M.poly([r],{color:col,fill:.08,dash:true,html}))});
   let big=v[3][0];v[3].forEach(r=>{if(r.length>big.length)big=r});const c=big.reduce((s,p)=>[s[0]+p[0]/big.length,s[1]+p[1]/big.length],[0,0]);
   layersP.push(M.marker(c,{color:col,label:volId(k,v),z:12,html,title:v[0]+' '+v[1]}))})})}
 function togglePPanel(on){setTimeout(tabSync,0);const sh=$('pSheet');const o=on==null?!sh.classList.contains('open')||sh.classList.contains('peek'):on;sh.classList.remove('peek');sh.classList.toggle('open',o);$('pScrim').classList.toggle('open',o);if(o){toggleWPanel(false);renderPPanel()}}
 function setPubSel(k){PUBSEL=PUBSEL===k?'':k;if(k==='enc')PUBSEL='enc';store('pubsel',PUBSEL);drawPubs();renderPPanel();tabSync()}
-function setPubMode(m){PUBMODE=m;store('pubmode',m);drawPubs();renderPPanel()}
-function zoomVol(k,i){const v=PUBS[k].vols[i];if(PUBSEL!==k){PUBSEL=k;store('pubsel',k);drawPubs()}const P=[];v[3].forEach(r=>P.push(...r));showView('pp');$('pSheet').classList.add('peek');$('pScrim').classList.remove('open');setTimeout(()=>M.fit(P),120)}
-function pubRows(k,P,hasR,clickable){const S=PUBS[k];const items=hasR&&PUBMODE==='route'?P[k]:S.vols.map(v=>(P&&P[k].find(x=>x.v===v))||{v});
+let PUBSC=load('pubsc',{});function pubSc(k){return PUBSC[k]||PUBMODE||'route'}
+function setPubMode(m){PUBMODE=m;store('pubmode',m);['sd','ll','rs','at'].forEach(k=>PUBSC[k]=m);store('pubsc',PUBSC);drawPubs();renderPPanel()}
+function setPubSc(k,m){PUBSC[k]=m;store('pubsc',PUBSC);drawPubs();setRender()}
+function zoomVol(k,i){const v=PUBS[k].vols[i];if(!PUBON.has(k)){PUBON.add(k);store('pubon',[...PUBON])}drawPubs();const P=[];v[3].forEach(r=>P.push(...r));if(document.body.classList.contains('mf')){setClose();setTimeout(()=>M.fit(P),120);return}showView('pp');$('pSheet').classList.add('peek');$('pScrim').classList.remove('open');setTimeout(()=>M.fit(P),120)}
+function pubRows(k,P,hasR,clickable){const S=PUBS[k];const items=hasR&&pubSc(k)==='route'?P[k]:S.vols.map(v=>(P&&P[k].find(x=>x.v===v))||{v});
  return items.map(x=>{const i=S.vols.indexOf(x.v);return`<div class="went" style="--gc:${S.col}" ${clickable?`onclick="zoomVol('${k}',${i})"`:''}><div class="num ic" style="font-size:10px;flex:0 0 auto;width:auto;min-width:28px;border-radius:9px;padding:0 5px">${esc(volId(k,x.v))}</div><div class="b2"><div class="top"><span class="id">${esc(x.v[0])}</span></div><div class="meta"><b>${esc(x.v[1])}</b></div>${x.v[2]?`<div class="meta">${esc(x.v[2])}</div>`:''}${x.a!=null?`<div class="meta"><span class="prng">run ${fmtNm(x.a)} – ${fmtNm(x.b)} nm</span></div>`:''}</div></div>`}).join('')}
 /* ---- ENC usage bands along the route + cells from the user's own catalogue ---- */
 const EBAND={1:['Overview','smaller than 1:1,500,000','#5a6f8c'],2:['General','1:350,000 – 1:1,500,000','#1d5fd6'],3:['Coastal','1:90,000 – 1:350,000','#0b8f7d'],4:['Approach','1:22,000 – 1:90,000','#c99700'],5:['Harbour','1:4,000 – 1:22,000','#ef6c00'],6:['Berthing','larger than 1:4,000','#d62f2f']};
@@ -2776,7 +2783,7 @@ function parseEncCatalog(buf,fname){const u8=new Uint8Array(buf);let txt='';for(
 async function loadEncFile(f){if(!f)return;try{const cells=parseEncCatalog(await f.arrayBuffer(),f.name);
   if(!cells.length){toast('No ENC cells with coverage found in '+f.name);return}
   ENCDB={cells,src:f.name,date:new Date().toISOString().slice(0,10)};try{localStorage.setItem('pp2_encdb',JSON.stringify(ENCDB))}catch(e){toast('Loaded (too large to keep after closing the app)')}
-  state._encW=null;toast(cells.length+' ENC cells loaded');renderPubs()}catch(e){toast('Could not read the file: '+e.message)}}
+  state._encW=null;toast(cells.length+' ENC cells loaded');renderPubs();setRender()}catch(e){toast('Could not read the file: '+e.message)}}
 function clearEnc(){ENCDB=null;try{localStorage.removeItem('pp2_encdb')}catch(e){}state._encW=null;renderPubs()}
 function zoomCell(nm){const E=encAlong();const c=E&&E.cells&&E.cells.find(x=>x.nm===nm);if(!c)return;const [s0,w0,n0,e0]=c.box;showView('pp');$('pSheet').classList.add('peek');$('pScrim').classList.remove('open');setTimeout(()=>M.fit([[s0,w0],[n0,e0<w0?e0+360:e0]]),120)}
 function encSection(E,hasR){let h=`<div class="wgrp" style="--gc:#0a2a5e"><h4>ENC usage bands (scales) along the route</h4>`;
@@ -3775,7 +3782,7 @@ function render(){
  for(let i=1;i<wps.length;i++)if(wps[i].t==='canal'&&wps[i-1].t==='canal')layers.route.push(M.line([wps[i-1].p,wps[i].p],{color:'#0b8f7d',weight:5}));
  wps.forEach((w,i)=>{w.lab=String(i+1);
   const gp=MAPEDIT&&GCP===(curR()&&curR().wps[i]);const col=gp||w.gcm?'#7b3fbf':w.t==='eca'?'#2e7d32':w.t==='sa'?'#ef6c00':w.t==='pilot'?'#d99a12':w.t==='berth'?'#0a2a5e':w.t==='tss'?'#c2185b':w.t==='gc'?'#7b3fbf':w.t==='fair'?'#90a4ae':w.t==='canal'?'#0b8f7d':'#1d5fd6';
-  const ed=MAPEDIT&&M===LeafletMap&&w.t!=='berth';layers.route.push(M.marker(w.p,{color:col,label:gp?w.lab+' ▶GC':w.gcm==='start'?w.lab+' ▶':w.gcm==='end'?w.lab+' ■':w.lab,size:4,z:w.t==='pilot'||w.t==='berth'?50:20,title:wpName(w)||('WP '+w.lab),drag:ed,onDrag:ed?(p=>editMove(i,p)):null,
+  const ed=MAPEDIT&&M===LeafletMap&&w.t!=='berth';layers.route.push(M.marker(w.p,{color:col,label:!MAPEDIT?null:gp?w.lab+' ▶GC':w.gcm==='start'?w.lab+' ▶':w.gcm==='end'?w.lab+' ■':w.lab,size:MAPEDIT?4:(w.t==='pilot'||w.t==='berth'?5:3.5),z:w.t==='pilot'||w.t==='berth'?50:20,title:wpName(w)||('WP '+w.lab),drag:ed,onDrag:ed?(p=>editMove(i,p)):null,
    html:MAPEDIT?editPopup(i,w):`<b>${esc(w.lab)} ${esc(wpName(w)||'Waypoint')}</b><br>${fmtLat(w.p[0])} ${fmtLon(w.p[1])}<br>${w.c!=null?'Co '+w.c.toFixed(1)+'°T · '+fmtNm(w.d)+' nm<br>':''}Run ${fmtNm(w.cum)} nm · ETA ${fmtUTC(w.eta)}`}))});
  res.events.forEach(e=>{const z=ZONES.find(x=>x.id===e.z);layers.route.push(M.marker(e.p,{color:e.type==='in'?'#d62f2f':'#1e8e3e',size:7,z:60,title:(e.type==='in'?'Enter ':'Exit ')+z.name,
   html:`<b>${e.type==='in'?'ENTER':'EXIT'} ${z.name}</b><br>${fmtLat(e.p[0])} ${fmtLon(e.p[1])}<br>${fmtNm(e.cum)} nm · ETA ${fmtUTC(e.eta)}`}))});
@@ -4059,9 +4066,16 @@ let WARN={live:[],user:[],fetched:null};
 try{WARN.live=JSON.parse(localStorage.getItem('pp2_warnLive')||'[]');WARN.fetched=localStorage.getItem('pp2_warnLiveT');WARN.user=JSON.parse(localStorage.getItem('pp2_warnUser')||'[]')}catch(e){}
 const saveWarn=()=>{try{localStorage.setItem('pp2_warnLive',JSON.stringify(WARN.live));localStorage.setItem('pp2_warnLiveT',WARN.fetched||'');localStorage.setItem('pp2_warnUser',JSON.stringify(WARN.user))}catch(e){}};
 // ---- position & geometry parsing (NAVAREA / NAVTEX / local warning text)
-function parsePositions(txt){const out=[];const used=[];
+function nwPosNorm(t){const z=v=>v.replace(/度/g,'°').replace(/分/g,"'").replace(/秒/g,'"').trim();
+ return String(t||'').replace(/(北|南)\s*[緯纬]\s*([\d°'′″".\s度分秒]+)/g,(m,h,v)=>z(v)+(h==='北'?'N':'S')).replace(/(東|东|西)\s*[經经]\s*([\d°'′″".\s度分秒]+)/g,(m,h,v)=>z(v)+(h==='西'?'W':'E'))
+  .replace(/[，、；]/g,', ').replace(/\b([NS])\s?\/?\s?(\d{1,2}-\d{1,2}(?:\.\d+)?(?:-\d{1,2}(?:\.\d+)?)?)\s*\/\s*([EW])\s?(\d{1,3}-\d{1,2}(?:\.\d+)?(?:-\d{1,2}(?:\.\d+)?)?)/g,'$2$1 $4$3')}
+function parsePositions(txt){const out=[];const used=[];txt=nwPosNorm(txt);
+ const LG='(?:[Ll][Oo][Nn][Gg](?:[Ii][Tt][Uu][Dd][Ee])?\\.?\\s*)?';
+ const dms=new RegExp("(\\d{1,2})\\s*[-°˚º]\\s*(\\d{1,2})\\s*[-'’′]\\s*(\\d{1,2}(?:[.,]\\d+)?)\\s*(?:[\"”″]|'')?\\s*([NS])\\.?[\\s,.\\/-]*"+LG+"(\\d{1,3})\\s*[-°˚º]\\s*(\\d{1,2})\\s*[-'’′]\\s*(\\d{1,2}(?:[.,]\\d+)?)\\s*(?:[\"”″]|'')?\\s*([EW])",'g');
+ {let m;while((m=dms.exec(txt))){if(+m[2]>=60||+m[6]>=60||parseFloat(m[3])>=60||parseFloat(m[7])>=60)continue;const f=(d,mi,se)=>+d+ +mi/60+parseFloat(se.replace(',','.'))/3600;
+  let la=f(m[1],m[2],m[3]),lo=f(m[5],m[6],m[7]);if(m[4]==='S')la=-la;if(m[8]==='W')lo=-lo;if(Math.abs(la)>90||Math.abs(lo)>180)continue;used.push([m.index,m.index+m[0].length]);out.push({i:m.index,p:[la,lo]})}}
  const pats=[
-  /(\d{1,2})[-\s°˚º]+(\d{1,2}(?:[.,]\d+)?)\s*['’′]?\s*([NS])[\s,\/-]*(\d{1,3})[-\s°˚º]+(\d{1,2}(?:[.,]\d+)?)\s*['’′]?\s*([EW])/g,
+  /(\d{1,2})[-\s°˚º]+(\d{1,2}(?:[.,]\d+)?)\s*['’′]?\s*([NS])\.?[\s,\/-]*(?:[Ll][Oo][Nn][Gg]\.?\s*)?(\d{1,3})[-\s°˚º]+(\d{1,2}(?:[.,]\d+)?)\s*['’′]?\s*([EW])/g,
   /\b(\d{2})(\d{2}(?:[.,]\d+)?)\s?([NS])[\s,\/-]*(\d{3})(\d{2}(?:[.,]\d+)?)\s?([EW])\b/g,
   /\b(\d{1,2}(?:\.\d+))\s?°?\s?([NS])[\s,\/-]+(\d{1,3}(?:\.\d+))\s?°?\s?([EW])\b/g];
  pats.forEach((re,pi)=>{let m;while((m=re.exec(txt))){const s=m.index,e=s+m[0].length;if(used.some(([a,b])=>s<b&&e>a))continue;
@@ -4165,7 +4179,7 @@ function nwNeedBox(){let s,n,w,e;
 function nwBoxHit(b,nb){if(!b||!nb)return false;if(b[2]<nb[0]||b[0]>nb[2])return false;if(nb[4])return true;
  const sp=(a,c)=>{let x=c-a;if(x<0)x+=360;return x},inn=(lo,a,c)=>(((lo-a)%360)+360)%360<=sp(a,c);
  return inn(nb[1],b[1],b[3])||inn(b[1],nb[1],nb[3])}
-function nwNeed(idx){const nb=nwNeedBox();return nb?(idx.areas||[]).filter(a=>a.ok!==false&&a.f&&nwBoxHit(a.box,nb)):[]}
+function nwNeed(idx){if(nwScope('na')==='all'&&load('nwf','off')!=='off')return(idx.areas||[]).filter(a=>a.ok!==false&&a.f);const nb=nwNeedBox();return nb?(idx.areas||[]).filter(a=>a.ok!==false&&a.f&&nwBoxHit(a.box,nb)):[]}
 async function fetchBundle(silent){if(nwBusy)return !!NWIDX;nwBusy=true;
  try{let idx=NWIDX;if(!(idx&&idx._got&&Date.now()-idx._got<2.5*3600e3)){const r=await getTO(NWBASE+'index.json?t='+Math.floor(Date.now()/9e5),20000);if(!r.ok)throw new Error('HTTP '+r.status);idx=await r.json();if(!idx||!idx.areas)throw new Error('bad index');idx._got=Date.now();NWIDX=idx;store('nwidx',idx)}
   const need=nwNeed(idx),keep=new Set(need.map(a=>a.a));nwSig=need.map(a=>a.a+a.h).join();
@@ -4194,7 +4208,7 @@ function hiddenStats(){const on=new Set([...document.querySelectorAll('#nwAreas 
 function loadedWarnings(){const on=new Set([...document.querySelectorAll('#nwAreas input:checked')].map(i=>i.value));
  return [...liveAll().filter(w=>on.has(nwKey(w.src))&&warnStatus(w)==='ok'),...WARN.user.filter(w=>warnStatus(w)==='ok')]}
 function wType(w){return w.user?'nx':'na'}
-function wfOf(w){return load(wType(w)==='nx'?'nxf':'nwf','off')}
+function wfOf(w){const t=wType(w),f=load(t==='nx'?'nxf':'nwf','off');return f!=='off'&&nwScope(t)==='all'?'all':f}
 function bufFor(w){const f=wfOf(w);return f==='all'?200:f==='off'?-1:+f}
 function allWarnings(){return loadedWarnings().filter(w=>wfOf(w)!=='off'&&!NWOFF.has(w.src))}
 // ---- live feed (NGA MSI: NAVAREA IV, XII, HYDROPAC, HYDROLANT, HYDROARC)
@@ -4253,6 +4267,7 @@ function corridor(buf){const wps=state.wps;if(!wps||wps.length<2)return null;con
  return[...cap(s0,c0+90,c0+270),...L,...cap(e,c1-90,c1+90),...R.reverse()]}
 function drawWarnings(){if(!M)return;layersW.warn.forEach(x=>M.hide(x));layersW.warn=[];
  const near=nearIds(),hasRoute=!!state.wps;let shown=0;
+ if(hasRoute&&LAYON.na&&M.tag){try{navSeqC().na.forEach(x=>{const p=posAtCum(x.cum);if(p)layersW.warn.push(M.tag(p,'NAVAREA '+x.a+' '+esc(x.c||''),'ar',{z:60}))})}catch(e){}}
  
  if(!WG.size){updWCount();return}
  allWarnings().forEach(w=>{if(!w.geo||!w.geo.length)return;const no=near.get(w.id);const isNear=!!no;
@@ -4264,10 +4279,20 @@ function drawWarnings(){if(!M)return;layersW.warn.forEach(x=>M.hide(x));layersW.
    else if(g.t==='circle'){const ring=[];for(let a=0;a<=360;a+=10)ring.push(destPt(g.pts[0],a,g.r));layersW.warn.push(M.poly([ring],{color:col,fill,html}))}
    else if(g.t==='line'){layersW.warn.push(M.line(g.pts,{color:col,weight:wt,dash:true}));g.pts.forEach(p=>layersW.warn.push(M.marker(p,{color:col,size:4,html,title:w.id})))}
    else if(!no)layersW.warn.push(M.marker(g.pts[0],{color:col,label:CAT_IC[cc[0]]||'⚠',z:40,html,title:w.id}))});
-  if(no){const g=w.geo[0],c=g.t==='poly'?g.pts.reduce((s,p)=>[s[0]+p[0]/g.pts.length,s[1]+p[1]/g.pts.length],[0,0]):g.pts[0];
-   layersW.warn.push(M.marker(c,{color:col,label:String(no),z:70,html,title:'#'+no+' '+w.id}))}});
+  {const g=w.geo[0],c=g.t==='poly'?unwrapLon(g.pts).reduce((s,p)=>[s[0]+p[0]/g.pts.length,s[1]+p[1]/g.pts.length],[0,0]):g.pts[0];
+   if(no)layersW.warn.push(M.marker(c,{color:col,label:String(no),z:70,html,title:'#'+no+' '+w.id}));
+   if(M.tag&&(isNear||!hasRoute||shown<=60))layersW.warn.push(M.tag(c,esc(wTagTxt(w)),wType(w)==='nx'?'nx':/^Coastal /.test(w.src||'')?'co':'na',{html,z:30}))}});
+ tagSoon();
  updWCount()}
+function tagDeclutter(){const T=[...document.querySelectorAll('.mtag')];const pri=e=>e.classList.contains('ar')?0:e.classList.contains('nx')?1:2;T.sort((a,b)=>pri(a)-pri(b));const put=[];
+ T.forEach(e=>{e.style.visibility='';const r=e.getBoundingClientRect();if(!r.width)return;const hit=put.some(q=>r.left<q.right+2&&r.right>q.left-2&&r.top<q.bottom+1&&r.bottom>q.top-1);if(hit)e.style.visibility='hidden';else put.push(r)})}
+let tagT=null;function tagSoon(){clearTimeout(tagT);tagT=setTimeout(tagDeclutter,60);if(M&&M.map&&M.map.on&&!M._tagHook){M._tagHook=1;M.map.on('zoomend moveend',tagSoon)}}
+function posAtCum(c){const w=state.wps;if(!w)return null;for(let i=1;i<w.length;i++)if(w[i].cum>=c){const a=w[i-1],b=w[i],t=b.cum>a.cum?(c-a.cum)/(b.cum-a.cum):0;const sm=legSamples(a.p,b.p,20);return sm[Math.min(sm.length-1,Math.round(t*(sm.length-1)))]}return w[w.length-1].p}
 function updWCount(){updFab()}
+function wTagTxt(w){const src=w.src||'';let id=String(w.id||'').replace(/^(NAVAREA [IVX]+) \1 /,'$1 ').replace(/^NAVAREA [IVX]+ (AUSCOAST)/,'$1');
+ if(w.user)return'NAVTEX · '+id.slice(0,28);if(/^Coastal /.test(src)){const c=src.replace(/^Coastal /,'');id=id.replace(new RegExp('^'+c.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'\\s+(Coastal\\s+)?'),'');return'COASTAL '+(COCODE[c]||c)+' · '+id.slice(0,30)}
+ return id.slice(0,32)}
+const COCODE={Philippines:'PH',China:'CN',Taiwan:'TW','Hong Kong':'HK',Japan:'JP','South Korea':'KR',Malaysia:'MY',Singapore:'SG',Australia:'AU','New Zealand':'NZ',India:'IN',Pakistan:'PK','United Kingdom':'UK',US:'US',Canada:'CA',Russia:'RU',Norway:'NO',Sweden:'SE',Denmark:'DK',Germany:'DE',France:'FR',Spain:'ES',Portugal:'PT',Italy:'IT',Greece:'GR',Turkey:'TR',Egypt:'EG',Brazil:'BR',Argentina:'AR',Chile:'CL','South Africa':'ZA',Nigeria:'NG',Fiji:'FJ',Panama:'PA'};
 function toggleWPanel(on){setTimeout(tabSync,0);const sh=$('wSheet');const o=on==null?!sh.classList.contains('open')||sh.classList.contains('peek'):on;if(o&&$('pSheet')){$('pSheet').classList.remove('open');$('pScrim').classList.remove('open')}sh.classList.remove('peek');sh.classList.toggle('open',o);$('wScrim').classList.toggle('open',o);if(o)renderWPanel()}
 function feedStat(err){FEEDERR=!!err;renderWPanel()}
 function feedAge(){const f=WARN.fetched?Date.parse(WARN.fetched):0;if(!f)return'';const h=(Date.now()-f)/3600e3;return h<1?'<1 h':h<48?Math.round(h)+' h':Math.round(h/24)+' d'}
@@ -4337,6 +4362,7 @@ function nxKey(s){return s.area+'|'+s.n}
 function drawNavtex(){if(!M)return;layersW.navtex.forEach(x=>M.hide(x));layersW.navtex=[];if(typeof NXON==='undefined'||!NXON.size)return;
  const by={};NAVTEX_ST.forEach(s=>{const k=nxKey(s);if(!NXON.has(k))return;(by[k]=by[k]||{n:s.n,p:s.p,ids:[],a:s.area}).ids.push(`${s.b1} · ${s.f} kHz`)});
  Object.values(by).forEach(s=>{const ring=[];for(let a=0;a<=360;a+=10)ring.push(destPt(s.p,a,300));layersW.navtex.push(M.poly([ring],{color:'#7b5cd6',fill:.02,dash:true,html:`<b>NAVTEX ${esc(s.n)}</b><br>Nominal range ≈ 300 nm (250–400 nm)`}));
+  if(M.tag)layersW.navtex.push(M.tag(s.p,esc(s.ids.map(x=>x.split(' ')[0]).filter((x,i,a)=>a.indexOf(x)===i).join('/')+' – '+s.n),'nx',{z:31}));tagSoon();
   layersW.navtex.push(M.marker(s.p,{color:'#7b5cd6',label:'N',z:30,title:'NAVTEX '+s.n,html:`<b>NAVTEX ${esc(s.n)}</b> · NAVAREA ${ROMAN[+s.a]||s.a}<br>${s.ids.map(esc).join('<br>')}<br><span style="font-size:11px">Nominal range ≈ 250–400 nm. Check ALRS Vol 5 / NP 285.</span>`}))})}
 function distPtSeg(p,a,b){const c=Math.cos(p[0]*rad);const ax=(a[1]-p[1])*c,ay=a[0]-p[0],bx=(b[1]-p[1])*c,by=b[0]-p[0];const dx=bx-ax,dy=by-ay,L=dx*dx+dy*dy;let t=L?-(ax*dx+ay*dy)/L:0;t=Math.max(0,Math.min(1,t));return Math.hypot(ax+t*dx,ay+t*dy)*60}
 function nearRoute(buf){const wps=state.wps;if(!wps)return[];const S=[];
@@ -5450,6 +5476,10 @@ function nwApply(){WG=new Set(['NAVAREA','NAVTEX','LOCAL']);store('wgroups',[...
  const f=load('nwf','off');LAYON.na=f!=='off';setLayer('na',LAYON.na);mfSetChk('lyNavtex',false);
  if(state.wps)renderNear();else{drawWarnings();renderWPanel()}drawNavtex();if(f!=='off')fetchBundle(true)}
 function nwSet(k,v){store(k,v);nwApply();setRender()}
+const CNA={Australia:[10],Brazil:[5],Turkey:[3],Argentina:[6],Sweden:[1],Canada:[4,12,17,18],Belgium:[1],Bulgaria:[3],Chile:[15],China:[11],Croatia:[3],Cyprus:[3],Denmark:[1],Greenland:[1,18,19],Estonia:[1],'Falkland Islands':[6],Fiji:[14],Finland:[1],Germany:[1],Greece:[3],'Hong Kong':[11],US:[4,12],India:[8],Italy:[3],Japan:[11],Latvia:[1],Lithuania:[1],Malaysia:[11],Bahrain:[9],France:[2,3],Norway:[1,19],'New Zealand':[14],Nigeria:[2],Pakistan:[9],Panama:[4,12],Philippines:[11],Poland:[1],Portugal:[2],Romania:[3],Russia:[1,3,13,20,21],Singapore:[11],'South Africa':[7],'South Korea':[11],Spain:[2,3],Egypt:[3,9],Taiwan:[11],'United Kingdom':[1],Ukraine:[3]};
+const HYNA={HYDROPAC:[8,10,11,12,13,14,15,16],HYDROLANT:[1,2,3,4,5,6,7,9],HYDROARC:[17,18,19,20,21]};
+function coastNAs(name){if(HYNA[name])return HYNA[name];const c=String(name).replace(/^Coastal /,'');if(CNA[c])return CNA[c];const n=coastNA(name);return n?[n]:[]}
+function nwScope(k){return load(k==='nx'?'nxsc':'nwsc','route')}
 function coastNA(name){const A=NWIDX&&NWIDX.areas.find(x=>x.a===name);if(!A||!A.box)return null;const c=[(A.box[0]+A.box[2])/2,(A.box[1]+(A.box[3]<A.box[1]?A.box[3]+360:A.box[3]))/2];let b=null,bd=1e9;NAVTEX_ST.forEach(s=>{const d=gcd(c,s.p);if(d<bd){bd=d;b=s}});return b?+b.area:null}
 function routeNAs(){try{return new Set(((state.wps?navSeqC():null)||{na:[]}).na.map(x=>x.a))}catch(e){return new Set()}}
 function nCount(src){const L=(WARN.ext&&WARN.ext[src]&&WARN.ext[src].list)||null;const near=nwSrcCount(src);return state.wps?`${near} near route`:L?`${L.length} loaded`:'not loaded'}
@@ -5458,28 +5488,40 @@ function setRender(){const el=$('setBody');if(!el||!$('setSheet').classList.cont
  const seg=(opts,cur,js)=>`<div class="sseg">${opts.map(([v,l])=>`<button class="${v===cur?'on':''}" onclick="${js.replace(/%/g,v)}">${l}</button>`).join('')}</div>`;
  const FOPT=[['off','Off'],['10','10 nm'],['20','20 nm'],['50','50 nm'],['all','All']];
  const RN=routeNAs();const ord=ROMAN.slice(1).map((r,i)=>({r,i:i+1,on:RN.has(r)})).sort((a,b)=>(b.on-a.on)||(a.i-b.i));
- const coastBy={};(NWIDX?NWIDX.areas:[]).slice().sort((a,b)=>nwSrcCount(b.a)-nwSrcCount(a.a)||a.a.localeCompare(b.a)).filter(x=>/^Coastal /.test(x.a)&&x.ok!==false).forEach(x=>{const n=coastNA(x.a);if(n)(coastBy[n]=coastBy[n]||[]).push(x.a)});
+ const nsc=nwScope('na'),sx=nwScope('nx'),hasR=!!state.wps,nb=hasR?nwNeedBox():null;
+ const coastBy={};(NWIDX?NWIDX.areas:[]).slice().sort((a,b)=>nwSrcCount(b.a)-nwSrcCount(a.a)||a.a.localeCompare(b.a)).filter(x=>(/^Coastal /.test(x.a)||HYNA[x.a])&&x.ok!==false&&x.n>0).forEach(x=>{if(nsc==='route'&&hasR&&!nwBoxHit(x.box,nb))return;coastNAs(x.a).forEach(n=>(coastBy[n]=coastBy[n]||[]).push(x.a))});
  const sub=(tag,cls,name,meta,on,js)=>`<label class="sitem"><span class="tg ${cls}">${tag}</span><span><b>${name}</b><small>${meta}</small></span>${mfCb(on,js)}</label>`;
- const naTree=ord.map(o=>{const key='NAVAREA '+o.r,co=coastBy[o.i]||[],all=[key,...co],on=all.some(k=>!NWOFF.has(k)),js=all.map(k=>`'${esc(k)}'`).join(',');
-  return`<details class="stree"${o.on?' open':''}><summary><span class="tg na">NAVAREA</span><b>${o.r}</b>${o.on?'<em>on route</em>':''}${mfCb(on,`event.stopPropagation();nwOffMany([${js}],this.checked)`)}</summary>
+ const naTree=(nsc==='route'&&!hasR)?'<p style="margin:4px 0">Plan a route to list its NAVAREAs – or choose <b>All NAVAREAs</b>.</p>':ord.filter(o=>nsc==='all'||o.on).map(o=>{const key='NAVAREA '+o.r,co=coastBy[o.i]||[],all=[key,...co],on=all.some(k=>!NWOFF.has(k)),js=all.map(k=>`'${esc(k)}'`).join(',');const zn=(NAV_AREAS.find(q=>q[0]===o.r)||[])[1]||'';
+  return`<details class="stree"${o.on?' open':''}><summary><span class="tg na">NAVAREA</span><b>${o.r}</b>${zn?`<small>${esc(zn)}</small>`:''}${o.on?'<em>on route</em>':''}${mfCb(on,`event.stopPropagation();nwOffMany([${js}],this.checked)`)}</summary>
    ${sub('NAVAREA','na',key+' warnings',nCount(key),!NWOFF.has(key),`nwOffMany(['${key}'],this.checked)`)}
-   ${co.map(c=>sub('COASTAL','co',esc(c.replace(/^Coastal /,'')),'Coastal warnings · '+nCount(c),!NWOFF.has(c),`nwOffMany(['${esc(c)}'],this.checked)`)).join('')||'<p style="margin:4px 0">No coastal warning area listed for this NAVAREA.</p>'}</details>`}).join('');
+   ${co.map(c=>HYNA[c]?sub('NGA','na',c,'US long-range warnings · '+nCount(c),!NWOFF.has(c),`nwOffMany(['${esc(c)}'],this.checked)`):sub('COASTAL','co',esc(c.replace(/^Coastal /,'')),(c==='Coastal Australia'?'AUSCOAST warnings · ':'Coastal warnings · ')+nCount(c),!NWOFF.has(c),`nwOffMany(['${esc(c)}'],this.checked)`)).join('')}</details>`}).join('');
  const stBy={};NAVTEX_ST.forEach(s=>{const k=nxKey(s);const g=stBy[s.area]=stBy[s.area]||{};(g[k]=g[k]||{n:s.n,ids:[]}).ids.push(s.b1+(s.f==='518'?'':' ('+s.f+')'))});
  let nxRoute=new Set();try{if(state.wps)navSeqC().nx.forEach(t=>NAVTEX_ST.filter(s=>s.n===t.n).forEach(s=>nxRoute.add(nxKey(s))))}catch(e){}
- const nxTree=ord.map(o=>{const g=stBy[o.i]||{},ks=Object.keys(g).sort((a,b)=>g[a].ids[0].localeCompare(g[b].ids[0]));if(!ks.length)return'';const on=ks.some(k=>NXON.has(k)),js=ks.map(k=>`'${esc(k)}'`).join(',');
+ const nxTree=(sx==='route'&&!hasR)?'<p style="margin:4px 0">Plan a route to list its NAVTEX stations – or choose <b>All stations</b>.</p>':ord.map(o=>{const g=stBy[o.i]||{},ks=Object.keys(g).filter(k=>sx==='all'||nxRoute.has(k)).sort((a,b)=>g[a].ids[0].localeCompare(g[b].ids[0]));if(!ks.length)return'';const on=ks.some(k=>NXON.has(k)),js=ks.map(k=>`'${esc(k)}'`).join(',');
   return`<details class="stree"${o.on?' open':''}><summary><span class="tg na">NAVAREA</span><b>${o.r}</b>${o.on?'<em>on route</em>':''}<small>${ks.length} stations</small>${mfCb(on,`event.stopPropagation();nxSet([${js}],this.checked)`)}</summary>
-   ${ks.map(k=>sub('NAVTEX','nx',`${esc(g[k].ids.join('/'))} – ${esc(g[k].n)}`,nxRoute.has(k)?'On this route · 518 kHz range ≈ 300 nm':'518 / 490 kHz',NXON.has(k),`nxSet(['${esc(k)}'],this.checked)`)).join('')}</details>`}).join('');
- const nwDet=`<div class="slab">NAVAREA &amp; coastal warnings on the chart</div>${seg(FOPT,f,"nwSet('nwf','%')")}
-  <div class="slab">Each NAVAREA with its coastal warning areas</div>${naTree}
+   ${ks.map(k=>sub('NAVTEX','nx',`${esc([...new Set(g[k].ids.map(x=>x.split(' ')[0]))].join('/'))} – ${esc(g[k].n)}`,(nxRoute.has(k)?'On this route · ':'')+[...new Set(g[k].ids.map(x=>(x.match(/\((\d+)\)/)||[0,'518'])[1]))].join(' / ')+' kHz · range ≈ 300 nm',NXON.has(k),`nxSet(['${esc(k)}'],this.checked)`)).join('')}</details>`}).join('');
+ const SOPT=[['route','Along route'],['all','All NAVAREAs']],XOPT=[['route','Along route'],['all','All stations']];
+ const FOPT2=[['off','Off'],['10','10 nm'],['20','20 nm'],['50','50 nm'],['all','Route areas']];
+ const nwDet=`<div class="slab">Show</div>${seg(SOPT,nsc,"nwSet('nwsc','%')")}
+  ${nsc==='route'?`<div class="slab">Warnings within distance of the route</div>${seg(FOPT2,f,"nwSet('nwf','%')")}`:`<div class="slab">Warnings</div>${seg([['off','Off'],['all','Show all']],f==='off'?'off':'all',"nwSet('nwf','%')")}`}
+  <div class="slab">${nsc==='route'?'NAVAREAs on this route':'All NAVAREAs'} · coastal areas only where a country issues coastal warnings</div>${naTree}
   <p style="font-size:10.5px;margin:6px 0 0">Collected every 3 h by SeaLagom (www.sealagom.com) from the NAVAREA coordinators. Only areas near the route (or the chart view) are downloaded.</p>`;
- const nxDet=`<div class="slab">NAVTEX &amp; local warnings you added (Nav warnings)</div>${seg(FOPT,fx,"nwSet('nxf','%')")}
-  <div class="slab">NAVTEX stations by NAVAREA</div><div class="stools" style="margin-bottom:6px"><button onclick="nxSet([...document.querySelectorAll('[data-nxr]')].map(e=>e.dataset.nxr),true)">All on this route</button><button onclick="nxSet([...NXON],false)">Clear all</button></div>${[...nxRoute].map(k=>`<i data-nxr="${esc(k)}" hidden></i>`).join('')}${nxTree}`;
+ const nxDet=`<div class="slab">Show</div>${seg(XOPT,sx,"nwSet('nxsc','%')")}
+  <div class="slab">NAVTEX &amp; local warnings you added (Nav warnings)</div>${sx==='route'?seg(FOPT2,fx,"nwSet('nxf','%')"):seg([['off','Off'],['all','Show all']],fx==='off'?'off':'all',"nwSet('nxf','%')")}
+  <div class="slab">${sx==='route'?'NAVTEX stations along this route':'All NAVTEX stations'} by NAVAREA</div><div class="stools" style="margin-bottom:6px"><button onclick="nxSet([...document.querySelectorAll('[data-nxr]')].map(e=>e.dataset.nxr),true)">All on this route</button><button onclick="nxSet([...NXON],false)">Clear all</button></div>${[...nxRoute].map(k=>`<i data-nxr="${esc(k)}" hidden></i>`).join('')}${nxTree}`;
  const pubOn=k=>PUBON.has(k);const anyPub=['sd','ll','rs','at'].some(pubOn);
- const pubDet=sub('SD','na','Sailing Directions','Admiralty Sailing Directions (NP1–NP72)',pubOn('sd'),"pubSet('sd',this.checked)")+`<div class="slab">ADP – Admiralty Digital Publications</div>`
-  +sub('ALRS','nx','ADRS – List of Radio Signals','Vol 1–6: coast radio, GMDSS, VTS, pilots, port ops',pubOn('rs'),"pubSet('rs',this.checked)")
-  +sub('ALL','co','ADLL – List of Lights','Lights and fog signals volumes A–Q',pubOn('ll'),"pubSet('ll',this.checked)")
-  +sub('ATT','co','ATT – Admiralty Tide Tables','NP201–NP204 (approximate coverage)',pubOn('at'),"pubSet('at',this.checked)")
-  +`<button class="swapbtn" style="margin:6px 0" onclick="setClose();openPubTab('')">List for this route</button> <button class="swapbtn" style="margin:6px 0" onclick="setClose();openPubTab('enc')">ENC scales &amp; cells</button>`;
+ const PA=hasR?pubsAlong():null;
+ const pubBlk=(k,tag,cls,name,meta)=>{const m=pubSc(k),n=m==='route'&&PA?PA[k].length:PUBS[k].vols.length;
+  return sub(tag,cls,name,meta,pubOn(k),`pubSet('${k}',this.checked)`)+`<div class="plist">${seg([['route','Along route'],['all','All volumes']],m,`setPubSc('${k}','%')`)}
+   <details${m==='route'&&hasR?' open':''}><summary>${m==='route'?(hasR?n+' along this route':'Plan a route to list the volumes'):n+' volumes'} · tap a volume to see its limits</summary>${m==='route'&&!hasR?'':pubRows(k,PA,hasR,true)||'<p style="margin:4px 0">None along this route.</p>'}</details></div>`};
+ const pubDet=pubBlk('sd','SD','na','Sailing Directions','Admiralty Sailing Directions (NP1–NP72)')+`<div class="slab">ADP – Admiralty Digital Publications</div>`
+  +pubBlk('rs','ALRS','nx','ADRS – List of Radio Signals','Vol 1–6: coast radio, GMDSS, VTS, pilots, port ops')
+  +pubBlk('ll','ALL','co','ADLL – List of Lights','Lights and fog signals volumes A–Q')
+  +pubBlk('at','ATT','co','ATT – Admiralty Tide Tables','NP201–NP204 (approximate coverage)');
+ const E=hasR?encAlong():null;let encDet;
+ if(!hasR)encDet='<p style="margin:4px 0">Plan a route to list its ENC cells.</p>';
+ else if(!ENCDB)encDet=`<p style="margin:4px 0">Load your ENC catalogue (<b>CATALOG.031</b> from the AVCS / ENC exchange set, or a cell list with S, W, N, E limits) and the cell names along the route are listed here. There is no free worldwide ENC catalogue, so the names cannot be shown without it. The file stays on this phone.</p><label class="add" for="encFile" style="margin:4px 0;display:inline-block">⬆ Load CATALOG.031 / cell list</label>`;
+ else{const C=E.cells||[];encDet=(C.length?`<div class="cells">${C.slice().sort((a,b)=>a.a-b.a||a.band-b.band).map(c=>`<span class="cell" title="Band ${c.band} · run ${fmtNm(c.a)}–${fmtNm(c.b)} nm" onclick="setClose();zoomCell('${c.nm}')">${c.nm}</span>`).join('')}</div>`:'<p style="margin:4px 0">None of the loaded cells cover this route.</p>')+`<p style="font-size:10.5px;margin:6px 0 0">${C.length} cells in route order · from ${esc(ENCDB.src)} (${ENCDB.date}).</p><div class="stools"><label class="add" for="encFile" style="margin:0">⬆ Load another</label><button onclick="clearEnc();setRender()">Remove catalogue</button></div>`}
  const ecaOn=mfChk('lyEca'),decaOn=LAYON.deca!==false&&!!LAYON.deca;
  const ecaDet=sub('ECA','na','Official ECAs (MARPOL Annex VI)','North American, US Caribbean, North Sea, Baltic, Mediterranean, Norwegian Sea',ecaOn,"ecaSet('eca',this.checked)")+sub('DECA','co','DECA &amp; port ECAs','China DECA (coastal, Hainan), Korea and other port ECAs',decaOn,"ecaSet('deca',this.checked)");
  const mx=k=>!!MANX[k],anyM=['oil','nls','sew','gar'].some(mx);
@@ -5493,9 +5535,10 @@ function setRender(){const el=$('setBody');if(!el||!$('setSheet').classList.cont
  <div class="ssec">TOOLS</div><div class="stools"><button onclick="setClose();mapHome()">Zoom to whole route</button><button onclick="setClose();fixOpen()">Position fix</button></div>
  <div class="ssec">SHOW ON CHART · tap a row for details</div>
  ${mfRow('pp','Ports &amp; pilot stations','Port symbols and pilot boarding points',mfCb(mfChk('lyPilot'),"mfSetChk('lyPilot',this.checked)"),'Tap a port on the chart for its details and Port info page.')}
- ${mfRow('nw','NAVAREA warnings','NAVAREA and coastal warnings · '+(f==='off'?'off':f==='all'?'all':'within '+f+' nm'),mfCb(f!=='off',"nwSet('nwf',this.checked?'50':'off')"),nwDet)}
- ${mfRow('nx','NAVTEX &amp; local warnings',(NXON.size?NXON.size+' station(s) shown · ':'')+'warnings '+(fx==='off'?'off':fx==='all'?'all':'within '+fx+' nm'),mfCb(fx!=='off'||NXON.size>0,"if(this.checked){nwSet('nxf','50')}else{nxSet([...NXON],false);nwSet('nxf','off')}"),nxDet)}
+ ${mfRow('nw','NAVAREA warnings',(nsc==='all'?'All NAVAREAs · ':'Along route · ')+'warnings '+(f==='off'?'off':f==='all'||nsc==='all'?'all':'within '+f+' nm'),mfCb(f!=='off',"nwSet('nwf',this.checked?'50':'off')"),nwDet)}
+ ${mfRow('nx','NAVTEX &amp; local warnings',(sx==='all'?'All stations · ':'Along route · ')+(NXON.size?NXON.size+' shown · ':'')+'warnings '+(fx==='off'?'off':fx==='all'||sx==='all'?'all':'within '+fx+' nm'),mfCb(fx!=='off'||NXON.size>0,"if(this.checked){nwSet('nxf','50')}else{nxSet([...NXON],false);nwSet('nxf','off')}"),nxDet)}
  ${mfRow('pub','Nautical publications','Sailing Directions · ADP: ALRS, ALL, ATT',mfCb(anyPub,"pubSet('all',this.checked)"),pubDet)}
+ ${mfRow('enc','ENC cells along the route',ENCDB?(hasR&&E&&E.cells?E.cells.length+' cells':ENCDB.cells.length+' cells loaded'):'Load your ENC catalogue','',encDet)}
  ${mfRow('wx','Weather','Forecast along the route at the ship\'s ETA',mfCb(!!LAYON.wx,"mfSetChk('lyWx',this.checked);wxTabSync()"),`<button class="swapbtn" style="margin:4px 0" onclick="setClose();showView('wx');mfOpen('half',true)">Open forecast</button>`)}
  ${mfRow('eca','ECA &amp; DECA','Official ECAs · China DECA and port ECAs',mfCb(ecaOn||decaOn,"ecaSet('all',this.checked)"),ecaDet)}
  ${mfRow('msa','MARPOL special areas','Oil · noxious liquids · sewage · garbage',mfCb(anyM,"manxSet('all',this.checked)"),marDet)}
