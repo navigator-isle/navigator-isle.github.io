@@ -18,7 +18,7 @@ jobs:
       - run: node scripts/navwarn.mjs
       - run: |
           git config user.name "navwarn-bot"; git config user.email "actions@users.noreply.github.com"
-          git add -A navwarn navwarn.json
+          git rm -q --cached --ignore-unmatch navwarn.json; git add -A navwarn
           git diff --cached --quiet && { echo "no change"; exit 0; }
           git commit -qm "NAVAREA warnings $(date -u +%Y-%m-%dT%H:%MZ)"
           for i in 1 2 3; do git pull -q --rebase origin main && git push -q origin HEAD:main && break; sleep 5; done
