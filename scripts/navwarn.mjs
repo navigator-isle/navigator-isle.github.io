@@ -57,6 +57,33 @@ for (const [k, v] of Object.entries(res.areas)) if (v.ok && v.n <= 0 && /^Coasta
 const okAreas = Object.values(res.areas).filter(a => a.ok).length;
 console.log('areas ok', okAreas, 'warnings', res.w.length);
 if (okAreas < 10) { console.log('Too few areas – keeping the previous file'); process.exit(0); }
+// ---- English translation of non-English warnings (Chinese, Japanese, Korean, Russian, Arabic …), cached between runs
+import { createHash as _h } from 'node:crypto';
+const NONLAT = /[\u3040-\u30ff\u3400-\u9fff\uac00-\ud7af\u0400-\u04ff\u0600-\u06ff]/;
+let TR = {}; try { TR = JSON.parse(readFileSync('navwarn/tr-cache.json', 'utf8')); } catch { }
+const TRN = {}; let trNew = 0, trFail = 0; const t0 = Date.now();
+async function translate(text) {
+  const parts = []; let cur = '';
+  for (const line of text.split('\n')) { if ((cur + line).length > 1400 && cur) { parts.push(cur); cur = ''; } cur += line + '\n'; }
+  if (cur) parts.push(cur);
+  let out = '';
+  for (const p of parts) {
+    const u = 'https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=en&dt=t&q=' + encodeURIComponent(p);
+    const r = await fetch(u, { headers: { 'User-Agent': 'Mozilla/5.0' }, signal: AbortSignal.timeout(20000) });
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    const j = await r.json(); out += (j[0] || []).map(x => x[0]).join('');
+    await new Promise(r => setTimeout(r, 150));
+  }
+  return out.trim();
+}
+for (const w of res.w) {
+  if (!NONLAT.test(w.t)) continue;
+  const k = _h('sha1').update(w.t).digest('hex').slice(0, 16);
+  if (TR[k]) { w.e = TR[k]; TRN[k] = TR[k]; continue; }
+  if (trFail > 8 || Date.now() - t0 > 9 * 60e3) continue;
+  try { const e = await translate(w.t); if (e) { w.e = e; TRN[k] = e; trNew++; } } catch (e) { trFail++; console.log('translate', e.message); }
+}
+console.log('translated new', trNew, 'cached', Object.keys(TRN).length - trNew, 'failed', trFail);
 // ---- write one small file per area plus an index with each area's extent, so the app downloads only what is near the route
 import { mkdirSync, readdirSync, unlinkSync } from 'node:fs';
 import { createHash } from 'node:crypto';
@@ -67,7 +94,7 @@ const index = { fetched: res.fetched, source: res.source, areas: [] }; const kee
 const seen = new Set();
 for (const [area, info] of Object.entries(res.areas)) {
   if (!info.ok) { index.areas.push({ a: area, ok: false }); continue; }
-  const L = res.w.filter(w => w.a === area && !seen.has(w.id) && seen.add(w.id)).map(({ id, d, t }) => ({ id, d, t }));
+  const L = res.w.filter(w => w.a === area && !seen.has(w.id) && seen.add(w.id)).map(({ id, d, t, e }) => (e ? { id, d, t, e } : { id, d, t }));
   let s = 90, n = -90, lons = [];
   for (const w of L) for (const m of w.t.matchAll(POS)) {
     let la = +m[1] + parseFloat(m[2]) / 60 + (m[3] ? parseFloat(m[3]) / 3600 : 0), lo = +m[5] + parseFloat(m[6]) / 60 + (m[7] ? parseFloat(m[7]) / 3600 : 0);
@@ -82,6 +109,7 @@ for (const [area, info] of Object.entries(res.areas)) {
   writeFileSync('navwarn/' + f, body); keep.add(f);
   index.areas.push({ a: area, c: info.c || '', n: L.length, f, box, h: createHash('sha1').update(JSON.stringify(L)).digest('hex').slice(0, 10) });
 }
+writeFileSync('navwarn/tr-cache.json', JSON.stringify(TRN)); keep.add('tr-cache.json');
 for (const f of readdirSync('navwarn')) if (!keep.has(f)) unlinkSync('navwarn/' + f);
 writeFileSync('navwarn/index.json', JSON.stringify(index));
 if (existsSync('navwarn.json')) unlinkSync('navwarn.json');
