@@ -22,4 +22,4 @@ jobs:
           git rm -q --cached --ignore-unmatch navwarn.json; git add -A navwarn enc
           git diff --cached --quiet && { echo "no change"; exit 0; }
           git commit -qm "NAVAREA warnings $(date -u +%Y-%m-%dT%H:%MZ)"
-          for i in 1 2 3; do git pull -q --rebase origin main && git push -q origin HEAD:main && break; sleep 5; done
+          for i in 1 2 3; do git pull -q --rebase -X theirs origin main && git push -q origin HEAD:main && break; sleep 5; done
