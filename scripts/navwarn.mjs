@@ -82,7 +82,7 @@ for (const w of res.w) {
   const k = _h('sha1').update(w.t).digest('hex').slice(0, 16);
   if (TR[k]) { w.e = TR[k]; TRN[k] = TR[k]; continue; }
   if (trFail > 6 || Date.now() - t0 > 9 * 60e3) continue;
-  try { let e = await translate(w.t); if (e) { e = e.replace(/Aviation Police/g, 'Navigation Warning'); w.e = e; TRN[k] = e; trNew++; } } catch (e) { trFail++; console.log('translate', e.message); }
+  try { let e = await translate(w.t); if (e) { e = e.replace(/(?:Aviation|Navigation|Shipping) Police/g, 'Navigation Warning'); w.e = e; TRN[k] = e; trNew++; } } catch (e) { trFail++; console.log('translate', e.message); }
 }
 console.log('translated new', trNew, 'cached', Object.keys(TRN).length - trNew, 'failed', trFail);
 // ---- write one small file per area plus an index with each area's extent, so the app downloads only what is near the route
