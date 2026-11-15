@@ -1,0 +1,12 @@
+name: probe-enc
+on:
+  push:
+    branches: [probe/enc]
+jobs:
+  p:
+    runs-on: ubuntu-24.04
+    steps:
+      - run: |
+          curl -sSL -A "Mozilla/5.0" https://www.ic-enc.org/s/catalogue.txt -o cat.txt; wc -l cat.txt; head -c 1500 cat.txt; echo; sed -n '200,205p' cat.txt
+          curl -sSL -A "Mozilla/5.0" https://ic-enc.org/our-coverage -o page.html; grep -oE 'https?://[^"<> ]*(arcgis|maps|wfs|WFS|FeatureServer|MapServer|experience)[^"<> ]*' page.html | sort -u | head -30
+          curl -sS "https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=en&dt=t&q=%E8%88%AA%E8%A1%8C%E8%AD%A6%E5%91%8A" | head -c 300; echo
