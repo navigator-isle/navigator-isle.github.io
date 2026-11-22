@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
   push:
     branches: [main]
-    paths: [scripts/navwarn.mjs, scripts/enccat.mjs, .github/workflows/navwarn.yml]
+    paths: [scripts/navwarn.mjs, scripts/enccat.mjs, scripts/ngamirror.mjs, .github/workflows/navwarn.yml]
 permissions: { contents: write }
 concurrency: { group: navwarn, cancel-in-progress: false }
 jobs:
@@ -17,6 +17,7 @@ jobs:
         with: { node-version: 22 }
       - run: node scripts/navwarn.mjs
       - run: node scripts/enccat.mjs
+      - run: node scripts/ngamirror.mjs
       - run: |
           git config user.name "navwarn-bot"; git config user.email "actions@users.noreply.github.com"
           git rm -q --cached --ignore-unmatch navwarn.json; git add -A navwarn enc
