@@ -3296,7 +3296,7 @@ function posSet(k){const p=llParse($('p'+k+'La').value,$('p'+k+'Lo').value);if(!
  $('c'+k).pick(PORTS[vp.id]);$('c'+k).querySelector('.sel').innerHTML='Position entered · route joins the nearest sea lane ('+esc(best.n)+')'}
 const RTEXT=['rtz','csv','txt','gpx','xml','rtm','rtn','rta','rt3','rt4','rut','rux','rou','rtu','route','json','nmea','asc'];
 async function importRoute(f){if(!f)return;const name=(f.name||'route').replace(/\.[^.]+$/,''),ext=((f.name||'').match(/\.([a-z0-9]+)$/i)||[,''])[1].toLowerCase();
- try{const buf=await f.arrayBuffer();let txt=new TextDecoder('utf-8').decode(buf);if((txt.slice(0,4000).match(/�/g)||[]).length>3)txt=new TextDecoder('windows-1252').decode(buf);if(txt.charCodeAt(0)===0xFEFF)txt=txt.slice(1);
+ try{const buf=await f.arrayBuffer();let txt=new TextDecoder('utf-8').decode(buf);if((txt.slice(0,4000).match(/\uFFFD/g)||[]).length>3)txt=new TextDecoder('windows-1252').decode(buf);if(txt.charCodeAt(0)===0xFEFF)txt=txt.slice(1);
   const ctl=(txt.slice(0,4000).match(/[\x00-\x08\x0E-\x1F]/g)||[]).length;if(ctl>30)throw new Error('this '+ext.toUpperCase()+' file is binary. Export it from the ECDIS as RTZ (or CSV / TXT) and import that');
   if(ext==='json'||/^\s*\{/.test(txt)){const j=JSON.parse(txt);if(j.ppRoute)return loadRouteFile(j);}
   if(/^\s*</.test(txt)){const x=new DOMParser().parseFromString(txt,'application/xml');if(x.getElementsByTagName('parsererror').length)throw new Error('the file is not valid XML');
