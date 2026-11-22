@@ -1706,6 +1706,79 @@ details.stree[data-leaf]>summary::before,details.stree[data-leaf]>summary::marke
 
 .enct{width:100%;border-collapse:collapse;font-size:11.5px}.enct th{font-size:10px;color:var(--mut);text-align:left;padding:3px 4px}.enct td{padding:4px;border-top:1px solid var(--line);vertical-align:top}.enct tr:not(:first-child){cursor:pointer}.enct td:nth-child(2){white-space:nowrap;font-family:ui-monospace,monospace}
 .enct td:nth-child(3){white-space:nowrap;font-size:10.5px}
+
+body.mf #hSel select{display:none!important}
+#hSel .dn{display:flex;gap:0;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:3px}
+#hSel .dn button{width:38px;height:32px;border:0;border-radius:999px;background:transparent;color:#9fb0c8;display:flex;align-items:center;justify-content:center;padding:0;cursor:pointer;transition:background .15s,color .15s}
+#hSel .dn button svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+#hSel .dn button[data-s=night] svg path:first-child{fill:currentColor;fill-opacity:.18}#hSel .dn button svg .st{fill:currentColor;stroke:none}
+#hSel .dn button.on[data-s=day]{background:#F0BC70;color:#1b2533}#hSel .dn button.on[data-s=night]{background:#7a1f1f;color:#ffb3b3}
+
+.wpdot{filter:drop-shadow(0 0 1.5px rgba(0,0,0,.75))}
+/* headers */
+body.mf #shBody h2,body.mf #shBody .card>h2,body.mf #setBody .sh b,body.mf .mfhead b,body.mf #shBody h3{color:#F0BC70!important}
+body.mf #setSheet .sh b{color:#F0BC70!important}
+/* centre data in every table cell */
+body.mf #shBody td,body.mf #shBody th,body.mf #setBody td,body.mf #setBody th{text-align:center!important;vertical-align:middle}
+body.mf .kv>div,body.mf .mfkv>div{text-align:center}
+
+body.mf.mfrail #mfRail,body.mf #mfRail{display:flex!important;position:absolute;left:8px!important;right:auto!important;top:calc(58px + env(safe-area-inset-top));z-index:1001;flex-direction:column;max-height:none!important;overflow:visible}
+body.mf #mfRail .mtools{width:auto!important;padding:3px!important;gap:1px!important;border-radius:12px!important;background:rgba(15,23,36,.92)!important;backdrop-filter:blur(6px)}
+body.mf #mfRail button{width:44px!important;height:42px!important;border-radius:9px!important;gap:2px}
+body.mf #mfRail button:after{font-size:8px!important}
+body.mf #mfRail svg{width:18px!important;height:18px!important}
+body.mf #mfRail .mtools>#setBtn{display:none!important}
+@media (min-width:900px){body.mf.mfrail #mfRail{left:480px!important}body.mf.mfrail:has(#sheet.off) #mfRail{left:10px!important}}
+@media (max-height:560px){body.mf #mfRail button{height:36px!important}body.mf #mfRail button:after{display:none}}
+
+.xpg{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:6px;margin-top:6px}
+.xpg button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:9px 6px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--ink);cursor:pointer;text-align:center}
+.xpg button b{font-size:12.5px}.xpg button small{font-size:10px;color:var(--mut);line-height:1.2}
+.ptgl{display:flex;gap:4px;justify-content:center;margin:2px 0 6px}.ptgl button{flex:1;padding:6px;border-radius:8px;border:1px solid var(--line);background:transparent;color:var(--mut);font-size:11.5px;cursor:pointer}.ptgl button.on{background:#F0BC70;color:#1b2533;border-color:#F0BC70;font-weight:700}
+.posin{display:none;gap:6px;align-items:center}.posin.on{display:grid;grid-template-columns:1fr 1fr auto}.posin input{text-align:center}.posin button{padding:8px 10px;border-radius:8px;border:1px solid var(--line);background:#F0BC70;color:#1b2533;font-weight:700}
+.lcchip{display:inline-block;margin-left:6px;padding:1px 6px;border-radius:5px;background:rgba(240,188,112,.16);color:#F0BC70;font:700 10.5px/1.5 ui-monospace,monospace;letter-spacing:.5px}
+.combo .sel{text-align:center}
+.planb{width:100%;margin-top:10px;background:#F0BC70!important;color:#1b2533!important;font-weight:800}
+body.mf .mfrow{display:flex;gap:8px;flex-wrap:wrap}body.mf .mfrow .rtzbtn{flex:1;text-align:center}
+.lt2{display:inline-flex;flex-direction:column;align-items:flex-end;line-height:1.25}.lt2 small{font-size:11px;color:var(--mut);font-weight:600}
+.pprg{display:grid;grid-template-columns:1fr 1fr;gap:6px}.ppr{display:flex;flex-direction:column;align-items:center;text-align:center;padding:7px 6px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.02)}
+.ppr small{font-size:10px;color:var(--mut);text-transform:uppercase;letter-spacing:.4px}.ppr b{font-size:13px;margin-top:2px}.ppr span{font-size:10px;color:var(--mut);margin-top:2px;line-height:1.25}
+.ppl{font-size:12px;padding:4px 0;border-top:1px solid var(--line);text-align:center}.ppl .tg{margin-right:4px}
+body.mf #pi .pisub{text-align:center;color:#F0BC70}
+
+.nal{font-size:10px!important;padding:2px 5px!important;border-width:1px!important}
+.mtag.enc{color:#37474f;border-color:#90a4ae;font-size:9px;font-weight:600;padding:0 3px}.mtag.dsc{color:#00695c;border-color:#00897b;font-size:9px;padding:0 4px}.mtag.nxs{color:#4a2fa8;border-color:#7b5cd6;font-size:9px;padding:0 4px}
+
+#mbar{display:none}
+body.mf.mbar #mbar{display:flex;position:fixed;left:0;right:0;bottom:var(--tabH);height:58px;z-index:1750;background:#0f1724;border-top:1px solid rgba(255,255,255,.08);overflow-x:auto;scrollbar-width:none;padding:0 4px;gap:2px}
+#mbar::-webkit-scrollbar{display:none}
+#mbar button{flex:0 0 auto;min-width:70px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border:0;background:transparent;color:#9fb0c8;font:600 10px/1.1 Inter,system-ui,sans-serif;border-radius:10px;margin:5px 0;padding:0 6px}
+#mbar button svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+#mbar button.on{color:#1b2533;background:#F0BC70}
+@media (min-width:900px){body.mf.mbar #mbar{justify-content:center}}
+body.mf.mbar #sheet{bottom:calc(var(--tabH) + 58px)}
+body.mf.mbar #setSheet{bottom:calc(var(--tabH) + 58px);border-radius:20px}
+@media (min-width:900px){body.mf.mbar #setSheet{bottom:calc(var(--tabH) + 66px)}}
+/* menu-panel controls */
+#setBody h3,.mph{font:800 13px/1.2 Inter,system-ui,sans-serif;color:#F0BC70;text-transform:uppercase;letter-spacing:.6px;text-align:center;margin:14px 0 8px}
+.mpb{border:1px solid var(--line);border-radius:14px;padding:8px 10px;margin:0 0 10px;background:rgba(255,255,255,.02)}
+.mtg{display:flex;align-items:center;gap:10px;padding:8px 2px;cursor:pointer;border-bottom:1px solid rgba(255,255,255,.05)}.mtg:last-of-type{border-bottom:0}
+.mtl{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center}.mtl b{font-size:13px;display:flex;align-items:center;gap:6px}.mtl small{font-size:10.5px;color:var(--mut);margin-top:2px;line-height:1.3}
+.mtl .sw{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:2px;vertical-align:middle}
+.mtg input{display:none}.mtg em{flex:0 0 42px;height:24px;border-radius:999px;background:#3a4658;position:relative;transition:background .15s}.mtg em:after{content:'';position:absolute;top:3px;left:3px;width:18px;height:18px;border-radius:50%;background:#fff;transition:left .15s}
+.mtg input:checked+em{background:#F0BC70}.mtg input:checked+em:after{left:21px}
+.mseg{display:flex;gap:3px;margin:6px 0;flex-wrap:wrap;justify-content:center}.mseg button{flex:1;min-width:44px;padding:6px 4px;border-radius:8px;border:1px solid var(--line);background:transparent;color:var(--mut);font-size:11.5px}.mseg button.on{background:#F0BC70;color:#1b2533;border-color:#F0BC70;font-weight:800}
+.msum{display:flex;flex-direction:column;align-items:center;padding:8px;margin:6px 0;border-radius:10px;background:rgba(240,188,112,.08)}.msum b{font-size:22px;color:#F0BC70}.msum span{font-size:11px;color:var(--mut);text-align:center}
+.mpg{border-top:1px solid var(--line);padding:4px 0}.mpg>summary{display:flex;align-items:center;justify-content:center;gap:6px;padding:7px 2px;cursor:pointer;list-style:none;text-align:center}.mpg>summary::-webkit-details-marker{display:none}.mpg>summary small{color:var(--mut);font-size:10.5px}.mpg>summary:after{content:'▾';color:var(--mut);margin-left:4px}.mpg[open]>summary:after{content:'▴'}
+.mpgl{padding:0 0 4px}.mpst{font:700 11.5px/1.3 Inter,system-ui,sans-serif;color:#b39ddb;text-align:center;margin:8px 0 2px}.mpst small{color:var(--mut);font-weight:500}
+.mpw{border:1px solid var(--line);border-radius:10px;margin:4px 0;padding:6px 8px}.mpw>summary{list-style:none;cursor:pointer;display:flex;flex-direction:column;align-items:center;text-align:center;gap:1px}.mpw>summary::-webkit-details-marker{display:none}
+.mpw>summary b{font-size:12px}.mpw>summary small{font-size:10px;color:var(--mut)}.mpw>summary span{font-size:11px;color:var(--ink);opacity:.85}.mpw .wtx{white-space:pre-wrap;font-size:11.5px;margin-top:6px;max-height:260px;overflow:auto;text-align:left}
+.mpz{display:block;margin:6px auto 0;padding:5px 12px;border-radius:8px;border:1px solid #F0BC70;background:transparent;color:#F0BC70;font-size:11.5px}
+.mpv{display:flex;flex-direction:column;align-items:center;text-align:center;padding:6px 4px;border-top:1px solid rgba(255,255,255,.05);cursor:pointer}.mpv b{font-size:12px}.mpv span{font-size:11px}.mpv small{font-size:10px;color:var(--mut)}
+.mpn{font-size:11px;color:var(--mut);text-align:center;margin:6px 0}
+.wxbar{display:flex;gap:6px;margin:8px 0}.wxbar button{flex:1;padding:8px;border-radius:9px;border:1px solid var(--line);background:#F0BC70;color:#1b2533;font-weight:800}.wxbar button+button{background:transparent;color:var(--ink);font-weight:600}
+.wxleg{display:flex;gap:2px;justify-content:center;margin-top:6px}.wxleg span{font-size:9.5px;padding:2px 5px;border-radius:4px;color:#111;font-weight:700}
+.manx{margin:2px 0 4px 14px}
 </style></head><body>
 <div id="printArea"></div>
 <nav class="fbar" id="fbar">
@@ -1734,8 +1807,8 @@ details.stree[data-leaf]>summary::before,details.stree[data-leaf]>summary::marke
 <button data-v="hy"><i><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9.5h18M3 14.5h18M9.5 4v16"/></svg></i>Hydrostatic Table</button>
 <div class="mg">Plans &amp; settings</div>
 <button data-v="pro" id="proBtn"><i><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8.5 10.5V7.5a3.5 3.5 0 0 1 6.8-1.2"/><path d="M12 14.5v2.5"/></svg></i><span id="proTxt">Unlock full version</span></button>
-<button data-v="sv"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-6-4.2L6 21z"/><path d="M12 7.5v6M9 10.5h6"/></svg></i>Save plan</button>
-<button data-v="lib"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4.2l2 2.2H19a2 2 0 0 1 2 2V17a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></i>Saved plans</button>
+<button data-v="sv" style="display:none"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-6-4.2L6 21z"/><path d="M12 7.5v6M9 10.5h6"/></svg></i>Save plan</button>
+<button data-v="lib" style="display:none"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4.2l2 2.2H19a2 2 0 0 1 2 2V17a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></i>Saved plans</button>
 <button data-v="set"><i><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68 1.65 1.65 0 0 0 10 3.17V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.32 9 1.65 1.65 0 0 0 20.83 10H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></i>Map settings</button>
 <button data-v="bk"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5v11.5M7.2 10.3l4.8 4.8 4.8-4.8"/><path d="M4 20.5h16"/></svg></i>Backup all data</button>
 <button data-v="rs"><i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 20.5V9M7.2 13.8L12 9l4.8 4.8"/><path d="M4 3.5h16"/></svg></i>Restore backup</button>
@@ -1767,7 +1840,7 @@ details.stree[data-leaf]>summary::before,details.stree[data-leaf]>summary::marke
 
  </div>
  <div class="gpstag" id="gpsTag"></div>
- <div class="msel" id="hSel"><select id="hChart" aria-label="Chart"><option value="enc">⚓ Sea chart</option><option value="offline">⬡ Plain chart</option></select><select id="hScheme" aria-label="Display"><option value="day">☀ Day</option><option value="dusk">◐ Dusk</option><option value="night">☾ Night</option></select></div></div>
+ <div class="msel" id="hSel"><select id="hChart" aria-label="Chart" hidden><option value="offline">Plain chart</option><option value="enc">Chart file</option></select><select id="hScheme" aria-label="Display" hidden><option value="day">Day</option><option value="night">Night</option></select><div class="dn" role="group" aria-label="Day or night display"><button type="button" data-s="day" onclick="setScheme('day')" title="Day display" aria-label="Day"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.6M12 18.9v2.6M2.5 12h2.6M18.9 12h2.6M5.3 5.3l1.8 1.8M16.9 16.9l1.8 1.8M5.3 18.7l1.8-1.8M16.9 7.1l1.8-1.8"/></svg></button><button type="button" data-s="night" onclick="setScheme('night')" title="Night display (dark, red-tinted for the bridge)" aria-label="Night"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19.5 14.6A8 8 0 0 1 9.4 4.5a8 8 0 1 0 10.1 10.1z"/><path d="M17 3.5l.6 1.4 1.4.6-1.4.6-.6 1.4-.6-1.4-1.4-.6 1.4-.6z" class="st"/></svg></button></div></div></div>
   <div class="mkey"><span class="mapfoot" id="chartStat"></span></div>
 </div>
 <div class="wscrim" id="wScrim" onclick="toggleWPanel(false)"></div>
@@ -1784,9 +1857,14 @@ details.stree[data-leaf]>summary::before,details.stree[data-leaf]>summary::marke
  <div class="bd" id="wBody"></div></div>
 <div class="card fold inp"><h2>Voyage</h2>
   <div class="inote" id="ppInfo" hidden style="display:none!important"><ol><li>Choose the departure and arrival ports.</li><li>Set the speed and the ETD in <b>local time (LT)</b> – the zone times fill in from the ports.</li><li>Tap <b>Plan route</b> – results appear below the button.</li></ol><div class="hx">Ocean crossings use great circle sailing automatically – change it on the chart with ✎. Plan, Waypoints, ETA and Weather are in the bottom bar; the other tools are in the ☰ menu. Tap a section title to fold it.</div></div>
+  <div class="ptgl" id="tglFrom"><button class="on" onclick="ptMode('From',0)">Port</button><button onclick="ptMode('From',1)">Position</button></div>
+  <div class="posin" id="posFrom"><input id="pFromLa" placeholder="Lat e.g. 14 35.0 N" autocomplete="off"><input id="pFromLo" placeholder="Lon e.g. 120 57.0 E" autocomplete="off"><button onclick="posSet('From')">Set</button></div>
   <div class="combo" id="cFrom"><label class="f">Departure port</label><input type="search" placeholder="Port name or UN/LOCODE, e.g. Manila / PHMNL" autocomplete="off" spellcheck="false"><div class="dd"></div><div class="sel"></div></div>
   <button class="swapbtn" onclick="swapPorts()">⇅ Swap</button>
-  <div class="combo" id="cTo" style="margin-top:0"><label class="f">Arrival port</label><input type="search" placeholder="Type a port, e.g. Shanghai" autocomplete="off" spellcheck="false"><div class="dd"></div><div class="sel"></div></div>
+  <div class="ptgl" id="tglTo"><button class="on" onclick="ptMode('To',0)">Port</button><button onclick="ptMode('To',1)">Position</button></div>
+  <div class="posin" id="posTo"><input id="pToLa" placeholder="Lat e.g. 22 36.0 N" autocomplete="off"><input id="pToLo" placeholder="Lon e.g. 120 16.0 E" autocomplete="off"><button onclick="posSet('To')">Set</button></div>
+  <div class="combo" id="cTo" style="margin-top:0"><label class="f">Arrival port</label><input type="search" placeholder="Port name or UN/LOCODE, e.g. Shanghai / CNSHA" autocomplete="off" spellcheck="false"><div class="dd"></div><div class="sel"></div></div>
+  <button class="btn planb" onclick="if(!needPro())plan()">Plan route</button>
   <div class="grid">
     <div class="full"><label>ETD (LT) – date and 24 h time</label><input id="etd" type="datetime-local"></div>
   </div>
@@ -1797,7 +1875,7 @@ details.stree[data-leaf]>summary::before,details.stree[data-leaf]>summary::marke
   </div>
   <div class="inote" id="ztInfo"><b>Zone time (ZT)</b> is the correction from local time to UTC: <b>UTC = LT + ZT</b>.<ul><li>East longitude → <b>minus</b> (Manila UTC+8 → ZT −8)</li><li>West longitude → <b>plus</b> (Seattle UTC−8 → ZT +8; in summer time UTC−7 → +7)</li></ul>Filled in automatically from the port's time zone, including daylight saving time on the departure / arrival date. Type another value if the ship keeps a different time; clear the box to go back to the automatic value.</div>
   <div class="ztsrc" id="ztSrc"></div>
-  <div style="display:flex;justify-content:center;margin-top:14px"><label class="rtzbtn" for="rtzFile">⬆ Import RTZ route from ECDIS</label><input type="file" id="rtzFile" style="position:absolute;opacity:0;width:1px;height:1px" onchange="importRTZ(this.files[0]);this.value=''"></div>
+  <div style="display:flex;justify-content:center;margin-top:14px"><label class="rtzbtn" for="rtzFile">⬆ Import RTZ route from ECDIS</label><input type="file" id="rtzFile" style="position:absolute;opacity:0;width:1px;height:1px" onchange="importRoute(this.files[0]);this.value=''"></div>
   <div class="setsum" id="setSum" style="display:none"></div>
   <button class="btn" id="planbtn" style="display:none" onclick="if(!needPro())plan()">Plan route</button>
   <div class="muted" id="autoStat" style="text-align:center;margin-top:6px">Everything you enter is saved automatically on this phone.</div>
@@ -1975,8 +2053,7 @@ details.stree[data-leaf]>summary::before,details.stree[data-leaf]>summary::marke
 </div>
 <div id="pi" class="qd" style="display:none">
 <div class="card mfkeep" id="piTop"><h2>Port information</h2>
- <div class="pisub">YOUR VOYAGE · FROM PLAN</div><div id="piVoy"></div>
- <div class="pisub">ANOTHER PORT</div>
+ <div id="piVoy" style="display:none"></div>
  <div class="tg c1"><div class="tile"><input id="piQ" type="search" autocomplete="off" placeholder="Search a port or UN/LOCODE" aria-label="Search a port"></div></div>
  <div id="piRes" class="pires"></div>
 </div>
@@ -2519,7 +2596,7 @@ let M=null,mapKind='osm';const layers={eca:[],pilots:[],route:[],tss:[]};
 const LeafletMap={
  init(el){this.map=L.map(el,{preferCanvas:true,minZoom:2,renderer:L.canvas({padding:0.4,tolerance:8}),zoomControl:false,wheelDebounceTime:25,wheelPxPerZoomLevel:90,tapTolerance:18,bounceAtZoomLimits:false,inertiaDeceleration:2600,easeLinearity:0.25});try{this.map.attributionControl.setPrefix(false)}catch(e){}this.map.setView([15,120],4);
   this.cl=[];this.map.on('moveend',statUpd);this.map.on('click',e=>mapClick([e.latlng.lat,e.latlng.lng]));this.map.doubleClickZoom.disable();applyChart()},
- setChart(specs){this.cl.forEach(l=>l.remove());this.cl=[];if(!this.ob){this.ob=new OfflineBase({zIndex:-5,maxZoom:19,maxNativeZoom:13,minZoom:0,tileSize:256});this.ob.addTo(this.map)}
+ setChart(specs){this.cl.forEach(l=>l.remove());this.cl=[];if(!this.ob){this.ob=new OfflineBase({zIndex:-5,maxZoom:19,maxNativeZoom:13,minZoom:0,tileSize:256,keepBuffer:4,updateWhenIdle:false,updateWhenZooming:false,updateInterval:120});this.ob.addTo(this.map)}
   specs.forEach((s,i)=>{let l;
    if(s.t==='xyz'||s.t==='wms')l=new CachedLayer({spec:s,maxZoom:19,maxNativeZoom:s.mz||19,attribution:s.a||'',zIndex:i,keepBuffer:4,updateWhenZooming:false,updateWhenIdle:true});
    else if(s.t==='mbt'){const G=L.GridLayer.extend({createTile(c,done){const img=document.createElement('img');const u=mbtUrl(c.z,c.x,c.y);if(u){img.onload=()=>done(null,img);img.onerror=()=>done(null,img);img.src=u}else setTimeout(()=>done(null,img),0);return img}});
@@ -2529,7 +2606,7 @@ const LeafletMap={
  line(path,o){return L.polyline(path,{color:o.color,weight:o.weight||3,opacity:o.opacity??.9,dashArray:o.dash?'6 6':null,interactive:!!o.click,smoothFactor:1.5}).addTo(this.map)},
  poly(rings,o){const g=L.featureGroup();[0,360,-360].forEach(s=>L.polygon(rings.map(r=>r.map(p=>[p[0],p[1]+s])),{color:o.color,weight:o.w||1,opacity:.8,fillColor:o.fc||o.color,fillOpacity:o.fill??.14,dashArray:o.dash?'5 5':null}).bindPopup(o.html).addTo(g));return g.addTo(this.map)},
  marker(p,o){let m;if(o.label!=null){m=L.marker(p,{icon:L.divIcon({className:'',html:`<div class="wpm${o.drag?' drag':''}" style="background:${o.color}">${o.label}</div>`,iconSize:null,iconAnchor:[8,8]}),zIndexOffset:o.z||0,draggable:!!o.drag,autoPan:true});if(o.drag&&o.onDrag)m.on('dragend',e=>{const ll=e.target.getLatLng();o.onDrag([ll.lat,ll.lng])})}
-  else m=L.circleMarker(p,{radius:o.size||5,color:'#fff',weight:1.2,fillColor:o.color,fillOpacity:1});if(o.html)m.bindPopup(o.html);if(o.title)m.bindTooltip(o.title);return m.addTo(this.map)},
+  else m=L.circleMarker(p,{radius:o.ring?4.5:(o.size||5),color:o.ring?'#ffffff':'#fff',weight:o.ring?2.2:1.2,fillColor:o.color,fillOpacity:1,className:o.ring?'wpdot':''});if(o.html)m.bindPopup(o.html);if(o.title)m.bindTooltip(o.title);return m.addTo(this.map)},
  symbol(p,svg,sz,o){const m=L.marker(p,{icon:L.divIcon({className:'',html:svg,iconSize:[sz,sz],iconAnchor:[sz/2,sz/2]}),zIndexOffset:(o.z||0)*10});if(o.html)m.bindPopup(o.html);if(o.title)m.bindTooltip(o.title);return m.addTo(this.map)},
  tag(p,txt,cls,o){o=o||{};const m=L.marker(p,{icon:L.divIcon({className:'',html:`<div class="mtag ${cls}">${txt}</div>`,iconSize:null,iconAnchor:o.anchor||[-6,10]}),zIndexOffset:(o.z||0)*10,interactive:!!o.html});if(o.html)m.bindPopup(o.html);return m.addTo(this.map)},
  hide(x){x.remove()},show(x){x.addTo(this.map)},
@@ -2600,9 +2677,9 @@ function applyChart(){CSTAT=[];setTimeout(statUpd,300);let mode=$('chartSel').va
  if($('lySea')&&$('lySea').checked)specs.push(SEAMARKS);
  try{M.setChart(specs,mode==='street'?'osm':mode)}catch(e){console.error(e)}}
 function setChart(c){if(c!=='enc')c='offline';$('chartSel').value=c;try{$('hChart').value=c}catch(e){}applyChart()}
-function setScheme(s){document.querySelectorAll('#schemeSeg button').forEach(b=>b.classList.toggle('on',b.dataset.s===s));
+function setScheme(s){if(s!=='night')s=s==='dusk'?'night':'day';document.querySelectorAll('#schemeSeg button,#hSel .dn button').forEach(b=>b.classList.toggle('on',b.dataset.s===s));try{$('hScheme').value=s}catch(e){}
  if(M&&M.scheme)M.scheme(s);if(s==='day')document.documentElement.removeAttribute('data-theme');else document.documentElement.setAttribute('data-theme','dark');store('scheme',s)}
-function setupCharts(){const sel=$('chartSel');if(!load('mf1',false)){store('chart','offline');store('mf1',true)}const c0=load('chart','offline');sel.value=c0==='enc'?'enc':'offline';sel.onchange=applyChart;
+function setupCharts(){const sel=$('chartSel');store('chart','offline');const c0='offline';sel.value='offline';sel.onchange=applyChart;
  document.querySelectorAll('#chartSeg button').forEach(b=>b.onclick=()=>setChart(b.dataset.c));
  document.querySelectorAll('#chartSeg button').forEach(b=>b.classList.toggle('on',b.dataset.c===sel.value));
  document.querySelectorAll('#schemeSeg button').forEach(b=>b.onclick=()=>setScheme(b.dataset.s));
@@ -2736,9 +2813,11 @@ let PUBON=new Set(load('pubon',[])),PUBSEL=load('pubsel',''),PUBMODE=load('pubmo
 const PCOLS=['#1d5fd6','#d62f2f','#0b8f7d','#c99700','#7b3fbf','#ef6c00','#00838f','#ad1457','#2e7d32','#5d4037','#3949ab','#6d4c41'];
 Object.values(PUBS).forEach(S=>S.vols.forEach(v=>{v.bb=v[3].map(r=>{let a=90,b=-90,c=180,d=-180;r.forEach(p=>{a=Math.min(a,p[0]);b=Math.max(b,p[0]);c=Math.min(c,p[1]);d=Math.max(d,p[1])});return[a,b,c,d]})}));
 function inVol(v,la,lo){for(let i=0;i<v[3].length;i++){const b=v.bb[i];if(la<b[0]||la>b[1]||lo<b[2]||lo>b[3])continue;if(inRing(la,lo,v[3][i]))return true}return false}
+(function(){const rs=PUBS.rs;if(!rs||PUBS.r1)return;const a=rs.vols.filter(v=>!/ADRS 6/.test(v[0])),b=rs.vols.filter(v=>/ADRS 6/.test(v[0]));
+ const cp=(v,n)=>{const x=[n,v[1],v[2],v[3],v[4]];x.bb=v.bb;return x};PUBS.r1=Object.assign({},rs,{name:'ADRS 1,3,4,5',short:'ADRS1345',vols:a.map(v=>cp(v,v[0].replace(/ & ADRS 2/,'')))});PUBS.r2=Object.assign({},rs,{name:'ADRS 2',short:'ADRS2',vols:a.map(v=>cp(v,v[0].replace(/ADRS 1,3,4,5 & /,'')))});PUBS.r6=Object.assign({},rs,{name:'ADRS 6',short:'ADRS6',vols:b.length?b:a})})();
 function pubsAlong(){const w=state.wps;if(!w)return null;if(state._pubW===w)return state._pubs;
  const S=[];for(let i=1;i<w.length;i++){const sm=legSamples(w[i-1].p,w[i].p,5);sm.forEach((q,k)=>S.push({la:q[0],lo:norm(q[1]),cum:w[i-1].cum+(w[i].cum-w[i-1].cum)*(sm.length>1?k/(sm.length-1):0)}))}
- const out={};for(const k of ['sd','ll','rs','at']){out[k]=[];PUBS[k].vols.forEach(v=>{let a=null,b=null;for(const s of S)if(inVol(v,s.la,s.lo)){if(a==null)a=s.cum;b=s.cum}if(a!=null)out[k].push({v,a,b})});out[k].sort((x,y)=>x.a-y.a)}
+ const out={};for(const k of ['sd','ll','rs','at','r1','r2','r6'].filter(k=>PUBS[k])){out[k]=[];PUBS[k].vols.forEach(v=>{let a=null,b=null;for(const s of S)if(inVol(v,s.la,s.lo)){if(a==null)a=s.cum;b=s.cum}if(a!=null)out[k].push({v,a,b})});out[k].sort((x,y)=>x.a-y.a)}
  state._pubW=w;state._pubs=out;return out}
 function volId(k,v){return v[4]||v[0]}
 function drawPubs(){if(!M)return;layersP.forEach(x=>M.hide(x));layersP.length=0;if(!PUBON.size&&(!PUBSEL||['ot','sat','zt','hr'].includes(PUBSEL)))return;
@@ -3183,11 +3262,11 @@ function nogoPenalty(){if(!USR.nogo.length){ADJ.ngA=null;return}const {off,nb,w}
  for(let u=0;u<n0;u++){const a=NODES[u];for(let e=off[u];e<off[u+1];e++){const b=NODES[nb[e]];if(!B.some(x=>Math.max(a[0],b[0])>=x[0]-0.3&&Math.min(a[0],b[0])<=x[1]+0.3&&Math.max(norm(a[1]),norm(b[1]))>=x[2]-0.3&&Math.min(norm(a[1]),norm(b[1]))<=x[3]+0.3))continue;
   if(segNoGo(a,b)||legSamples(a,b,1).some(q=>inNoGo(q[0],q[1])))pen[e]=1e6}}ADJ.ngA=pen}
 /* ================= RTZ import ================= */
-async function importRTZ(f){if(!f)return;try{if(!/\.(rtz|xml|txt)$/i.test(f.name||'')&&f.type&&!/xml|text|octet/i.test(f.type))throw new Error('choose a .rtz route file');
- let txt=await f.text();if(txt.charCodeAt(0)===0xFEFF)txt=txt.slice(1);const x=new DOMParser().parseFromString(txt,'application/xml');if(x.getElementsByTagName('parsererror').length)throw new Error('the file is not valid XML');
- const TG=(e,n)=>[...e.getElementsByTagNameNS('*',n)];const W=TG(x,'waypoint').filter(w=>TG(w,'position').length);if(W.length<2)throw new Error('no waypoints');
- const ri=TG(x,'routeInfo')[0];const name=(ri&&ri.getAttribute('routeName'))||f.name.replace(/\.[^.]+$/,'');
- const pts=W.map(wp=>{const p=TG(wp,'position')[0],l=TG(wp,'leg')[0],g=k=>l?+(l.getAttribute(k)||0):0;const nm=(wp.getAttribute('name')||'').trim();return{p:[+p.getAttribute('lat'),+p.getAttribute('lon')],t:'wp',rn:nm,id:wp.getAttribute('id'),xtd:l?Math.max(g('portsideXTD'),g('starboardXTD'))*1852:null,spd:l?(g('planSpeedMax')||g('planSpeedMin')||g('speedMax')):0,rad:+(wp.getAttribute('radius')||0)}});
+async function importRTZ(f,pre){if(!f&&!pre)return;try{let x=null,TG=(e,n)=>[...e.getElementsByTagNameNS('*',n)],name,pts;if(pre){name=pre.name;pts=pre.pts}else{
+ let txt=await f.text();if(txt.charCodeAt(0)===0xFEFF)txt=txt.slice(1);x=new DOMParser().parseFromString(txt,'application/xml');if(x.getElementsByTagName('parsererror').length)throw new Error('the file is not valid XML');
+ const W=TG(x,'waypoint').filter(w=>TG(w,'position').length);if(W.length<2)throw new Error('no waypoints');
+ const ri=TG(x,'routeInfo')[0];name=(ri&&ri.getAttribute('routeName'))||f.name.replace(/\.[^.]+$/,'');
+ pts=W.map(wp=>{const p=TG(wp,'position')[0],l=TG(wp,'leg')[0],g=k=>l?+(l.getAttribute(k)||0):0;const nm=(wp.getAttribute('name')||'').trim();return{p:[+p.getAttribute('lat'),+p.getAttribute('lon')],t:'wp',rn:nm,id:wp.getAttribute('id'),xtd:l?Math.max(g('portsideXTD'),g('starboardXTD'))*1852:null,spd:l?(g('planSpeedMax')||g('planSpeedMin')||g('speedMax')):0,rad:+(wp.getAttribute('radius')||0)}})}
  const N=pts.length;
  /* the route is kept as it is: same waypoints, same names. Pilot stations and ECA points are recognised from the names. */
  const isPS=s=>/(^|[^A-Z0-9])(P\/?S|PBG|PLT|PILOTS?|PILOT\s*ST(N|ATION)?|BOARDING(\s*(GROUND|AREA|PT|POINT))?|LOTSE)([^A-Z0-9]|$)/i.test(s);
@@ -3199,13 +3278,70 @@ async function importRTZ(f){if(!f)return;try{if(!/\.(rtz|xml|txt)$/i.test(f.name
  $('cFrom').querySelector('input').value=A.n;$('cTo').querySelector('input').value=B.n;state.from=A.id;state.to=B.id;
  const wps=unwrap(pts.map((q,i)=>{const o={p:q.p,t:q.t,n:q.rn,rn:q.rn};if(q.t==='eca')o.eca=q.dir==='out'?'ECA exit':q.dir==='in'?'ECA entry':'ECA';if(i&&q.xtd>0)o.ixtd=Math.round(q.xtd);if(i&&q.spd>0)o.ispd=q.spd;if(q.rad>0)o.irad=q.rad;return o}));
  const r={wps,rtags:routeTags(wps),avoid:0,opt:getOpt(true),imported:name,keep:true,ecaDone:true,xov:{},sov:{},base:null};
- {const S=TG(x,'scheduleElement');const e0=S.find(e=>e.getAttribute('etd')&&e.getAttribute('waypointId')===pts[0].id)||S.find(e=>e.getAttribute('etd'));const u=e0?Date.parse(e0.getAttribute('etd')):NaN;if(isFinite(u)){const z=portZD(A,u);$('etd').value=new Date(u-z*36e5).toISOString().slice(0,16);store('etd',$('etd').value);store('etdlt',1)}
+ if(x){const S=TG(x,'scheduleElement');const e0=S.find(e=>e.getAttribute('etd')&&e.getAttribute('waypointId')===pts[0].id)||S.find(e=>e.getAttribute('etd'));const u=e0?Date.parse(e0.getAttribute('etd')):NaN;if(isFinite(u)){const z=portZD(A,u);$('etd').value=new Date(u-z*36e5).toISOString().slice(0,16);store('etd',$('etd').value);store('etdlt',1)}
   const sp=pts.slice(1).map(q=>q.spd).filter(v=>v>0);if(sp.length>=N/2){const c={};sp.forEach(v=>c[v]=(c[v]||0)+1);const v=+Object.keys(c).sort((a,b)=>c[b]-c[a])[0];if(v>0){$('speed').value=v;store('speed',v)}}}
  let L=0,E=0;const ids=lowIds(false);for(let i=1;i<wps.length;i++){L+=rhumb(wps[i-1].p,wps[i].p).d;E+=ecaSeg(wps[i-1].p,wps[i].p,ids)}r.len=L;r.eca=E;
  state.alts=[r];state.short=null;state.sel=0;render();const np=wps.filter(w=>w.t==='pilot').length,ne=wps.filter(w=>w.t==='eca').length;
- toast(`Imported ${N} waypoints as they are · ${np} pilot station${np===1?'':'s'}${ne?' · '+ne+' ECA point'+(ne>1?'s':''):''} recognised from the names`)}catch(e){toast('Could not read RTZ: '+e.message)}}
+ toast(`Imported ${N} waypoints${pre&&pre.fmt?' ('+pre.fmt+')':''} as they are · ${np} pilot station${np===1?'':'s'}${ne?' · '+ne+' ECA point'+(ne>1?'s':''):''} recognised from the names`)}catch(e){toast('Could not read the route: '+e.message)}}
 
 
+/* ---- route files: import any common ECDIS / GPS format, export for ECDIS ---- */
+function ptMode(k,on){$('tgl'+k).querySelectorAll('button').forEach((b,i)=>b.classList.toggle('on',i===on));$('pos'+k).classList.toggle('on',!!on);$('c'+k).style.display=on?'none':''}
+function llParse(la,lo){const t=(la+' '+lo).trim();const P=parsePositions(t);if(P.length)return P[0].p;const a=parseFloat(la),b=parseFloat(lo);if(isFinite(a)&&isFinite(b)&&Math.abs(a)<=90&&Math.abs(b)<=180)return[a,b];return null}
+function posSet(k){const p=llParse($('p'+k+'La').value,$('p'+k+'Lo').value);if(!p){toast('Position not understood – e.g. 14 35.0 N and 120 57.0 E, or 14.583 and 120.95');return}
+ portIdx();let best=null,bd=1e9;PORTS.forEach(q=>{const d=gcd(p,q.p);if(d<bd){bd=d;best=q}});if(!best)return;
+ const vp=Object.assign(Object.create(Object.getPrototypeOf(best)),best,{n:'Position '+fmtLat(p[0])+' '+fmtLon(p[1]),b:p,p:p,cn:'Own position',lc:'',e:1,id:PORTS.length,L:best.L,nd:best.nd,i:[],_fwd:0,iD:[],iA:[],pos:1});
+ if(bd>60){toast('Note: nearest sea-lane port is '+Math.round(bd)+' nm away – check the route');}
+ const ex=PORTS.findIndex(q=>q.pos&&q.n===vp.n);if(ex>=0)vp.id=ex;else PORTS.push(vp);vp.id=PORTS.indexOf(vp)>=0?PORTS.indexOf(vp):ex;
+ $('c'+k).pick(PORTS[vp.id]);$('c'+k).querySelector('.sel').innerHTML='Position entered · route joins the nearest sea lane ('+esc(best.n)+')'}
+const RTEXT=['rtz','csv','txt','gpx','xml','rtm','rtn','rta','rt3','rt4','rut','rux','rou','rtu','route','json','nmea','asc'];
+async function importRoute(f){if(!f)return;const name=(f.name||'route').replace(/\.[^.]+$/,''),ext=((f.name||'').match(/\.([a-z0-9]+)$/i)||[,''])[1].toLowerCase();
+ try{const buf=await f.arrayBuffer();let txt=new TextDecoder('utf-8').decode(buf);if((txt.slice(0,4000).match(/�/g)||[]).length>3)txt=new TextDecoder('windows-1252').decode(buf);if(txt.charCodeAt(0)===0xFEFF)txt=txt.slice(1);
+  const ctl=(txt.slice(0,4000).match(/[\x00-\x08\x0E-\x1F]/g)||[]).length;if(ctl>30)throw new Error('this '+ext.toUpperCase()+' file is binary. Export it from the ECDIS as RTZ (or CSV / TXT) and import that');
+  if(ext==='json'||/^\s*\{/.test(txt)){const j=JSON.parse(txt);if(j.ppRoute)return loadRouteFile(j);}
+  if(/^\s*</.test(txt)){const x=new DOMParser().parseFromString(txt,'application/xml');if(x.getElementsByTagName('parsererror').length)throw new Error('the file is not valid XML');
+   const TG=(e,n)=>[...e.getElementsByTagNameNS('*',n)];
+   if(TG(x,'waypoint').some(w=>TG(w,'position').length))return importRTZ(f);
+   let E=TG(x,'rtept');if(E.length<2)E=TG(x,'wpt');if(E.length<2)E=TG(x,'trkpt');let pts=[];
+   if(E.length>=2)pts=E.map(e=>({p:[+e.getAttribute('lat'),+e.getAttribute('lon')],rn:((TG(e,'name')[0]||{}).textContent||'').trim()}));
+   else{const all=[...x.getElementsByTagName('*')];const ga=(e,re)=>{for(const a of e.attributes)if(re.test(a.name))return a.value;for(const c of e.children)if(re.test(c.localName)&&!c.children.length)return c.textContent;return null};
+    all.forEach(e=>{const la=ga(e,/^(lat|latitude|y)$/i),lo=ga(e,/^(lon|lng|long|longitude|x)$/i);if(la!=null&&lo!=null){const p=llParse(String(la),String(lo));if(p)pts.push({p,rn:(e.getAttribute('name')||ga(e,/^(name|wpname|id)$/i)||'').trim()})}})}
+   pts=pts.filter(q=>isFinite(q.p[0])&&isFinite(q.p[1]));if(pts.length<2)throw new Error('no waypoints found in this XML');
+   return importRTZ(null,{name,fmt:ext.toUpperCase()||'XML',pts:pts.map(q=>({p:q.p,t:'wp',rn:q.rn,xtd:null,spd:0,rad:0}))})}
+  // text formats: CSV / TXT / NMEA / ECDIS text exports
+  const lines=txt.split(/\r?\n/).map(l=>l.trim()).filter(Boolean);let pts=[];
+  const wpl=lines.filter(l=>/^\$..WPL,/.test(l));
+  if(wpl.length>=2){wpl.forEach(l=>{const f=l.split('*')[0].split(','),la=+f[1].slice(0,2)+(+f[1].slice(2))/60,lo=+f[3].slice(0,3)+(+f[3].slice(3))/60;pts.push({p:[f[2]==='S'?-la:la,f[4]==='W'?-lo:lo],rn:f[5]||''})})}
+  else{const sep=l=>l.includes('\t')?'\t':l.includes(';')&&!l.includes(',')?';':',';const hd=lines[0].split(sep(lines[0])).map(h=>h.trim().replace(/^"|"$/g,'').toLowerCase());
+   let iLa=hd.findIndex(h=>/^(lat|latitude|latdd|lat_dd|lat\s*\(dd\)|lat deg|lat\.)$/.test(h)),iLo=hd.findIndex(h=>/^(lon|long|lng|longitude|londd|lon_dd|lon\s*\(dd\)|lon deg|lon\.)$/.test(h));
+   const iDD=[hd.indexOf('latdd'),hd.indexOf('londd')];if(iDD[0]>=0&&iDD[1]>=0){iLa=iDD[0];iLo=iDD[1]}
+   const iNm=hd.findIndex(h=>/^(name|wp name|wpname|waypoint|waypoint name|description)$/.test(h));
+   lines.forEach((l,k)=>{const F=l.split(sep(l)).map(v=>v.trim().replace(/^"|"$/g,''));let p=null;
+    if(iLa>=0&&iLo>=0&&k>0){const a=F[iLa],b=F[iLo];if(a!=null&&b!=null)p=/[NSEW]/i.test(a+b)?llParse(a,b):(isFinite(+a)&&isFinite(+b)?[+a,+b]:null)}
+    if(!p){const P=parsePositions(l.replace(/(\d)\s*'\s*([NSEW])/g,'$1$2'));if(P.length)p=P[0].p}
+    if(!p&&iLa<0){const n=F.map(v=>+v).filter((v,i)=>F[i]!==''&&isFinite(v)&&/\./.test(F[i]));if(n.length===2&&Math.abs(n[0])<=90&&Math.abs(n[1])<=180)p=n}
+    if(p){const nm=iNm>=0?F[iNm]:(F.find(v=>/[A-Za-z]{2,}/.test(v)&&!/^[NSEW]$/i.test(v)&&!/\d+[-°\s]\d/.test(v))||'');pts.push({p,rn:nm})}})}
+  if(pts.length<2)throw new Error('no waypoint positions found. Export the route from the ECDIS as RTZ, CSV or TXT');
+  return importRTZ(null,{name,fmt:(ext||'TXT').toUpperCase(),pts:pts.map(q=>({p:q.p,t:'wp',rn:q.rn,xtd:null,spd:0,rad:0}))})}catch(e){toast('Could not read the route: '+e.message)}}
+const EXPF=[['rtz-jrc','JRC','RTZ · JAN-7201/9201'],['rtz-fur','Furuno','RTZ · FMD-3x00'],['rtz-tk','Tokyo Keiki','RTZ · EC-8x00'],['rtz-tr','Wärtsilä / Transas','RTZ · Navi-Sailor'],['rtz-kh','Kelvin Hughes / Sperry','RTZ'],['rtz','RTZ 1.0','IEC 61174 (any ECDIS)'],['csv-dm','CSV','deg-min, Excel'],['csv-dd','CSV','decimal degrees'],['gpx','GPX 1.1','GPS / chart plotters'],['nmea','NMEA 0183','WPL + RTE sentences (.txt)']];
+function expRoute(k){if(needPro())return;if(!state.wps){toast('Plan a route first');return}const w=state.wps,base=fname();
+ if(k.startsWith('rtz')){const sfx={'rtz-jrc':'_JRC','rtz-fur':'_Furuno','rtz-tk':'_TokyoKeiki','rtz-tr':'_Transas','rtz-kh':'_KH'}[k]||'';const n0=fname;exportRTZ(base+sfx);return}
+ if(k==='csv-dd'||k==='csv-dm'){let s=k==='csv-dd'?'WP,Name,Lat,Lon,Course,Dist_nm,Total_nm,Speed_kn,ETA_UTC\n':'WP,Name,Lat,Lon,Course,Dist_nm,Total_nm,Speed_kn,ETA_UTC\n';
+  w.forEach((x,i)=>{const la=k==='csv-dd'?x.p[0].toFixed(6):fmtLat(x.p[0]),lo=k==='csv-dd'?norm(x.p[1]).toFixed(6):fmtLon(x.p[1]);s+=[i+1,`"${(wpName(x)||'').replace(/"/g,"'")}"`,`"${la}"`,`"${lo}"`,x.c!=null?x.c.toFixed(1):'',i?x.d.toFixed(2):'',x.cum.toFixed(2),x.spd||'',new Date(x.eta).toISOString()].join(',')+'\n'});dl(base+(k==='csv-dd'?'_dd':'_dm')+'.csv',s,'text/csv');return}
+ if(k==='gpx'){const ex=t=>String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;');let s=`<?xml version="1.0" encoding="UTF-8"?>\n<gpx version="1.1" creator="Passage Planner" xmlns="http://www.topografix.com/GPX/1/1">\n <rte><name>${ex(PORTS[state.from].n+' - '+PORTS[state.to].n)}</name>\n`;
+  w.forEach((x,i)=>s+=`  <rtept lat="${x.p[0].toFixed(6)}" lon="${norm(x.p[1]).toFixed(6)}"><name>${ex(((i+1)+' '+(wpName(x)||'')).trim().slice(0,40))}</name></rtept>\n`);s+=' </rte>\n</gpx>\n';dl(base+'.gpx',s,'application/gpx+xml');return}
+ if(k==='nmea'){const ck=t=>{let c=0;for(const ch of t)c^=ch.charCodeAt(0);return t+'*'+c.toString(16).toUpperCase().padStart(2,'0')};const dm=(v,d)=>{const a=Math.abs(v),D=Math.floor(a),m=(a-D)*60;return String(D).padStart(d,'0')+m.toFixed(3).padStart(6,'0')};
+  const ids=w.map((x,i)=>('WP'+String(i+1).padStart(3,'0')));let s='';w.forEach((x,i)=>s+='$'+ck(`GPWPL,${dm(x.p[0],2)},${x.p[0]<0?'S':'N'},${dm(norm(x.p[1]),3)},${norm(x.p[1])<0?'W':'E'},${ids[i]}`)+'\r\n');
+  const per=8;for(let i=0;i<ids.length;i+=per){const n=Math.ceil(ids.length/per);s+='$'+ck(`GPRTE,${n},${i/per+1},c,1,${ids.slice(i,i+per).join(',')}`)+'\r\n'}dl(base+'_nmea.txt',s,'text/plain');return}}
+function saveRouteFile(){if(!state.wps){toast('Plan a route first');return}const r=state.alts[state.sel];const o={ppRoute:1,v:1,saved:new Date().toISOString(),from:PORTS[state.from].n,to:PORTS[state.to].n,etd:$('etd').value,speed:+$('speed').value,
+ wps:state.wps.map(x=>({p:x.p,t:x.t,n:wpName(x)||'',xtd:x.xtd,spd:x.spd})),zov:r.zov||{}};dl(fname()+'.route.json',JSON.stringify(o,null,1),'application/json');toast('Route file saved – load it in Plan › Import route file')}
+function loadRouteFile(j){if(j.etd){$('etd').value=j.etd}if(j.speed){$('speed').value=j.speed}
+ return importRTZ(null,{name:(j.from||'')+' - '+(j.to||''),fmt:'saved route',pts:j.wps.map((q,i)=>({p:q.p,t:'wp',rn:q.n||'',xtd:q.xtd||null,spd:q.spd||0,rad:0}))}).then(()=>{const r=state.alts[state.sel];if(r&&j.zov){r.zov=j.zov;render()}})}
+function printWps(){if(!state.wps){toast('Plan a route first');return}const w=state.wps,res=state.res,A=PORTS[state.from],B=PORTS[state.to];
+ const rows=w.map((x,i)=>{const z=wpZone(i,x,res,w.length);return`<tr><td>${i+1}</td><td style="text-align:left">${esc(wpName(x)||'')}</td><td>${fmtLat(x.p[0])}</td><td>${fmtLon(x.p[1])}</td><td>${x.c!=null?x.c.toFixed(1):''}</td><td>${i?fmtNm(x.d):''}</td><td>${fmtNm(x.cum)}</td><td>${x.spd||''}</td><td>${fmtUTC(x.eta-z*36e5).replace('Z','')} (${fmtZs(z)})</td><td>${fmtUTC(x.eta)}</td></tr>`}).join('');
+ $('printArea').innerHTML=`<div class="pw"><h1 style="font:700 16px Arial;margin:0 0 4px">Waypoint list – ${esc(A.n)} → ${esc(B.n)}</h1><div style="font:11px Arial;margin-bottom:8px">${fmtNm(res.total)} nm · ${fmtDur(res.hours)} · ETD ${esc($('etd').value.replace('T',' '))} LT · printed ${new Date().toISOString().slice(0,16).replace('T',' ')} UTC</div>
+ <table style="border-collapse:collapse;width:100%;font:10.5px Arial" border="1" cellpadding="3"><thead><tr><th>WP</th><th>Name</th><th>Lat</th><th>Lon</th><th>Co°T</th><th>Dist</th><th>Total</th><th>Kn</th><th>ETA LT (ZT)</th><th>ETA UTC</th></tr></thead><tbody style="text-align:center">${rows}</tbody></table></div>`;
+ document.body.classList.add('printing');setTimeout(()=>{window.print();setTimeout(()=>document.body.classList.remove('printing'),800)},120)}
 /* ---- map tabs, maximise ---- */
 function openPubTab(k){const sh=$('pSheet');const open=sh.classList.contains('open')&&!sh.classList.contains('peek');
  if(open&&PUBSEL===k){togglePPanel(false);return}if(PUBSEL!==k){PUBSEL=k;store('pubsel',k);drawPubs()}togglePPanel(true)}
@@ -3296,7 +3432,11 @@ const VTS_RAW=[
 const VTS=VTS_RAW.map(v=>{let o;if(v.length===4){const ring=[];for(let a=0;a<360;a+=10)ring.push(destPt([v[1],v[2]],a,v[3]));o={n:v[0],c:[v[1],v[2]],r:v[3],ring}}else{o={n:v[0],ring:[[v[1],v[3]],[v[1],v[4]],[v[2],v[4]],[v[2],v[3]]]}}
  let b=[90,-90,1e3,-1e3];o.ring.forEach(p=>{b=[Math.min(b[0],p[0]),Math.max(b[1],p[0]),Math.min(b[2],p[1]),Math.max(b[3],p[1])]});o.bb=b;return o});
 function vtsAt(o,la,lo){lo=norm(lo);const b=o.bb;if(la<b[0]||la>b[1]||lo<b[2]-0.01||lo>b[3]+0.01)return false;return o.c?gcd([la,lo],o.c)<=o.r:inRing(la,lo,o.ring)}
-const SSAC={pssa:['PSSA','#2e7d32',.13,false],marpol:['MARPOL special area','#1565c0',.05,true],polar:['Polar waters','#00838f',.06,true],speed:['Speed restriction','#ef6c00',.14,false]};
+const SSAC={pssa:['PSSA','#2e7d32',.13,false],marpol:['MARPOL special area','#1565c0',.05,true],polar:['Polar waters','#00838f',.06,true],speed:['Whale speed zone','#ef6c00',.14,false],hfo:['HFO ban','#6d4c41',.08,true],scrub:['Scrubber rule','#00838f',.10,true]};
+SSA.filter(z=>z.c==='polar').forEach(z=>SSA.push({n:'HFO ban – '+z.n.replace(/ \(Polar Code\)/,''),c:'hfo',r:z.r,t:z.n.startsWith('Arctic')?'Use and carriage of HFO as fuel prohibited in Arctic waters from 1 July 2024 (MARPOL Annex I Reg. 43A; waivers for some flag states until 2029).':'Use and carriage of heavy grade oil prohibited in the Antarctic area (MARPOL Annex I Reg. 43).'}));
+SSA.push({n:'Gulf of Panama whale speed zone (approx.)',c:'speed',r:[[[8.9,-79.9],[8.9,-79.0],[7.3,-78.9],[7.0,-79.9],[7.6,-80.4]]],t:'Panama: 10 kn speed limit in the Gulf of Panama TSS approaches, about 1 Aug–30 Nov (humpback season). Approximate – check Panama Canal / AMP notices.'});
+SSA.push({n:'Singapore port limits – open-loop scrubber ban (approx.)',c:'scrub',r:[[[1.47,103.6],[1.47,104.1],[1.15,104.1],[1.15,103.6]]],t:'No open-loop scrubber wash-water discharge in Singapore port limits (MPA, since 1 Jan 2020). Use compliant fuel or closed-loop mode. Approximate limits.'});
+SSA.push({n:'New Zealand coastal waters – scrubber discharge (approx.)',c:'scrub',r:[[[-33.5,171.5],[-33.5,179.5],[-48.5,179.5],[-48.5,165.5],[-40,165.5]]],t:'New Zealand restricts open-loop scrubber wash-water discharge in its waters – check Maritime NZ rules before entering. Approximate outline.'});
 function ssaAt(z,la,lo){const b=z.bb;for(const L of [lo,lo+360,lo-360]){if(la<b[0]||la>b[1]||L<b[2]||L>b[3])continue;if(z.r.some(r=>inRing(la,L,r)))return true}return false}
 function ssaAlong(){const w=state.wps;if(!w)return[];const out=[];
  SSA.forEach(z=>{let hit=null;for(let i=1;i<w.length&&!hit;i++){const sm=legSamples(w[i-1].p,w[i].p,5);for(let k=0;k<sm.length;k++){const q=sm[k];if(ssaAt(z,q[0],norm(q[1]))){const cum=w[i-1].cum+(w[i].cum-w[i-1].cum)*(sm.length>1?k/(sm.length-1):0);hit={z,cum,eta:etaAt(cum)};break}}}if(hit)out.push(hit)});
@@ -3314,7 +3454,16 @@ function divLabel(p,html,cls){if(M===LeafletMap)return L.marker(p,{icon:L.divIco
 /* ================= High risk & security areas (JWC listed areas, reporting areas, ReCAAP advisories) ================= */
 if(LAYON.hra==null)LAYON.hra=true;layersL.hra=[];if(LAYON.vts==null)LAYON.vts=false;layersL.vts=[];
 const HRA=[{"n":"Southern Red Sea, Gulf of Aden, Arabian Sea, Gulf of Oman & Persian Gulf","c":"jwc","a":1,"r":[[[25.5,34.6],[25.5,37.0],[22.0,39.1],[19.0,40.9],[16.5,42.6],[15.0,42.9],[13.6,43.3],[12.6,43.5],[12.4,43.3],[13.2,42.5],[15.0,40.0],[16.5,39.3],[18.0,38.6],[20.0,37.3],[22.0,36.9],[24.0,35.7]],[[12.6,43.5],[12.9,45.0],[14.0,48.5],[15.3,51.5],[16.6,53.5],[17.0,55.0],[18.5,56.6],[20.5,58.3],[22.5,59.8],[24.0,57.0],[26.0,56.5],[24.2,54.0],[24.0,51.5],[26.0,50.0],[27.5,49.0],[29.0,48.2],[30.0,48.6],[30.0,49.5],[28.5,50.8],[27.0,53.0],[26.6,55.5],[27.0,56.5],[25.5,58.0],[25.3,61.6],[25.32,65.0],[10.8,65.0],[10.8,60.25],[-6.75,48.75],[-1.67,41.57],[2.0,45.3],[5.0,48.0],[8.0,50.0],[10.5,51.3],[11.8,51.2],[11.5,49.0],[10.5,45.0],[11.5,43.3],[12.4,43.3]]],"t":"JWC listed area (war risk – notify underwriters before entry). Missile, drone and boarding attacks on merchant ships in the southern Red Sea, Bab-el-Mandeb and Gulf of Aden; Somali piracy in the Gulf of Aden and Somali Basin; GNSS interference and vessel seizures reported in the Gulf of Oman / Strait of Hormuz.","s":"JWC JWLA-035 (16 Sep 2026): Red Sea south of 25°30'N, Pakistan coast 25°19'N 65°E, 10°48'N 65°E, 10°48'N 60°15'E, 06°45'S 48°45'E, Somalia border 01°40'S 41°34'E","k":"uk"},{"n":"Gulf of Guinea","c":"jwc","a":1,"r":[[[6.1125,1.2],[-0.667,3.0],[-0.667,8.7],[0.5,9.3],[2.0,9.8],[3.8,9.5],[4.2,8.8],[4.4,7.0],[4.3,6.0],[5.0,5.3],[6.35,4.5],[6.35,2.5],[6.2,1.6]]],"t":"JWC listed area (war risk – notify underwriters). Piracy, armed robbery and kidnap for ransom up to ~200 nm offshore, also at anchor and while drifting. Benin, Nigeria and Togo are listed as countries as well.","s":"JWC JWLA-035: Togo coast 06°06'45\"N 01°12'E → 00°40'S 03°E → Cape Lopez 00°40'S 08°42'E","k":"gog"},{"n":"Cabo Delgado (northern Mozambique / southern Tanzania)","c":"jwc","a":1,"r":[[[-10.33,40.3],[-10.17,40.57],[-11.5,40.75],[-13.5,40.83],[-13.5,40.52],[-12.0,40.42],[-11.0,40.36]]],"t":"JWC listed area – territorial sea off the Cabo Delgado insurgency. Check the latest security advice before calling Pemba, Mocímboa da Praia or Mtwara.","s":"JWC JWLA-035: Mnazi Bay 10°19.6'S 40°18.9'E – 10°10.3'S 40°34.4'E to Baía do Lúrio 13°30'S 40°31.6'E – 13°30.0'S 40°49.7'E","k":""},{"n":"Black Sea & Sea of Azov","c":"jwc","a":1,"r":[[[47.3,39.3],[47.1,37.5],[46.6,36.5],[46.0,34.9],[45.4,35.1],[45.3,36.6],[45.6,37.5],[46.1,38.2],[46.7,38.6]],[[46.6,30.7],[45.2,29.7],[44.0,28.7],[43.2,28.0],[42.0,28.0],[41.2,29.1],[41.1,31.5],[41.6,33.5],[42.0,35.2],[41.3,37.5],[41.0,39.5],[41.6,41.6],[42.6,41.6],[43.4,40.0],[44.1,39.0],[44.7,37.4],[45.2,36.6],[44.4,34.0],[45.3,32.5],[46.1,32.0],[46.6,31.5]]],"t":"JWC listed area – war risk: Sea of Azov and the Black Sea outside the territorial waters of Turkey, Bulgaria, Romania and Georgia. Drifting and moored mines, missile and drone strikes on ports and ships. Follow NAVAREA III / NAVTEX, flag-state advisories and the designated transit corridors.","s":"JWC JWLA-035 (outline approximate; territorial waters of Turkey, Bulgaria, Romania and Georgia are excluded)","k":""},{"n":"UKMTO Voluntary Reporting Area","c":"vra","a":1,"r":[[[29.9,32.55],[28.0,34.5],[25.5,37.0],[22.0,39.2],[16.5,42.7],[12.6,43.5],[12.9,45.0],[15.3,51.5],[18.5,56.6],[22.5,59.8],[26.3,56.4],[25.3,61.6],[25.0,66.5],[23.0,68.5],[21.0,70.0],[19.0,72.8],[15.5,73.8],[12.0,74.8],[9.0,76.3],[8.0,78.0],[-10.0,78.0],[-10.0,39.8],[-4.6,39.3],[-1.67,41.57],[2.0,45.3],[5.0,48.0],[8.0,50.0],[11.8,51.2],[10.5,45.0],[11.5,43.3],[12.4,43.3],[15.0,40.0],[18.0,38.6],[22.0,36.9],[24.0,35.7],[27.2,33.8]]],"t":"Suez and the Strait of Hormuz to the north, 10°S and 78°E.","s":"BMP Maritime Security / UKMTO (outline approximate)","k":"uk"},{"n":"West Africa – MDAT-GoG reporting area (Sierra Leone to Angola)","c":"vra","a":1,"r":[[[8.5,-13.3],[4.0,-13.0],[-1.0,-5.0],[-6.0,5.0],[-12.0,8.0],[-12.0,13.7],[-6.0,12.2],[-1.0,9.0],[3.8,9.5],[4.4,7.0],[6.3,4.5],[5.0,-1.0],[4.4,-7.5],[6.3,-10.8]]],"t":"Attacks recorded from Sierra Leone to Angola.","s":"MDAT-GoG / BMP West Africa – see chart Q6114 or SHOM 8801CS for the exact limits (outline approximate)","k":"gog"},{"n":"Sulu & Celebes Seas","c":"rec","a":1,"r":[[[7.3,116.8],[7.0,119.0],[6.8,121.2],[6.0,122.2],[5.0,122.5],[3.5,125.0],[1.5,125.0],[1.0,121.0],[2.0,118.5],[4.2,117.8],[5.5,118.0],[6.5,116.8]]],"t":"ReCAAP ISC advisory – risk of abduction of crew by armed groups (eastern Sabah / southern Philippines). Reroute where possible; keep a strict anti-boarding watch; report to ReCAAP Focal Points, Philippine Coast Guard or ESSCOM (Sabah).","s":"ReCAAP ISC advisory (outline approximate)","k":""},{"n":"Singapore Strait","c":"rec","a":1,"r":[[[1.33,103.45],[1.33,104.45],[1.12,104.45],[1.12,103.45]]],"t":"ReCAAP – frequent sea-robbery boardings, mostly at night in the eastbound lane. Keep an anti-boarding watch and deck lighting; report incidents at once to Singapore VTIS and the ReCAAP Focal Points.","s":"ReCAAP ISC (outline approximate)","k":""}];HRA.forEach(z=>{let b=[90,-90,1e3,-1e3];z.r.forEach(r=>r.forEach(p=>{b=[Math.min(b[0],p[0]),Math.max(b[1],p[0]),Math.min(b[2],p[1]),Math.max(b[3],p[1])]}));z.bb=b});
-const HRAC={jwc:['JWC listed area','#c0603a',.05,true],vra:['Reporting area','#a0607a',.02,true],rec:['ReCAAP advisory','#d08a2a',.05,true]};
+const HRAC={jwc:['JWC listed area','#c0603a',.05,true],vra:['Reporting area','#a0607a',.02,true],rec:['Piracy hotspot (ReCAAP)','#e65100',.06,true],hra:['High Risk Area','#b71c1c',.06,false],pir:['Piracy hotspot','#e65100',.06,true],itf:['IBF/ITF warlike area','#8e24aa',.06,true],irtc:['Transit corridor','#1e88e5',.10,false]};
+HRA.push({n:'Former HRA – Somali Basin, Gulf of Aden & Arabian Sea (approx.)',c:'hra',r:[[[22.5,59.9],[15.0,65.0],[5.0,65.0],[-5.0,55.0],[-10.5,48.5],[-5.0,39.5],[2.0,42.0],[11.0,51.5],[11.6,43.4],[12.6,43.3],[15.0,42.9],[16.5,42.6],[15.0,48.0],[18.0,57.0]]],t:'Former BMP High Risk Area (removed Jan 2023) – threat persists; follow BMP Maritime Security and UKMTO advisories.'});
+HRA.push({n:'Gulf of Guinea piracy hotspot (approx.)',c:'pir',r:[[[6.5,-3.0],[6.5,9.5],[3.0,10.0],[-1.5,9.0],[-1.5,1.0],[3.0,-3.0]]],t:'Highest piracy / kidnap risk off Nigeria, Benin, Togo and the Gulf of Guinea islands – register with MDAT-GoG.'});
+HRA.push({n:'Singapore & Malacca Straits piracy hotspot (approx.)',c:'pir',r:[[[1.6,103.3],[1.6,104.6],[1.0,104.6],[1.0,103.3]],[[5.5,98.5],[5.5,100.5],[2.5,102.5],[1.6,103.3],[1.0,103.0],[2.0,101.0]]],t:'Frequent armed robbery against ships underway in the Singapore Strait (mostly eastbound lane) – keep watch, report to ReCAAP / VTIS.'});
+HRA.push({n:'Israel & Lebanon Extended Risk Zone (ITF/IBF, approx.)',c:'itf',r:[[[34.7,33.5],[34.7,36.0],[31.0,34.9],[31.0,33.5]]],t:'IBF/ITF Extended Risk Zone – crew entitlements apply. Check the current IBF warlike list.'});
+HRA.push({n:'N. Black Sea & Sea of Azov (ITF/IBF, approx.)',c:'itf',r:[[[47.4,29.5],[47.4,39.5],[45.0,39.5],[44.3,33.4],[45.2,29.5]]],t:'IBF/ITF Warlike Operations Area – crew may refuse to sail. Check the current IBF list.'});
+HRA.push({n:'Persian Gulf, Hormuz & Gulf of Oman (ITF/IBF WOA, approx.)',c:'itf',r:[[[30.5,47.5],[30.5,50.5],[26.5,56.5],[25.0,61.6],[22.5,59.9],[24.5,56.5],[24.0,51.5],[27.0,49.5]]],t:'IBF/ITF Warlike Operations Area – check the current list before entry.'});
+HRA.push({n:'S. Red Sea & Gulf of Aden (ITF/IBF WOA, approx.)',c:'itf',r:[[[18.0,38.6],[18.0,42.0],[15.0,43.2],[12.6,43.5],[12.0,51.3],[11.0,51.3],[11.6,43.4],[13.2,42.5],[15.0,40.0]]],t:'IBF/ITF Warlike Operations Area (Houthi attacks) – check the current IBF list and JMIC advisories.'});
+HRA.push({n:'IRTC – Internationally Recommended Transit Corridor',c:'irtc',r:[[[12.0,45.0],[12.3,45.0],[14.35,53.0],[14.05,53.0]]],t:'Gulf of Aden transit corridor: westbound and eastbound lanes 5 nm wide with a 2 nm separation zone, between 45°E and 53°E. Follow BMP and UKMTO guidance.'});
+[SSA,HRA].forEach(A=>A.forEach(z=>{if(z.bb)return;let a=90,b=-90,c=1e9,d=-1e9;z.r.forEach(r=>r.forEach(([la,lo])=>{a=Math.min(a,la);b=Math.max(b,la);c=Math.min(c,lo);d=Math.max(d,lo)}));z.bb=[a,b,c,d]}));
 const JWC_CC={BJ:'Benin',DJ:'Djibouti',ER:'Eritrea',LY:'Libya',NG:'Nigeria',SO:'Somalia',SD:'Sudan',TG:'Togo',BH:'Bahrain',IR:'Iran',IQ:'Iraq',IL:'Israel',KW:'Kuwait',LB:'Lebanon',OM:'Oman',QA:'Qatar',SA:'Saudi Arabia',SY:'Syria',AE:'United Arab Emirates',YE:'Yemen',VE:'Venezuela',UA:'Ukraine'};
 const hraAt=(z,la,lo)=>ssaAt(z,la,lo);
 const HRA_K={uk:['UKMTO / MSCHOA','Register with UKMTO (watchkeepers@ukmto.org · +44 2392 222060) and MSCHOA; send initial, daily and final reports. Follow BMP Maritime Security and the latest JMIC / UKMTO advisories.'],gog:['MDAT-GoG','Register with MDAT-GoG (watchkeepers@mdat-gog.org · +33 2 98 22 88 88). Follow BMP West Africa; minimise drifting / waiting time; use protected anchorages and escorts where available.']};
@@ -3437,7 +3586,7 @@ function drawLayers(){if(!M)return;Object.keys(layersL).forEach(k=>{layersL[k].f
    layersL.nx.push(divLabel(s.p,'NX '+s.ids[0][0],'nxl'))})}
  drawNaBounds();
  wxDraw();
- if(LAYON.hra)HRA.forEach(z=>{const c=HRAC[z.c];z.r.forEach(r=>layersL.hra.push(M.poly([r],{color:c[1],fill:c[2],dash:c[3],html:hraPopup(z)})))});
+ if(LAYON.hra)HRA.forEach(z=>{if(!SECF[z.c==='rec'?'pir':z.c])return;const c=HRAC[z.c];z.r.forEach(r=>layersL.hra.push(M.poly([r],{color:c[1],fill:c[2],dash:c[3],html:hraPopup(z)})))});
  if(LAYON.vts)VTS.forEach(z=>layersL.vts.push(M.poly([z.ring],{color:'#00897b',fill:.05,dash:true,html:`<b>${esc(z.n)}</b><br><span style="font-size:11px">Approximate outer limit${z.r?' ('+z.r+' nm)':''} – verify the limits, VHF channel and reporting points in ALRS Vol 6.</span>`})));
  if(LAYON.ssa)SSA.forEach(z=>{if(z.c==='marpol'){if(!ssaAnx(z).some(k=>MANX[k]))return}else if(SSAF[z.c]===false)return;const c=SSAC[z.c];z.r.forEach(r=>layersL.ssa.push(M.poly([r],{color:c[1],fill:c[2],dash:c[3],html:ssaPopup(z)})))});
  if(LAYON.zt){for(let z=-12;z<=12;z++){const lo=z*15+7.5;if(lo<=180)layersL.zt.push(M.line([[-80,lo],[80,lo]],{color:'#ef6c00',weight:1.2,dash:true}))
@@ -3689,7 +3838,7 @@ function setupCombo(id,key){
  const show=()=>{items=searchPorts(inp.value);act=items.length?0:-1;
   dd.innerHTML=items.length?items.map((p,i)=>`<div data-i="${i}" class="${i===act?'on':''}"><b>${esc(p.n)}</b><small>${esc(p.cn||p.c||'')}${p.lc?' · <span class="lcd">'+p.lc+'</span>':''}${(()=>{const q=fold(inp.value.trim());const a=p.al.find(x=>fold(x).startsWith(q)&&!p.fn.startsWith(q));return a?' · aka '+esc(a):''})()}</small>${p.e?'<span class="badge b-e">est.</span>':'<span class="badge b-p">pilot</span>'}</div>`).join(''):(inp.value.trim()?'<div style="cursor:default" class="muted">No port found — try another spelling</div>':'');
   dd.style.display=inp.value.trim()?'block':'none'};
- const pick=p=>{state[key]=p.id;setTimeout(()=>ztAuto(),0);inp.value=p.n;sel.textContent=(p.cn||p.c||'')+(p.e?' · approach point estimated':' · pilot station');dd.style.display='none';store(key,p.n);
+ const pick=p=>{state[key]=p.id;setTimeout(()=>ztAuto(),0);inp.value=p.n;sel.innerHTML=esc(p.cn||p.c||'')+(p.lc?'<span class="lcchip">'+p.lc+'</span>':'')+(p.e?' · approach point estimated':'');dd.style.display='none';store(key,p.n);
   if(state.from!=null&&state.to!=null&&state.from!==state.to)plan()};
  root.pick=pick;
  inp.addEventListener('input',show);inp.addEventListener('focus',()=>{if(inp.value)inp.select();show()});
@@ -3715,9 +3864,9 @@ function drawStatic(){if(M===LeafletMap&&!M._dng){M._dng=1;M.map.on('moveend',dr
    layers.tss.push(M.line([destPt(mid,c+150,1.2),mid,destPt(mid,c-150,1.2)],{color:'#c2185b',weight:2.5}))})});
  layers.atba=layers.atba||[];layers.atba.forEach(x=>M.hide(x));layers.atba=[];
  const ah=(t,w,src,ex)=>`<b>⛔ Area To Be Avoided – ${esc(t)}</b><br>IMO-adopted ATBA${w?' · applies to '+esc(w):''}${ex?'<br>'+ex:''}<br><span style="color:#5a6f8c">Source: ${esc(src)}</span><br>The app keeps every route out of it (permanent layer).`;
- ATBA.forEach(z=>layers.atba.push(M.poly([z.r],{color:'#7b5ea7',dash:true,fill:.06,html:ah('Aleutian Islands ('+z.n+')','ships of 400 GT and above solely in transit','SN.1/Circ.331',null)})));
+ ATBA.forEach(z=>layers.atba.push(M.poly([z.r],{color:'#d32f2f',dash:false,fill:.14,html:ah('Aleutian Islands ('+z.n+')','ships of 400 GT and above solely in transit','SN.1/Circ.331',null)})));
  ATBAW.forEach(z=>{const rr=z.r.map(p=>[p[0],p[1]]);for(let i=1;i<rr.length;i++){while(rr[i][1]-rr[i-1][1]>180)rr[i][1]-=360;while(rr[i][1]-rr[i-1][1]<-180)rr[i][1]+=360}
-  layers.atba.push(M.poly([rr],{color:'#7b5ea7',dash:true,fill:.06,html:ah(z.n,z.w,z.s,[z.se?'Seasonal: '+esc(z.se)+' (avoided all year by the app)':'',z.a?'⚠ Outline approximate – verify on the ENC':''].filter(Boolean).join('<br>'))}))});
+  layers.atba.push(M.poly([rr],{color:'#d32f2f',dash:false,fill:.14,html:ah(z.n,z.w,z.s,[z.se?'Seasonal: '+esc(z.se)+' (avoided all year by the app)':'',z.a?'⚠ Outline approximate – verify on the ENC':''].filter(Boolean).join('<br>'))}))});
  drawWarnings();drawNavtex();drawPubs();drawLayers();
  if(!$('lyEca').checked)toggleLayer('eca',false);if(!$('lyPilot').checked)toggleLayer('pilots',false)}
 function toggleLayer(k,on){if(k==='pilots'){portCull();return}layers[k].forEach(x=>on?M.show(x):M.hide(x))}
@@ -3822,21 +3971,21 @@ function render(){
  const wps=r.wps.map(w=>({...w,p:[...w.p]})),res=computeLegs(wps,speed,etd);state.wps=wps;state.res=res;computeXTD(r,wps);applySpeeds(r,wps,speed,etd,res);ztAuto(wps[wps.length-1].eta);wps.forEach((w,i)=>{w.band=i?legBand(wps[i-1].p,w.p):null});
  clearRoute();const pts=wps.map(w=>w.p);
  const pi1=res.pi1>=0?res.pi1:Math.max(0,res.s1-1),pi2=res.pi2>=0?res.pi2:Math.min(wps.length-1,res.s2+1);
- if(pi1>0)layers.route.push(M.line(pts.slice(0,pi1+1),{color:'#f0b429',weight:3,dash:true}));
- layers.route.push(M.line(pts.slice(pi1,pi2+1),{color:'#1d5fd6',weight:4}));
- if(pi2<wps.length-1)layers.route.push(M.line(pts.slice(pi2),{color:'#f0b429',weight:3,dash:true}));
+ if(pi1>0)layers.route.push(M.line(pts.slice(0,pi1+1),{color:'#F0BC70',weight:3,dash:true}));
+ layers.route.push(M.line(pts.slice(pi1,pi2+1),{color:'#5b3d12',weight:7,opacity:.45}));layers.route.push(M.line(pts.slice(pi1,pi2+1),{color:'#F0BC70',weight:4.2}));
+ if(pi2<wps.length-1)layers.route.push(M.line(pts.slice(pi2),{color:'#F0BC70',weight:3,dash:true}));
  // canal segments highlighted
  for(let i=1;i<wps.length;i++)if(wps[i].t==='canal'&&wps[i-1].t==='canal')layers.route.push(M.line([wps[i-1].p,wps[i].p],{color:'#0b8f7d',weight:5}));
  wps.forEach((w,i)=>{w.lab=String(i+1);
   const gp=MAPEDIT&&GCP===(curR()&&curR().wps[i]);const col=gp||w.gcm?'#7b3fbf':w.t==='eca'?'#2e7d32':w.t==='sa'?'#ef6c00':w.t==='pilot'?'#d99a12':w.t==='berth'?'#0a2a5e':w.t==='tss'?'#c2185b':w.t==='gc'?'#7b3fbf':w.t==='fair'?'#90a4ae':w.t==='canal'?'#0b8f7d':'#1d5fd6';
-  const ed=MAPEDIT&&M===LeafletMap&&w.t!=='berth';layers.route.push(M.marker(w.p,{color:col,label:!MAPEDIT?null:gp?w.lab+' ▶GC':w.gcm==='start'?w.lab+' ▶':w.gcm==='end'?w.lab+' ■':w.lab,size:MAPEDIT?4:(w.t==='pilot'||w.t==='berth'?5:3.5),z:w.t==='pilot'||w.t==='berth'?50:20,title:wpName(w)||('WP '+w.lab),drag:ed,onDrag:ed?(p=>editMove(i,p)):null,
+  const ed=MAPEDIT&&M===LeafletMap&&w.t!=='berth';layers.route.push(M.marker(w.p,{color:MAPEDIT?col:(w.t==='berth'?'#0a2a5e':w.t==='pilot'?'#d99a12':'#1565d8'),ring:!MAPEDIT,label:!MAPEDIT?null:gp?w.lab+' ▶GC':w.gcm==='start'?w.lab+' ▶':w.gcm==='end'?w.lab+' ■':w.lab,size:MAPEDIT?4:(w.t==='pilot'||w.t==='berth'?5:3.5),z:w.t==='pilot'||w.t==='berth'?50:20,title:wpName(w)||('WP '+w.lab),drag:ed,onDrag:ed?(p=>editMove(i,p)):null,
    html:MAPEDIT?editPopup(i,w):`<b>${esc(w.lab)} ${esc(wpName(w)||'Waypoint')}</b><br>${fmtLat(w.p[0])} ${fmtLon(w.p[1])}<br>${w.c!=null?'Co '+w.c.toFixed(1)+'°T · '+fmtNm(w.d)+' nm<br>':''}Run ${fmtNm(w.cum)} nm · ETA ${fmtUTC(w.eta)}`}))});
  res.events.forEach(e=>{const z=ZONES.find(x=>x.id===e.z);layers.route.push(M.marker(e.p,{color:e.type==='in'?'#d62f2f':'#1e8e3e',size:7,z:60,title:(e.type==='in'?'Enter ':'Exit ')+z.name,
   html:`<b>${e.type==='in'?'ENTER':'EXIT'} ${z.name}</b><br>${fmtLat(e.p[0])} ${fmtLon(e.p[1])}<br>${fmtNm(e.cum)} nm · ETA ${fmtUTC(e.eta)}`}))});
  if(!state.noFit)M.fit(pts);
  computeTurns(wps,speed);drawXTD(wps);const SC=safetyCheck(wps);state.safety=SC;
  SC.forEach(x=>layers.route.push(M.marker(x.p,{color:x.k==='land'?'#d62f2f':x.k==='danger'?'#ef6c00':'#c99700',label:'!',z:80,title:x.txt,html:'<b>Safety check</b><br>'+x.txt})));
- const ov=r.xov||{};const EW=encAlong();const WA=wpActions(),WN=r.wpn||{};const rows=wps.map((w,i)=>{const na=WA?(WA.at[i].length+(i<wps.length-1?WA.leg[i+1].length:0)):0,op=WPX.has(i);return`<tr class="${w.t}${op?' xo':''}"><td class="l"><button class="xb${na||WN[i]?' has':''}" onclick="wpx(${i})" aria-label="Actions">${op?'▾':'▸'}</button>${w.lab}${na?`<sup>${na}</sup>`:''}${WN[i]?'<sup class="nt">✎</sup>':''}</td><td class="l">${esc(wpName(w)||'')}</td><td>${fmtLat(w.p[0])}</td><td>${fmtLon(w.p[1])}</td><td>${w.c!=null?w.c.toFixed(1):''}</td><td>${i?fmtNm(w.d):''}</td><td>${fmtNm(w.cum)}</td><td class="eta2">${(()=>{const z=wpZone(i,w,res,wps.length);return`<b>${fmtUTC(w.eta-z*36e5).replace('Z','')} <small>LT</small></b><span>${zSel(i,z)} ${fmtUTC(w.eta)}</span>`})()}</td><td>${i?`<input class="xtdin${ov[i]!=null?' ov':''}" type="number" min="0" step="5" value="${w.xtd}" onchange="setXtd(${i},this.value)" title="${w.ixtd>0?'ECDIS':'Auto'} ${w.xtdAuto} m – clear to reset">`:''}</td><td title="${w.rot?'ROT ≈ '+w.rot.toFixed(0)+'°/min at R '+w.rad+' nm':''}">${w.wo!=null?w.wo.toFixed(2):''}</td><td>${i?`<input class="xtdin${(r.sov||{})[i]!=null?' ov':''}" style="width:54px" type="number" min="0.5" step="0.5" value="${w.spd}" onchange="setSpd(${i},this.value)" title="${w.ispd>0?'ECDIS':'Auto'} ${w.spdAuto} kn – clear to reset">`:''}</td><td>${(()=>{const e=encAtWp(w,EW);return e?`<span title="${esc(ESCALE[e.band]+' · '+EBAND[e.band][0]+(e.cells.length?' · '+e.cells[0]:''))}">${ESHORT[e.band]}${e.cells.length?'<br><small>'+e.cells[0]+'</small>':''}</span>`:''})()}</td><td>${i?`<span class="zn ${w.band===0?'z-harb':w.band===1?'z-coast':'z-open'}">${DBAND[w.band]}</span>`:''}</td><td class="l"><span class="zn z-${w.zone||''}">${zoneLabel(w,i,wps)}</span></td></tr>${op?wpxRow(i,WA,WN,w):''}`}).join('');
+ const ov=r.xov||{};const EW=encAlong();const WA=wpActions(),WN=r.wpn||{};const rows=wps.map((w,i)=>{const na=WA?(WA.at[i].length+(i<wps.length-1?WA.leg[i+1].length:0)):0,op=WPX.has(i);return`<tr class="${w.t}${op?' xo':''}"><td class="l"><button class="xb${na||WN[i]?' has':''}" onclick="wpx(${i})" aria-label="Actions">${op?'▾':'▸'}</button>${w.lab}${na?`<sup>${na}</sup>`:''}${WN[i]?'<sup class="nt">✎</sup>':''}</td><td class="l">${esc(wpName(w)||'')}</td><td>${fmtLat(w.p[0])}</td><td>${fmtLon(w.p[1])}</td><td>${w.c!=null?w.c.toFixed(1):''}</td><td>${i?fmtNm(w.d):''}</td><td>${fmtNm(w.cum)}</td><td class="eta2">${(()=>{const z=wpZone(i,w,res,wps.length);return`<b>${fmtUTC(w.eta-z*36e5).replace('Z','')} <small>LT</small></b><span>${zSel(i,z)} ${fmtUTC(w.eta)}</span>`})()}</td><td title="${w.rot?'ROT ≈ '+w.rot.toFixed(0)+'°/min at R '+w.rad+' nm':''}">${w.wo!=null?w.wo.toFixed(2):''}</td><td>${i?`<input class="xtdin${(r.sov||{})[i]!=null?' ov':''}" style="width:54px" type="number" min="0.5" step="0.5" value="${w.spd}" onchange="setSpd(${i},this.value)" title="${w.ispd>0?'ECDIS':'Auto'} ${w.spdAuto} kn – clear to reset">`:''}</td><td>${(()=>{const e=encAtWp(w,EW);return e?`<span title="${esc(ESCALE[e.band]+' · '+EBAND[e.band][0]+(e.cells.length?' · '+e.cells[0]:''))}">${ESHORT[e.band]}${e.cells.length?'<br><small>'+e.cells[0]+'</small>':''}</span>`:''})()}</td><td>${i?`<span class="zn ${w.band===0?'z-harb':w.band===1?'z-coast':'z-open'}">${DBAND[w.band]}</span>`:''}</td><td class="l"><span class="zn z-${w.zone||''}">${zoneLabel(w,i,wps)}</span></td></tr>${op?wpxRow(i,WA,WN,w):''}`}).join('');
  const zrows=Object.entries(res.zd).map(([k,v])=>{const z=ZONES.find(x=>x.id===k);return`<div class="ev"><i class="sw" style="background:${ZCOL[z.kind]}"></i><b>${z.name}</b>: ${fmtNm(v)} nm<br><span class="muted">${z.note}</span></div>`}).join('');
  const evrows=res.events.map(e=>{const z=ZONES.find(x=>x.id===e.z);return`<div class="ev"><b style="color:${e.type==='in'?'#d62f2f':'#1e8e3e'}">${e.type==='in'?'▶ Enter':'◀ Exit'}</b> ${z.name}<br>${fmtLat(e.p[0])} ${fmtLon(e.p[1])} · ${fmtNm(e.cum)} nm · ETA ${fmtUTC(e.eta)}</div>`}).join('');
  const eca=Object.values(res.zd).reduce((a,b)=>a+b,0);
@@ -3861,8 +4010,10 @@ function render(){
 
  <div class="card fold"><h2>Waypoints</h2><button class="btn" style="margin-top:10px" onclick="showView('wpv')">⚑ Waypoint list &amp; actions (${wps.length} WPs) →</button></div>`;
  {const wb=$('wpBox');if(wb)wb.innerHTML=`<div class="card"><h2>Waypoint list</h2>
-  <div class="wpcols"><span class="muted">${WPALL?'All columns – swipe sideways. XTD and speed can be edited per leg.':'Short list: course, distance and ETA.'}</span><button onclick="WPALL=!WPALL;store('wpall',WPALL);state.noFit=true;render();state.noFit=false">${WPALL?'Fewer columns':'More columns ▸'}</button></div><div class="tblwrap"><table class="h${WPALL?'':' cmp'}"><thead><tr><th class="l">WP</th><th class="l">Name</th><th>Lat</th><th>Lon</th><th>Co°T</th><th>Dist</th><th>Total</th><th>ETA LT · UTC</th><th>XTD m</th><th>WO nm</th><th>Kn</th><th>ENC</th><th>Depth band</th><th class="l">Zone</th></tr></thead><tbody>${rows}</tbody></table></div>
-  <div class="sbh" style="margin-top:12px;font-weight:800;font-size:12px;color:var(--h1)">EXPORT</div><div class="exp"><button onclick="libOpen(true)">Save plan</button><button onclick="libOpen(false)">Saved plans</button><button onclick="exportRTZ()">RTZ (ECDIS)</button><button onclick="exportCSV()">CSV</button><button onclick="printPlan()">Print passage plan</button><button onclick="showView('vd')">Voyage draft plan</button></div>
+  <div class="wpcols"><span class="muted">${WPALL?'All columns – swipe sideways. XTD and speed can be edited per leg.':'Short list: course, distance and ETA.'}</span><button onclick="WPALL=!WPALL;store('wpall',WPALL);state.noFit=true;render();state.noFit=false">${WPALL?'Fewer columns':'More columns ▸'}</button></div><div class="tblwrap"><table class="h${WPALL?'':' cmp'}"><thead><tr><th class="l">WP</th><th class="l">Name</th><th>Lat</th><th>Lon</th><th>Co°T</th><th>Dist</th><th>Total</th><th>ETA LT · UTC</th><th>WO nm</th><th>Kn</th><th>ENC</th><th>Depth band</th><th class="l">Zone</th></tr></thead><tbody>${rows}</tbody></table></div>
+  <h2 style="margin-top:14px">Export route to ECDIS</h2><div class="xpg">${EXPF.map(f=>`<button onclick="expRoute('${f[0]}')"><b>${f[1]}</b><small>${f[2]}</small></button>`).join('')}</div>
+  <p class="muted" style="font-size:11px;margin:6px 0 0;text-align:center">JRC, Furuno, Tokyo Keiki, Wärtsilä/Transas, Kelvin Hughes and Sperry ECDIS all read RTZ (IEC 61174). Check the route on the ECDIS after loading.</p>
+  <h2 style="margin-top:14px">Print &amp; save</h2><div class="xpg"><button onclick="printWps()"><b>Print / PDF</b><small>Waypoint list</small></button><button onclick="exportCSV()"><b>CSV</b><small>Full waypoint list</small></button><button onclick="saveRouteFile()"><b>Save route file</b><small>.route.json – load it again in Plan</small></button><button onclick="libOpen(true)"><b>Save in app</b><small>Saved routes</small></button><button onclick="printPlan()"><b>Passage plan</b><small>Full print</small></button></div>
  </div>`}
  {const g=$('gcSec');if(g)g.innerHTML=SAIL!=='rhumb'&&r.base?gcSecHtml(r):(r.edited||r.imported?'<p class="muted">'+(r.imported&&!r.edited?'Imported RTZ route. ':'Route edited on the chart. ')+'To add a great circle, tap ✎ on the chart, tap a waypoint → ▶ Start GC, then another → ■ End GC. Legs outside GC sections stay rhumb line; repeat for more GC sections (composite).</p>':'<p class="muted">Plan a route to choose where the great circle starts and ends.</p>')}
  {const ob=$('offBox');if(ob)ob.innerHTML=offCard().replace('<div class="card fold shut"><h2>Offline charts</h2>','<div class="fpos"><div class="sbt">OFFLINE CHARTS FOR THIS ROUTE</div>')}
@@ -3874,10 +4025,10 @@ function dl(name,text,type){if(window.Capacitor&&Capacitor.isNativePlatform&&Cap
 const fname=()=>(PORTS[state.from].n+'-'+PORTS[state.to].n).replace(/[^\w\-]+/g,'_');
 function exportCSV(){if(needPro())return;const w=state.wps;let s='WP,Name,Lat,Lon,LatDD,LonDD,CourseT,LegNM,TotalNM,ETA_UTC,XTD_m,Zone,Alteration,WheelOver_nm,Speed_kn,ETA_LT_ZT,DepthBand\n';
  w.forEach((x,i)=>s+=[x.lab,`"${(wpName(x)||'').replace(/"/g,"'")}"`,fmtLat(x.p[0]),fmtLon(x.p[1]),x.p[0].toFixed(5),norm(x.p[1]).toFixed(5),x.c!=null?x.c.toFixed(1):'',x.d.toFixed(1),x.cum.toFixed(1),new Date(x.eta).toISOString(),x.xtd!=null?x.xtd:'',zoneLabel(x,i,w),altTxt(x),x.wo!=null?x.wo.toFixed(2):'',x.spd||'',fmtLTz(x.eta,wpZone(i,x,state.res,w.length)).replace(' LT',''),i?DBAND[x.band]:''].join(',')+'\n');dl(fname()+'.csv',s,'text/csv')}
-function exportRTZ(){if(needPro())return;const w=state.wps,sp=+$('speed').value||12,ex=t=>String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
+function exportRTZ(fn){if(needPro())return;const w=state.wps,sp=+$('speed').value||12,ex=t=>String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/"/g,'&quot;');
  let s=`<?xml version="1.0" encoding="UTF-8"?>\n<route xmlns="http://www.cirm.org/RTZ/1/0" version="1.0">\n <routeInfo routeName="${ex(PORTS[state.from].n+' - '+PORTS[state.to].n)}"/>\n <waypoints>\n`;
  w.forEach((x,i)=>s+=`  <waypoint id="${i+1}" name="${ex(((x.lab||'')+' '+(wpName(x)||'')).trim().slice(0,60))}"><position lat="${x.p[0].toFixed(6)}" lon="${norm(x.p[1]).toFixed(6)}"/><leg geometryType="Loxodrome" planSpeedMax="${sp}"${x.xtd!=null?` portsideXTD="${(x.xtd/1852).toFixed(3)}" starboardXTD="${(x.xtd/1852).toFixed(3)}"`:''}/></waypoint>\n`);
- s+=' </waypoints>\n</route>\n';dl(fname()+'.rtz',s,'application/xml')}
+ s+=' </waypoints>\n</route>\n';dl((typeof fn==='string'?fn:fname())+'.rtz',s,'application/xml')}
 function copyMD(){const w=state.wps,res=state.res,r=state.alts[state.sel];let s=`**Passage Plan — ${PORTS[state.from].n} → ${PORTS[state.to].n}**\n- Route: ${label(r)}\n- Berth–berth: ${fmtNm(res.total)} nm${res.sea!=null?' · Pilot–pilot: '+fmtNm(res.sea)+' nm':''} · ${fmtDur(res.hours)} @ ${$('speed').value} kn\n\n| WP | Name | Lat | Lon | Co°T | Dist | Total | ETA | XTD m |\n|---|---|---|---|---|---|---|---|---|\n`;
  w.forEach((x,i)=>s+=`| ${x.lab} | ${x.n||''} | ${fmtLat(x.p[0])} | ${fmtLon(x.p[1])} | ${x.c!=null?x.c.toFixed(1):''} | ${i?fmtNm(x.d):''} | ${fmtNm(x.cum)} | ${fmtUTC(x.eta)} | ${x.xtd!=null?x.xtd:''} |\n`);
  if(state.nearW&&state.nearW.length){s+='\n**Warnings within '+getBuf()+' nm of route**\n';state.nearW.forEach(x=>s+=`- ${x.w.id} (${x.w.cat||''}) — ${x.d<0.1?'on route':x.d.toFixed(1)+' nm'} at ${fmtNm(x.cum)} nm\n`)}
@@ -4265,7 +4416,7 @@ let _coC=null;function coastOn(src){const k=[...NXON].join('|');if(!_coC||_coC.k
  if(b){const P=4;const inL=lo=>{let w=b[1]-P,e=b[3]+P;if(e<w)e+=360;for(const k of[-360,0,360]){const x=lo+k;if(x>=w&&x<=e)return true}return false};
   on=NAVTEX_ST.some(s=>NXON.has(nxKey(s))&&s.p[0]>=b[0]-P&&s.p[0]<=b[2]+P&&inL(s.p[1]))}
  _coC.m.set(src,on);return on}
-function allWarnings(){return loadedWarnings().filter(w=>wfOf(w)!=='off'&&!NWOFF.has(w.src)&&(w.user||srcType(w.src)!=='nx'||coastOn(w.src)))}
+function allWarnings(){return loadedWarnings().filter(w=>wfOf(w)!=='off'&&!NWOFF.has(w.src))}
 // ---- live feed (NGA MSI: NAVAREA IV, XII, HYDROPAC, HYDROLANT, HYDROARC)
 const NGA_URL='https://msi.nga.mil/api/publications/broadcast-warn?output=json&status=active';
 const RELAYS=[['NGA direct',u=>u],['corsproxy.io',u=>'https://corsproxy.io/?url='+encodeURIComponent(u)],['allorigins.win',u=>'https://api.allorigins.win/raw?url='+encodeURIComponent(u)],['codetabs.com',u=>'https://api.codetabs.com/v1/proxy/?quest='+encodeURIComponent(u)]];
@@ -4310,7 +4461,7 @@ function previewWarning(){const g=parseWarning($('nwText').value);const n=g.redu
 function delWarning(i){WARN.user.splice(i,1);saveWarn();drawWarnings();renderWarnList();if(state.wps)renderNear()}
 // ---- map drawing
 const layersW={warn:[],navtex:[],nab:[]};
-function drawNaBounds(){if(!M)return;layersW.nab.forEach(x=>M.hide(x));layersW.nab=[];if(!LAYON.na)return;
+function drawNaBounds(){if(!M)return;layersW.nab.forEach(x=>M.hide(x));layersW.nab=[];if(!load('nab',true))return;
  const hasR=!!(state.wps&&state.wps.length>1),all=!hasR||nwScope('na')==='all';
  const pop=t=>`<b>NAVAREA boundary</b><br>${t}<br><span style="font-size:11px">Limits as in IMO/IHO Resolution A.706 (approximate).</span>`;
  if(all){NAV_LINES.forEach(l=>{const x=M.line(l,{color:'#37474f',weight:2,dash:true,click:true});if(x.bindPopup)x.bindPopup(pop('All NAVAREAs shown'));layersW.nab.push(x)});NAV_AREAS.forEach(a=>layersW.nab.push(divLabel(a[2],`NAVAREA ${a[0]}`,'nal na2')));return}
@@ -4424,6 +4575,7 @@ function nxKey(s){return s.area+'|'+s.n}
 function drawNavtex(){if(!M)return;layersW.navtex.forEach(x=>M.hide(x));layersW.navtex=[];if(typeof NXON==='undefined'||!NXON.size)return;
  const by={};NAVTEX_ST.forEach(s=>{const k=nxKey(s);if(!NXON.has(k))return;(by[k]=by[k]||{n:s.n,p:s.p,ids:[],a:s.area}).ids.push(`${s.b1} · ${s.f} kHz`)});
  Object.values(by).forEach(s=>{const ring=[];for(let a=0;a<=360;a+=10)ring.push(destPt(s.p,a,300));layersW.navtex.push(M.poly([ring],{color:'#7b5cd6',fill:.02,dash:true,html:`<b>NAVTEX ${esc(s.n)}</b><br>Nominal range ≈ 300 nm (250–400 nm)`}));
+  if(M.tag)layersW.navtex.push(M.tag(s.p,esc([...new Set(s.ids.map(x=>x.split(' ')[0]))].join('/')+' '+s.n),'nxs',{anchor:[-7,6]}));
   layersW.navtex.push(M.marker(s.p,{color:'#7b5cd6',size:5,z:30,html:`<b>NAVTEX ${esc(s.n)}</b> · NAVAREA ${ROMAN[+s.a]||s.a}<br>${s.ids.map(esc).join('<br>')}<br><span style="font-size:11px">Nominal range ≈ 250–400 nm. Check ALRS Vol 5 / NP 285.</span>`}))})}
 function distPtSeg(p,a,b){const c=Math.cos(p[0]*rad);const ax=(a[1]-p[1])*c,ay=a[0]-p[0],bx=(b[1]-p[1])*c,by=b[0]-p[0];const dx=bx-ax,dy=by-ay,L=dx*dx+dy*dy;let t=L?-(ax*dx+ay*dy)/L:0;t=Math.max(0,Math.min(1,t));return Math.hypot(ax+t*dx,ay+t*dy)*60}
 function nearRoute(buf){const wps=state.wps;if(!wps)return[];const S=[];
@@ -4440,7 +4592,8 @@ function nearRoute(buf){const wps=state.wps;if(!wps)return[];const S=[];
     if(best==null||d<best.d)best={d,cum:s.cum}})});
   if(best&&best.d<=buf)res.push({w,d:best.d,cum:best.cum})});
  return res.sort((a,b)=>a.cum-b.cum)}
-function renderNear(){nwRouteCheck();const buf=getBuf();const n=state.wps?nearRoute(buf).filter(x=>x.d<=bufFor(x.w)):[];state.nearW=n;drawWarnings();renderWPanel();
+function renderNear(){setTimeout(()=>{if(MPK&&MPK==='warn'&&$('setSheet').classList.contains('open'))setRender()},0);return renderNear0.apply(this,arguments)}
+function renderNear0(){nwRouteCheck();const buf=getBuf();const n=state.wps?nearRoute(buf).filter(x=>x.d<=bufFor(x.w)):[];state.nearW=n;drawWarnings();renderWPanel();
  const el=$('nearW');if(!el)return;const speed=Math.max(1,+$('speed').value||12),etd=etdUTC();const tot=allWarnings().length;
  el.innerHTML=`<h2>Warnings near route</h2><div class="hbar" style="margin-top:10px"><span class="muted">${n.length} of ${tot} loaded warning(s) within <b>${buf} nm</b> (change the buffer in the ⚠ Warnings panel on the map).</span></div>
  <div class="exp"><button onclick="window.scrollTo(0,0);toggleWPanel(true)">Show on map</button><button onclick="printWarnings()">Print warnings</button></div>`+
@@ -5074,7 +5227,7 @@ function gpsFix(p){if(MON.on)return;const prev=MON.fix,q=[p.coords.latitude,p.co
  const first=!prev;MON.fix={p:q,t,sog:sog!=null?sog:(prev&&prev.sog),cog:cog!=null&&isFinite(cog)?cog:(prev&&prev.cog)};drawOwn();gpsUI();if(window.fSunUpd)fSunUpd();if(first&&!state.wps&&M&&M.map&&M.map.setView)M.map.setView(q,9)}
 function gpsStart(){if(!navigator.geolocation||GPS.watch!=null)return;try{GPS.watch=navigator.geolocation.watchPosition(gpsFix,e=>{GPS.err=e.message||'GPS not available'},{enableHighAccuracy:true,maximumAge:10000,timeout:30000})}catch(e){GPS.err='GPS not available'}}
 function gpsCentre(){if(MON.fix){if(M.map.setView)M.map.setView(MON.fix.p,Math.max(M.map.getZoom(),10));else{M.map.setCenter({lat:MON.fix.p[0],lng:MON.fix.p[1]})}return}gpsStart();toast(GPS.err?'GPS not available: '+GPS.err+' – allow location for this page':'Waiting for GPS position…')}
-(function(){const hc=$('hChart'),hs=$('hScheme');{const c=load('chart','offline');hc.value=c==='enc'?'enc':'offline'}hs.value=load('scheme','day');
+(function(){const hc=$('hChart'),hs=$('hScheme');hc.value='offline';{const v=load('scheme','day');hs.value=v==='day'?'day':'night'}
  hc.onchange=()=>setChart(hc.value);hs.onchange=()=>setScheme(hs.value);document.body.dataset.view=load('view','pp')})();
 setTimeout(gpsStart,1500);
 
@@ -5343,7 +5496,7 @@ const TOUR=[
  {s:'#fbar button[data-f="vt"]',t:'ETA',d:'ETD, speed and zone times. ETA for every route option – linked to Plan.'},
  {s:'#fbar button[data-f="pi"]',t:'Port info',d:'Departure and arrival port pages: pilot station, berths, tides, density, restrictions, VTS, local notices and reminders. Search any other port too.'},
  {s:'#fbar button[data-f="menu"]',t:'Menu',d:'Shows the chart side bar: own position, GPS, full screen, edit route and settings.'},
- {s:'#setBtn',t:'Settings',d:'Sea chart or Plain chart, day / dusk / night, and what is shown on the chart: NAVAREA / NAVTEX warnings, ECA, special areas, VTS, Inmarsat-C and more.'},
+ {s:'#fbar button[data-f=menu]',t:'Menu',d:'Opens a second bar: Warnings (NAVAREA / NAVTEX), Publications, Charts (ENC), Environment, Weather, Security, No-go / ATBA and DSC stations – each with on/off switches for the chart. Day / night is the sun and moon at the top.'},
  {s:'#menuBtn',t:'☰ Menu',d:'Voyage Draft Plan, the calculators (ETA, squat, UKC, sunrise, sailing, hydrostatics), saved plans, backup and settings.'},
  {t:'You are ready',d:'Tap Plan, choose your ports and tap Plan route. Everything saves automatically on this phone.'}];
 let TI=-1;
@@ -5398,6 +5551,43 @@ function piVoy(){const el=$('piVoy');if(!el)return;const one=(i,role,col)=>{cons
  el.innerHTML=one(state.from,'Departure','#17924A')+one(state.to,'Arrival','#D9412F')}
 document.addEventListener('input',e=>{if(e.target.id!=='piQ')return;const L=searchPorts(e.target.value).slice(0,8);$('piRes').innerHTML=L.map(p=>`<button onclick="piSet(${p.id})"><b>${esc(p.n)}</b><span>${esc(p.cn||p.c||'')}${p.lc?' · '+p.lc:''}</span></button>`).join('')});
 function piArea(la,lo){const out=[];try{const k=areaKeys(la,lo).split(',').filter(Boolean);k.forEach(x=>{if(/^S\d/.test(x)){const z=SSA[+x.slice(1)];if(z)out.push(['ssa',z.n])}else if(/^H\d/.test(x)){const z=HRA[+x.slice(1)];if(z)out.push(['hra',z.n])}else if(/^V\d/.test(x)){const z=VTS[+x.slice(1)];if(z)out.push(['vts',z.n])}else{const z=ZONES.find(q=>q.id===x);if(z&&z.kind==='eca')out.push(['eca',z.name])}})}catch(e){}return out}
+const IALAB=new Set('US CA MX GT BZ HN SV NI CR PA CO VE GY SR GF EC PE CL AR UY BR BS BB CU DO HT JM TT PR VI VG AG DM GD KN LC VC AW CW BQ SX MF BL GP MQ KY TC BM MS AI FK JP KR KP PH'.split(' '));
+function llZoneApprox(la,lo){const a=Math.abs(la);
+ if(la>=50&&(lo<-10&&lo>-80))return['Winter seasonal (North Atlantic) – approx.','North Atlantic winter seasonal zone II/I: Winter 16 Oct (1 Nov)–15 Apr, Summer otherwise'];
+ if(la>=50&&lo>120)return['Winter seasonal (North Pacific) – approx.','North Pacific seasonal zone: Winter 16 Oct–15 Apr, Summer otherwise'];
+ if(a>=60)return['Winter seasonal – approx.','High-latitude seasonal zone'];
+ if(la<=-40)return['Winter seasonal (Southern) – approx.','Southern winter seasonal zone: Winter 16 Apr–15 Oct'];
+ if(la>=10&&la<=27&&lo>=105&&lo<=125)return['Seasonal tropical (South China Sea) – approx.','Tropical 21 Jan–30 Apr · Summer 1 May–20 Jan (ICLL Annex II Reg. 49)'];
+ if(la>=10&&la<=27&&lo>=48&&lo<=100)return['Seasonal tropical (Arabian Sea / Bay of Bengal) – approx.','Seasonal tropical area – dates differ by area (ICLL Annex II)'];
+ if(a<=12)return['Tropical – approx.','Tropical zone'];
+ if(a<=23)return['Tropical / Summer border – approx.','Near the tropical zone limit – check the chart'];
+ return['Summer – approx.','Summer zone']}
+function dstDates(tz,y){if(!tz)return null;const off=t=>tzOff(tz,t);const a=off(Date.UTC(y,0,1)),b=off(Date.UTC(y,6,1));if(a==null||b==null||a===b)return null;
+ const find=(from,to)=>{let lo=from,hi=to;const o0=off(lo);while(hi-lo>36e5){const m=Math.floor((lo+hi)/2);if(off(m)===o0)lo=m;else hi=m}return hi};
+ const t1=find(Date.UTC(y,0,1),Date.UTC(y,6,1)),t2=find(Date.UTC(y,6,1),Date.UTC(y,11,31));const f=t=>new Date(t).toISOString().slice(0,10);return b>a?{s:f(t1),e:f(t2)}:{s:f(t2),e:f(t1)}}
+function piSD(P){const L=[];['sd','rs','ll','at'].forEach(k=>(PUBS[k]?PUBS[k].vols:[]).forEach(v=>{if(v[3].some(r=>inRing(P.b[0],P.b[1],r)))L.push([k,v[0],v[1]])}));return L}
+function piENC(P){if(!ENCDB){encAuto();return null}const la=P.b[0],lo=P.b[1],o=[];ENCDB.cells.forEach(c=>{const[nm,s0,w0,n0,e0]=c;if(la<s0||la>n0)return;const x=e0<w0?(lo>=w0||lo<=e0):(lo>=w0&&lo<=e0);if(x)o.push(nm)});return o.sort((a,b)=>b[2]-a[2])}
+function piPart(P){const tz=PTZ[P.id],z=portZD(P,Date.now()),y=new Date().getUTCFullYear(),D=dstDates(tz,y),w=pwGet(P),wv=k=>w&&w[k]!=null&&w[k]!==''?w[k]:null;
+ const LZ=llZoneApprox(P.b[0],P.b[1]),SD=piSD(P),E=piENC(P),NOTE=(load('pinotes',{})||{})[piKey(P)]||'';
+ const row=(k,v,s)=>`<div class="ppr"><small>${k}</small><b>${v}</b>${s?`<span>${s}</span>`:''}</div>`;
+ const zs=z>0?'UTC −'+Math.abs(z):z<0?'UTC +'+Math.abs(z):'UTC';
+ return`<div class="card"><h2>Port particulars</h2><div class="pprg">
+  ${row('UN/LOCODE',P.lc||'–')}
+  ${row('Zone time',`${fmtZs(z)} <small>(${zs.replace('UTC −','UTC−').replace('UTC +','UTC+')})</small>`,esc(tz||'')+(D?` · summer time ${D.s} → ${D.e}`:' · no summer time'))}
+  ${row('Position',fmtLat(P.b[0])+' '+fmtLon(P.b[1]))}
+  ${row('Load line zone',esc(LZ[0]),esc(LZ[1])+' · verify on the Load Line chart')}
+  ${row('IALA buoyage',IALAB.has(P.c)?'Region B':'Region A',IALAB.has(P.c)?'Red to starboard entering':'Red to port entering')}
+  ${row('Channel depth',wv('Channel Depth (m)')!=null?w['Channel Depth (m)']+' m':'–','NGA World Port Index')}
+  ${row('Anchorage depth',wv('Anchorage Depth (m)')!=null?w['Anchorage Depth (m)']+' m':'–')}
+  ${row('Cargo pier depth',wv('Cargo Pier Depth (m)')!=null?w['Cargo Pier Depth (m)']+' m':'–')}
+  ${row('Max vessel',[wv('Maximum Vessel Length (m)')?'LOA '+w['Maximum Vessel Length (m)']+' m':'',wv('Maximum Vessel Draft (m)')?'draft '+w['Maximum Vessel Draft (m)']+' m':'',wv('Maximum Vessel Beam (m)')?'beam '+w['Maximum Vessel Beam (m)']+' m':''].filter(Boolean).join(' · ')||'–')}
+ </div>
+ <div class="pisub" style="margin-top:8px">SAILING DIRECTIONS &amp; ADP</div>${SD.length?SD.map(x=>`<div class="ppl"><span class="tg ${x[0]==='sd'?'na':x[0]==='rs'?'nx':'co'}">${x[0]==='sd'?'SD':x[0]==='rs'?'ADRS':x[0]==='ll'?'ADLL':'ATT'}</span><b>${esc(x[1])}</b> ${esc(x[2])}</div>`).join(''):'<p class="muted">–</p>'}
+ <div class="pisub" style="margin-top:8px">ENC CELLS AT THE PORT</div>${E==null?'<p class="muted">Loading the ENC list…</p>':E.length?`<div class="cells">${E.map(n=>`<span class="cell">${n} · ${ESCALE[+n[2]]||''}</span>`).join('')}</div>`:'<p class="muted">No IC-ENC cell lists this port – use your ECDIS / AVCS catalogue.</p>'}
+ <div class="pisub" style="margin-top:8px">MY NOTES</div><textarea id="piNote" rows="3" placeholder="Add your own notes for this port (saved on this phone)" style="width:100%" onchange="piNoteSave(this.value)">${esc(NOTE)}</textarea>
+ </div>`}
+{const _pr=piRender;piRender=function(){const r=_pr.apply(this,arguments);try{const P=PIX!=null?PORTS[PIX]:null,o=$('piOut');if(P&&o&&o.firstElementChild)o.firstElementChild.insertAdjacentHTML('afterend',piPart(P))}catch(e){console.log('piPart',e)}return r}}
+function piNoteSave(v){const P=PORTS[PIX];if(!P)return;const N=load('pinotes',{})||{};if(v.trim())N[piKey(P)]=v;else delete N[piKey(P)];store('pinotes',N);toast('Note saved')}
 function piRender(){const o=$('piOut');if(!o)return;const P=PIX!=null?PORTS[PIX]:null;if(!P){o.innerHTML='<p class="muted" style="margin:10px">Choose a port above, or plan a route and tap Arrival port.</p>';return}
  portIdx();const W=PINFO[P.id]||0,z=portZD(P,Date.now()),dst=portDST(P,Date.now()),now=new Date(Date.now()-z*36e5).toISOString();
  const A=piArea(P.b[0],P.b[1]),eca=A.filter(a=>a[0]==='eca'),vts=A.filter(a=>a[0]==='vts'),hra=A.filter(a=>a[0]==='hra'||a[0]==='ssa');
@@ -5489,8 +5679,8 @@ const MFV=['pp','wpv','vt','pi','vd','eta','sun','nc','wx','ukc','sq','nw','hy']
 function mfPx(s){const H=innerHeight-(innerWidth>=900?0:64);return s==='full'?Math.max(260,H-56):s==='half'?Math.round(H*.56):0}
 function mfSet(px){document.body.style.setProperty('--shH',Math.round(px)+'px');const sh=$('sheet');if(sh)sh.classList.toggle('off',px<1)}
 function mfOpen(s,force){if(!document.body.classList.contains('mf'))return;if(innerWidth>=900&&s!=='off')s='full';const ord={off:0,half:1,full:2};if(!force&&ord[s]<ord[MFS])return;MFS=s;mfSet(mfPx(s));mfTabSync();setTimeout(()=>{try{M.map.invalidateSize()}catch(e){}},260)}
-function mfTabSync(){const v=document.body.dataset.view||'pp';if(MFS==='off'&&$('ttl'))$('ttl').textContent='PASSAGE PLAN';document.querySelectorAll('#fbar button').forEach(b=>{const f=b.dataset.f;b.classList.toggle('on',f==='menu'?document.body.classList.contains('mfrail'):(MFS!=='off'&&f===v))})}
-function mfTab(f){if(f==='menu'){document.body.classList.toggle('mfrail');mfTabSync();return}
+function mfTabSync(){const v=document.body.dataset.view||'pp';if(MFS==='off'&&$('ttl'))$('ttl').textContent='PASSAGE PLAN';document.querySelectorAll('#fbar button').forEach(b=>{const f=b.dataset.f;b.classList.toggle('on',f==='menu'?document.body.classList.contains('mbar'):(MFS!=='off'&&f===v))})}
+function mfTab(f){if(f==='menu'){mpToggle();return}
  if(['vt','pi'].includes(f)&&needPro())return;const v=document.body.dataset.view;
  if(v===f&&MFS!=='off'){mfOpen('off',true);return}showView(f);if(MFS==='off')mfOpen('half',true);else mfTabSync();if(f==='vt')mfRender();if(f==='pi')piView()}
 const MONS='JanFebMarAprMayJunJulAugSepOctNovDec';
@@ -5513,25 +5703,25 @@ function mfRender(){if(!document.body.classList.contains('mf'))return;const A=st
  const zD=depZD(),zA=arrZD(),L=w[w.length-1],etd=etdUTC();
  $('vtRes').innerHTML=`<div class="vtg"><div><small>Steaming</small><b>${fmtDur(r.hours)}</b></div><div class="hl"><small>ETA (LT)</small><b>${mfT(L.eta,zA)}</b></div><div><small>ETA (UTC)</small><b>${mfT(L.eta,0)}Z</b></div></div>`;
  $('vtAlt').innerHTML=mfAlts(true);
- const ev=(r.events||[]).map(e=>{const z=ZONES.find(x=>x.id===e.z),zz=-zdOf(e.p[1]);return[(e.type==='in'?'Enter ECA':'Exit ECA')+(z?' · '+esc(z.name):''),mfT(e.eta,zz)+' LT · '+mfT(e.eta,0)+'Z']});
- $('vtSum').innerHTML=mfKv([['ETA to arrival · '+esc(B.n),fmtDur(r.hours),1],...ev,['Pilot station at arrival · '+esc(B.n),r.pi2>=0?mfT(w[r.pi2].eta,zA)+' LT · '+mfT(w[r.pi2].eta,0)+'Z':'—'],['Arrival at berth · '+esc(B.n),mfT(L.eta,zA)+' LT · '+mfT(L.eta,0)+'Z',1]])}
+ const two=(t,z)=>`<span class="lt2"><b>${mfT(t,z)} LT</b><small>${mfT(t,0)} UTC</small></span>`;
+ $('vtSum').innerHTML=mfKv([['ETA pilot station · '+esc(B.n),r.pi2>=0?two(w[r.pi2].eta,zA):'—'],['ETA berth · '+esc(B.n),two(L.eta,zA),1]])}
 /* ---- settings panel ---- */
 const SETOPEN=new Set(load('setopen',[]));
 function nwSrcCount(src){return(state.nearW||[]).filter(x=>x.w.src===src).length}
 function setOpen(){$('setScrim').classList.add('open');$('setSheet').classList.add('open');setRender()}
-function setClose(){$('setScrim').classList.remove('open');$('setSheet').classList.remove('open')}
+function setClose(){$('setScrim').classList.remove('open');$('setSheet').classList.remove('open');if(MPK){MPK=null;document.querySelectorAll('#mbar button').forEach(b=>b.classList.remove('on'))}}
 function setTog(k){SETOPEN.has(k)?SETOPEN.delete(k):SETOPEN.add(k);store('setopen',[...SETOPEN]);setRender()}
 function mfChk(id){const e=$(id);return!!(e&&e.checked)}
 function mfSetChk(id,on){const e=$(id);if(!e)return;e.checked=on;e.dispatchEvent(new Event('change',{bubbles:true}))}
 function nwOff(src,on){on?NWOFF.delete(src):NWOFF.add(src);store('nwoff',[...NWOFF]);refreshWarn();setRender()}
-function mfVis(){try{toggleLayer('tss',LAYON.tss!==false);toggleLayer('atba',LAYON.tss!==false);toggleLayer('eca',mfChk('lyEca'));toggleLayer('deca',!!LAYON.deca)}catch(e){}}
+function mfVis(){try{toggleLayer('tss',LAYON.tss!==false);toggleLayer('atba',LAYON.atba!==false);toggleLayer('eca',mfChk('lyEca'));toggleLayer('deca',!!LAYON.deca)}catch(e){}}
 function mfRow(k,title,sub,box,detail){const op=SETOPEN.has(k);return`<div class="srow${op?' open':''}"><div class="sr1"><button class="sx" onclick="setTog('${k}')"><i>›</i><span><b>${title}</b><small>${sub}</small></span></button>${box||''}</div><div class="sd">${op?detail:''}</div></div>`}
 function mfCb(on,js){return`<input type="checkbox" ${on?'checked':''} onchange="${js}" aria-label="Show on chart">`}
 function ssaAnx(z){const t=z.t||'',o=[];if(/Annex I\b(?![IV])/.test(t)||/\(oil\)/i.test(t))o.push('oil');if(/Annex II\b/.test(t))o.push('nls');if(/Annex IV\b/.test(t))o.push('sew');if(/Annex V\b/.test(t))o.push('gar');return o.length?o:['oil']}
 let MANX=load('manx',{}),NXON=new Set(load('nxon',[]));
 function manxSet(k,on){(k==='all'?['oil','nls','sew','gar']:[k]).forEach(x=>MANX[x]=on);store('manx',MANX);const any=Object.values(MANX).some(Boolean)||Object.keys(SSAC).some(c=>c!=='marpol'&&SSAF[c]===true);LAYON.ssa=any;mfSetChk('lySsa',any);setLayer('ssa',any);setRender()}
 function ssaSet(cats,on){cats.forEach(c=>SSAF[c]=on);store('ssaf',SSAF);const any=Object.values(MANX).some(Boolean)||Object.keys(SSAC).some(c=>c!=='marpol'&&SSAF[c]===true);LAYON.ssa=any;mfSetChk('lySsa',any);setLayer('ssa',any);setRender()}
-function pubSet(k,on){(k==='all'?['sd','ll','rs','at']:[k]).forEach(x=>on?PUBON.add(x):PUBON.delete(x));store('pubon',[...PUBON]);drawPubs();setRender()}
+function pubSet(k,on){(k==='all'?['sd','ll','r1','r2','r6','at']:[k]).forEach(x=>on?PUBON.add(x):PUBON.delete(x));store('pubon',[...PUBON]);drawPubs();setRender()}
 function ecaSet(k,on){if(k==='eca'||k==='all')mfSetChk('lyEca',on);if(k==='deca'||k==='all'){LAYON.deca=on;store('layon',LAYON)}mfVis();setRender()}
 function nxSet(keys,on){keys.forEach(k=>on?NXON.add(k):NXON.delete(k));store('nxon',[...NXON]);drawNavtex();try{renderNear()}catch(e){}setRender()}
 function nwOffMany(keys,on){keys.forEach(k=>on?NWOFF.delete(k):NWOFF.add(k));store('nwoff',[...NWOFF]);refreshWarn();setRender()}
@@ -5547,7 +5737,9 @@ function nwScope(k){return load(k==='nx'?'nxsc':'nwsc','route')}
 function coastNA(name){const A=NWIDX&&NWIDX.areas.find(x=>x.a===name);if(!A||!A.box)return null;const c=[(A.box[0]+A.box[2])/2,(A.box[1]+(A.box[3]<A.box[1]?A.box[3]+360:A.box[3]))/2];let b=null,bd=1e9;NAVTEX_ST.forEach(s=>{const d=gcd(c,s.p);if(d<bd){bd=d;b=s}});return b?+b.area:null}
 function routeNAs(){try{return new Set(((state.wps?navSeqC():null)||{na:[]}).na.map(x=>x.a))}catch(e){return new Set()}}
 function nCount(src){const L=(WARN.ext&&WARN.ext[src]&&WARN.ext[src].list)||null;const near=nwSrcCount(src);return state.wps?`${near} near route`:L?`${L.length} loaded`:'not loaded'}
-function setRender(){const el=$('setBody');if(!el||!$('setSheet').classList.contains('open'))return;
+function setRender(){if(MPK){const b=$('setBody');if(b){const st=b.scrollTop,op=[...b.querySelectorAll('details')].map(d=>d.open);b.innerHTML=mpHtml(MPK);b.querySelectorAll('details').forEach((d,i)=>{if(op[i]!=null&&op[i]!==d.open)d.open=op[i]});b.scrollTop=st}return}
+ return setRender0()}
+function setRender0(){const el=$('setBody');if(!el||!$('setSheet').classList.contains('open'))return;
  const ch=$('chartSel').value,sc=load('scheme','day'),f=load('nwf','off'),fx=load('nxf','off');
  const seg=(opts,cur,js)=>`<div class="sseg">${opts.map(([v,l])=>`<button class="${v===cur?'on':''}" onclick="${js.replace(/%/g,v)}">${l}</button>`).join('')}</div>`;
  const FOPT=[['off','Off'],['10','10 nm'],['20','20 nm'],['50','50 nm'],['all','All']];
@@ -5615,14 +5807,145 @@ function setRender(){const el=$('setBody');if(!el||!$('setSheet').classList.cont
  ${mfRow('xtd','XTD corridor','Cross-track limits along the route',mfCb(mfChk('lyXtd'),"mfSetChk('lyXtd',this.checked)"),'Change the XTD per leg in the Waypoints tab.')}
  ${mfRow('off','Offline charts','Save charts for use without internet','','<div id="offHost"></div>')}`;
  const oh=$('offHost'),ob=$('offBox');if(oh&&ob)oh.appendChild(ob)}
+/* ================= Menu panel: second footer with chart layers, warnings, publications … ================= */
+let MPK=null;const MPS=[
+ ['warn','Warnings','<path d="M12 3.5 21 19H3z"/><path d="M12 9.5v4.5M12 16.6v.4"/>'],
+ ['pub','Publications','<path d="M4 5.5C6.5 4.5 9.5 4.5 12 6c2.5-1.5 5.5-1.5 8-.5V19c-2.5-1-5.5-1-8 .5-2.5-1.5-5.5-1.5-8-.5z"/><path d="M12 6v13.5"/>'],
+ ['chart','Charts','<path d="M3 6l6-2 6 2 6-2v14l-6 2-6-2-6 2z"/><path d="M9 4v14M15 6v14"/>'],
+ ['env','Environment','<path d="M5 19c0-8 6-13 15-14-1 9-6 15-14 15"/><path d="M5 19c3-4 6-6.5 10-8.5"/>'],
+ ['wx','Weather','<path d="M7 17.5h10a4 4 0 0 0 .5-8 5.5 5.5 0 0 0-10.6 1.4A3.4 3.4 0 0 0 7 17.5z"/>'],
+ ['sec','Security','<path d="M12 3l7.5 3v5.5c0 4.6-3.2 8.2-7.5 9.5-4.3-1.3-7.5-4.9-7.5-9.5V6z"/>'],
+ ['nogo','No-go / ATBA','<circle cx="12" cy="12" r="8.5"/><path d="M6 6l12 12"/>'],
+ ['dsc','DSC stations','<path d="M12 21V11"/><path d="M8.5 7.5a5 5 0 0 1 7 0M6 5a8.5 8.5 0 0 1 12 0"/><circle cx="12" cy="10" r="1.4"/>']];
+function mpSetup(){if($('mbar'))return;const nb=document.createElement('nav');nb.id='mbar';nb.innerHTML=MPS.map(([k,l,p])=>`<button data-k="${k}" onclick="mpOpen('${k}')"><svg viewBox="0 0 24 24" aria-hidden="true">${p}</svg><span>${l}</span></button>`).join('');document.body.appendChild(nb)}
+function mpToggle(on){const b=document.body;b.classList.toggle('mbar',on==null?!b.classList.contains('mbar'):on);mfTabSync()}
+function mpOpen(k){MPK=k;document.querySelectorAll('#mbar button').forEach(b=>b.classList.toggle('on',b.dataset.k===k));const t=MPS.find(x=>x[0]===k);const h=$('setSheet').querySelector('.sh b');if(h)h.textContent=t?t[1]:'Settings';setOpen()}
+const mpTg=(on,fn,l,d,col)=>`<label class="mtg"><span class="mtl">${col?`<i class="sw" style="background:${col}"></i>`:''}<b>${l}</b>${d?`<small>${d}</small>`:''}</span><input type="checkbox"${on?' checked':''} onchange="${fn}"><em></em></label>`;
+const mpSeg=(opts,cur,fn)=>`<div class="mseg">${opts.map(([v,l])=>`<button class="${String(v)===String(cur)?'on':''}" onclick="${fn.replace('%',v)}">${l}</button>`).join('')}</div>`;
+const mpSum=(n,t)=>`<div class="msum"><b>${n}</b><span>${t}</span></div>`;
+/* ---- warnings ---- */
+const NWR=[['10','10 nm'],['20','20 nm'],['30','30 nm'],['50','50 nm'],['100','100 nm'],['all','All']];
+function mpWarnSet(t,on,r){const k=t==='na'?'nw':'nx';if(r!=null)store(k+'R',r);const R=load(k+'R','50');const o=on==null?load(t==='na'?'nwf':'nxf','off')!=='off':on;
+ store(t==='na'?'nwf':'nxf',o?(R==='all'?'all':R):'off');store(t==='na'?'nwsc':'nxsc',R==='all'?'all':'route');if(t==='nx'&&load('nxst',false))mpNxSt(true,true);nwApply();setRender()}
+function mpNab(on){store('nab',on);drawNaBounds();setRender()}
+function mpNxSt(on,quiet){store('nxst',on);NXON.clear();if(on){const all=nwScope('nx')==='all'||!state.wps;if(all)NAVTEX_ST.forEach(s=>NXON.add(nxKey(s)));else{try{navSeqC().nx.forEach(t=>NAVTEX_ST.filter(s=>s.n===t.n).forEach(s=>NXON.add(nxKey(s))))}catch(e){}const nr=new Set((state.nearW||[]).map(x=>wStation(x.w)).filter(Boolean).map(nxKey));nr.forEach(k=>NXON.add(k))}}store('nxon',[...NXON]);drawNavtex();if(!quiet)setRender()}
+function wNA(w){const s=w.src||'';let m=s.match(/^NAVAREA ([IVX]+)/);if(m)return m[1];if(HYNA[s])return'NGA '+s;const n=(coastNAs(s)||[])[0];return n?ROMAN[n]:'?'}
+const _wst=new Map();function wStation(w){if(_wst.has(w.id+w.src))return _wst.get(w.id+w.src);let st=null;const g=w.geo&&w.geo[0];if(g){const p=g.pts[0],na=wNA(w);let bd=1e9;NAVTEX_ST.forEach(s=>{if(ROMAN[+s.area]!==na)return;const d=gcd(p,s.p);if(d<bd){bd=d;st=s}});if(bd>500)st=null}_wst.set(w.id+w.src,st);return st}
+let MPG={};function mpWarnList(t){const R=load(t==='na'?'nwR':'nxR','50'),on=load(t==='na'?'nwf':'nxf','off')!=='off';
+ let L;if(R==='all'||!state.wps)L=loadedWarnings().filter(w=>wType(w)===t).map(w=>({w,d:null}));else L=(state.nearW||[]).filter(x=>wType(x.w)===t&&x.d<=+R).map(x=>({w:x.w,d:x.d}));
+ const G={};L.forEach(x=>{const na=wNA(x.w);const g=G[na]=G[na]||{n:0,st:{}};g.n++;const st=t==='nx'?wStation(x.w):null;const sk=st?st.b1+' – '+st.n:(t==='nx'?'Station not identified':'');(g.st[sk]=g.st[sk]||[]).push(x)});
+ Object.values(G).forEach(g=>Object.values(g.st).forEach(a=>a.sort((p,q)=>String(p.w.issued||'').localeCompare(String(q.w.issued||'')))));MPG[t]=G;return{L,G,R,on}}
+function mpNaOrder(a,b){const n=s=>{const i=ROMAN.indexOf(s);return i>0?i:/^NGA/.test(s)?50:99};return n(a)-n(b)}
+function mpWarnBlk(t){const{L,G,R,on}=mpWarnList(t),nx=t==='nx';const tot=(NWIDX?NWIDX.areas:[]).filter(a=>srcType(a.a)===t).reduce((s,a)=>s+(a.n||0),0);
+ const head=nx?mpTg(on,"mpWarnSet('nx',this.checked)",'Show NAVTEX & coastal warnings','Grey areas, dashed outline · tap one for the text')+mpTg(load('nxst',false),'mpNxSt(this.checked)','Show NAVTEX stations','Station, letter and ≈300 nm range, small names')
+  :mpTg(on,"mpWarnSet('na',this.checked)",'Show NAVAREA warnings','Grey areas, solid outline · tap one for the text')+mpTg(load('nab',true),'mpNab(this.checked)','Show NAVAREA boundaries','Limits and small NAVAREA names');
+ const keys=Object.keys(G).sort(mpNaOrder);
+ const sum=R==='all'||!state.wps?mpSum(L.length||tot,(L.length?'':'about ')+(nx?'NAVTEX / coastal':'NAVAREA')+' warnings in force in total'+(L.length<tot&&L.length?' (loaded '+L.length+' of '+tot+')':'')):mpSum(L.length,(nx?'NAVTEX / coastal':'NAVAREA')+' warnings within '+R+' nm of the route');
+ const br=keys.map(k=>{const g=G[k];return`<details class="mpg" ontoggle="if(this.open)mpFill(this,'${t}','${k}')"><summary><span class="tg ${nx?'nx':'na'}">${/^NGA/.test(k)?'NGA':'NAVAREA'}</span><b>${esc(k.replace(/^NGA /,''))}</b><small>${g.n} warning${g.n>1?'s':''}${nx?' · '+Object.keys(g.st).length+' station'+(Object.keys(g.st).length>1?'s':''):''}</small></summary><div class="mpgl"></div></details>`}).join('');
+ return`${head}<div class="slab">${state.wps?'Along the route':'No route – showing all'}</div>${mpSeg(NWR,state.wps?R:'all',`mpWarnSet('${t}',true,'%')`)}${on?'':'<p class="mpn">Switch on to show them on the chart. The list below still works.</p>'}${sum}${br||'<p class="mpn">'+(NWIDX?'None.':'Loading warnings…')+'</p>'}`}
+function mpFill(el,t,k){const g=(MPG[t]||{})[k];if(!g)return;const box=el.querySelector('.mpgl');const item=x=>{const w=x.w,tx=String(w.text||'').replace(/^\[English – machine translation\]\n/,'');return`<details class="mpw"><summary><b>${esc(w.id)}</b><small>${esc(String(w.issued||'').slice(0,16))}${x.d!=null?' · '+(x.d<0.1?'on route':x.d.toFixed(1)+' nm'):''}${w.tr?' · translated':''}</small><span>${esc(tx.split('— Original text —')[0].replace(/\s+/g,' ').slice(0,120))}…</span></summary><div class="wtx">${esc(tx)}</div>${w.geo&&w.geo.length?`<button class="mpz" onclick="mpZoomW('${esc(w.src)}','${esc(w.id).replace(/'/g,'')}')">Show on chart</button>`:'<p class="mpn">No position in the text.</p>'}</details>`};
+ box.innerHTML=Object.entries(g.st).sort((a,b)=>a[0].localeCompare(b[0])).map(([s,a])=>(s?`<div class="mpst">${esc(s)} <small>${a.length}</small></div>`:'')+a.map(item).join('')).join('')}
+function mpZoomW(src,id){const w=loadedWarnings().find(x=>x.src===src&&String(x.id).replace(/'/g,'')===id);if(!w||!w.geo)return;const P=[];w.geo.forEach(g=>P.push(...g.pts));setClose();if(P.length===1)M.map.setView(P[0],9);else M.fit(P)}
+/* ---- publications ---- */
+function mpPubBlk(k,tag,cls,name,desc){const P=state.wps?pubsAlong():null,m=pubSc(k),list=m==='route'&&P?P[k]:PUBS[k].vols.map(v=>({v}));
+ return`<div class="mpb">${mpTg(PUBON.has(k),`pubSet('${k}',this.checked)`,`<span class="tg ${cls}">${tag}</span> ${name}`,desc)}${mpSeg([['route','Along route'],['all','All']],state.wps?m:'all',`setPubSc('${k}','%')`)}
+ ${mpSum(list.length,m==='route'&&P?'volumes along the route':'volumes in total')}<details class="mpg"><summary><b>Breakdown</b><small>${list.length}</small></summary><div class="mpgl">${list.map(x=>`<div class="mpv" onclick="setClose();zoomVol('${k}',${PUBS[k].vols.indexOf(x.v)})"><b>${esc(x.v[0])}</b><span>${esc(x.v[1])}</span>${x.a!=null?`<small>${fmtNm(x.a)}–${fmtNm(x.b)} nm</small>`:''}</div>`).join('')}</div></details></div>`}
+/* ---- charts ---- */
+function mpChartBlk(){const E=state.wps?encAlong():null,C=E&&E.cells?E.cells:null;
+ let body='';if(!state.wps)body='<p class="mpn">Plan a route to list the charts from departure to arrival.</p>';else if(!ENCDB){encAuto();body='<p class="mpn">Loading the ENC list…</p>'}
+ else{const w=state.wps,seen=new Set(),legs=[];for(let i=1;i<w.length;i++)legs.push({i,a:w[i-1].cum,b:w[i].cum,c:[]});
+  C.slice().sort((a,b)=>a.a-b.a||a.band-b.band).forEach(c=>{if(seen.has(c.nm))return;seen.add(c.nm);const L=legs.find(l=>c.a>=l.a-0.01&&c.a<=l.b+0.01)||legs[legs.length-1];L.c.push(c)});
+  body=mpSum(seen.size,'ENC cells from departure to arrival · each listed once')+legs.filter(l=>l.c.length).map(l=>`<div class="mpst">WP ${l.i} → WP ${l.i+1} <small>${esc(wpName(w[l.i-1])||'')} → ${esc(wpName(w[l.i])||'')}</small></div>`+l.c.map(c=>`<div class="mpv" onclick="setClose();zoomCell('${c.nm}')"><b>${c.nm}</b><span>Band ${c.band} ${EBAND[c.band]?EBAND[c.band][0]:''} · ${ESCALE[c.band]||''}</span><small>${esc((ENCDB.titles||{})[c.nm]||'')}</small></div>`).join('')).join('')
+   +`<p class="mpn">${ENCDB.auto?'IC-ENC weekly catalogue ('+esc(ENCDB.date)+'). Cells only on PRIMAR or national services are not listed; scales are the usual band scales.':'From '+esc(ENCDB.src)}</p><div class="stools"><label class="add" for="encFile" style="margin:0">⬆ Use my own CATALOG.031</label></div>`}
+ return mpTg(!!load('encshow',false),'mpEncShow(this.checked)','Show ENC cells on the chart','Cell limits along the route, small cell names')+body}
+let layersENC=[];function mpEncShow(on){store('encshow',on);drawEncCells();setRender()}
+function drawEncCells(){if(!M)return;layersENC.forEach(x=>M.hide(x));layersENC=[];if(!load('encshow',false)||!state.wps)return;const E=encAlong();if(!E||!E.cells)return;const C=ENCDB.cells,by=new Map(C.map(c=>[c[0],c]));
+ E.cells.forEach(c=>{const b=by.get(c.nm);if(!b)return;const[,s0,w0,n0,e0]=b;let e1=e0<w0?e0+360:e0;const col=(EBAND[c.band]||[])[2]||'#888';layersENC.push(M.poly([[[s0,w0],[s0,e1],[n0,e1],[n0,w0]]],{color:col,fill:.02,dash:true,html:`<b>${c.nm}</b><br>Band ${c.band} ${EBAND[c.band]?EBAND[c.band][0]:''} · ${ESCALE[c.band]||''}<br>${esc((ENCDB.titles||{})[c.nm]||'')}`}));if(M.tag)layersENC.push(M.tag([n0,w0],c.nm,'enc',{anchor:[-2,-2]}))});tagSoon()}
+/* ---- environment ---- */
+const ENVC=[['eca','ECA / SECA','Emission Control Areas, IMO and national (incl. China DECA). 0.10 % sulphur fuel inside.','#2e9d5b'],
+ ['speed','Whale speed zones','10 kn in season – US right-whale SMAs, Gulf of St. Lawrence, Gulf of Panama.','#ef6c00'],
+ ['hfo','HFO bans','No heavy fuel oil used or carried as fuel – Arctic (MARPOL Annex I Reg. 43A, from 1 Jul 2024) and Antarctic.','#6d4c41'],
+ ['scrub','Scrubber rules','Open-loop scrubber wash-water discharge banned – for ships with a scrubber (Singapore, New Zealand – approx.).','#00838f'],
+ ['marpol','MARPOL Special Areas','Annexes I · II · IV · V – discharge limits.','#1565c0'],
+ ['pssa','PSSA','Particularly Sensitive Sea Areas – associated protective measures apply.','#2e7d32']];
+function envOn(k){if(k==='eca')return mfChk('lyEca')||!!LAYON.deca;if(k==='marpol')return Object.values(MANX).some(Boolean);return LAYON.ssa&&SSAF[k]===true}
+function envSet(k,on){if(k==='eca'){ecaSet('all',on);return}if(k==='marpol'){manxSet('all',on);return}ssaSet([k],on)}
+function envList(k){if(k==='eca')return ZONES.map(z=>[z.name,z.note||'']);return SSA.filter(z=>z.c===k).map(z=>[z.n,z.t||''])}
+function mpEnvBlk(){return ENVC.map(([k,l,d,c])=>{const L=envList(k);return`<div class="mpb">${mpTg(envOn(k),`envSet('${k}',this.checked)`,l,d,c)}
+ ${k==='marpol'?`<div class="manx">${[['oil','Annex I – oil'],['nls','Annex II – noxious liquids'],['sew','Annex IV – sewage'],['gar','Annex V – garbage']].map(([a,b])=>mpTg(!!MANX[a],`manxSet('${a}',this.checked)`,b,'')).join('')}</div>`:''}
+ <details class="mpg"><summary><b>${L.length} area${L.length!==1?'s':''}</b><small>tap for the list</small></summary><div class="mpgl">${L.map(x=>`<div class="mpv"><b>${esc(x[0])}</b><small>${esc(String(x[1]).slice(0,220))}</small></div>`).join('')}</div></details></div>`}).join('')}
+/* ---- security ---- */
+const SECC=[['hra','HRA (High Risk Area)','Somali Basin / Gulf of Aden (former HRA) – BMP Maritime Security.','#b71c1c'],
+ ['pir','Piracy hotspot','Gulf of Guinea · Singapore & Malacca Straits · Sulu & Celebes Seas.','#e65100'],
+ ['jwc','War Risk Area (JWC)','Joint War Committee listed areas – check the latest JWLA circular.','#c0603a'],
+ ['itf','Warlike (ITF/IBF)','IBF/ITF Warlike and Extended Risk Zones – crew rights apply.','#8e24aa'],
+ ['vra','VRA (Voluntary Reporting)','MDAT-GoG and UKMTO voluntary reporting areas.','#a0607a'],
+ ['irtc','Transit corridor','IRTC – Internationally Recommended Transit Corridor (Gulf of Aden).','#1e88e5']];
+let SECF=load('secf',{});
+function secSet(k,on){SECF[k]=on;store('secf',SECF);const any=SECC.some(c=>SECF[c[0]]);LAYON.hra=any;store('layon',LAYON);drawLayers();setRender()}
+function mpSecBlk(){return SECC.map(([k,l,d,c])=>{const L=HRA.filter(z=>(z.c==='rec'?'pir':z.c)===k);return`<div class="mpb">${mpTg(!!SECF[k],`secSet('${k}',this.checked)`,l,d,c)}<details class="mpg"><summary><b>${L.length} area${L.length!==1?'s':''}</b><small>${esc(L.map(z=>z.n).slice(0,3).join(' · '))}${L.length>3?' · '+(L.length-3)+' more':''}</small></summary><div class="mpgl">${L.map(z=>`<div class="mpv"><b>${esc(z.n)}</b>${z.t?`<small>${esc(z.t)}</small>`:''}</div>`).join('')}</div></details></div>`}).join('')+'<p class="mpn">Limits are approximate. Always check the latest JWC listed areas, IBF/ITF agreement, UKMTO / MDAT-GoG / ReCAAP advisories and BMP Maritime Security.</p>'}
+/* ---- no-go / ATBA ---- */
+function atbaAlong(){if(!state.wps)return[];const out=new Map(),w=state.wps;for(let i=1;i<w.length;i++){legSamples(w[i-1].p,w[i].p,3).forEach(q=>{const z=atbaWAt(q[0],q[1]);if(z)out.set(z.n,z)})}return[...out.values()]}
+function mpNogoBlk(){const A=atbaAlong(),U=(typeof DNG!=='undefined'?DNG:[]);return mpTg(LAYON.atba!==false,'mpAtba(this.checked)','Show no-go areas & ATBAs','Red areas – routes are planned around them','#d32f2f')
+ +mpSum(ATBAW.length+ATBA.length+U.length,'areas in total')+(state.wps?mpSum(A.length,'touch the planned route'):'')
+ +`<details class="mpg"${A.length?' open':''}><summary><b>On this route</b><small>${A.length}</small></summary><div class="mpgl">${A.map(z=>`<div class="mpv"><b>${esc(z.n)}</b><small>${esc(z.w||'')} ${esc(z.s||'')}</small></div>`).join('')||'<p class="mpn">None.</p>'}</div></details>
+ <details class="mpg"><summary><b>All areas to be avoided</b><small>${ATBAW.length+ATBA.length}</small></summary><div class="mpgl">${ATBAW.map(z=>`<div class="mpv"><b>${esc(z.n)}</b><small>${esc(z.w||'')} · ${esc(z.s||'')}</small></div>`).join('')}${ATBA.map(z=>`<div class="mpv"><b>Aleutian Islands (${esc(z.n)})</b><small>SN.1/Circ.331</small></div>`).join('')}</div></details>
+ ${U.length?`<details class="mpg"><summary><b>My no-go areas</b><small>${U.length}</small></summary><div class="mpgl">${U.map(z=>`<div class="mpv"><b>${esc(z.n||'No-go area')}</b></div>`).join('')}</div></details>`:''}`}
+function mpAtba(on){LAYON.atba=on;store('layon',LAYON);toggleLayer('atba',on);setRender()}
+/* ---- DSC test stations (MF/HF) – positions are the station locations, approximate ---- */
+const DSC_ST=[['Boston (USCG)','003669991','8 MHz','East coast USA',42.36,-71.05],['New Orleans (USCG)','003669998','','Gulf of Mexico / Caribbean',29.95,-90.07],['Point Reyes (CAMSPAC)','003669990','4 MHz','West coast USA',38.1,-122.9],['Honolulu (USCG)','003669993','','Central Pacific',21.31,-157.86],['Miami (USCG)','003669997','','SE USA',25.77,-80.19],['Kodiak (USCG)','003669899','','Alaska',57.79,-152.4],
+ ['Cape Town Radio','006010001','','Cape of Good Hope approaches',-33.92,18.42],['Lyngby Radio','002191000','2 MHz','North / Baltic Seas',55.77,12.5],['Madrid Radio','002241078','8 MHz','Mediterranean / Atlantic',40.42,-3.7],['Istanbul Radio','002711000','12 / 16 MHz','Black Sea / Mediterranean',41.01,28.98],['Olympia Radio','002371000','Any','Mediterranean',37.98,23.73],
+ ['Shanghai Radio','004122100','Any','East China Sea',31.23,121.47],['Hong Kong Radio','004773500','8 MHz','South China Sea',22.3,114.17],['Ho Chi Minh Radio','005743030','12 / 16 MHz','Vietnam',10.78,106.7],['Bangkok Radio','005671000','8 MHz','Gulf of Thailand',13.75,100.5],['Dalian Radio','004121300','2 / 4 MHz','Bohai / Yellow Sea',38.91,121.6],['Hai Phong Radio','005741040','','Gulf of Tonkin',20.86,106.68],['Seoul Radio','004400002','','Korea',37.57,126.98],
+ ['Wiluna (Australia)','005030001','Auto-ack','Australia / Indian Ocean',-26.59,120.22],['Busan Radio','004401004','12 MHz','Korea Strait / Sea of Japan',35.1,129.04],['Incheon Radio','004401001','8 MHz','Yellow Sea',37.46,126.7],['Ambon Radio','005250006','8 MHz','Banda Sea',-3.7,128.18],['Balikpapan Radio','005250009','8 MHz','Makassar Strait / Java Sea',-1.27,116.83],
+ ['Mumbai Radio','004192203','12 MHz','Arabian Sea',18.96,72.82],['Chennai Radio','004194401','12 MHz','Bay of Bengal',13.08,80.29],['Tokyo Coast Guard Radio','004310001','12 MHz','NW Pacific / Japan',35.68,139.77],['Jeddah Radio','004030000','12 MHz','Red Sea',21.49,39.19],['Bandar Abbas Radio','004225300','8 MHz','Persian Gulf',27.18,56.27],['Alexandria Radio','006221111','8 MHz','E. Mediterranean / Suez',31.2,29.92],['Mauritius Radio','006452700','12 MHz','SW Indian Ocean',-20.16,57.5],
+ ['Rio de Janeiro Radio','007100001','12 MHz','SW Atlantic',-22.9,-43.2],['Buenos Aires Radio','007010111','8 MHz','Río de la Plata',-34.6,-58.38],['Montevideo Radio','007703870','8 MHz','River Plate',-34.9,-56.2]];
+let layersDSC=[];function dscNear(){const w=state.wps;if(!w)return DSC_ST.map(s=>[s,null]);return DSC_ST.map(s=>{let d=1e9;w.forEach(x=>{d=Math.min(d,gcd(x.p,[s[4],s[5]]))});return[s,d]}).sort((a,b)=>a[1]-b[1])}
+function drawDsc(){if(!M)return;layersDSC.forEach(x=>M.hide(x));layersDSC=[];if(!load('dscon',false))return;const R=load('dscR','1500'),L=dscNear().filter(x=>R==='all'||x[1]==null||x[1]<=+R);
+ L.forEach(([s])=>{layersDSC.push(M.marker([s[4],s[5]],{color:'#00897b',size:4.5,html:`<b>${esc(s[0])}</b><br>MMSI ${s[1]}${s[2]?' · '+esc(s[2]):''}<br>${esc(s[3])}<br><span style="font-size:11px">MF/HF DSC test: 2187.5 kHz / 8414.5 kHz etc. Position approximate (station location).</span>`}));if(M.tag)layersDSC.push(M.tag([s[4],s[5]],esc(s[0].replace(/ Radio| \(USCG\)/,'')),'dsc',{anchor:[-6,6]}))});tagSoon()}
+function mpDsc(on,r){if(on!=null)store('dscon',on);if(r!=null)store('dscR',r);drawDsc();setRender()}
+function mpDscBlk(){const R=load('dscR','1500'),L=dscNear(),S=L.filter(x=>R==='all'||x[1]==null||x[1]<=+R);return mpTg(load('dscon',false),'mpDsc(this.checked)','Show DSC test stations','MF/HF coast stations for DSC test calls, small names','#00897b')
+ +(state.wps?mpSeg([['500','500 nm'],['1000','1000 nm'],['1500','1500 nm'],['3000','3000 nm'],['all','All']],R,"mpDsc(null,'%')"):'')+mpSum(S.length,state.wps&&R!=='all'?'stations within '+R+' nm of the route':'stations in the list')
+ +`<details class="mpg" open><summary><b>Stations</b><small>${S.length}</small></summary><div class="mpgl">${S.map(([s,d])=>`<div class="mpv" onclick="setClose();M.map.setView([${s[4]},${s[5]}],6)"><b>${esc(s[0])}</b><span>MMSI ${s[1]}${s[2]?' · '+esc(s[2]):''}</span><small>${esc(s[3])}${d!=null?' · '+Math.round(d)+' nm from route':''}</small></div>`).join('')}</div></details>
+ <p class="mpn">Test calls: MF 2187.5 kHz, HF 8414.5 kHz (also 4207.5 · 6312 · 12577 · 16804.5 kHz). Source: SeaLagom DSC test station list – check ALRS Vol 1 / ITU List IV before use.</p>`}
+/* ---- weather (grid forecast, time slider, vessel along the route) ---- */
+let WXG=null,WXT=0,layersWXG=[],wxBusy2=false,WXPLAY=null;
+function wxLay(k){return load('wxl',{wind:true,waves:true,rain:false})[k]}
+function wxLaySet(k,on){const o=load('wxl',{wind:true,waves:true,rain:false});o[k]=on;store('wxl',o);drawWxGrid();setRender()}
+function wxOn(on){store('wxon',on);if(on)wxGridFetch();else drawWxGrid();setRender()}
+async function wxGridFetch(){if(wxBusy2||!M||!M.map.getBounds)return;wxBusy2=true;try{const b=M.map.getBounds(),s=Math.max(-80,b.getSouth()),n=Math.min(80,b.getNorth()),w=b.getWest(),e=b.getEast();const ny=9,nx=Math.max(6,Math.min(12,Math.round(9*(e-w)/Math.max(1,n-s)))),P=[];
+ for(let j=0;j<ny;j++)for(let i=0;i<nx;i++)P.push([s+(n-s)*(j+.5)/ny,norm(w+(e-w)*(i+.5)/nx)]);const la=P.map(p=>p[0].toFixed(2)).join(','),lo=P.map(p=>p[1].toFixed(2)).join(',');
+ const[a,m]=await Promise.all([fetch(`https://api.open-meteo.com/v1/forecast?latitude=${la}&longitude=${lo}&hourly=wind_speed_10m,wind_direction_10m,precipitation&wind_speed_unit=kn&timezone=GMT&forecast_days=7`).then(r=>r.json()),fetch(`https://marine-api.open-meteo.com/v1/marine?latitude=${la}&longitude=${lo}&hourly=wave_height,wave_direction&timezone=GMT&forecast_days=7`).then(r=>r.json()).catch(()=>null)]);
+ const A=Array.isArray(a)?a:[a],Mr=m?(Array.isArray(m)?m:[m]):[];WXG={P,t0:Date.parse(A[0].hourly.time[0]+'Z'),n:A[0].hourly.time.length,ws:A.map(x=>x.hourly.wind_speed_10m),wd:A.map(x=>x.hourly.wind_direction_10m),pr:A.map(x=>x.hourly.precipitation),wh:Mr.map(x=>x&&x.hourly?x.hourly.wave_height:[]),dx:(e-w)/nx,dy:(n-s)/ny,box:[s,w,n,e]};
+ if(!WXT)WXT=Math.max(0,Math.floor((Date.now()-WXG.t0)/36e5));drawWxGrid();setRender()}catch(e){toast('Weather not available – check the connection')}wxBusy2=false}
+const wsCol=v=>v<10?'#4fc3f7':v<17?'#66bb6a':v<22?'#fdd835':v<28?'#fb8c00':v<34?'#e53935':'#8e24aa',whCol=h=>h<1?'rgba(66,165,245,.10)':h<2?'rgba(102,187,106,.18)':h<3?'rgba(253,216,53,.22)':h<4.5?'rgba(251,140,0,.26)':h<6?'rgba(229,57,53,.30)':'rgba(142,36,170,.34)';
+function wxShipAt(t){const w=state.wps;if(!w)return null;if(t<=w[0].eta)return w[0].p;for(let i=1;i<w.length;i++)if(w[i].eta>=t){const a=w[i-1],b=w[i],f=(t-a.eta)/Math.max(1,b.eta-a.eta);return[a.p[0]+(b.p[0]-a.p[0])*f,a.p[1]+(b.p[1]-a.p[1])*f]}return w[w.length-1].p}
+function drawWxGrid(){if(!M)return;layersWXG.forEach(x=>M.hide(x));layersWXG=[];if(!load('wxon',false)||!WXG)return;const h=Math.min(WXG.n-1,Math.max(0,WXT)),G=WXG;
+ G.P.forEach((p,k)=>{const sw=[p[0]-G.dy/2,p[1]-G.dx/2],ne=[p[0]+G.dy/2,p[1]+G.dx/2];
+  if(wxLay('waves')&&G.wh[k]&&G.wh[k][h]!=null)layersWXG.push(M.poly([[[sw[0],sw[1]],[sw[0],ne[1]],[ne[0],ne[1]],[ne[0],sw[1]]]],{color:'transparent',fc:whCol(G.wh[k][h]),fill:1,w:0,html:`Waves ${G.wh[k][h].toFixed(1)} m`}));
+  if(wxLay('rain')&&G.pr[k][h]>0.2)layersWXG.push(M.symbol(p,`<svg viewBox="0 0 24 24" width="18" height="18"><path d="M8 4l-2 5M13 4l-2 5M18 4l-2 5M8 12l-2 5M13 12l-2 5M18 12l-2 5" stroke="#1e88e5" stroke-width="2" stroke-linecap="round" opacity="${Math.min(1,.35+G.pr[k][h]/4)}"/></svg>`,18,{html:`Rain ${G.pr[k][h].toFixed(1)} mm/h`}));
+  if(wxLay('wind')){const v=G.ws[k][h],d=G.wd[k][h];if(v!=null)layersWXG.push(M.symbol(p,`<svg viewBox="-12 -12 24 24" width="26" height="26" style="transform:rotate(${(d+180)%360}deg)"><path d="M0 9V-9M0-9l-4 5M0-9l4 5" stroke="${wsCol(v)}" stroke-width="2.6" fill="none" stroke-linecap="round"/></svg>`,26,{html:`Wind ${Math.round(v)} kn from ${Math.round(d)}°`}))}});
+ const t=G.t0+h*36e5,sp=wxShipAt(t);if(sp)layersWXG.push(M.symbol(sp,`<svg viewBox="-12 -12 24 24" width="26" height="26"><circle r="9" fill="#F0BC70" stroke="#1b2533" stroke-width="2"/><path d="M0-5l4 8-4-2-4 2z" fill="#1b2533"/></svg>`,26,{z:90,html:`Ship at ${fmtUTC(t)}`}))}
+function wxStep(v){if(!WXG)return;WXT=Math.max(0,Math.min(WXG.n-1,+v));drawWxGrid();const l=$('wxTl');if(l)l.textContent=fmtUTC(WXG.t0+WXT*36e5)+(state.wps?' · '+wxStatus(WXG.t0+WXT*36e5):'')}
+function wxStatus(t){const w=state.wps;if(!w)return'';if(t<w[0].eta)return'before departure';if(t>w[w.length-1].eta)return'arrived';const L=w.find(x=>x.eta>=t);return'heading to '+(wpName(L)||'WP '+(w.indexOf(L)+1))}
+function wxPlay(){if(WXPLAY){clearInterval(WXPLAY);WXPLAY=null;setRender();return}if(!WXG)return;if(state.wps)WXT=Math.max(0,Math.floor((state.wps[0].eta-WXG.t0)/36e5));WXPLAY=setInterval(()=>{if(!WXG||WXT>=WXG.n-1){clearInterval(WXPLAY);WXPLAY=null;return}wxStep(WXT+1);const s=$('wxSl');if(s)s.value=WXT},350);setRender()}
+function mpWxBlk(){const on=load('wxon',false);return mpTg(on,'wxOn(this.checked)','Show weather on the chart','Forecast grid for the chart area (Open-Meteo, 7 days)')
+ +[['wind','Wind','Arrows – colour by speed (kn)'],['waves','Waves','Shaded by significant wave height (m)'],['rain','Rain','Blue streaks where it rains']].map(([k,l,d])=>mpTg(wxLay(k),`wxLaySet('${k}',this.checked)`,l,d)).join('')
+ +(on?(WXG?`<div class="wxbar"><button onclick="wxPlay()">${WXPLAY?'❚❚ Pause':'▶ Simulate voyage'}</button><button onclick="wxGridFetch()">⟳ Reload for this view</button></div><input id="wxSl" type="range" min="0" max="${WXG.n-1}" value="${WXT}" oninput="wxStep(this.value)" style="width:100%"><div id="wxTl" class="mpn" style="text-align:center">${fmtUTC(WXG.t0+WXT*36e5)}${state.wps?' · '+wxStatus(WXG.t0+WXT*36e5):''}</div>
+  <div class="wxleg"><span style="background:#4fc3f7">&lt;10</span><span style="background:#66bb6a">10–16</span><span style="background:#fdd835">17–21</span><span style="background:#fb8c00">22–27</span><span style="background:#e53935">28–33</span><span style="background:#8e24aa">34+ kn</span></div><p class="mpn">The ship symbol moves along the route by its ETA, so you can see the weather it will meet. Pan the chart and tap Reload for another area.</p>`:'<p class="mpn">Loading the forecast…</p>'):'')}
+/* ---- panel body ---- */
+function mpHtml(k){const P=k==='pub';switch(k){
+ case'warn':return`<div class="mpb"><h3>NAVAREA warnings</h3>${mpWarnBlk('na')}</div><div class="mpb"><h3>NAVTEX warnings</h3>${mpWarnBlk('nx')}</div>`;
+ case'pub':return mpPubBlk('sd','SD','na','Sailing Directions','Admiralty Sailing Directions NP1–NP72')+'<h3 class="mph">ADP – Admiralty Digital Publications</h3>'+mpPubBlk('r1','ADRS 1,3,4,5','nx','Radio Signals','Coast radio, GMDSS, MSI, weather')+mpPubBlk('r2','ADRS 2','nx','Radio Signals','Radio aids, DGPS, time signals, AIS')+mpPubBlk('r6','ADRS 6','nx','Radio Signals','Pilot services, VTS and port operations')+mpPubBlk('ll','ADLL','co','List of Lights','Lights and fog signals')+mpPubBlk('at','ATT','co','Tide Tables','NP201–NP204 (approximate)');
+ case'chart':return mpChartBlk();case'env':return mpEnvBlk();case'wx':return mpWxBlk();case'sec':return mpSecBlk();case'nogo':return mpNogoBlk();case'dsc':return mpDscBlk()}return''}
+
 function mfSetup(){if(document.body.classList.contains('mf'))return;const B=document.body,mapCard=document.querySelector('.card.map');if(!mapCard)return;
  B.classList.add('mf');B.appendChild(mapCard);
  ['wScrim','pScrim','wSheet','pSheet'].forEach(id=>{const e=$(id);if(e)B.appendChild(e)});
  const bar=document.querySelector('.bar'),hs=$('hSel');if(bar&&hs)bar.appendChild(hs);
  const wrap=mapCard.querySelector('.mapwrap'),rail=document.createElement('div');rail.id='mfRail';const mt=wrap.querySelector('.mtools'),mb=wrap.querySelector('.mtabs');if(mt)rail.appendChild(mt);if(mb)rail.appendChild(mb);wrap.appendChild(rail);
  const sb=document.createElement('button');sb.id='setBtn';sb.title='Settings';sb.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10.3 3.2h3.4l.5 2.4a6.8 6.8 0 0 1 1.8 1l2.3-.8 1.7 2.9-1.8 1.6a6.8 6.8 0 0 1 0 2.1l1.8 1.6-1.7 2.9-2.3-.8a6.8 6.8 0 0 1-1.8 1l-.5 2.4h-3.4l-.5-2.4a6.8 6.8 0 0 1-1.8-1l-2.3.8-1.7-2.9 1.8-1.6a6.8 6.8 0 0 1 0-2.1L3.9 9.7l1.7-2.9 2.3.8a6.8 6.8 0 0 1 1.8-1z"/><circle cx="12" cy="12" r="2.8"/></svg>';sb.onclick=setOpen;
- if(mt){const hb=mt.querySelector('button[onclick="mapHome()"]');if(hb){hb.id='homeBtn';hb.dataset.l='Home';hb.title='Centre on the planned route';mt.appendChild(hb)}[['gpsBtn','Own pos.'],['monBtn','GPS'],['maxBtn','Full scr.'],['editBtn','Edit']].forEach(([id,l])=>{const e=$(id);if(e){e.dataset.l=l;mt.appendChild(e)}});sb.dataset.l='Settings';mt.appendChild(sb);const fo=$('folBtn');if(fo){fo.dataset.l='Follow';mt.appendChild(fo)}}
- const sh=document.createElement('div');sh.id='sheet';sh.className='off';sh.innerHTML='<div class="shGrab" title="Drag up or down"><span></span></div>';
+ if(mt){const hb=mt.querySelector('button[onclick="mapHome()"]');if(hb){hb.id='homeBtn';hb.dataset.l='Home';hb.title='Centre on the planned route';mt.appendChild(hb)}[['gpsBtn','Own pos.'],['monBtn','GPS'],['maxBtn','Full scr.'],['editBtn','Edit']].forEach(([id,l])=>{const e=$(id);if(e){e.dataset.l=l;mt.appendChild(e)}});const fo=$('folBtn');if(fo){fo.dataset.l='Follow';mt.appendChild(fo)}}
+ B.classList.add('mfrail');mpSetup();const sh=document.createElement('div');sh.id='sheet';sh.className='off';sh.innerHTML='<div class="shGrab" title="Drag up or down"><span></span></div>';
  const body=document.createElement('div');body.id='shBody';sh.appendChild(body);
  MFV.forEach(id=>{const v=$(id);if(v)body.appendChild(v)});B.appendChild(sh);B.appendChild($('fbar'));
  const ss=document.createElement('div');ss.id='setScrim';ss.onclick=setClose;B.appendChild(ss);
@@ -5632,7 +5955,7 @@ function mfSetup(){if(document.body.classList.contains('mf'))return;const B=docu
  const hd=document.createElement('div');hd.className='mfhead';hd.id='ppHead';pp.insertBefore(hd,vc);
  const sum=document.createElement('div');sum.className='card mfkeep';sum.innerHTML='<h2>Voyage summary</h2><div id="ppSum"></div>';$('roptCard').after(sum);
  const vin=$('vtIn');[$('etd').closest('.grid'),$('speed').closest('.grid'),$('ztInfo'),$('ztSrc')].forEach(e=>{if(e)vin.appendChild(e)});
- const rb=document.querySelector('label.rtzbtn');if(rb){const row=rb.parentElement;row.classList.add('mfrow');row.appendChild($('planbtn'));rb.textContent='⬆ Import RTZ'}
+ const rb=document.querySelector('label.rtzbtn');if(rb){const row=rb.parentElement;row.classList.add('mfrow');row.appendChild($('planbtn'));rb.textContent='⬆ Import route file';rb.title='RTZ, CSV, TXT, GPX, XML, RTM/RTN/RTA, RT3/RT4, RUT/RUX, ROU/RTU';const lb=document.createElement('button');lb.className='rtzbtn';lb.type='button';lb.textContent='📂 Saved routes';lb.onclick=()=>libOpen(false);row.appendChild(lb);const nt=document.createElement('div');nt.className='muted';nt.style.cssText='font-size:10.5px;text-align:center;width:100%;margin-top:4px';nt.textContent='Import: RTZ · CSV · TXT · GPX · XML · RTM/RTN/RTA · RT3/RT4 · RUT/RUX · ROU/RTU';row.after(nt)}
  // drag the panel by its handle
  let y0=null,h0=0,moved=false;const grab=sh.querySelector('.shGrab');
  grab.addEventListener('pointerdown',e=>{if(innerWidth>=900)return;y0=e.clientY;h0=sh.getBoundingClientRect().height;moved=false;sh.classList.add('drag')});
@@ -5642,9 +5965,10 @@ function mfSetup(){if(document.body.classList.contains('mf'))return;const B=docu
  addEventListener('pointerup',up);addEventListener('pointercancel',up);
  document.querySelectorAll('#drawer [data-v]').forEach(b=>b.addEventListener('click',()=>{if(MFV.includes(b.dataset.v))setTimeout(()=>mfOpen('half'),0)}));
  addEventListener('resize',()=>mfOpen(MFS,true));
- const fb0=L.Map.prototype.fitBounds;L.Map.prototype.fitBounds=function(b,o){o=Object.assign({},o||{});if(B.classList.contains('mf')&&!B.classList.contains('mapmax')){delete o.padding;const rr=B.classList.contains('mfrail')?80:14;if(innerWidth>=900){o.paddingTopLeft=[480,60];o.paddingBottomRight=[rr,20]}else{o.paddingTopLeft=[14,60];o.paddingBottomRight=[rr,64+mfPx(MFS)+12]}}return fb0.call(this,b,o)};
+ const fb0=L.Map.prototype.fitBounds;L.Map.prototype.fitBounds=function(b,o){o=Object.assign({},o||{});if(B.classList.contains('mf')&&!B.classList.contains('mapmax')){delete o.padding;const sOff=$('sheet')&&$('sheet').classList.contains('off');if(innerWidth>=900){o.paddingTopLeft=[sOff?70:540,60];o.paddingBottomRight=[20,20]}else{o.paddingTopLeft=[62,60];o.paddingBottomRight=[14,64+mfPx(MFS)+12]}}return fb0.call(this,b,o)};
  {const _ds=drawStatic;drawStatic=function(){const r=_ds.apply(this,arguments);mfVis();return r}}mfVis();
- {const _r=render;render=function(){const x=_r.apply(this,arguments);try{mfRender();piVoy()}catch(e){}return x}}
+ {const _r=render;render=function(){const x=_r.apply(this,arguments);try{mfRender();piVoy()}catch(e){}try{drawEncCells();drawDsc();if(load('nxst',false))mpNxSt(true,true);if(load('wxon',false))drawWxGrid()}catch(e){console.log(e)}if(MPK&&$('setSheet').classList.contains('open'))setRender();return x}}
+ setTimeout(()=>{try{drawDsc();if(load('wxon',false))wxGridFetch()}catch(e){}},2500);
  if(mfChk('lyPilot'))mfSetChk('lyPilot',false);
  if(!load('v20m',0)){store('v20m',1);if(load('nwf','off')!=='off'&&load('nxf','off')==='off')store('nxf',load('nwf','off'))}
  WG=new Set(['NAVAREA','NAVTEX','LOCAL']);if(load('nwf','off')!=='off'||load('nxf','off')!=='off')nwApply();
